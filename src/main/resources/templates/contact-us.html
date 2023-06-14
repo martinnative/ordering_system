@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slices - Pizzeria HTML Template</title>
+
+  <!-- Vendor Stylesheets -->
+  <link rel="stylesheet" href="../static/css/plugins/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/plugins/animate.min.css">
+  <link rel="stylesheet" href="../static/css/plugins/magnific-popup.css">
+  <link rel="stylesheet" href="../static/css/plugins/slick.css">
+  <link rel="stylesheet" href="../static/css/plugins/slick-theme.css">
+  <!-- Icon Fonts -->
+  <link rel="stylesheet" href="../static/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="../static/fonts/font-awesome/css/all.min.css">
+
+  <!-- Page Specific Styles -->
+  <link rel="stylesheet" href="../static/css/plugins/leaflet.css">
+
+  <!-- Slices Style sheet -->
+  <link rel="stylesheet" href="../static/css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../Desktop/slices-template/Product%20File/favicon.ico">
+
+</head>
+
+<body>
+
+  <!-- Preloader Start -->
+  <div class="ct-preloader">
+    <div class="ct-preloader-inner">
+      <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+  </div>
+  <!-- Preloader End -->
+
+  <!-- Cart Sidebar Start -->
+  <div class="cart-sidebar-wrapper">
+    <aside class="cart-sidebar">
+      <div class="cart-sidebar-header">
+        <h3>Your Cart</h3>
+        <div class="close-btn cart-trigger close-dark">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="cart-sidebar-body">
+        <div class="cart-sidebar-scroll">
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/1.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Pepperoni">Pepperoni</a> </h5>
+                <span>4x 9.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>14 Inches</span>
+              <span>Extra Cheese</span>
+              <span>Cheese Crust</span>
+            </div>
+            <div class="cart-sidebar-price">
+              36.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/2.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Vegetarian">Vegetarian</a> </h5>
+                <span>2x 5.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>14 Inches</span>
+            </div>
+            <div class="cart-sidebar-price">
+              12.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/3.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Italian Jalapeno Special">Italian Jalapeno Special</a> </h5>
+                <span>1x 12.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>14 Inches</span>
+              <span>Extra Cheese</span>
+              <span>Cheese Crust</span>
+            </div>
+            <div class="cart-sidebar-price">
+              12.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/4.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Barbeque Chicken">Barbeque Chicken</a> </h5>
+                <span>4x 9.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>12 Inches</span>
+              <span>Extra Cheese</span>
+              <span>Cheese Crust</span>
+              <span>Added Chicken</span>
+            </div>
+            <div class="cart-sidebar-price">
+              36.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/5.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Four Cheese">Four Cheese</a> </h5>
+                <span>2x 5.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>12 Inches</span>
+              <span>Added Chicken</span>
+            </div>
+            <div class="cart-sidebar-price">
+              12.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/6.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Swiss Mushroom">Swiss Mushroom</a> </h5>
+                <span>1x 12.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>12 Inches</span>
+              <span>Extra Cheese</span>
+              <span>Cheese Crust</span>
+              <span>Added Chicken</span>
+            </div>
+            <div class="cart-sidebar-price">
+              12.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-sidebar-footer">
+        <h4>Total: <span>299.99$</span> </h4>
+        <a href="checkout.html" class="btn-custom">Checkout</a>
+      </div>
+    </aside>
+    <div class="cart-sidebar-overlay cart-trigger">
+    </div>
+  </div>
+  <!-- Cart Sidebar End -->
+
+  <!-- Search Form Start-->
+  <div class="search-form-wrapper">
+    <div class="search-trigger close-btn">
+      <span></span>
+      <span></span>
+    </div>
+    <form class="search-form" method="post">
+      <input type="text" placeholder="Search..." value="">
+      <button type="submit" class="search-btn">
+        <i class="flaticon-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+  <!-- Search Form End-->
+
+  <!-- Aside (Mobile Navigation) -->
+  <aside class="main-aside">
+    <a class="navbar-brand" href="../../../../../../Desktop/slices-template/Product%20File/index.html"> <img src="../static/img/logo.png" alt="logo"> </a>
+
+    <div class="aside-scroll">
+      <ul>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Home Pages</a>
+          <ul class="submenu">
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/index.html">Home v1</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/home-v2.html">Home v2</a> </li>
+            <li class="menu-item"> <a href="home-v3.html">Home v3</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/home-v4.html">Home v4</a> </li>
+          </ul>
+        </li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Blog</a>
+          <ul class="submenu">
+            <li class="menu-item menu-item-has-children">
+              <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Blog Archive</a>
+              <ul class="submenu">
+                <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Grid View</a> </li>
+                <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-list.html">List View</a> </li>
+                <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-masonry.html">Masonry</a> </li>
+                <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-full-width.html">Full Width</a> </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="../../../../../../Desktop/slices-template/Product%20File/blog-single.html">Blog Single</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Pages</a>
+          <ul class="submenu">
+            <li class="menu-item"> <a href="about-us.html">About Us</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/login.html">Login</a> </li>
+            <li class="menu-item"> <a href="register.html">Sign Up</a> </li>
+            <li class="menu-item"> <a href="checkout.html">Checkout</a> </li>
+            <li class="menu-item"> <a href="cart.html">Cart</a> </li>
+
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/legal.html">Legal</a> </li>
+            <li class="menu-item"> <a href="404.html">Error 404</a> </li>
+          </ul>
+        </li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Menu</a>
+          <ul class="submenu">
+            <li class="menu-item"> <a href="menu-v1.html">Menu v1</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/menu-v2.html">Menu v2</a> </li>
+            <li class="menu-item"> <a href="menu-item-v1.html">Menu Item v1</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/menu-item-v2.html">Menu Item v2</a> </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="../../../../../../Desktop/slices-template/Product%20File/locations.html">Locations</a>
+        </li>
+        <li class="menu-item">
+          <a href="contact-us.html">Contact Us</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+  <div class="aside-overlay aside-trigger"></div>
+
+  <!-- Header Start -->
+  <header class="main-header header-1 ">
+
+    <div class="top-header">
+      <div class="container">
+        <div class="top-header-inner">
+
+          <div class="top-header-contacts">
+            <ul class="top-header-nav">
+              <li> <a class="p-0" href="tel:+123456789"><i class="fas fa-phone mr-2"></i> +123 456 789</a> </li>
+            </ul>
+          </div>
+
+          <ul class="top-header-nav header-cta">
+            <li> <a href="menu-v1.html">Order Online</a> </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <nav class="navbar">
+        <!-- Logo -->
+        <a class="navbar-brand" href="../../../../../../Desktop/slices-template/Product%20File/index.html"> <img src="../static/img/logo.png" alt="logo"> </a>
+        <!-- Menu -->
+        <ul class="navbar-nav">
+          <li class="menu-item menu-item-has-children">
+            <a href="#">Home Pages</a>
+            <ul class="submenu">
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/index.html">Home v1</a> </li>
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/home-v2.html">Home v2</a> </li>
+              <li class="menu-item"> <a href="home-v3.html">Home v3</a> </li>
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/home-v4.html">Home v4</a> </li>
+            </ul>
+          </li>
+          <li class="menu-item menu-item-has-children">
+            <a href="#">Blog</a>
+            <ul class="submenu">
+              <li class="menu-item menu-item-has-children">
+                <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Blog Archive</a>
+                <ul class="submenu">
+                  <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Grid View</a> </li>
+                  <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-list.html">List View</a> </li>
+                  <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-masonry.html">Masonry</a> </li>
+                  <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-full-width.html">Full Width</a> </li>
+                </ul>
+              </li>
+              <li class="menu-item">
+                <a href="../../../../../../Desktop/slices-template/Product%20File/blog-single.html">Blog Single</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu-item menu-item-has-children">
+            <a href="#">Pages</a>
+            <ul class="submenu">
+              <li class="menu-item"> <a href="about-us.html">About Us</a> </li>
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/login.html">Login</a> </li>
+              <li class="menu-item"> <a href="register.html">Sign Up</a> </li>
+              <li class="menu-item"> <a href="checkout.html">Checkout</a> </li>
+              <li class="menu-item"> <a href="cart.html">Cart</a> </li>
+
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/legal.html">Legal</a> </li>
+              <li class="menu-item"> <a href="404.html">Error 404</a> </li>
+            </ul>
+          </li>
+          <li class="menu-item menu-item-has-children mega-menu-wrapper">
+            <a href="#">Menu</a>
+            <ul class="submenu">
+              <li>
+                <div class="container">
+                  <div class="row">
+
+                    <div class="col-lg-4">
+                      <div class="mega-menu-item">
+                        <h5>Building a Pizza</h5>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
+                          making it over 2000 years old.
+                        </p>
+                        <a href="../../../../../../Desktop/slices-template/Product%20File/menu-item-v2.html" class="btn-custom secondary shadow-none btn-sm">Build your Pizza</a>
+                      </div>
+                    </div>
+                    <div class="offset-lg-1 col-lg-3">
+                      <div class="mega-menu-item">
+                        <h5>Menu Pages</h5>
+                        <a href="menu-v1.html">Menu v1</a>
+                        <a href="../../../../../../Desktop/slices-template/Product%20File/menu-v2.html">Menu v2</a>
+                        <a href="#" class="coming-soon">Menu v3 <span>Coming Soon</span> </a>
+                        <a href="#" class="coming-soon">Menu v4 <span>Coming Soon</span> </a>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="mega-menu-item">
+                        <h5>Menu Item Pages</h5>
+                        <a href="menu-item-v1.html">Menu Item v1</a>
+                        <a href="../../../../../../Desktop/slices-template/Product%20File/menu-item-v2.html">Menu Item v2</a>
+                        <a href="#" class="coming-soon">Menu Item v3 <span>Coming Soon</span></a>
+                      </div>
+                    </div>
+                    <div class="col-12 mega-menu-promotion-wrapper">
+                      <div class="row">
+                        <div class="col-3">
+                          <div class="mega-menu-promotion">
+                            <a href="menu-item-v1.html"><img src="../static/img/prods-sm/1.png" alt="pizza"></a>
+                            <div class="mega-menu-promotion-text">
+                              <h4><a href="menu-item-v1.html">Pepperoni</a></h4>
+                              <span>$12.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="mega-menu-promotion">
+                            <a href="menu-item-v1.html"><img src="../static/img/prods-sm/2.png" alt="pizza"></a>
+                            <div class="mega-menu-promotion-text">
+                              <h4><a href="menu-item-v1.html">Vegetarian</a></h4>
+                              <span>$9.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="mega-menu-promotion">
+                            <a href="menu-item-v1.html"><img src="../static/img/prods-sm/3.png" alt="pizza"></a>
+                            <div class="mega-menu-promotion-text">
+                              <h4><a href="menu-item-v1.html">Ham & Cheese</a></h4>
+                              <span>$13.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="mega-menu-promotion">
+                            <a href="menu-item-v1.html"><img src="../static/img/prods-sm/4.png" alt="pizza"></a>
+                            <div class="mega-menu-promotion-text">
+                              <h4><a href="menu-item-v1.html">Specialty</a></h4>
+                              <span>$13.99</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="../../../../../../Desktop/slices-template/Product%20File/locations.html">Locations</a>
+          </li>
+          <li class="menu-item">
+            <a href="contact-us.html">Contact Us</a>
+          </li>
+        </ul>
+
+        <div class="header-controls">
+          <ul class="header-controls-inner">
+            <li class="cart-dropdown-wrapper cart-trigger">
+              <span class="cart-item-count">4</span>
+              <i class="flaticon-shopping-bag"></i>
+            </li>
+            <li class="search-dropdown-wrapper search-trigger">
+              <i class="flaticon-search"></i>
+            </li>
+          </ul>
+          <!-- Toggler -->
+          <div class="aside-toggler aside-trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+
+  </header>
+  <!-- Header End -->
+
+  <!-- Contact Start -->
+  <div class="contact-wrapper">
+
+    <div class="ct-contact-map-wrapper">
+      <div id="contactPageMap" class="ct-contact-map"></div>
+      <a href="https://maps.google.com/?q=51.5,-0.09" target="_blank" class="btn-custom shadow-none">View in Google Maps</a>
+    </div>
+
+    <div class="">
+      <div class="section section-padding">
+        <div class="container">
+
+          <div class="contact-info">
+
+            <div class="row">
+              <div class="col-xl-6">
+                <div class="ct-info-box">
+                  <i class="flaticon-location"></i>
+                  <h5>Find Us</h5>
+                  <span>445 Mount Eden Road, Mount Eden</span>
+                  <span>21 Greens Road RD 2 Ruawai 0592</span>
+                  <span> +123 456 789 </span>
+                  <span> info@example.com </span>
+                </div>
+              </div>
+              <div class="col-xl-6">
+                <div class="ct-info-box">
+                  <i class="flaticon-online-booking"></i>
+                  <h5>Opening Hours</h5>
+                  <span><span>Mon - Wed:</span> 8:00am - 8:00pm</span>
+                  <span><span>Thu:</span> 8:00am - 5:00pm</span>
+                  <span><span>Fri:</span> 8:00am - 8:00pm</span>
+                  <span><span>Sat - Sun:</span> 8:00am - 2:00pm</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section pt-0">
+        <div class="container">
+
+          <div class="section-title-wrap">
+            <h2 class="title">Send us a Message </h2>
+            <p class="subtitle">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. There are many variations of passages
+            </p>
+          </div>
+
+          <form method="post">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <input type="text" placeholder="First Name" class="form-control" name="fname" value="">
+              </div>
+              <div class="form-group col-lg-6">
+                <input type="text" placeholder="Last Name" class="form-control" name="lname" value="">
+              </div>
+              <div class="form-group col-lg-12">
+                <input type="email" placeholder="Email Address" class="form-control" name="email" value="">
+              </div>
+              <div class="form-group col-lg-12">
+                <input type="text" placeholder="Subject" class="form-control" name="subject" value="">
+              </div>
+              <div class="form-group col-lg-12">
+                <textarea name="message" class="form-control" placeholder="Type your message" rows="8"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn-custom primary" name="button">Send Message</button>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Contact End -->
+
+  <!-- Footer Start -->
+  <footer class="ct-footer footer-dark">
+    <!-- Top Footer -->
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="../static/img/logo-light.png" alt="logo">
+        </div>
+        <div class="footer-buttons">
+          <a href="#"> <img src="../static/img/android.png" alt="download it on the app store"></a>
+          <a href="#"> <img src="../static/img/ios.png" alt="download it on the app store"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Middle Footer -->
+    <div class="footer-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
+            <h5 class="widget-title">Information</h5>
+            <ul>
+              <li> <a href="../../../../../../Desktop/slices-template/Product%20File/index.html">Home</a> </li>
+              <li> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Blog</a> </li>
+              <li> <a href="about-us.html">About Us</a> </li>
+              <li> <a href="menu-v1.html">Menu</a> </li>
+              <li> <a href="contact-us.html">Contact Us</a> </li>
+            </ul>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
+            <h5 class="widget-title">Top Items</h5>
+            <ul>
+              <li> <a href="#">Pepperoni</a> </li>
+              <li> <a href="#">Swiss Mushroom</a> </li>
+              <li> <a href="#">Barbeque Chicken</a> </li>
+              <li> <a href="#">Vegetarian</a> </li>
+              <li> <a href="#">Ham & Cheese</a> </li>
+            </ul>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
+            <h5 class="widget-title">Others</h5>
+            <ul>
+              <li> <a href="checkout.html">Checkout</a> </li>
+              <li> <a href="cart.html">Cart</a> </li>
+              <li> <a href="menu-item-v1.html">Product</a> </li>
+              <li> <a href="../../../../../../Desktop/slices-template/Product%20File/locations.html">Locations</a> </li>
+              <li> <a href="../../../../../../Desktop/slices-template/Product%20File/legal.html">Legal</a> </li>
+            </ul>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 footer-widget">
+            <h5 class="widget-title">Social Media</h5>
+            <ul class="social-media">
+              <li> <a href="#" class="facebook"> <i class="fab fa-facebook-f"></i> </a> </li>
+              <li> <a href="#" class="pinterest"> <i class="fab fa-pinterest-p"></i> </a> </li>
+              <li> <a href="#" class="google"> <i class="fab fa-google"></i> </a> </li>
+              <li> <a href="#" class="twitter"> <i class="fab fa-twitter"></i> </a> </li>
+            </ul>
+            <div class="footer-offer">
+              <p>Signup and get exclusive offers and coupon codes</p>
+              <a href="register.html" class="btn-custom btn-sm shadow-none">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <ul>
+          <li> <a href="#">Privacy Policy</a> </li>
+          <li> <a href="#">Refund Policy</a> </li>
+          <li> <a href="#">Cookie Policy</a> </li>
+          <li> <a href="#">Terms & Conditions</a> </li>
+        </ul>
+        <div class="footer-copyright">
+          <p> Copyright &copy; 2020 <a href="#">AndroThemes</a> All Rights Reserved. </p>
+          <a href="#" class="back-to-top">Back to top <i class="fas fa-chevron-up"></i> </a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Vendor Scripts -->
+  <script src="../static/js/plugins/jquery-3.4.1.min.js"></script>
+  <script src="../static/js/plugins/popper.min.js"></script>
+  <script src="../static/js/plugins/waypoint.js"></script>
+  <script src="../static/js/plugins/bootstrap.min.js"></script>
+  <script src="../static/js/plugins/jquery.magnific-popup.min.js"></script>
+  <script src="../static/js/plugins/jquery.slimScroll.min.js"></script>
+  <script src="../static/js/plugins/imagesloaded.min.js"></script>
+  <script src="../static/js/plugins/jquery.steps.min.js"></script>
+  <script src="../static/js/plugins/jquery.countdown.min.js"></script>
+  <script src="../static/js/plugins/isotope.pkgd.min.js"></script>
+  <script src="../static/js/plugins/slick.min.js"></script>
+
+  <!-- Slices Scripts -->
+  <script src="../static/js/main.js"></script>
+
+  <!-- Page Specific Scripts -->
+  <script src="../static/js/plugins/leaflet.js"></script>
+  <script src="../static/js/map.js"></script>
+
+</body>
+
+</html>

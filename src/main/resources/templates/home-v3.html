@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slices - Pizzeria HTML Template</title>
+
+  <!-- Vendor Stylesheets -->
+  <link rel="stylesheet" href="../static/css/plugins/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/plugins/animate.min.css">
+  <link rel="stylesheet" href="../static/css/plugins/magnific-popup.css">
+  <link rel="stylesheet" href="../static/css/plugins/slick.css">
+  <link rel="stylesheet" href="../static/css/plugins/slick-theme.css">
+  <!-- Icon Fonts -->
+  <link rel="stylesheet" href="../static/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="../static/fonts/font-awesome/css/all.min.css">
+
+  <!-- Slices Style sheet -->
+  <link rel="stylesheet" href="../static/css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../Desktop/slices-template/Product%20File/favicon.ico">
+
+</head>
+
+<body>
+
+  <!-- Preloader Start -->
+  <div class="ct-preloader">
+    <div class="ct-preloader-inner">
+      <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+  </div>
+  <!-- Preloader End -->
+
+  <!-- Customize Modal Start -->
+  <div class="modal fade" id="customizeModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header modal-bg" style="background-image: url('../static/img/blog/11.jpg')">
+
+          <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
+            <span></span>
+            <span></span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+
+          <div class="customize-meta">
+            <h4 class="customize-title">Pepperoni Pizza <span class="custom-primary">13.99$</span> </h4>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+            </p>
+          </div>
+
+          <div class="customize-variations">
+
+            <div class="customize-size-wrapper">
+              <h5>Size: </h5>
+              <div class="customize-size active">
+                11"
+              </div>
+              <div class="customize-size">
+                16"
+              </div>
+              <div class="customize-size">
+                21"
+              </div>
+            </div>
+
+            <div class="row">
+
+              <!-- Variation Start -->
+              <div class="col-lg-4 col-12">
+                <div class="customize-variation-wrapper">
+                  <i class="flaticon-bread-roll"></i>
+                  <h5>Dough</h5>
+                  <div class="customize-variation-item" data-price="0.00">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" checked id="regularDough" name="dough" class="custom-control-input">
+                      <label class="custom-control-label" for="regularDough">Regular</label>
+                    </div>
+                    <span>+0.00$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="2.00">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="thinDough" name="dough" class="custom-control-input">
+                      <label class="custom-control-label" for="thinDough">Hand Flipped</label>
+                    </div>
+                    <span>+2.00$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="4.00">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="multiGrainDough" name="dough" class="custom-control-input">
+                      <label class="custom-control-label" for="multiGrainDough">Multi Grain</label>
+                    </div>
+                    <span>+4.00$</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Variation End -->
+
+              <!-- Variation Start -->
+              <div class="col-lg-4 col-12">
+                <div class="customize-variation-wrapper">
+                  <i class="flaticon-pizza-slice"></i>
+                  <h5>Crust</h5>
+                  <div class="customize-variation-item" data-price="4.00">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="cheeseCrust" name="crust" class="custom-control-input">
+                      <label class="custom-control-label" for="cheeseCrust">Cheese</label>
+                    </div>
+                    <span>+4.00$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="3.25">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="butterCrust" name="crust" class="custom-control-input">
+                      <label class="custom-control-label" for="butterCrust">Butter</label>
+                    </div>
+                    <span>+3.25$</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Variation End -->
+
+              <!-- Variation Start -->
+              <div class="col-lg-4 col-12">
+                <div class="customize-variation-wrapper">
+                  <i class="flaticon-pizza-and-cutted-slice"></i>
+                  <h5>Add</h5>
+                  <div class="customize-variation-item" data-price="2.00">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="addChicken">
+                      <label class="custom-control-label" for="addChicken">Chicken</label>
+                    </div>
+                    <span>+2.00$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="1.20">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="addFourCheese">
+                      <label class="custom-control-label" for="addFourCheese">Four Cheese</label>
+                    </div>
+                    <span>+1.20$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="0.75">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="addFreshMushroom">
+                      <label class="custom-control-label" for="addFreshMushroom">Fresh Mushroom</label>
+                    </div>
+                    <span>+0.75$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="0.25">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="addBellPepper">
+                      <label class="custom-control-label" for="addBellPepper">Bell Peppers</label>
+                    </div>
+                    <span>+0.25$</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Variation End -->
+
+            </div>
+          </div>
+
+          <div class="customize-controls">
+            <div class="qty">
+              <span class="qty-subtract"><i class="fas fa-minus"></i></span>
+              <input type="text" name="qty" value="1">
+              <span class="qty-add"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="customize-total" data-price="13.99">
+              <h5>Total Price: <span class="final-price custom-primary">13.99 <span>$</span> </span> </h5>
+            </div>
+          </div>
+
+          <button type="button" class="btn-custom btn-block">Order Now</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Customize Modal End -->
+
+  <!-- Cart Sidebar Start -->
+  <div class="cart-sidebar-wrapper">
+    <aside class="cart-sidebar">
+      <div class="cart-sidebar-header">
+        <h3>Your Cart</h3>
+        <div class="close-btn cart-trigger close-dark">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="cart-sidebar-body">
+        <div class="cart-sidebar-scroll">
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/1.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Pepperoni">Pepperoni</a> </h5>
+                <span>4x 9.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>14 Inches</span>
+              <span>Extra Cheese</span>
+              <span>Cheese Crust</span>
+            </div>
+            <div class="cart-sidebar-price">
+              36.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/2.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Vegetarian">Vegetarian</a> </h5>
+                <span>2x 5.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>14 Inches</span>
+            </div>
+            <div class="cart-sidebar-price">
+              12.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/3.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Italian Jalapeno Special">Italian Jalapeno Special</a> </h5>
+                <span>1x 12.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>14 Inches</span>
+              <span>Extra Cheese</span>
+              <span>Cheese Crust</span>
+            </div>
+            <div class="cart-sidebar-price">
+              12.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/4.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Barbeque Chicken">Barbeque Chicken</a> </h5>
+                <span>4x 9.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>12 Inches</span>
+              <span>Extra Cheese</span>
+              <span>Cheese Crust</span>
+              <span>Added Chicken</span>
+            </div>
+            <div class="cart-sidebar-price">
+              36.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/5.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Four Cheese">Four Cheese</a> </h5>
+                <span>2x 5.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>12 Inches</span>
+              <span>Added Chicken</span>
+            </div>
+            <div class="cart-sidebar-price">
+              12.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="cart-sidebar-item">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="../static/img/prods-sm/6.png" alt="product"></a>
+              <div class="media-body">
+                <h5> <a href="menu-item-v1.html" title="Swiss Mushroom">Swiss Mushroom</a> </h5>
+                <span>1x 12.99$</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span>12 Inches</span>
+              <span>Extra Cheese</span>
+              <span>Cheese Crust</span>
+              <span>Added Chicken</span>
+            </div>
+            <div class="cart-sidebar-price">
+              12.99$
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-sidebar-footer">
+        <h4>Total: <span>299.99$</span> </h4>
+        <a href="checkout.html" class="btn-custom">Checkout</a>
+      </div>
+    </aside>
+    <div class="cart-sidebar-overlay cart-trigger">
+    </div>
+  </div>
+  <!-- Cart Sidebar End -->
+
+  <!-- Search Form Start-->
+  <div class="search-form-wrapper">
+    <div class="search-trigger close-btn">
+      <span></span>
+      <span></span>
+    </div>
+    <form class="search-form" method="post">
+      <input type="text" placeholder="Search..." value="">
+      <button type="submit" class="search-btn">
+        <i class="flaticon-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+  <!-- Search Form End-->
+
+  <!-- Aside (Mobile Navigation) -->
+  <aside class="main-aside">
+    <a class="navbar-brand" href="../../../../../../Desktop/slices-template/Product%20File/index.html"> <img src="../static/img/logo.png" alt="logo"> </a>
+
+    <div class="aside-scroll">
+      <ul>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Home Pages</a>
+          <ul class="submenu">
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/index.html">Home v1</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/home-v2.html">Home v2</a> </li>
+            <li class="menu-item"> <a href="home-v3.html">Home v3</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/home-v4.html">Home v4</a> </li>
+          </ul>
+        </li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Blog</a>
+          <ul class="submenu">
+            <li class="menu-item menu-item-has-children">
+              <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Blog Archive</a>
+              <ul class="submenu">
+                <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Grid View</a> </li>
+                <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-list.html">List View</a> </li>
+                <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-masonry.html">Masonry</a> </li>
+                <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-full-width.html">Full Width</a> </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="../../../../../../Desktop/slices-template/Product%20File/blog-single.html">Blog Single</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Pages</a>
+          <ul class="submenu">
+            <li class="menu-item"> <a href="about-us.html">About Us</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/login.html">Login</a> </li>
+            <li class="menu-item"> <a href="register.html">Sign Up</a> </li>
+            <li class="menu-item"> <a href="checkout.html">Checkout</a> </li>
+            <li class="menu-item"> <a href="cart.html">Cart</a> </li>
+
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/legal.html">Legal</a> </li>
+            <li class="menu-item"> <a href="404.html">Error 404</a> </li>
+          </ul>
+        </li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Menu</a>
+          <ul class="submenu">
+            <li class="menu-item"> <a href="menu-v1.html">Menu v1</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/menu-v2.html">Menu v2</a> </li>
+            <li class="menu-item"> <a href="menu-item-v1.html">Menu Item v1</a> </li>
+            <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/menu-item-v2.html">Menu Item v2</a> </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="../../../../../../Desktop/slices-template/Product%20File/locations.html">Locations</a>
+        </li>
+        <li class="menu-item">
+          <a href="contact-us.html">Contact Us</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+  <div class="aside-overlay aside-trigger"></div>
+
+  <!-- Header Start -->
+  <header class="main-header header-1">
+
+    <div class="top-header">
+      <div class="container">
+        <div class="top-header-inner">
+
+          <div class="top-header-contacts">
+            <ul class="top-header-nav">
+              <li> <a class="p-0" href="tel:+123456789"><i class="fas fa-phone mr-2"></i> +123 456 789</a> </li>
+            </ul>
+          </div>
+
+          <ul class="top-header-nav header-cta">
+            <li> <a href="menu-v1.html">Order Online</a> </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <nav class="navbar">
+        <!-- Logo -->
+        <a class="navbar-brand" href="../../../../../../Desktop/slices-template/Product%20File/index.html"> <img src="../static/img/logo.png" alt="logo"> </a>
+        <!-- Menu -->
+        <ul class="navbar-nav">
+          <li class="menu-item menu-item-has-children">
+            <a href="#">Home Pages</a>
+            <ul class="submenu">
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/index.html">Home v1</a> </li>
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/home-v2.html">Home v2</a> </li>
+              <li class="menu-item"> <a href="home-v3.html">Home v3</a> </li>
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/home-v4.html">Home v4</a> </li>
+            </ul>
+          </li>
+          <li class="menu-item menu-item-has-children">
+            <a href="#">Blog</a>
+            <ul class="submenu">
+              <li class="menu-item menu-item-has-children">
+                <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Blog Archive</a>
+                <ul class="submenu">
+                  <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Grid View</a> </li>
+                  <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-list.html">List View</a> </li>
+                  <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-masonry.html">Masonry</a> </li>
+                  <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-full-width.html">Full Width</a> </li>
+                </ul>
+              </li>
+              <li class="menu-item">
+                <a href="../../../../../../Desktop/slices-template/Product%20File/blog-single.html">Blog Single</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu-item menu-item-has-children">
+            <a href="#">Pages</a>
+            <ul class="submenu">
+              <li class="menu-item"> <a href="about-us.html">About Us</a> </li>
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/login.html">Login</a> </li>
+              <li class="menu-item"> <a href="register.html">Sign Up</a> </li>
+              <li class="menu-item"> <a href="checkout.html">Checkout</a> </li>
+              <li class="menu-item"> <a href="cart.html">Cart</a> </li>
+
+              <li class="menu-item"> <a href="../../../../../../Desktop/slices-template/Product%20File/legal.html">Legal</a> </li>
+              <li class="menu-item"> <a href="404.html">Error 404</a> </li>
+            </ul>
+          </li>
+          <li class="menu-item menu-item-has-children mega-menu-wrapper">
+            <a href="#">Menu</a>
+            <ul class="submenu">
+              <li>
+                <div class="container">
+                  <div class="row">
+
+                    <div class="col-lg-4">
+                      <div class="mega-menu-item">
+                        <h5>Building a Pizza</h5>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
+                          making it over 2000 years old.
+                        </p>
+                        <a href="../../../../../../Desktop/slices-template/Product%20File/menu-item-v2.html" class="btn-custom secondary shadow-none btn-sm">Build your Pizza</a>
+                      </div>
+                    </div>
+                    <div class="offset-lg-1 col-lg-3">
+                      <div class="mega-menu-item">
+                        <h5>Menu Pages</h5>
+                        <a href="menu-v1.html">Menu v1</a>
+                        <a href="../../../../../../Desktop/slices-template/Product%20File/menu-v2.html">Menu v2</a>
+                        <a href="#" class="coming-soon">Menu v3 <span>Coming Soon</span> </a>
+                        <a href="#" class="coming-soon">Menu v4 <span>Coming Soon</span> </a>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="mega-menu-item">
+                        <h5>Menu Item Pages</h5>
+                        <a href="menu-item-v1.html">Menu Item v1</a>
+                        <a href="../../../../../../Desktop/slices-template/Product%20File/menu-item-v2.html">Menu Item v2</a>
+                        <a href="#" class="coming-soon">Menu Item v3 <span>Coming Soon</span></a>
+                      </div>
+                    </div>
+                    <div class="col-12 mega-menu-promotion-wrapper">
+                      <div class="row">
+                        <div class="col-3">
+                          <div class="mega-menu-promotion">
+                            <a href="menu-item-v1.html"><img src="../static/img/prods-sm/1.png" alt="pizza"></a>
+                            <div class="mega-menu-promotion-text">
+                              <h4><a href="menu-item-v1.html">Pepperoni</a></h4>
+                              <span>$12.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="mega-menu-promotion">
+                            <a href="menu-item-v1.html"><img src="../static/img/prods-sm/2.png" alt="pizza"></a>
+                            <div class="mega-menu-promotion-text">
+                              <h4><a href="menu-item-v1.html">Vegetarian</a></h4>
+                              <span>$9.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="mega-menu-promotion">
+                            <a href="menu-item-v1.html"><img src="../static/img/prods-sm/3.png" alt="pizza"></a>
+                            <div class="mega-menu-promotion-text">
+                              <h4><a href="menu-item-v1.html">Ham & Cheese</a></h4>
+                              <span>$13.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="mega-menu-promotion">
+                            <a href="menu-item-v1.html"><img src="../static/img/prods-sm/4.png" alt="pizza"></a>
+                            <div class="mega-menu-promotion-text">
+                              <h4><a href="menu-item-v1.html">Specialty</a></h4>
+                              <span>$13.99</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="../../../../../../Desktop/slices-template/Product%20File/locations.html">Locations</a>
+          </li>
+          <li class="menu-item">
+            <a href="contact-us.html">Contact Us</a>
+          </li>
+        </ul>
+
+        <div class="header-controls">
+          <ul class="header-controls-inner">
+            <li class="cart-dropdown-wrapper cart-trigger">
+              <span class="cart-item-count">4</span>
+              <i class="flaticon-shopping-bag"></i>
+            </li>
+            <li class="search-dropdown-wrapper search-trigger">
+              <i class="flaticon-search"></i>
+            </li>
+          </ul>
+          <!-- Toggler -->
+          <div class="aside-toggler aside-trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+
+  </header>
+  <!-- Header End -->
+
+  <!-- Banner Start -->
+  <div class="banner banner-3">
+
+    <div class="banner-slider-3">
+
+      <div class="banner-item">
+        <div class="banner-inner" style="background-image: url('../static/img/banner/3.jpg')">
+          <h1 class="title">Pepperoni </h1>
+          <div class="ct-rating-wrapper">
+            <div class="ct-rating">
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="banner-text">
+            <p class="subtitle">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+            <div class="banner-icons-wrapper">
+              <div class="banner-icon">
+                <i class="flaticon-calories"></i>
+                <div class="banner-icon-body">
+                  <h5>650</h5>
+                  <span>Calories</span>
+                </div>
+              </div>
+              <div class="banner-icon">
+                <i class="flaticon-cheese"></i>
+                <div class="banner-icon-body">
+                  <h5>200g</h5>
+                  <span>Mozarella</span>
+                </div>
+              </div>
+            </div>
+            <div class="banner-controls">
+              <a href="#" class="btn-custom primary">Order <i class="flaticon-shopping-bag"></i> </a>
+              <h4>$12.99</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-inner" style="background-image: url('../static/img/banner/4.jpg')">
+          <h1 class="title">Italian</h1>
+          <div class="ct-rating-wrapper">
+            <div class="ct-rating">
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="banner-text">
+            <p class="subtitle">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+            <div class="banner-icons-wrapper">
+              <div class="banner-icon">
+                <i class="flaticon-calories"></i>
+                <div class="banner-icon-body">
+                  <h5>650</h5>
+                  <span>Calories</span>
+                </div>
+              </div>
+              <div class="banner-icon">
+                <i class="flaticon-cheese"></i>
+                <div class="banner-icon-body">
+                  <h5>200g</h5>
+                  <span>Mozarella</span>
+                </div>
+              </div>
+            </div>
+            <div class="banner-controls">
+              <a href="#" class="btn-custom primary">Order <i class="flaticon-shopping-bag"></i> </a>
+              <h4>$12.99</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-inner" style="background-image: url('../static/img/banner/5.jpg')">
+          <h1 class="title">Vegetarian</h1>
+          <div class="ct-rating-wrapper">
+            <div class="ct-rating">
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+            </div>
+          </div>
+          <div class="banner-text">
+            <p class="subtitle">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+            <div class="banner-icons-wrapper">
+              <div class="banner-icon">
+                <i class="flaticon-calories"></i>
+                <div class="banner-icon-body">
+                  <h5>650</h5>
+                  <span>Calories</span>
+                </div>
+              </div>
+              <div class="banner-icon">
+                <i class="flaticon-cheese"></i>
+                <div class="banner-icon-body">
+                  <h5>200g</h5>
+                  <span>Mozarella</span>
+                </div>
+              </div>
+            </div>
+            <div class="banner-controls">
+              <a href="#" class="btn-custom primary">Order <i class="flaticon-shopping-bag"></i> </a>
+              <h4>$12.99</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-inner" style="background-image: url('../static/img/banner/6.jpg')">
+          <h1 class="title">Swiss</h1>
+          <div class="ct-rating-wrapper">
+            <div class="ct-rating">
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star active"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="banner-text">
+            <p class="subtitle">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+            <div class="banner-icons-wrapper">
+              <div class="banner-icon">
+                <i class="flaticon-calories"></i>
+                <div class="banner-icon-body">
+                  <h5>650</h5>
+                  <span>Calories</span>
+                </div>
+              </div>
+              <div class="banner-icon">
+                <i class="flaticon-cheese"></i>
+                <div class="banner-icon-body">
+                  <h5>200g</h5>
+                  <span>Mozarella</span>
+                </div>
+              </div>
+            </div>
+            <div class="banner-controls">
+              <a href="#" class="btn-custom primary">Order <i class="flaticon-shopping-bag"></i> </a>
+              <h4>$12.99</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ct-arrows-wrapper">
+      <div class="slide-number">
+        <span class="current-slide">0<span>1</span></span> <span>/4</span>
+      </div>
+      <div class="ct-arrows">
+        <div class="slider-prev">
+          Previous
+        </div>
+        <div class="slider-next">
+          Next
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Banner End -->
+
+  <!-- Menu Categories Start -->
+  <div class="ct-menu-categories menu-filter">
+    <div class="container">
+      <div class="menu-category-slider">
+        <a href="#" data-filter="*" class="ct-menu-category-item active">
+          <div class="menu-category-thumb">
+            <img src="../static/img/categories/6.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>All</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".sides" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="../static/img/categories/1.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Sides</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".pizzas" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="../static/img/categories/2.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Pizzas</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".salads" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="../static/img/categories/3.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Salads</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".pasta" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="../static/img/categories/7.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Pasta</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".desserts" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="../static/img/categories/4.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Desserts</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".beverages" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="../static/img/categories/5.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Beverages</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".offers" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="../static/img/categories/8.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Offers</h6>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Menu Categories End -->
+
+  <!-- Menu Wrapper Start -->
+  <div class="section section-padding">
+    <div class="container">
+
+      <div class="menu-container row menu-v2">
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 pizzas">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="../static/img/prods-sm/5.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Pepperoni</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">12.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 beverages desserts">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="../static/img/prods-sm/13.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Rum With Soda</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">3.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 desserts">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="../static/img/prods-sm/12.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Chocolate Cookies</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">4.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 pizzas offers">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="../static/img/prods-sm/2.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Vegetarian</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">9.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 pasta">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="../static/img/prods-sm/11.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Sea Food Pasta</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">14.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 beverages offers">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="../static/img/prods-sm/10.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Russian Beer</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">14.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 pizzas">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="../static/img/prods-sm/3.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Four Cheese</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">13.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 salads sides">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="../static/img/prods-sm/15.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Ceaser Salad</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">10.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 sides">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="../static/img/prods-sm/14.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Chicken Wrap</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">5.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+      </div>
+
+    </div>
+  </div>
+  <!-- Menu Wrapper End -->
+
+  <!-- Infographics Start -->
+  <div class="section section-padding bg-cover bg-center bg-parallax dark-overlay dark-overlay-2" style="background-image: url('../static/img/subheader-2.jpg')">
+    <div class="container">
+      <div class="section-title-wrap section-header text-center">
+        <h2 class="title text-white">Our success Story</h2>
+        <p class="subtitle text-white">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="ct-infographic-item">
+            <i class="flaticon-employee"></i>
+            <h4>24,934</h4>
+            <p>Happy Customers</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="ct-infographic-item">
+            <i class="flaticon-pizza-slice"></i>
+            <h4>65,317</h4>
+            <p>Pizzas Made</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="ct-infographic-item">
+            <i class="flaticon-cheese"></i>
+            <h4>4,658</h4>
+            <p>Cheese Rolls</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="ct-infographic-item">
+            <i class="flaticon-soda"></i>
+            <h4>67,335</h4>
+            <p>Drinks Served</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Infographics End -->
+
+  <!-- Order Online Start -->
+  <div class="section">
+
+    <div class="container">
+      <div class="section text-center cta-2 cta bg-cover bg-center dark-overlay dark-overlay-2 bg-parallax" style="background-image: url('../static/img/bg/cta-2.jpg')">
+        <div class="section-title-wrap section-header text-center">
+          <h5 class="custom-primary">Get Crafty</h5>
+          <h2 class="title text-white">Build Your Own Pizza Today</h2>
+          <p class="subtitle text-white">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+          </p>
+        </div>
+        <a href="../../../../../../Desktop/slices-template/Product%20File/menu-item-v2.html" class="btn-custom shadow-none">Build Your Pizza</a>
+      </div>
+
+      <div class="container">
+        <div class="gallery-slider">
+          <a href="../static/img/blog/2.jpg" class="gallery-thumb">
+            <img src="../static/img/blog/2.jpg" alt="post">
+          </a>
+          <a href="../static/img/blog/3.jpg" class="gallery-thumb">
+            <img src="../static/img/blog/3.jpg" alt="post">
+          </a>
+          <a href="../static/img/blog/4.jpg" class="gallery-thumb">
+            <img src="../static/img/blog/4.jpg" alt="post">
+          </a>
+          <a href="../static/img/blog/5.jpg" class="gallery-thumb">
+            <img src="../static/img/blog/5.jpg" alt="post">
+          </a>
+          <a href="../static/img/blog/6.jpg" class="gallery-thumb">
+            <img src="../static/img/blog/6.jpg" alt="post">
+          </a>
+          <a href="../static/img/blog/8.jpg" class="gallery-thumb">
+            <img src="../static/img/blog/8.jpg" alt="post">
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- Order Online End -->
+
+  <!-- Icons Start -->
+  <div class="section pt-0">
+    <div class="container">
+      <div class="section-title-wrap section-header text-center">
+        <h5 class="custom-primary">How We Do It</h5>
+        <h2 class="title">We Deliver Your Food In 4 Steps</h2>
+        <p class="subtitle">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+        </p>
+      </div>
+
+      <div class="row infographics-2">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="ct-infographic-item">
+            <i class="flaticon-online-booking"></i>
+            <h4>Order</h4>
+            <p>There are many variations of passages of Lorem Ipsum available</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="ct-infographic-item">
+            <i class="flaticon-calories"></i>
+            <h4>Cook</h4>
+            <p>There are many variations of passages of Lorem Ipsum available</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="ct-infographic-item">
+            <i class="flaticon-delivery-man"></i>
+            <h4>Deliver</h4>
+            <p>There are many variations of passages of Lorem Ipsum available</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="ct-infographic-item">
+            <i class="flaticon-food-tray"></i>
+            <h4>Enjoy</h4>
+            <p>There are many variations of passages of Lorem Ipsum available</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-btn">
+        <a href="menu-v1.html" class="btn-custom">Order Online</a>
+      </div>
+
+    </div>
+  </div>
+  <!-- Icons End -->
+
+  <!-- Instagram Start -->
+  <div class="section pt-0">
+    <div class="container">
+
+      <div class="section-title-wrap section-header text-center">
+        <h5 class="custom-primary">Instagram</h5>
+        <h2 class="title">We Love Sharing What We Do</h2>
+        <p class="subtitle">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+          <a href="#" class="ct-ig-item ig-2">
+            <img src="../static/img/ig/1.jpg" alt="ig">
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+          <a href="#" class="ct-ig-item ig-2">
+            <img src="../static/img/ig/2.jpg" alt="ig">
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+          <a href="#" class="ct-ig-item ig-2">
+            <img src="../static/img/ig/3.jpg" alt="ig">
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+          <a href="#" class="ct-ig-item ig-2">
+            <img src="../static/img/ig/4.jpg" alt="ig">
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+          <a href="#" class="ct-ig-item ig-2">
+            <img src="../static/img/ig/5.jpg" alt="ig">
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+          <a href="#" class="ct-ig-item ig-2">
+            <img src="../static/img/ig/6.jpg" alt="ig">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Instagram End -->
+
+  <!-- Newsletter start -->
+  <section class="section bg-center bg-cover dark-overlay" style="background-image:url('../static/img/bg/1.jpg')">
+    <div class="container">
+
+      <div class="ct-newsletter">
+
+        <div class="section-title-wrap section-header">
+          <h2 class="title">Join Our Newsletter</h2>
+          <p class="subtitle">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+          </p>
+        </div>
+
+        <form method="post">
+          <input type="email" class="form-control" placeholder="Enter your email address" value="">
+          <button type="submit" class="btn-custom primary" name="button"> Submit <i class="far fa-paper-plane"></i> </button>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- Newsletter End -->
+
+  <!-- Footer Start -->
+  <footer class="ct-footer footer-dark">
+    <!-- Top Footer -->
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="../static/img/logo-light.png" alt="logo">
+        </div>
+        <div class="footer-buttons">
+          <a href="#"> <img src="../static/img/android.png" alt="download it on the app store"></a>
+          <a href="#"> <img src="../static/img/ios.png" alt="download it on the app store"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Middle Footer -->
+    <div class="footer-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
+            <h5 class="widget-title">Information</h5>
+            <ul>
+              <li> <a href="../../../../../../Desktop/slices-template/Product%20File/index.html">Home</a> </li>
+              <li> <a href="../../../../../../Desktop/slices-template/Product%20File/blog-grid.html">Blog</a> </li>
+              <li> <a href="about-us.html">About Us</a> </li>
+              <li> <a href="menu-v1.html">Menu</a> </li>
+              <li> <a href="contact-us.html">Contact Us</a> </li>
+            </ul>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
+            <h5 class="widget-title">Top Items</h5>
+            <ul>
+              <li> <a href="#">Pepperoni</a> </li>
+              <li> <a href="#">Swiss Mushroom</a> </li>
+              <li> <a href="#">Barbeque Chicken</a> </li>
+              <li> <a href="#">Vegetarian</a> </li>
+              <li> <a href="#">Ham & Cheese</a> </li>
+            </ul>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
+            <h5 class="widget-title">Others</h5>
+            <ul>
+              <li> <a href="checkout.html">Checkout</a> </li>
+              <li> <a href="cart.html">Cart</a> </li>
+              <li> <a href="menu-item-v1.html">Product</a> </li>
+              <li> <a href="../../../../../../Desktop/slices-template/Product%20File/locations.html">Locations</a> </li>
+              <li> <a href="../../../../../../Desktop/slices-template/Product%20File/legal.html">Legal</a> </li>
+            </ul>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 footer-widget">
+            <h5 class="widget-title">Social Media</h5>
+            <ul class="social-media">
+              <li> <a href="#" class="facebook"> <i class="fab fa-facebook-f"></i> </a> </li>
+              <li> <a href="#" class="pinterest"> <i class="fab fa-pinterest-p"></i> </a> </li>
+              <li> <a href="#" class="google"> <i class="fab fa-google"></i> </a> </li>
+              <li> <a href="#" class="twitter"> <i class="fab fa-twitter"></i> </a> </li>
+            </ul>
+            <div class="footer-offer">
+              <p>Signup and get exclusive offers and coupon codes</p>
+              <a href="register.html" class="btn-custom btn-sm shadow-none">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <ul>
+          <li> <a href="#">Privacy Policy</a> </li>
+          <li> <a href="#">Refund Policy</a> </li>
+          <li> <a href="#">Cookie Policy</a> </li>
+          <li> <a href="#">Terms & Conditions</a> </li>
+        </ul>
+        <div class="footer-copyright">
+          <p> Copyright &copy; 2020 <a href="#">AndroThemes</a> All Rights Reserved. </p>
+          <a href="#" class="back-to-top">Back to top <i class="fas fa-chevron-up"></i> </a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Vendor Scripts -->
+  <script src="../static/js/plugins/jquery-3.4.1.min.js"></script>
+  <script src="../static/js/plugins/popper.min.js"></script>
+  <script src="../static/js/plugins/waypoint.js"></script>
+  <script src="../static/js/plugins/bootstrap.min.js"></script>
+  <script src="../static/js/plugins/jquery.magnific-popup.min.js"></script>
+  <script src="../static/js/plugins/jquery.slimScroll.min.js"></script>
+  <script src="../static/js/plugins/imagesloaded.min.js"></script>
+  <script src="../static/js/plugins/jquery.steps.min.js"></script>
+  <script src="../static/js/plugins/jquery.countdown.min.js"></script>
+  <script src="../static/js/plugins/isotope.pkgd.min.js"></script>
+  <script src="../static/js/plugins/slick.min.js"></script>
+
+  <!-- Slices Scripts -->
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>
