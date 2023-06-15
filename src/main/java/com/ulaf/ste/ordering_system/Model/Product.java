@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
+@Data
 @NoArgsConstructor
 public class Product {
 
@@ -18,9 +19,9 @@ public class Product {
     @OneToMany
     private List<Category> categories;
     @OneToMany
-    private List<Ingredients> ingredients;
+    private List<Ingredient> ingredients;
 
-    public Product(Long id, String name, double price, List<Category> categories, List<Ingredients> ingredients) {
+    public Product(Long id, String name, double price, List<Category> categories, List<Ingredient> ingredients) {
         this.id = id;
         this.name = name;
         this.price = price;

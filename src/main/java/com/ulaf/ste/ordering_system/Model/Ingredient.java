@@ -4,9 +4,13 @@ package com.ulaf.ste.ordering_system.Model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-public class Ingredients {
+@Data
+@NoArgsConstructor
+public class Ingredient {
 
     @Id
     @GeneratedValue
@@ -14,12 +18,7 @@ public class Ingredients {
     private String name;
 
 
-    public Ingredients(String name) {
+    public Ingredient(String name) {
         this.name = name;
-    }
-
-
-    public Ingredients() {
-
     }
 }
