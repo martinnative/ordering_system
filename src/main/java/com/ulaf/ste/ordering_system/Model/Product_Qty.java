@@ -17,4 +17,8 @@ public class Product_Qty {
     private Product product;
     private int quantity;
 
+    public Product_Qty(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
 }

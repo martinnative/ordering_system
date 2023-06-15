@@ -38,19 +38,19 @@ public class DataInitializer {
         productIngredients.add(ingredient1);
         List<Ingredient> productIngredients2 = new ArrayList<>();
         productIngredients2.add(ingredient2);
-        Product product1 = productService.createProduct(new Product(1L,"Margarita Pizza", 280, productCategories, productIngredients));
-        Product product2 = productService.createProduct(new Product(2L,"Kaprichioza Pizza", 320, productCategories, productIngredients2));
+        Product product1 = productService.createProduct(new Product("Margarita Pizza", 280, productCategories, productIngredients));
+        Product product2 = productService.createProduct(new Product("Kaprichioza Pizza", 320, productCategories, productIngredients2));
 
         List<Product_Qty> listItems = new ArrayList<>();
-        listItems.add(new Product_Qty(1L,product1, 2));
-        listItems.add(new Product_Qty(2L,product2, 1));
-        Order order1 = new Order(1L,listItems,"Gorjan","Tetovo","070344899");
+        listItems.add(new Product_Qty(product1, 2));
+        listItems.add(new Product_Qty(product2, 1));
+        Order order1 = new Order(listItems,"Gorjan","Tetovo","070344899");
         orderService.createOrder(order1);
 
         List<Product_Qty> listItems2 = new ArrayList<>();
-        listItems2.add(new Product_Qty(3L,product1, 4));
-        listItems2.add(new Product_Qty(4L,product2, 2));
-        Order order2 = new Order(2L,listItems2,"Dragan","Tetovo","071519218");
+        listItems2.add(new Product_Qty(product1, 4));
+        listItems2.add(new Product_Qty(product2, 2));
+        Order order2 = new Order(listItems2,"Dragan","Tetovo","071519218");
         orderService.createOrder(order2);
 
     }
