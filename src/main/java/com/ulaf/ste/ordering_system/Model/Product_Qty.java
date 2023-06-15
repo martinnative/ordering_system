@@ -1,5 +1,4 @@
 package com.ulaf.ste.ordering_system.Model;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
