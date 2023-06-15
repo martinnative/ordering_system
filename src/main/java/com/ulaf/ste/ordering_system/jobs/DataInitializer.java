@@ -44,21 +44,13 @@ public class DataInitializer {
         List<Product_Qty> listItems = new ArrayList<>();
         listItems.add(new Product_Qty(1L,product1, 2));
         listItems.add(new Product_Qty(2L,product2, 1));
-        Order order1 = new Order();
-        order1.setCustomerName("Gorjan");
-        order1.setCustomerAddress("Tetovo");
-        order1.setCustomerPhone("070344899");
-        order1.setItems(listItems);
+        Order order1 = new Order(1L,listItems,"Gorjan","Tetovo","070344899");
         orderService.createOrder(order1);
 
         List<Product_Qty> listItems2 = new ArrayList<>();
         listItems2.add(new Product_Qty(3L,product1, 4));
         listItems2.add(new Product_Qty(4L,product2, 2));
-        Order order2 = new Order();
-        order2.setCustomerName("Dragan");
-        order2.setCustomerAddress("Tetovo");
-        order2.setCustomerPhone("071519218");
-        order2.setItems(listItems2);
+        Order order2 = new Order(2L,listItems2,"Dragan","Tetovo","071519218");
         orderService.createOrder(order2);
 
     }
