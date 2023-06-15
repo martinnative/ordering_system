@@ -23,7 +23,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order getOrderById(Long id) throws NotFoundByIdException {
-        return orderRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Order not found by id"));
+        return orderRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Order with the provided ID was not found"));
     }
 
     @Override
@@ -34,7 +34,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order updateOrder(Long id, Order order) throws NotFoundByIdException {
 
-        Order existingOrder = orderRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Order not found by id"));
+        Order existingOrder = this.getOrderById(id);
 
         if (existingOrder != null) {
             existingOrder.setId(order.getId());

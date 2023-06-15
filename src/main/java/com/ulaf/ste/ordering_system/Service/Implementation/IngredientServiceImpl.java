@@ -22,7 +22,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public Ingredient getIngredientById(Long id) throws NotFoundByIdException {
-        return ingredientsRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Ingredient not found by id"));
+        return ingredientsRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Ingredient with the provided ID was not found"));
     }
 
     @Override
@@ -31,7 +31,7 @@ public class IngredientServiceImpl implements IngredientService {
     }
     @Override
     public Ingredient updateIngredient(Long id, Ingredient ingredient) throws NotFoundByIdException {
-        Ingredient existingIngredient = ingredientsRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Ingredient not found by id"));
+        Ingredient existingIngredient = this.getIngredientById(id);
         if (existingIngredient != null) {
             existingIngredient.setName(ingredient.getName());
             return ingredientsRepository.save(existingIngredient);

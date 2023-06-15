@@ -3,8 +3,8 @@ package com.ulaf.ste.ordering_system.Web.REST;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Order;
-import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Service.OrderService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,12 +20,13 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order createOrder(Order order){
-        return orderService.createOrder(order);
+    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
+        Order createdOrder = orderService.createOrder(order);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Order> getOrderById(Long id) throws NotFoundByIdException{
+    public ResponseEntity<Order> getOrderById(@PathVariable Long id) throws NotFoundByIdException{
         Order order = orderService.getOrderById(id);
         if(order != null)
         {

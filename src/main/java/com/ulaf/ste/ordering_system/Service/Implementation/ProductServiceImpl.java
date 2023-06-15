@@ -23,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(Long id) throws NotFoundByIdException {
-        return productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Product not found by id"));
+        return productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Product with the provided ID was not found"));
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product updateProduct(Long id, Product product) throws NotFoundByIdException {
-        Product existingProduct = productRepository.findById(product.getId()).orElseThrow(()->new NotFoundByIdException("Product not found by id"));
+        Product existingProduct = this.getProductById(id);
 
         if (existingProduct != null) {
 

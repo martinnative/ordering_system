@@ -23,7 +23,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category getCategoryById(Long id) throws NotFoundByIdException {
-        return categoryRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Category is not found by ID"));
+        return categoryRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Category with the provided ID was not found"));
     }
 
     @Override
@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category updateCategory(Long id, Category category) throws NotFoundByIdException {
-        Category existingCategory = categoryRepository.findById(category.getId()).orElseThrow(()->new NotFoundByIdException("Category is not found by ID"));
+        Category existingCategory = this.getCategoryById(id);
 
         if (existingCategory != null) {
             existingCategory.setName(category.getName());
