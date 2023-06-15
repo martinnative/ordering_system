@@ -31,7 +31,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category updateCategory(Category category) {
+    public Category updateCategory(Long id, Category category) {
         Category existingCategory = categoryRepository.findById(category.getId()).orElse(null);
 
         if (existingCategory != null) {
@@ -47,7 +47,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteCategory(Category category) {
-        categoryRepository.delete(category);
+    public void deleteCategory(Long id) {
+        categoryRepository.deleteById(id);
     }
 }
