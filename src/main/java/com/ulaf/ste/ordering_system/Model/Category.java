@@ -17,8 +17,11 @@ public class Category {
     private Long Id;
     private String name;
     private String description;
-    @ManyToOne
-    private Product product;
+
+//    @ManyToOne
+//    private Product product;
+    //NEMA POTREBA DA SE CHUVA PRODUKT U KATEGORIJA
+    //KJE SE CHUVA LISTA OD KATEGORIE ZA SVAKI PRODUCT U CLASA PRODUCT
 
     public Category(String name, String description) {
         this.name = name;
