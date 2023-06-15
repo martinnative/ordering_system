@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Service.Implementation;
 
+import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Ingredient;
 import com.ulaf.ste.ordering_system.Repository.IngredientsRepository;
 import com.ulaf.ste.ordering_system.Service.IngredientService;
@@ -20,8 +21,8 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    public Ingredient getIngredientById(Long id) {
-        return ingredientsRepository.findById(id).orElse(null);
+    public Ingredient getIngredientById(Long id) throws NotFoundByIdException {
+        return ingredientsRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Ingredient not found by id"));
     }
 
     @Override
@@ -29,8 +30,8 @@ public class IngredientServiceImpl implements IngredientService {
         return ingredientsRepository.findAll();
     }
     @Override
-    public Ingredient updateIngredient(Long id, Ingredient ingredient) {
-        Ingredient existingIngredient = ingredientsRepository.findById(id).orElse(null);
+    public Ingredient updateIngredient(Long id, Ingredient ingredient) throws NotFoundByIdException {
+        Ingredient existingIngredient = ingredientsRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Ingredient not found by id"));
         if (existingIngredient != null) {
             existingIngredient.setName(ingredient.getName());
             return ingredientsRepository.save(existingIngredient);

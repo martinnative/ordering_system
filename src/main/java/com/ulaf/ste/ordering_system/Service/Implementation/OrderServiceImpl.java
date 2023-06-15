@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Service.Implementation;
 
+import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Order;
 import com.ulaf.ste.ordering_system.Repository.OrderRepository;
 import com.ulaf.ste.ordering_system.Service.OrderService;
@@ -17,8 +18,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order createOrder(Order order) {
-        // Add any other logic needed for order creation
         return orderRepository.save(order);
+    }
+
+    @Override
+    public Order getOrderById(Long id) throws NotFoundByIdException {
+        return orderRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Order not found by id"));
     }
 
     @Override
@@ -27,22 +32,24 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order updateOrder(Order order) {
-        // Find the existing order by ID
-        Order existingOrder = orderRepository.findById(order.getId()).orElse(null);
+    public Order updateOrder(Long id, Order order) throws NotFoundByIdException {
+
+        Order existingOrder = orderRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Order not found by id"));
 
         if (existingOrder != null) {
-            // Update the existing order with the new values
-            // todo
-            // Save the updated order
+            existingOrder.setId(order.getId());
+            existingOrder.setItems(order.getItems());
+            existingOrder.setCustomerAddress(order.getCustomerAddress());
+            existingOrder.setCustomerName(order.getCustomerName());
+            existingOrder.setCustomerPhone(order.getCustomerPhone());
             return orderRepository.save(existingOrder);
         }
 
-        return null; // or throw an exception indicating that the order doesn't exist
+        return null;
     }
 
     @Override
-    public void deleteOrder(Order order) {
-        orderRepository.delete(order);
+    public void deleteOrder(Long id) {
+        orderRepository.deleteById(id);
     }
 }

@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Web.REST;
 
+import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Ingredient;
 import com.ulaf.ste.ordering_system.Service.IngredientService;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ public class IngredientsController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ingredient> getIngredientById(@PathVariable Long id) {
+    public ResponseEntity<Ingredient> getIngredientById(@PathVariable Long id) throws NotFoundByIdException {
         Ingredient ingredient = ingredientService.getIngredientById(id);
         if (ingredient != null) {
             return ResponseEntity.ok(ingredient);
@@ -39,7 +40,7 @@ public class IngredientsController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Ingredient> updateIngredient(@PathVariable Long id, @RequestBody Ingredient ingredient) {
+    public ResponseEntity<Ingredient> updateIngredient(@PathVariable Long id, @RequestBody Ingredient ingredient) throws NotFoundByIdException {
         Ingredient updatedIngredient = ingredientService.updateIngredient(id, ingredient);
         if (updatedIngredient != null) {
             return ResponseEntity.ok(updatedIngredient);

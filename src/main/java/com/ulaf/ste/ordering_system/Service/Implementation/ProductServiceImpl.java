@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Service.Implementation;
 
+import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Repository.ProductRepository;
 import com.ulaf.ste.ordering_system.Service.ProductService;
@@ -21,8 +22,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
+    public Product getProductById(Long id) throws NotFoundByIdException {
+        return productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Product not found by id"));
     }
 
     @Override
@@ -31,20 +32,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product updateProduct(Long id, Product product) {
-        Product existingProduct = productRepository.findById(product.getId()).orElse(null);
+    public Product updateProduct(Long id, Product product) throws NotFoundByIdException {
+        Product existingProduct = productRepository.findById(product.getId()).orElseThrow(()->new NotFoundByIdException("Product not found by id"));
 
         if (existingProduct != null) {
-            // Update the existing product with the new values
+
             existingProduct.setName(product.getName());
             existingProduct.setPrice(product.getPrice());
-            // ...
-
-            // Save the updated product
+            existingProduct.setCategories(product.getCategories());
+            existingProduct.setIngredients(product.getIngredients());
             return productRepository.save(existingProduct);
         }
 
-        return null; // or throw an exception indicating that the product doesn't exist
+        return null;
     }
 
     @Override

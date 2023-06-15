@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Web.REST;
 
+import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
+    public ResponseEntity<Product> getProductById(@PathVariable Long id) throws NotFoundByIdException {
         Product product = productService.getProductById(id);
         if (product != null) {
             return ResponseEntity.ok(product);
@@ -40,7 +41,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
+    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) throws NotFoundByIdException {
         Product updatedProduct = productService.updateProduct(id, product);
         if (updatedProduct != null) {
             return ResponseEntity.ok(updatedProduct);

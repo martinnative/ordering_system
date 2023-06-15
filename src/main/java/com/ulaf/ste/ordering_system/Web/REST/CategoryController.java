@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Web.REST;
 
+import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Category;
 import com.ulaf.ste.ordering_system.Service.CategoryService;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
+    public ResponseEntity<Category> getCategoryById(@PathVariable Long id) throws NotFoundByIdException {
         Category category = categoryService.getCategoryById(id);
         if (category != null) {
             return ResponseEntity.ok(category);
@@ -39,7 +40,7 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category category) {
+    public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category category) throws NotFoundByIdException {
         Category updatedCategory = categoryService.updateCategory(id, category);
         if (updatedCategory != null) {
             return ResponseEntity.ok(updatedCategory);

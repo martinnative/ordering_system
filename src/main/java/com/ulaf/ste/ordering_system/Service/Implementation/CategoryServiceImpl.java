@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Service.Implementation;
 
+import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Category;
 import com.ulaf.ste.ordering_system.Repository.CategoryRepository;
 import com.ulaf.ste.ordering_system.Service.CategoryService;
@@ -21,8 +22,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category getCategoryById(Long id) {
-        return categoryRepository.findById(id).orElse(null);
+    public Category getCategoryById(Long id) throws NotFoundByIdException {
+        return categoryRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Category is not found by ID"));
     }
 
     @Override
@@ -31,20 +32,16 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category updateCategory(Long id, Category category) {
-        Category existingCategory = categoryRepository.findById(category.getId()).orElse(null);
+    public Category updateCategory(Long id, Category category) throws NotFoundByIdException {
+        Category existingCategory = categoryRepository.findById(category.getId()).orElseThrow(()->new NotFoundByIdException("Category is not found by ID"));
 
         if (existingCategory != null) {
-            // Update the existing category with the new values
             existingCategory.setName(category.getName());
-            // ...
-
-            // Save the updated category
             return categoryRepository.save(existingCategory);
         }
-
-        return null; // or throw an exception indicating that the category doesn't exist
+        return null;
     }
+
 
     @Override
     public void deleteCategory(Long id) {
