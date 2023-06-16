@@ -10,5 +10,6 @@ public interface ProductService {
     Product getProductById(Long id) throws NotFoundByIdException;
     Product createProduct(Product product);
     Product updateProduct(Long id, Product product) throws NotFoundByIdException;
+    Product getProductByname(String name);
     void deleteProduct(Long id);
 }
