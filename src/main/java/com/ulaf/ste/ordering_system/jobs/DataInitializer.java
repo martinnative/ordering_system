@@ -46,9 +46,9 @@ public class DataInitializer {
         List<Ingredient> productIngredients2 = new ArrayList<>();
         productIngredients2.add(ingredient2);
 
-        Product product1 = new Product("Margarita Pizza", 280, productCategories, productIngredients);
+        Product product1 = new Product("Margarita", 280, productCategories, productIngredients);
         productService.createProduct(product1);
-        Product product2 = new Product("Kaprichioza Pizza", 320, productCategories2, productIngredients2);
+        Product product2 = new Product("Kaprichioza", 320, productCategories2, productIngredients2);
         productService.createProduct(product2);
 
         List<Product_Qty> listItems = new ArrayList<>();
