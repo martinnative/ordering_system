@@ -7,8 +7,8 @@ import lombok.*;
 
 import java.util.List;
 @Entity
-@Data
-@NoArgsConstructor
+@Getter
+@Setter@NoArgsConstructor
 public class Order {
     @Id
     @GeneratedValue

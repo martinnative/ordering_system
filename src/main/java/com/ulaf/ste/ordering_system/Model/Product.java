@@ -9,8 +9,8 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Data
-@NoArgsConstructor
+@Getter
+@Setter@NoArgsConstructor
 public class Product {
 
     @Id
