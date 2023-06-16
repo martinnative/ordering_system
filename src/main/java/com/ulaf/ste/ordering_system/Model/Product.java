@@ -23,8 +23,7 @@ public class Product {
     @OneToMany
     private List<Ingredient> ingredients;
 
-    public Product(Long id, String name, double price, List<Category> categories, List<Ingredient> ingredients) {
-        this.id = id;
+    public Product(String name, double price, List<Category> categories, List<Ingredient> ingredients) {
         this.name = name;
         this.price = price;
         this.categories = categories;

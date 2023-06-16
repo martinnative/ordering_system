@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Order {
     @Id
     @GeneratedValue
@@ -18,5 +17,14 @@ public class Order {
     private List<Product_Qty> items;
     private String customerName;
     private String customerAddress;
+
+    public Order(List<Product_Qty> items, String customerName, String customerAddress, String customerPhone) {
+        this.items = items;
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.customerPhone = customerPhone;
+    }
+
     private String customerPhone;
+
 }
