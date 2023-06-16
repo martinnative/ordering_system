@@ -1,4 +1,4 @@
-package com.ulaf.ste.ordering_system.jobs;
+package com.ulaf.ste.ordering_system.Config;
 
 import com.ulaf.ste.ordering_system.Model.*;
 import com.ulaf.ste.ordering_system.Service.CategoryService;
@@ -40,7 +40,7 @@ public class DataInitializer {
         Product product1 = productService.createProduct(new Product("Margarita Pizza", 280, productCategories, productIngredients));
         Product product2 = productService.createProduct(new Product("Kaprichioza Pizza", 320, productCategories, productIngredients2));
 
-        List<Product_Qty> listItems = new ArrayList<>();
+       /* List<Product_Qty> listItems = new ArrayList<>();
         listItems.add(new Product_Qty(product1, 2));
         listItems.add(new Product_Qty(product2, 1));
         Order order1 = new Order(listItems,"Gorjan","Tetovo","070344899");
@@ -50,7 +50,7 @@ public class DataInitializer {
         listItems2.add(new Product_Qty(product1, 4));
         listItems2.add(new Product_Qty(product2, 2));
         Order order2 = new Order(listItems2,"Dragan","Tetovo","071519218");
-        orderService.createOrder(order2);
+        orderService.createOrder(order2); */
 
     }
 }

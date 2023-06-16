@@ -10,15 +10,16 @@ import java.util.List;
 
 @Entity
 @Getter
-@Setter@NoArgsConstructor
+@Setter
+@NoArgsConstructor
 public class Product {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Double price;
-    @OneToMany
+    @ManyToMany
     private List<Category> categories;
     @OneToMany
     private List<Ingredient> ingredients;

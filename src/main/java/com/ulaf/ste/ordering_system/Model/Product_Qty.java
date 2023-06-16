@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 public class Product_Qty {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
