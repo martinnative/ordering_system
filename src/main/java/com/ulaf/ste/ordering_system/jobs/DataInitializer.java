@@ -28,27 +28,44 @@ public class DataInitializer {
 
     @PostConstruct
     public void initializeData() {
-        Category category = categoryService.createCategory(new Category("Pizza","Kategorija za pizza"));
-        Ingredient ingredient1 = ingredientService.createIngredient(new Ingredient("Pechurke"));
-        Ingredient ingredient2 = ingredientService.createIngredient(new Ingredient("Sirenje"));
+        Category category = new Category("Pizza","Kategorija za pizza");
+        categoryService.createCategory(category);
+
+        Ingredient ingredient1 = new Ingredient("Pechurke");
+        ingredientService.createIngredient(ingredient1);
+        Ingredient ingredient2 = new Ingredient("Sirenje");
+        ingredientService.createIngredient(ingredient2);
+
         List<Category> productCategories = new ArrayList<>();
         productCategories.add(category);
+        List<Category> productCategories2 = new ArrayList<>();
+        productCategories2.add(category);
+
         List<Ingredient> productIngredients = new ArrayList<>();
         productIngredients.add(ingredient1);
         List<Ingredient> productIngredients2 = new ArrayList<>();
         productIngredients2.add(ingredient2);
-        Product product1 = productService.createProduct(new Product("Margarita Pizza", 280, productCategories, productIngredients));
-        Product product2 = productService.createProduct(new Product("Kaprichioza Pizza", 320, productCategories, productIngredients2));
+
+        Product product1 = new Product("Margarita Pizza", 280, productCategories, productIngredients);
+        productService.createProduct(product1);
+        Product product2 = new Product("Kaprichioza Pizza", 320, productCategories2, productIngredients2);
+        productService.createProduct(product2);
 
         List<Product_Qty> listItems = new ArrayList<>();
-        listItems.add(new Product_Qty(product1, 2));
-        listItems.add(new Product_Qty(product2, 1));
-        Order order1 = new Order(listItems,"Gorjan","Tetovo","070344899");
-        orderService.createOrder(order1);
+        Product_Qty productQty = new Product_Qty(product1,2);
+        listItems.add(productQty);
+        Product_Qty productQty2 = new Product_Qty(product2,1);
+        listItems.add(productQty2);
 
         List<Product_Qty> listItems2 = new ArrayList<>();
-        listItems2.add(new Product_Qty(product1, 4));
-        listItems2.add(new Product_Qty(product2, 2));
+        Product_Qty productQt3 = new Product_Qty(product1,5);
+        listItems2.add(productQt3);
+        Product_Qty productQty4 = new Product_Qty(product2,3);
+        listItems2.add(productQty4);
+
+
+        Order order1 = new Order(listItems,"Gorjan","Tetovo","070344899");
+        orderService.createOrder(order1);
         Order order2 = new Order(listItems2,"Dragan","Tetovo","071519218");
         orderService.createOrder(order2);
 
