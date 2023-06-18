@@ -19,7 +19,7 @@ public class Product {
     private Double price;
     @ManyToMany
     private List<Category> categories;
-    @OneToMany
+    @ManyToMany
     private List<Ingredient> ingredients;
 
     public Product(String name, double price, List<Category> categories, List<Ingredient> ingredients) {
