@@ -1,8 +1,6 @@
-package com.ulaf.ste.ordering_system.Config;
+package com.ulaf.ste.ordering_system.jobs;
 
-import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.*;
-import com.ulaf.ste.ordering_system.Repository.Product_QtyRepository;
 import com.ulaf.ste.ordering_system.Service.CategoryService;
 import com.ulaf.ste.ordering_system.Service.IngredientService;
 import com.ulaf.ste.ordering_system.Service.OrderService;
@@ -20,18 +18,16 @@ public class DataInitializer {
     private final IngredientService ingredientService;
     private final ProductService productService;
     private final OrderService orderService;
-    private final Product_QtyRepository product_qtyRepository;
 
-    public DataInitializer(CategoryService categoryService, IngredientService ingredientService, ProductService productService, OrderService orderService, Product_QtyRepository productQtyRepository) {
+    public DataInitializer(CategoryService categoryService, IngredientService ingredientService, ProductService productService, OrderService orderService) {
         this.categoryService = categoryService;
         this.ingredientService = ingredientService;
         this.productService = productService;
         this.orderService = orderService;
-        product_qtyRepository = productQtyRepository;
     }
 
     @PostConstruct
-    public void initializeData() throws NotFoundByIdException {
+    public void initializeData() {
         Category category = categoryService.createCategory(new Category("Pizza","Kategorija za pizza"));
         Ingredient ingredient1 = ingredientService.createIngredient(new Ingredient("Pechurke"));
         Ingredient ingredient2 = ingredientService.createIngredient(new Ingredient("Sirenje"));
@@ -41,24 +37,20 @@ public class DataInitializer {
         productIngredients.add(ingredient1);
         List<Ingredient> productIngredients2 = new ArrayList<>();
         productIngredients2.add(ingredient2);
-        productService.createProduct(new Product(1L,"Margarita Pizza", 280.0, productCategories, productIngredients));
-        productService.createProduct(new Product(2L,"Kaprichioza Pizza", 320.0, productCategories, productIngredients2));
+        Product product1 = productService.createProduct(new Product("Margarita Pizza", 280, productCategories, productIngredients));
+        Product product2 = productService.createProduct(new Product("Kaprichioza Pizza", 320, productCategories, productIngredients2));
 
-       List<Product_Qty> listItems = new ArrayList<>();
-        product_qtyRepository.save(new Product_Qty(1L,productService.getProductById(1L), 2));
-        product_qtyRepository.save(new Product_Qty(2L,productService.getProductById(2L), 3));
-        listItems.add(product_qtyRepository.findById(1L).orElseThrow());
-        listItems.add(product_qtyRepository.findById(2L).orElseThrow());
+        List<Product_Qty> listItems = new ArrayList<>();
+        listItems.add(new Product_Qty(product1, 2));
+        listItems.add(new Product_Qty(product2, 1));
         Order order1 = new Order(listItems,"Gorjan","Tetovo","070344899");
         orderService.createOrder(order1);
 
-       /* List<Product_Qty> listItems2 = new ArrayList<>();
-        product_qtyRepository.save(new Product_Qty(3L,productService.getProductById(1L), 4));
-        product_qtyRepository.save(new Product_Qty(4L,productService.getProductById(2L), 2));
-        listItems2.add(product_qtyRepository.findById(3L).orElseThrow());
-        listItems2.add(product_qtyRepository.findById(4L).orElseThrow());
+        List<Product_Qty> listItems2 = new ArrayList<>();
+        listItems2.add(new Product_Qty(product1, 4));
+        listItems2.add(new Product_Qty(product2, 2));
         Order order2 = new Order(listItems2,"Dragan","Tetovo","071519218");
-        orderService.createOrder(order2);*/
+        orderService.createOrder(order2);
 
     }
 }
