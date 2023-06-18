@@ -33,6 +33,14 @@ public class ProductController {
         }
         return ResponseEntity.notFound().build();
     }
+    @GetMapping("/{name}")
+    public ResponseEntity<Product> getProductByName(@PathVariable String name) throws NotFoundByIdException {
+        Product product = productService.getProductByName(name);
+        if (product != null) {
+            return ResponseEntity.ok(product);
+        }
+        return ResponseEntity.notFound().build();
+    }
 
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {

@@ -4,6 +4,7 @@ import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Repository.ProductRepository;
 import com.ulaf.ste.ordering_system.Service.ProductService;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,6 +46,11 @@ public class ProductServiceImpl implements ProductService {
         }
 
         return null;
+    }
+
+    @Override
+    public Product getProductByName(String name) {
+        return productRepository.findByName(name);
     }
 
     @Override

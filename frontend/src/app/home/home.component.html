@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slices - Pizzeria HTML Template</title>
+
+  <!-- Vendor Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/plugins/animate.min.css">
+  <link rel="stylesheet" href="/assets/css/plugins/magnific-popup.css">
+  <link rel="stylesheet" href="/assets/css/plugins/slick.css">
+  <link rel="stylesheet" href="/assets/css/plugins/slick-theme.css">
+  <!-- Icon Fonts -->
+  <link rel="stylesheet" href="/assets/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="/assets/fonts/font-awesome/css/all.min.css">
+
+  <!-- Slices Style sheet -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+
+</head>
+
+<body>
+
+  <!-- Preloader Start -->
+  <div class="ct-preloader">
+    <div class="ct-preloader-inner">
+      <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+  </div>
+  <!-- Preloader End -->
+
+  <!-- Customize Modal Start -->
+  <div class="modal fade" id="customizeModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header modal-bg" style="background-image: url('/assets/img/blog/11.jpg')">
+          <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
+            <span></span>
+            <span></span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+
+          <div class="customize-meta">
+            <h4 class="customize-title">Pepperoni Pizza 1 <span class="custom-primary">13.99$</span> </h4>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+            </p>
+          </div>
+
+          <div class="customize-variations">
+
+            <div class="customize-size-wrapper">
+              <h5>Size: </h5>
+              <div class="customize-size active">
+                11"
+              </div>
+              <div class="customize-size">
+                16"
+              </div>
+              <div class="customize-size">
+                21"
+              </div>
+            </div>
+
+            <div class="row">
+
+              <!-- Variation Start -->
+              <div class="col-lg-4 col-12">
+                <div class="customize-variation-wrapper">
+                  <i class="flaticon-bread-roll"></i>
+                  <h5>Dough</h5>
+                  <div class="customize-variation-item" data-price="0.00">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" checked id="regularDough" name="dough" class="custom-control-input">
+                      <label class="custom-control-label" for="regularDough">Regular</label>
+                    </div>
+                    <span>+0.00$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="2.00">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="thinDough" name="dough" class="custom-control-input">
+                      <label class="custom-control-label" for="thinDough">Hand Flipped</label>
+                    </div>
+                    <span>+2.00$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="4.00">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="multiGrainDough" name="dough" class="custom-control-input">
+                      <label class="custom-control-label" for="multiGrainDough">Multi Grain</label>
+                    </div>
+                    <span>+4.00$</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Variation End -->
+
+              <!-- Variation Start -->
+              <div class="col-lg-4 col-12">
+                <div class="customize-variation-wrapper">
+                  <i class="flaticon-pizza-slice"></i>
+                  <h5>Crust</h5>
+                  <div class="customize-variation-item" data-price="4.00">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="cheeseCrust" name="crust" class="custom-control-input">
+                      <label class="custom-control-label" for="cheeseCrust">Cheese</label>
+                    </div>
+                    <span>+4.00$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="3.25">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="butterCrust" name="crust" class="custom-control-input">
+                      <label class="custom-control-label" for="butterCrust">Butter</label>
+                    </div>
+                    <span>+3.25$</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Variation End -->
+
+              <!-- Variation Start -->
+              <div class="col-lg-4 col-12">
+                <div class="customize-variation-wrapper">
+                  <i class="flaticon-pizza-and-cutted-slice"></i>
+                  <h5>Add</h5>
+                  <div class="customize-variation-item" data-price="2.00">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="addChicken">
+                      <label class="custom-control-label" for="addChicken">Chicken</label>
+                    </div>
+                    <span>+2.00$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="1.20">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="addFourCheese">
+                      <label class="custom-control-label" for="addFourCheese">Four Cheese</label>
+                    </div>
+                    <span>+1.20$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="0.75">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="addFreshMushroom">
+                      <label class="custom-control-label" for="addFreshMushroom">Fresh Mushroom</label>
+                    </div>
+                    <span>+0.75$</span>
+                  </div>
+                  <div class="customize-variation-item" data-price="0.25">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="addBellPepper">
+                      <label class="custom-control-label" for="addBellPepper">Bell Peppers</label>
+                    </div>
+                    <span>+0.25$</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Variation End -->
+
+            </div>
+          </div>
+
+          <div class="customize-controls">
+            <div class="qty">
+              <span class="qty-subtract"><i class="fas fa-minus"></i></span>
+              <input type="text" name="qty" value="1">
+              <span class="qty-add"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="customize-total" data-price="13.99">
+              <h5>Total Price: <span class="final-price custom-primary">13.99 <span>$</span> </span> </h5>
+            </div>
+          </div>
+
+          <button type="button" class="btn-custom btn-block">Order Now</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Customize Modal End -->
+  <app-search-form></app-search-form>
+  <app-floating-cart></app-floating-cart>
+  <app-mobile-navigation></app-mobile-navigation>
+  <app-header></app-header>
+  <app-banner></app-banner>
+
+  <!-- Menu Categories Start -->
+  <div class="ct-menu-categories menu-filter">
+    <div class="container">
+      <div class="menu-category-slider">
+        <a href="#" data-filter="*" class="ct-menu-category-item active">
+          <div class="menu-category-thumb">
+            <img src="/assets/img/categories/6.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>All</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".sides" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="/assets/img/categories/1.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Sides</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".pizzas" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="/assets/img/categories/2.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Pizzas</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".salads" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="/assets/img/categories/3.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Salads</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".pasta" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="/assets/img/categories/7.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Pasta</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".desserts" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="/assets/img/categories/4.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Desserts</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".beverages" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="/assets/img/categories/5.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Beverages</h6>
+          </div>
+        </a>
+        <a href="#" data-filter=".offers" class="ct-menu-category-item">
+          <div class="menu-category-thumb">
+            <img src="/assets/img/categories/8.jpg" alt="category">
+          </div>
+          <div class="menu-category-desc">
+            <h6>Offers</h6>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Menu Categories End -->
+
+  <!-- Menu Wrapper Start -->
+  <div class="section section-padding">
+    <div class="container">
+
+      <div class="menu-container row menu-v2">
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 pizzas">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/5.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Pepperoni</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">12.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 beverages desserts">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/13.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Rum With Soda</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">3.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 desserts">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/12.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Chocolate Cookies</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">4.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 pizzas offers">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/2.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Vegetarian</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">9.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 pasta">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/11.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Sea Food Pasta</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">14.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 beverages offers">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/10.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Russian Beer</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">14.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 pizzas">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/3.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Four Cheese</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">13.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 salads sides">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/15.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Ceaser Salad</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">10.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+        <!-- Product Start -->
+        <div class="col-lg-4 col-md-6 sides">
+          <div class="product">
+            <div class="favorite">
+              <i class="far fa-heart"></i>
+            </div>
+            <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/14.png" alt="menu item" /> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4> <a href="menu-item-v1.html">Chicken Wrap</a> </h4>
+                <div class="ct-rating-wrapper">
+                  <div class="ct-rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                  </div>
+                </div>
+                <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">5.99$</p>
+                <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Product End -->
+
+      </div>
+
+    </div>
+  </div>
+  <!-- Menu Wrapper End -->
+
+  <app-infographics></app-infographics>
+
+  <app-make-your-own-pizza></app-make-your-own-pizza>
+
+  <app-how-we-do-it></app-how-we-do-it>
+
+  <app-instagram></app-instagram>
+
+  <app-footer></app-footer>
+
+  <!-- Vendor Scripts -->
+  <script src="/assets/js/plugins/jquery-3.4.1.min.js"></script>
+  <script src="/assets/js/plugins/popper.min.js"></script>
+  <script src="/assets/js/plugins/waypoint.js"></script>
+  <script src="/assets/js/plugins/bootstrap.min.js"></script>
+  <script src="/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+  <script src="/assets/js/plugins/jquery.slimScroll.min.js"></script>
+  <script src="/assets/js/plugins/imagesloaded.min.js"></script>
+  <script src="/assets/js/plugins/jquery.steps.min.js"></script>
+  <script src="/assets/js/plugins/jquery.countdown.min.js"></script>
+  <script src="/assets/js/plugins/isotope.pkgd.min.js"></script>
+  <script src="/assets/js/plugins/slick.min.js"></script>
+
+  <!-- Slices Scripts -->
+  <script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>
