@@ -17,12 +17,17 @@ public class Category {
     private Long Id;
     private String name;
     private String description;
-    @ManyToMany
-    private List<Product> product;
+    @ManyToMany(mappedBy = "categories")
+    private List<Product> products;
 
 
     public Category(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+    public Category(Long id,String name, String description) {
+        this.name = name;
+        this.description = description;
+        this.Id = id;
     }
 }

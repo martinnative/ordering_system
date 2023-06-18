@@ -32,7 +32,7 @@ public class DataInitializer {
 
     @PostConstruct
     public void initializeData() throws NotFoundByIdException {
-        Category category = categoryService.createCategory(new Category("Pizza","Kategorija za pizza"));
+        Category category = categoryService.createCategory(new Category(1L,"Pizza","Kategorija za pizza"));
         Ingredient ingredient1 = ingredientService.createIngredient(new Ingredient("Pechurke"));
         Ingredient ingredient2 = ingredientService.createIngredient(new Ingredient("Sirenje"));
         List<Category> productCategories = new ArrayList<>();
@@ -51,7 +51,7 @@ public class DataInitializer {
         listItems.add(product_qtyRepository.findById(2L).orElseThrow());
         Order order1 = new Order(listItems,"Gorjan","Tetovo","070344899");
         orderService.createOrder(order1);
-        categoryService.getCategoryById(1L).setProduct(productService.getAllProducts());
+        categoryService.getCategoryById(1L).setProducts(productService.getAllProducts());
 
        /* List<Product_Qty> listItems2 = new ArrayList<>();
         product_qtyRepository.save(new Product_Qty(3L,productService.getProductById(1L), 4));
