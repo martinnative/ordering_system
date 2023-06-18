@@ -25,7 +25,7 @@
 <body>
 
   <!-- Preloader Start -->
-  <div class="ct-preloader">
+  <div class="ct-preloader" *ngIf="!loaded">
     <div class="ct-preloader-inner">
       <div class="lds-ripple"><div></div><div></div></div>
     </div>
@@ -180,84 +180,14 @@
     </div>
   </div>
   <!-- Customize Modal End -->
-  <app-search-form></app-search-form>
+  <!-- <app-search-form></app-search-form>
   <app-floating-cart></app-floating-cart>
   <app-mobile-navigation></app-mobile-navigation>
-  <app-header></app-header>
+  <app-header></app-header> -->
   <app-banner></app-banner>
 
   <!-- Menu Categories Start -->
-  <div class="ct-menu-categories menu-filter">
-    <div class="container">
-      <div class="menu-category-slider">
-        <a href="#" data-filter="*" class="ct-menu-category-item active">
-          <div class="menu-category-thumb">
-            <img src="/assets/img/categories/6.jpg" alt="category">
-          </div>
-          <div class="menu-category-desc">
-            <h6>All</h6>
-          </div>
-        </a>
-        <a href="#" data-filter=".sides" class="ct-menu-category-item">
-          <div class="menu-category-thumb">
-            <img src="/assets/img/categories/1.jpg" alt="category">
-          </div>
-          <div class="menu-category-desc">
-            <h6>Sides</h6>
-          </div>
-        </a>
-        <a href="#" data-filter=".pizzas" class="ct-menu-category-item">
-          <div class="menu-category-thumb">
-            <img src="/assets/img/categories/2.jpg" alt="category">
-          </div>
-          <div class="menu-category-desc">
-            <h6>Pizzas</h6>
-          </div>
-        </a>
-        <a href="#" data-filter=".salads" class="ct-menu-category-item">
-          <div class="menu-category-thumb">
-            <img src="/assets/img/categories/3.jpg" alt="category">
-          </div>
-          <div class="menu-category-desc">
-            <h6>Salads</h6>
-          </div>
-        </a>
-        <a href="#" data-filter=".pasta" class="ct-menu-category-item">
-          <div class="menu-category-thumb">
-            <img src="/assets/img/categories/7.jpg" alt="category">
-          </div>
-          <div class="menu-category-desc">
-            <h6>Pasta</h6>
-          </div>
-        </a>
-        <a href="#" data-filter=".desserts" class="ct-menu-category-item">
-          <div class="menu-category-thumb">
-            <img src="/assets/img/categories/4.jpg" alt="category">
-          </div>
-          <div class="menu-category-desc">
-            <h6>Desserts</h6>
-          </div>
-        </a>
-        <a href="#" data-filter=".beverages" class="ct-menu-category-item">
-          <div class="menu-category-thumb">
-            <img src="/assets/img/categories/5.jpg" alt="category">
-          </div>
-          <div class="menu-category-desc">
-            <h6>Beverages</h6>
-          </div>
-        </a>
-        <a href="#" data-filter=".offers" class="ct-menu-category-item">
-          <div class="menu-category-thumb">
-            <img src="/assets/img/categories/8.jpg" alt="category">
-          </div>
-          <div class="menu-category-desc">
-            <h6>Offers</h6>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- Menu Categories End -->
+  <app-categories-menu-homepage></app-categories-menu-homepage>
 
   <!-- Menu Wrapper Start -->
   <div class="section section-padding">

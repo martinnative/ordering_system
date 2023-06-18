@@ -138,10 +138,10 @@ Version: 1.0.0
   -o-transition: .3s;
   transition: .3s;
 }
-.ct-preloader.hidden{
+/* .ct-preloader.hidden{
   opacity: 0;
   visibility: hidden;
-}
+} */
 .lds-ripple {
   display: inline-block;
   position: relative;

@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit,AfterViewInit {
     { image: '/assets/img/prods-sm/1.png', title: 'Pepperoni', price: '2x 9.99$' },
     // Add other slide objects here
   ];
+  loaded = false;
+
+
   ngAfterViewInit(): void {
     $('.banner-slider-3').slick({
       dots: true,
@@ -32,17 +35,11 @@ export class HomeComponent implements OnInit,AfterViewInit {
       adaptiveHeight: true
     });
   }
-
+  
   ngOnInit(): void {
+    this.loaded = true;
     (function($) {
       'use strict';
-    
-      /*-------------------------------------------------------------------------------
-      Preloader
-      -------------------------------------------------------------------------------*/
-      $(window).on('load', function() {
-        $('.ct-preloader').addClass('hidden');
-      });
     
       /*-------------------------------------------------------------------------------
       Aside Menu
@@ -53,7 +50,6 @@ export class HomeComponent implements OnInit,AfterViewInit {
       $(".main-aside .menu-item-has-children > a").on('click', function(e) {
         var submenu = $(this).next(".submenu");
         e.preventDefault();
-    
         submenu.slideToggle(200);
       })
     
@@ -121,17 +117,6 @@ export class HomeComponent implements OnInit,AfterViewInit {
         }
       }
       doSticky();
-    
-      /*-----------------------------------
-        Back to Top
-        -----------------------------------*/
-      $('.back-to-top').on('click', function() {
-        $("html, body").animate({
-          scrollTop: 0
-        }, 600);
-        return false;
-      })
-    
       /*-------------------------------------------------------------------------------
       Aside Scroll
       -------------------------------------------------------------------------------*/
@@ -502,4 +487,5 @@ export class HomeComponent implements OnInit,AfterViewInit {
     
     })(jQuery);
   }
+
 }
