@@ -5,7 +5,10 @@ import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Repository.ProductRepository;
 import com.ulaf.ste.ordering_system.Service.ProductService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -23,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(Long id) throws NotFoundByIdException {
-        return productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Product with the provided ID was not found"));
+        return productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
     }
 
     @Override
@@ -41,14 +44,36 @@ public class ProductServiceImpl implements ProductService {
             existingProduct.setPrice(product.getPrice());
             existingProduct.setCategories(product.getCategories());
             existingProduct.setIngredients(product.getIngredients());
+            existingProduct.setPizzaImage(product.getPizzaImage());
             return productRepository.save(existingProduct);
         }
 
-        return null;
+        throw new NotFoundByIdException("ID was not found.");
     }
 
     @Override
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public Product uploadPizzaImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException {
+        Product product = getProductById(id);
+        if (product != null) {
+            byte[] imageBytes = file.getBytes();
+            product.setPizzaImage(imageBytes);
+            return productRepository.save(product);
+        }
+        throw new NotFoundByIdException("ID was not found.");
+    }
+
+    @Override
+    public String getPizzaImageBase64(Long id) throws NotFoundByIdException {
+        Product product = getProductById(id);
+        if (product != null && product.getPizzaImage() != null) {
+            byte[] imageBytes = product.getPizzaImage();
+            return Base64.getEncoder().encodeToString(imageBytes);
+        }
+        throw new NotFoundByIdException("ID was not found or this pizza does not have an image.");
     }
 }

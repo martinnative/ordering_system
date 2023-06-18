@@ -6,8 +6,11 @@ import com.ulaf.ste.ordering_system.Service.IngredientService;
 import com.ulaf.ste.ordering_system.Service.OrderService;
 import com.ulaf.ste.ordering_system.Service.ProductService;
 import jakarta.annotation.PostConstruct;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StreamUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +27,16 @@ public class DataInitializer {
         this.ingredientService = ingredientService;
         this.productService = productService;
         this.orderService = orderService;
+    }
+
+    private byte[] getPizzaImageBytes(String imageName) {
+        try {
+            ClassPathResource resource = new ClassPathResource("images/" + imageName);
+            return StreamUtils.copyToByteArray(resource.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @PostConstruct
@@ -46,9 +59,11 @@ public class DataInitializer {
         List<Ingredient> productIngredients2 = new ArrayList<>();
         productIngredients2.add(ingredient2);
 
-        Product product1 = new Product("Margarita", 280, productCategories, productIngredients);
+        byte [] bytesMargarita = getPizzaImageBytes("margarita.png");
+        byte [] bytesKaprichioza = getPizzaImageBytes("kaprichioza.png");
+        Product product1 = new Product("Margarita", 280, productCategories, productIngredients,bytesMargarita);
         productService.createProduct(product1);
-        Product product2 = new Product("Kaprichioza", 320, productCategories2, productIngredients2);
+        Product product2 = new Product("Kaprichioza", 320, productCategories2, productIngredients2, bytesKaprichioza);
         productService.createProduct(product2);
 
         List<Product_Qty> listItems = new ArrayList<>();
@@ -62,7 +77,6 @@ public class DataInitializer {
         listItems2.add(productQt3);
         Product_Qty productQty4 = new Product_Qty(product2,3);
         listItems2.add(productQty4);
-
 
         Order order1 = new Order(listItems,"Gorjan","Tetovo","070344899");
         orderService.createOrder(order1);
