@@ -21,6 +21,7 @@ import { FloatingCartComponent } from './floating-cart/floating-cart.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import {NgOptimizedImage} from "@angular/common";
 import { CategoriesMenuHomepageComponent } from './categories-menu-homepage/categories-menu-homepage.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CategoriesMenuHomepageComponent } from './categories-menu-homepage/cate
     BrowserModule,
     AppRoutingModule,
     SlickCarouselModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
