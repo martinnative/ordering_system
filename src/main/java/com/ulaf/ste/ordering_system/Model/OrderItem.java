@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductQty {
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,7 +16,7 @@ public class ProductQty {
     private Product product;
     private int quantity;
 
-    public ProductQty(Product product, int quantity) {
+    public OrderItem(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }
