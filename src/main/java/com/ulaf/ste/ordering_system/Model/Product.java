@@ -22,11 +22,15 @@ public class Product {
     @ManyToMany
     private List<Ingredient> ingredients;
 
-    public Product(String name, double price, List<Category> categories, List<Ingredient> ingredients) {
+    @Lob
+    private byte[] pizzaImage;
+
+    public Product(String name, double price, List<Category> categories, List<Ingredient> ingredients,byte[] pizzaImage) {
         this.name = name;
         this.price = price;
         this.categories = categories;
         this.ingredients = ingredients;
+        this.pizzaImage = pizzaImage;
     }
 
     public Product(String name, double price) {
