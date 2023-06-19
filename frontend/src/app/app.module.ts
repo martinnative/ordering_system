@@ -24,6 +24,8 @@ import { CategoriesMenuHomepageComponent } from './categories-menu-homepage/cate
 import { HttpClientModule } from '@angular/common/http';
 import { CustomizeModalComponent } from './customize-modal/customize-modal.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PreloaderComponent } from './preloader/preloader.component';
+import { HeaderTransparentComponent } from './header-transparent/header-transparent.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     SearchFormComponent,
     CustomizeModalComponent,
     CheckoutComponent,
+    PreloaderComponent,
+    HeaderTransparentComponent,
   ],
   imports: [
     BrowserModule,
