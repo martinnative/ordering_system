@@ -18,6 +18,9 @@ public class Product {
     private Long id;
     private String name;
     private Double price;
+
+    private Boolean availability;
+
     @JsonBackReference
     @ManyToOne
     private Category category;
@@ -35,13 +38,14 @@ public class Product {
         this.image = image;
     }
 
-    public Product(Long id, String name, double price, List<Ingredient> ingredients, byte[] image, Category category) {
+    public Product(Long id, String name, double price, List<Ingredient> ingredients, byte[] image, Category category, Boolean availability) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.category = category;
         this.ingredients = ingredients;
         this.image = image;
+        this.availability = availability;
     }
 
     public Product(String name, double price) {

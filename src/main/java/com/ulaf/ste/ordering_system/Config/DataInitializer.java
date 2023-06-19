@@ -58,8 +58,8 @@ public class DataInitializer {
         byte[] image1 = getPizzaImageBytes("margarita.png");
         byte[] image2 = getPizzaImageBytes("kaprichioza.png");
 
-        productService.createProduct(new Product(1L,"Margarita Pizza", 280.0, productIngredients, image1, category));
-        productService.createProduct(new Product(2L,"Kaprichioza Pizza", 320.0, productIngredients2, image2, category));
+        productService.createProduct(new Product(1L,"Margarita Pizza", 280.0, productIngredients, image1, category, true));
+        productService.createProduct(new Product(2L,"Kaprichioza Pizza", 320.0, productIngredients2, image2, category, true));
 
         List<OrderItem> listItems = new ArrayList<>();
         product_qtyRepository.save(new OrderItem(1L,productService.getProductById(1L), 2));
