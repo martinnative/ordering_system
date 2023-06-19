@@ -12,11 +12,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToMany
-    private List<Product_Qty> items;
+    private List<ProductQty> items;
     private String customerName;
     private String customerAddress;
 
-    public Order(List<Product_Qty> items, String customerName, String customerAddress, String customerPhone) {
+    public Order(List<ProductQty> items, String customerName, String customerAddress, String customerPhone) {
         this.items = items;
         this.customerName = customerName;
         this.customerAddress = customerAddress;

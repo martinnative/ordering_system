@@ -18,10 +18,9 @@ public class Category {
     private Long Id;
     private String name;
     private String description;
-    @ManyToMany(mappedBy = "categories")
     @JsonManagedReference
+    @OneToMany(mappedBy = "category")
     private List<Product> products;
-
 
     public Category(String name, String description) {
         this.name = name;
