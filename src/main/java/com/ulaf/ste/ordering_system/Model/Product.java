@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +19,7 @@ public class Product {
     private String name;
     private Double price;
     @ManyToMany
+    @JsonBackReference
     private List<Category> categories;
     @ManyToMany
     private List<Ingredient> ingredients;
