@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,16 +18,30 @@ public class Product {
     private Long id;
     private String name;
     private Double price;
-    @ManyToMany
-    private List<Category> categories;
+    @JsonBackReference
+    @ManyToOne
+    private Category category;
     @ManyToMany
     private List<Ingredient> ingredients;
 
-    public Product(String name, double price, List<Category> categories, List<Ingredient> ingredients) {
+    @Lob
+    private byte[] image;
+
+    public Product(String name, double price, List<Ingredient> ingredients, byte[] image, Category category) {
         this.name = name;
         this.price = price;
-        this.categories = categories;
+        this.category = category;
         this.ingredients = ingredients;
+        this.image = image;
+    }
+
+    public Product(Long id, String name, double price, List<Ingredient> ingredients, byte[] image, Category category) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.ingredients = ingredients;
+        this.image = image;
     }
 
     public Product(String name, double price) {
