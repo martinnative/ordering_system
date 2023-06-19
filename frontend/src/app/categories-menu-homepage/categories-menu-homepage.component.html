@@ -1,310 +1,67 @@
 <div class="ct-menu-categories menu-filter">
     <div class="container">
-      <div class="menu-category-slider">
-        <a class="ct-menu-category-item active" (click)="setSelectedCategory(undefined)">
-            <div class="menu-category-thumb">
-              <img src="/assets/img/categories/6.jpg" alt="category">
-            </div>
-            <div class="menu-category-desc">
-              <h6>Сите категории</h6>
-            </div>
-          </a>
-        <a class="ct-menu-category-item" *ngFor="let category of categories" (click)="setSelectedCategory(category)">
-          <div class="menu-category-thumb">
-            <img src="/assets/img/categories/6.jpg" alt="category">
-          </div>
-          <div class="menu-category-desc">
-            <h6>{{category.name}}</h6>
-          </div>
-        </a>
-      </div>
+        <div class="menu-category-slider">
+            <a class="ct-menu-category-item active" (click)="resetFilter()">
+                <div class="menu-category-thumb">
+                    <img src="/assets/img/categories/6.jpg" alt="category">
+                </div>
+                <div class="menu-category-desc">
+                    <h6>Сите категории</h6>
+                </div>
+            </a>
+            <a class="ct-menu-category-item" *ngFor="let category of categories"
+                (click)="setSelectedCategory(category)">
+                <div class="menu-category-thumb">
+                    <img src="/assets/img/categories/6.jpg" alt="category">
+                </div>
+                <div class="menu-category-desc">
+                    <h6>{{category.name}}</h6>
+                </div>
+            </a>
+        </div>
     </div>
-  </div>
+</div>
 <!-- Menu Wrapper Start -->
 <div class="section section-padding">
-<div class="container">
+    <div class="container">
 
-<div class="menu-container row menu-v2">
+        <div class="menu-container row menu-v2">
 
-<!-- Product Start -->
-<div class="col-lg-4 col-md-6 pizzas">
-<div class="product">
-<div class="favorite">
-    <i class="far fa-heart"></i>
-</div>
-<a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/5.png" alt="menu item" /> </a>
-<div class="product-body">
-    <div class="product-desc">
-    <h4> <a href="menu-item-v1.html">Pepperoni</a> </h4>
-    <div class="ct-rating-wrapper">
-        <div class="ct-rating">
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
+                <div class="product">
+                    <div class="favorite">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/5.png"
+                            alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a href="menu-item-v1.html">{{product.name}}</a> </h4>
+                            <div class="ct-rating-wrapper">
+                                <div class="ct-rating">
+                                    <i class="fas fa-star active"></i>
+                                    <i class="fas fa-star active"></i>
+                                    <i class="fas fa-star active"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p>{{product.description}}</p>
+                            <a class="btn-custom light btn-sm shadow-none" (click)="openModal()" *ngIf="product.customizable"> Измени <i
+                                    class="fas fa-plus"></i> </a>
+                        </div>
+                        <div class="product-controls">
+                            <p class="product-price">{{product.price}} денари</p>
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Нарачај <i class="fas fa-shopping-cart"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
         </div>
-    </div>
-    <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-    <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
-    </div>
-    <div class="product-controls">
-    <p class="product-price">12.99$</p>
-    <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-    </div>
-</div>
-</div>
-</div>
-<!-- Product End -->
 
-<!-- Product Start -->
-<div class="col-lg-4 col-md-6 beverages desserts">
-<div class="product">
-<div class="favorite">
-    <i class="far fa-heart"></i>
-</div>
-<a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/13.png" alt="menu item" /> </a>
-<div class="product-body">
-    <div class="product-desc">
-    <h4> <a href="menu-item-v1.html">Rum With Soda</a> </h4>
-    <div class="ct-rating-wrapper">
-        <div class="ct-rating">
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        </div>
     </div>
-    <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-    </div>
-    <div class="product-controls">
-    <p class="product-price">3.99$</p>
-    <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-    </div>
-</div>
-</div>
-</div>
-<!-- Product End -->
-
-<!-- Product Start -->
-<div class="col-lg-4 col-md-6 desserts">
-<div class="product">
-<div class="favorite">
-    <i class="far fa-heart"></i>
-</div>
-<a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/12.png" alt="menu item" /> </a>
-<div class="product-body">
-    <div class="product-desc">
-    <h4> <a href="menu-item-v1.html">Chocolate Cookies</a> </h4>
-    <div class="ct-rating-wrapper">
-        <div class="ct-rating">
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        </div>
-    </div>
-    <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-    </div>
-    <div class="product-controls">
-    <p class="product-price">4.99$</p>
-    <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-    </div>
-</div>
-</div>
-</div>
-<!-- Product End -->
-
-<!-- Product Start -->
-<div class="col-lg-4 col-md-6 pizzas offers">
-<div class="product">
-<div class="favorite">
-    <i class="far fa-heart"></i>
-</div>
-<a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/2.png" alt="menu item" /> </a>
-<div class="product-body">
-    <div class="product-desc">
-    <h4> <a href="menu-item-v1.html">Vegetarian</a> </h4>
-    <div class="ct-rating-wrapper">
-        <div class="ct-rating">
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star"></i>
-        </div>
-    </div>
-    <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-    <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
-    </div>
-    <div class="product-controls">
-    <p class="product-price">9.99$</p>
-    <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-    </div>
-</div>
-</div>
-</div>
-<!-- Product End -->
-
-<!-- Product Start -->
-<div class="col-lg-4 col-md-6 pasta">
-<div class="product">
-<div class="favorite">
-    <i class="far fa-heart"></i>
-</div>
-<a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/11.png" alt="menu item" /> </a>
-<div class="product-body">
-    <div class="product-desc">
-    <h4> <a href="menu-item-v1.html">Sea Food Pasta</a> </h4>
-    <div class="ct-rating-wrapper">
-        <div class="ct-rating">
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star"></i>
-        </div>
-    </div>
-    <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-    <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
-    </div>
-    <div class="product-controls">
-    <p class="product-price">14.99$</p>
-    <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-    </div>
-</div>
-</div>
-</div>
-<!-- Product End -->
-
-<!-- Product Start -->
-<div class="col-lg-4 col-md-6 beverages offers">
-<div class="product">
-<div class="favorite">
-    <i class="far fa-heart"></i>
-</div>
-<a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/10.png" alt="menu item" /> </a>
-<div class="product-body">
-    <div class="product-desc">
-    <h4> <a href="menu-item-v1.html">Russian Beer</a> </h4>
-    <div class="ct-rating-wrapper">
-        <div class="ct-rating">
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star"></i>
-        </div>
-    </div>
-    <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-    </div>
-    <div class="product-controls">
-    <p class="product-price">14.99$</p>
-    <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-    </div>
-</div>
-</div>
-</div>
-<!-- Product End -->
-
-<!-- Product Start -->
-<div class="col-lg-4 col-md-6 pizzas">
-<div class="product">
-<div class="favorite">
-    <i class="far fa-heart"></i>
-</div>
-<a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/3.png" alt="menu item" /> </a>
-<div class="product-body">
-    <div class="product-desc">
-    <h4> <a href="menu-item-v1.html">Four Cheese</a> </h4>
-    <div class="ct-rating-wrapper">
-        <div class="ct-rating">
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star"></i>
-        </div>
-    </div>
-    <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-    <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
-    </div>
-    <div class="product-controls">
-    <p class="product-price">13.99$</p>
-    <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-    </div>
-</div>
-</div>
-</div>
-<!-- Product End -->
-
-<!-- Product Start -->
-<div class="col-lg-4 col-md-6 salads sides">
-<div class="product">
-<div class="favorite">
-    <i class="far fa-heart"></i>
-</div>
-<a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/15.png" alt="menu item" /> </a>
-<div class="product-body">
-    <div class="product-desc">
-    <h4> <a href="menu-item-v1.html">Ceaser Salad</a> </h4>
-    <div class="ct-rating-wrapper">
-        <div class="ct-rating">
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star"></i>
-        </div>
-    </div>
-    <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-    <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
-    </div>
-    <div class="product-controls">
-    <p class="product-price">10.99$</p>
-    <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-    </div>
-</div>
-</div>
-</div>
-<!-- Product End -->
-
-<!-- Product Start -->
-<div class="col-lg-4 col-md-6 sides">
-<div class="product">
-<div class="favorite">
-    <i class="far fa-heart"></i>
-</div>
-<a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/14.png" alt="menu item" /> </a>
-<div class="product-body">
-    <div class="product-desc">
-    <h4> <a href="menu-item-v1.html">Chicken Wrap</a> </h4>
-    <div class="ct-rating-wrapper">
-        <div class="ct-rating">
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        <i class="fas fa-star active"></i>
-        </div>
-    </div>
-    <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-    <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
-    </div>
-    <div class="product-controls">
-    <p class="product-price">5.99$</p>
-    <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-    </div>
-</div>
-</div>
-</div>
-<!-- Product End -->
-
-</div>
-
-</div>
 </div>
 <!-- Menu Wrapper End -->
 <!-- Menu Categories End -->

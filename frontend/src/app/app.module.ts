@@ -26,7 +26,10 @@ import { CustomizeModalComponent } from './customize-modal/customize-modal.compo
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PreloaderComponent } from './preloader/preloader.component';
 import { HeaderTransparentComponent } from './header-transparent/header-transparent.component';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,13 +53,18 @@ import { HeaderTransparentComponent } from './header-transparent/header-transpar
     CheckoutComponent,
     PreloaderComponent,
     HeaderTransparentComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SlickCarouselModule,
     NgOptimizedImage,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

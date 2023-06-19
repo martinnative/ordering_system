@@ -10,6 +10,7 @@ import java.util.List;
 
 public interface ProductService {
     List<Product> getAllProducts();
+    List<Product> getAllProductsByCategoryId(Long categoryId);
     Product getProductById(Long id) throws NotFoundByIdException;
     Product createProduct(Product product);
     Product updateProduct(Long id, Product product) throws NotFoundByIdException;

@@ -35,6 +35,12 @@ public class ProductController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/category/{id}")
+    public ResponseEntity<List<Product>> findProductsByCategoryId(@PathVariable Long id) {
+        List<Product> products = productService.getAllProductsByCategoryId(id);
+        return ResponseEntity.ok(products);
+    }
     @GetMapping("/{name}")
     public ResponseEntity<Product> getProductByName(@PathVariable String name) throws NotFoundByIdException {
         Product product = productService.getProductByName(name);
