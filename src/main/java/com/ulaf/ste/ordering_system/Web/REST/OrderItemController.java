@@ -53,8 +53,8 @@ public class OrderItemController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping
-    public ResponseEntity<List<OrderItem>> findAllOrderItemsWithCategory(String category) throws NotFoundByIdException {
+    @GetMapping("/{category}")
+    public ResponseEntity<List<OrderItem>> findAllOrderItemsWithCategory(@PathVariable String category) throws NotFoundByIdException {
         List<OrderItem> orderItems = orderItemService.findAllOrderItemsWithCategory(category);
         if(orderItems!=null)
         {
