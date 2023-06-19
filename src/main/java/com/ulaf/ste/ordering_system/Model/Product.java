@@ -17,18 +17,27 @@ public class Product {
     private Long id;
     private String name;
     private Double price;
-    @ManyToMany
-    private List<Category> categories;
+    @ManyToOne
+    private Category category;
     @ManyToMany
     private List<Ingredient> ingredients;
 
     @Lob
     private byte[] pizzaImage;
 
-    public Product(String name, double price, List<Category> categories, List<Ingredient> ingredients,byte[] pizzaImage) {
+    public Product(String name, double price, List<Ingredient> ingredients, byte[] pizzaImage, Category category) {
         this.name = name;
         this.price = price;
-        this.categories = categories;
+        this.category = category;
+        this.ingredients = ingredients;
+        this.pizzaImage = pizzaImage;
+    }
+
+    public Product(Long id, String name, double price, List<Ingredient> ingredients, byte[] pizzaImage, Category category) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
         this.ingredients = ingredients;
         this.pizzaImage = pizzaImage;
     }
