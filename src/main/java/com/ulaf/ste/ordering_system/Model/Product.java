@@ -23,23 +23,23 @@ public class Product {
     private List<Ingredient> ingredients;
 
     @Lob
-    private byte[] pizzaImage;
+    private byte[] image;
 
-    public Product(String name, double price, List<Ingredient> ingredients, byte[] pizzaImage, Category category) {
+    public Product(String name, double price, List<Ingredient> ingredients, byte[] image, Category category) {
         this.name = name;
         this.price = price;
         this.category = category;
         this.ingredients = ingredients;
-        this.pizzaImage = pizzaImage;
+        this.image = image;
     }
 
-    public Product(Long id, String name, double price, List<Ingredient> ingredients, byte[] pizzaImage, Category category) {
+    public Product(Long id, String name, double price, List<Ingredient> ingredients, byte[] image, Category category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.category = category;
         this.ingredients = ingredients;
-        this.pizzaImage = pizzaImage;
+        this.image = image;
     }
 
     public Product(String name, double price) {

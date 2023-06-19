@@ -1,6 +1,7 @@
 package com.ulaf.ste.ordering_system.Service;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
+import com.ulaf.ste.ordering_system.Model.Category;
 import com.ulaf.ste.ordering_system.Model.Product;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,7 +16,9 @@ public interface ProductService {
     Product getProductByName(String name);
     void deleteProduct(Long id);
 
-    Product uploadPizzaImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException;
+    Product uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException;
 
-    String getPizzaImageBase64(Long id) throws NotFoundByIdException;
+    String getImageBase64(Long id) throws NotFoundByIdException;
+
+    List<Product> findAllProductsWithCategory(String category) throws NotFoundByIdException;
 }
