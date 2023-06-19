@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,6 +18,7 @@ public class Product {
     private Long id;
     private String name;
     private Double price;
+    @JsonBackReference
     @ManyToOne
     private Category category;
     @ManyToMany
