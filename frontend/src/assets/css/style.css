@@ -67,6 +67,8 @@ Version: 1.0.0
     top: 0;
   }
 }
+.slick-dots{display: none !important;}
+
 @keyframes markerUpDown {
   0%{
     top: 0;

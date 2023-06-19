@@ -23,6 +23,7 @@ import {NgOptimizedImage} from "@angular/common";
 import { CategoriesMenuHomepageComponent } from './categories-menu-homepage/categories-menu-homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomizeModalComponent } from './customize-modal/customize-modal.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CustomizeModalComponent } from './customize-modal/customize-modal.compo
     FloatingCartComponent,
     SearchFormComponent,
     CustomizeModalComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
