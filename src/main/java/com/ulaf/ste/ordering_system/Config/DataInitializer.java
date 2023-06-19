@@ -50,6 +50,7 @@ public class DataInitializer {
         Ingredient ingredient1 = ingredientService.createIngredient(new Ingredient("Pechurke"));
         Ingredient ingredient2 = ingredientService.createIngredient(new Ingredient("Sirenje"));
 
+
         List<Ingredient> productIngredients = new ArrayList<>();
         productIngredients.add(ingredient1);
         List<Ingredient> productIngredients2 = new ArrayList<>();
@@ -57,9 +58,9 @@ public class DataInitializer {
 
         byte[] image1 = getPizzaImageBytes("margarita.png");
         byte[] image2 = getPizzaImageBytes("kaprichioza.png");
-
-        productService.createProduct(new Product(1L,"Margarita Pizza", 280.0, productIngredients, image1, category, true));
-        productService.createProduct(new Product(2L,"Kaprichioza Pizza", 320.0, productIngredients2, image2, category, true));
+        productService.createProduct(new Product("Margarita Pizza", 280.0,"Pizza with cheese and ketchup",true, productIngredients, image1, category));
+        productService.createProduct(new Product("Kaprichioza Pizza", 320.0,"Pizza with ham, cheese and mushrooms",true, productIngredients2, image2, category));
+        productService.createProduct(new Product("Coca Cola",120.0,"Cold drink",false,new ArrayList<>(),image1,cat2));
 
         List<OrderItem> listItems = new ArrayList<>();
         product_qtyRepository.save(new OrderItem(1L,productService.getProductById(1L), 2));

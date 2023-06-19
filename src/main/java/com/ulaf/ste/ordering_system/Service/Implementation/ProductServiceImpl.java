@@ -29,6 +29,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> getAllProductsByCategoryId(Long categoryId) {
+        return productRepository.findProductsByCategory(categoryRepository.findCategoryById(categoryId));
+    }
+
+    @Override
     public Product getProductById(Long id) throws NotFoundByIdException {
         return productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
     }
