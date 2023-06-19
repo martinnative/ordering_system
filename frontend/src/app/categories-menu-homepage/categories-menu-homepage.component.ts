@@ -34,8 +34,14 @@ export class CategoriesMenuHomepageComponent implements OnInit,AfterViewInit{
     this.selectedCategory = category;
     this.filteredProducts = this.products.filter(prod => prod.category.id == category.id);
   }
-  openModal() {
+  openModal(product:Product) {
     const modalRef = this.modalService.open(CustomizeModalComponent);
+    modalRef.componentInstance.product = product;
+    modalRef.result.then((result) => {
+      if(result) {
+        console.log(result)
+      }
+    });
   }
   resetFilter() {
     this.filteredProducts = this.products;

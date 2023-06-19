@@ -4,7 +4,7 @@ import { Ingredient } from "./Ingredient";
 export interface Product{
     id:Number,
     name:String,
-    price:Number,
+    price:number,
     description:String,
     ingredients:Ingredient[],
     customizable: boolean,

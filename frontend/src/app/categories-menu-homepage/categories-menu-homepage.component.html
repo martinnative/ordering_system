@@ -24,9 +24,7 @@
 <!-- Menu Wrapper Start -->
 <div class="section section-padding">
     <div class="container">
-
         <div class="menu-container row menu-v2">
-
             <!-- Product Start -->
             <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
                 <div class="product">
@@ -48,7 +46,7 @@
                                 </div>
                             </div>
                             <p>{{product.description}}</p>
-                            <a class="btn-custom light btn-sm shadow-none" (click)="openModal()" *ngIf="product.customizable"> Измени <i
+                            <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable"> Измени <i
                                     class="fas fa-plus"></i> </a>
                         </div>
                         <div class="product-controls">
