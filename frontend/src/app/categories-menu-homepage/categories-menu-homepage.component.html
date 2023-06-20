@@ -1,7 +1,7 @@
 <div class="ct-menu-categories menu-filter">
     <div class="container">
         <div class="menu-category-slider d-flex justify-content-center">
-            <a class="ct-menu-category-item active" (click)="resetFilter()">
+            <a class="ct-menu-category-item" (click)="resetFilter()" [ngClass]="{'active':!selectedCategory}">
                 <div class="menu-category-thumb">
                     <img src="/assets/img/categories/6.jpg" alt="category">
                 </div>
@@ -10,7 +10,8 @@
                 </div>
             </a>
             <a class="ct-menu-category-item" *ngFor="let category of categories"
-                (click)="setSelectedCategory(category)">
+                (click)="setSelectedCategory(category)"
+                [ngClass]="{'active':category == selectedCategory}">
                 <div class="menu-category-thumb">
                     <img src="/assets/img/categories/6.jpg" alt="category">
                 </div>
