@@ -12,7 +12,7 @@
         </div>
 
         <ul class="top-header-nav header-cta">
-          <li> <a href="/menu">Нарачај онлајн</a> </li>
+          <li> <a [routerLink]="['/menu']" routerLinkActive="router-link-active">Нарачај онлајн</a> </li>
         </ul>
 
       </div>
@@ -26,10 +26,10 @@
       <!-- Menu -->
       <ul class="navbar-nav">
         <li class="menu-item menu-item-has-children">
-          <a href=" ">Почетна</a>
+          <a [routerLink]="['']" routerLinkActive="router-link-active" >Почетна</a>
         </li>
         <li class="menu-item menu-item-has-children mega-menu-wrapper">
-          <a href="/menu">Мени</a>
+          <a [routerLink]="['/menu']" routerLinkActive="router-link-active" >Мени</a>
           <ul class="submenu">
             <li>
               <div class="container">
@@ -95,10 +95,10 @@
           </ul>
         </li>
         <li class="menu-item">
-          <a href="/about">За нас</a>
+          <a [routerLink]="['/about']" routerLinkActive="router-link-active">За нас</a>
         </li>
         <li class="menu-item">
-          <a href="/contact">Контакт</a>
+          <a [routerLink]="['/contact']" routerLinkActive="router-link-active" >Контакт</a>
         </li>
       </ul>
 
