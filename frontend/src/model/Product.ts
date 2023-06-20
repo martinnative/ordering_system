@@ -8,5 +8,5 @@ export interface Product{
     description:String,
     ingredients:Ingredient[],
     customizable: boolean,
-    category:Category
+    category:Category,
 }
