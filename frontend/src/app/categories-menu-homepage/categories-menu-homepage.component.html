@@ -26,6 +26,7 @@
 <div class="section section-padding">
     <div class="container">
         <div class="menu-container row menu-v2">
+            <div *ngIf="filteredProducts.length == 0" class="text-center">Нема достапни продукти во оваа категорија</div>
             <!-- Product Start -->
             <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
                 <div class="product">
