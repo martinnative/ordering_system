@@ -45,5 +45,6 @@ export class CategoriesMenuHomepageComponent implements OnInit,AfterViewInit{
   }
   resetFilter() {
     this.filteredProducts = this.products;
+    this.selectedCategory = undefined;
   }
 }

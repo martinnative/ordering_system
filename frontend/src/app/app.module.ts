@@ -54,8 +54,7 @@ import {FormsModule } from '@angular/forms'
     CustomizeModalComponent,
     CheckoutComponent,
     PreloaderComponent,
-    HeaderTransparentComponent,
-    
+    HeaderTransparentComponent
   ],
   imports: [
     BrowserModule,
