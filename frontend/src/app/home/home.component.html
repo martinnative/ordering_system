@@ -21,18 +21,7 @@
 </head>
 
 <body>
-
-  <!-- Preloader Start -->
-  <div class="ct-preloader" *ngIf="!loaded">
-    <div class="ct-preloader-inner">
-      <div class="lds-ripple"><div></div><div></div></div>
-    </div>
-  </div>
-  <!-- Preloader End -->
-
-  <!-- Customize Modal Start -->
-  <!-- <app-customize-modal></app-customize-modal> -->
-  <!-- Customize Modal End -->
+  <app-preloader></app-preloader>
 
   <app-header></app-header>
   <app-banner></app-banner>
@@ -50,6 +39,7 @@
   <app-instagram></app-instagram>
 
   <app-footer></app-footer>
+
 
   <!-- Vendor Scripts -->
   <script src="/assets/js/plugins/jquery-3.4.1.min.js"></script>
