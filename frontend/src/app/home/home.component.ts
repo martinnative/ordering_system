@@ -15,14 +15,6 @@ declare var $: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit,AfterViewInit {
-  slides = [
-    { image: '/assets/img/prods-sm/1.png', title: 'Pepperoni', price: '4x 9.99$' },
-    { image: '/assets/img/prods-sm/1.png', title: 'Pepperoni', price: '2x 9.99$' },
-    { image: '/assets/img/prods-sm/1.png', title: 'Pepperoni', price: '2x 9.99$' },
-    // Add other slide objects here
-  ];
-  loaded = false;
-
 
   ngAfterViewInit(): void {
     $('.banner-slider-3').slick({
@@ -37,7 +29,6 @@ export class HomeComponent implements OnInit,AfterViewInit {
   }
   
   ngOnInit(): void {
-    this.loaded = true;
     (function($) {
       'use strict';
     
@@ -77,34 +68,6 @@ export class HomeComponent implements OnInit,AfterViewInit {
       });
     
       /*-------------------------------------------------------------------------------
-      Isotope (Menu Categories)
-      -------------------------------------------------------------------------------*/
-      var $container = $('.menu-container');
-      $container.isotope({
-        filter: '*',
-        // animationOptions: {
-        //   duration: 750,
-        //   easing: 'linear',
-        //   queue: false
-        // }
-      });
-      $('.menu-filter a').on('click', function() {
-        $('.menu-filter .active').removeClass('active');
-        $(this).addClass('active');
-    
-        var selector = $(this).attr('data-filter');
-        $container.isotope({
-          filter: selector,
-          // animationOptions: {
-          //   duration: 750,
-          //   easing: 'linear',
-          //   queue: false
-          // }
-        });
-        return false;
-      });
-    
-      /*-------------------------------------------------------------------------------
       Sticky Header
       -------------------------------------------------------------------------------*/
       function doSticky() {
@@ -117,6 +80,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
         }
       }
       doSticky();
+      //TODO: REVIEW FOLLOWING LINES
       /*-------------------------------------------------------------------------------
       Aside Scroll
       -------------------------------------------------------------------------------*/
@@ -446,16 +410,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
           },
         ]
       });
-    
-      /*-------------------------------------------------------------------------------
-      Masonry
-      -------------------------------------------------------------------------------*/
-      $('.masonry').imagesLoaded(function() {
-        var isotopeContainer = $('.masonry');
-        isotopeContainer.isotope({
-          itemSelector: '.masonry-item',
-        });
-      });
+
     
       /*-------------------------------------------------------------------------------
       Add / Subtract Quantity
@@ -478,6 +433,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
       });
     
       //On resize events
+      //TODO:REVIEW
       $(window).on('resize', function() {
     
         initAsideScrollbar();

@@ -19,9 +19,9 @@ import { MobileNavigationComponent } from './mobile-navigation/mobile-navigation
 import { CartComponent } from './cart/cart.component';
 import { FloatingCartComponent } from './floating-cart/floating-cart.component';
 import { SearchFormComponent } from './search-form/search-form.component';
-import {NgOptimizedImage} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
 import { CategoriesMenuHomepageComponent } from './categories-menu-homepage/categories-menu-homepage.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomizeModalComponent } from './customize-modal/customize-modal.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PreloaderComponent } from './preloader/preloader.component';
@@ -31,6 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {FormsModule } from '@angular/forms'
+import { RouterModule } from '@angular/router';
+import { LoadingInterceptor } from './loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,6 @@ import {FormsModule } from '@angular/forms'
     HowWeDoItComponent,
     MakeYourOwnPizzaComponent,
     BannerComponent,
-    CategoriesMenuHomepageComponent,
     AboutComponent,
     MenuComponent,
     ContactComponent,
@@ -54,7 +55,8 @@ import {FormsModule } from '@angular/forms'
     CustomizeModalComponent,
     CheckoutComponent,
     PreloaderComponent,
-    HeaderTransparentComponent
+    HeaderTransparentComponent,
+    CategoriesMenuHomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +68,15 @@ import {FormsModule } from '@angular/forms'
     MatDialogModule,
     BrowserAnimationsModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    CommonModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-preloader',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./preloader.component.css']
 })
 export class PreloaderComponent {
-
+  constructor(public loader:LoadingService) {};
 }
