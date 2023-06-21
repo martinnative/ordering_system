@@ -41,6 +41,11 @@ public class ProductController {
         List<Product> products = productService.getAllProductsByCategoryId(id);
         return ResponseEntity.ok(products);
     }
+    @PostMapping("/{category_name}")
+    public ResponseEntity<List<Product>> findAllProductsWithCategory(@PathVariable String category_name) throws NotFoundByIdException {
+        List<Product> products = productService.findAllProductsWithCategory(category_name);
+        return ResponseEntity.ok(products);
+    }
     @GetMapping("/{name}")
     public ResponseEntity<Product> getProductByName(@PathVariable String name) throws NotFoundByIdException {
         Product product = productService.getProductByName(name);
@@ -84,5 +89,15 @@ public class ProductController {
     public ResponseEntity<String> getImageBase64(@PathVariable Long id) throws NotFoundByIdException {
         String base64Image = productService.getImageBase64(id);
         return ResponseEntity.ok(base64Image);
+    }
+
+    @PostMapping("/{id}/ratings")
+    public void addRating(@PathVariable Long id, @RequestBody int rating) throws NotFoundByIdException {
+        productService.addRatingByProductId(id, rating);
+    }
+
+    @GetMapping("/{id}/ratings")
+    public double findRatingByProductId(@PathVariable Long id) throws NotFoundByIdException {
+        return productService.findRatingByPId(id);
     }
 }
