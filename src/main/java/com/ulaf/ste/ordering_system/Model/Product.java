@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ListIndexBase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,6 +24,10 @@ public class Product {
     private String description;
     private Boolean customizable;
     private Boolean availability;
+
+    @ElementCollection
+    private List<Integer> ratings;
+
     @JsonManagedReference
     @ManyToOne
     private Category category;
@@ -40,7 +46,19 @@ public class Product {
         this.description = description;
         this.customizable = customizable;
         this.availability = availability;
+        this.ratings = new ArrayList<>();
     }
+    public double calculateAverageRating() {
+        if (this.ratings.isEmpty()) {
+            return 0;
+        }
+        int sum = 0;
+        for (int rating : this.ratings) {
+            sum += rating;
+        }
+        return (double) sum / this.ratings.size();
+    }
+
 //    public Product(Long id, String name, double price, List<Ingredient> ingredients, byte[] image, Category category) {
 //        this.id = id;
 //        this.name = name;

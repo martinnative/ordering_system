@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -79,6 +80,27 @@ public class ProductServiceImpl implements ProductService {
         }
         throw new NotFoundByIdException("Category not found.");
     }
+    @Override
+    public void addRatingByProductId(Long id, int rating) throws NotFoundByIdException {
+        Product product = productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
+        if (product != null) {
+            List<Integer> productRatingsList = product.getRatings();
+            productRatingsList.add(rating);
+            product.setRatings(productRatingsList);
+        }
+    }
+
+    @Override
+    public Integer findRatingByPId(Long id) throws NotFoundByIdException {
+        Product product = productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
+        if (product != null) {
+            return (int) product.calculateAverageRating();
+        }
+        return 0;
+    }
+
+
+
     @Override
     public Product uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException {
         Product product = getProductById(id);
