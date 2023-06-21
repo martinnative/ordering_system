@@ -15,24 +15,33 @@ export class CategoriesMenuHomepageComponent implements OnInit,AfterViewInit{
   products: Product[] = [];
   filteredProducts: Product[] = [];
   selectedCategory:Category|undefined = undefined;
-  
+
   constructor(private categoryService:CategoriesService,
     private modalService:NgbModal,
     private productsService:ProductsService
     ) {}
   ngAfterViewInit(): void {
   }
-  
+
   ngOnInit(): void {
-    this.categoryService.findAllCategories().subscribe(data => this.categories = data);
+    this.categoryService.findAllCategories().subscribe(data => {
+      this.categories = data;
+      this.categories.push({id:this.categories.length,name:"Сите категории",description:"Сите категории"});
+      this.categories = this.categories.reverse();
+    });
     this.productsService.findAllProducts().subscribe(data => {
       this.products = data;
       this.filteredProducts = data;
     });
   }
   setSelectedCategory(category:Category) {
-    this.selectedCategory = category;
-    this.filteredProducts = this.products.filter(prod => prod.category.id == category.id);
+    if(category.name == "Сите категории") {
+      this.resetFilter();
+    }
+    else {
+      this.selectedCategory = category;
+      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id);
+    }
   }
   openModal(product:Product) {
     const modalRef = this.modalService.open(CustomizeModalComponent);

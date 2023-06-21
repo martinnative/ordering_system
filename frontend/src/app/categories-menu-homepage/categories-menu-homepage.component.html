@@ -1,17 +1,9 @@
 <div class="ct-menu-categories menu-filter">
     <div class="container">
         <div class="menu-category-slider d-flex justify-content-center">
-            <a class="ct-menu-category-item" (click)="resetFilter()" [ngClass]="{'active':!selectedCategory}">
-                <div class="menu-category-thumb">
-                    <img src="/assets/img/categories/6.jpg" alt="category">
-                </div>
-                <div class="menu-category-desc">
-                    <h6>Сите категории</h6>
-                </div>
-            </a>
-            <a class="ct-menu-category-item" *ngFor="let category of categories"
+            <a class="ct-menu-category-item ps-4" *ngFor="let category of categories"
                 (click)="setSelectedCategory(category)"
-                [ngClass]="{'active':category == selectedCategory}">
+                [ngClass]="{'active':category == selectedCategory || category.name == 'Сите категории' && selectedCategory == undefined}">
                 <div class="menu-category-thumb">
                     <img src="/assets/img/categories/6.jpg" alt="category">
                 </div>
@@ -30,23 +22,11 @@
             <!-- Product Start -->
             <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
                 <div class="product">
-                    <div class="favorite">
-                        <i class="far fa-heart"></i>
-                    </div>
                     <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/5.png"
                             alt="menu item" /> </a>
                     <div class="product-body">
                         <div class="product-desc">
                             <h4> <a href="menu-item-v1.html">{{product.name}}</a> </h4>
-                            <div class="ct-rating-wrapper">
-                                <div class="ct-rating">
-                                    <i class="fas fa-star active"></i>
-                                    <i class="fas fa-star active"></i>
-                                    <i class="fas fa-star active"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
                             <p>{{product.description}}</p>
                             <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable"> Измени <i
                                     class="fas fa-plus"></i> </a>
