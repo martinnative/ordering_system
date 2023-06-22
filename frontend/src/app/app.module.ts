@@ -32,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { LoadingInterceptor } from './loading.interceptor';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { LoadingInterceptor } from './loading.interceptor';
     CheckoutComponent,
     PreloaderComponent,
     HeaderTransparentComponent,
-    CategoriesMenuHomepageComponent
+    CategoriesMenuHomepageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
