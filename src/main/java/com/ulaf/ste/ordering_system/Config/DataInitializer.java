@@ -66,8 +66,8 @@ public class DataInitializer {
 
         byte[] image1 = getPizzaImageBytes("margarita.png");
         byte[] image2 = getPizzaImageBytes("kaprichioza.png");
-        productService.createProduct(new Product("Margarita Pizza", 280.0,"Pizza with cheese and ketchup",true,true, productIngredients2, image1, category));
-        productService.createProduct(new Product("Kaprichioza Pizza", 320.0,"Pizza with ham, cheese and mushrooms",true,true, productIngredients, image2, category));
+        productService.createProduct(new Product("Маргарита", 280.0,"Pizza with cheese and ketchup",true,true, productIngredients2, image1, category));
+        productService.createProduct(new Product("Капричиоза", 320.0,"Pizza with ham, cheese and mushrooms",true,true, productIngredients, image2, category));
         productService.createProduct(new Product("Coca Cola",120.0,"Cold drink",false,true,new ArrayList<>(),image1,cat2));
 
         List<OrderItem> listItems = new ArrayList<>();
