@@ -10,7 +10,7 @@ export class ProductsService {
 
   constructor(private http:HttpClient) { }
 
-  findAllProducts():Observable<Product[]> {
-    return this.http.get<Product[]>('/api/products');
-  }
+  findAllProducts():Observable<Product[]> {return this.http.get<Product[]>('/api/products');}
+
+  findProductById(productId: String):Observable<Product>{return this.http.get<Product>('/api/products/${productId}');}
 }

@@ -34,6 +34,7 @@ import { RouterModule } from '@angular/router';
 import { LoadingInterceptor } from './loading.interceptor';
 import { NgScrollbarModule} from "ngx-scrollbar";
 import { LoginComponent } from './login/login.component';
+import { ProductSingleComponent } from './product-single/product-single.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { LoginComponent } from './login/login.component';
     PreloaderComponent,
     HeaderTransparentComponent,
     CategoriesMenuHomepageComponent,
-    LoginComponent
+    LoginComponent,
+    ProductSingleComponent
   ],
   imports: [
     BrowserModule,

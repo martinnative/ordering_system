@@ -20,13 +20,13 @@
         <div class="menu-container row menu-v2">
             <div *ngIf="filteredProducts.length == 0" class="text-center">Нема достапни продукти во оваа категорија</div>
             <!-- Product Start -->
-            <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
+            <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts" routerLink="/products/{{product.id}}">
                 <div class="product">
-                    <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/5.png"
+                    <a class="product-thumb"> <img src="/assets/img/prods-sm/5.png"
                             alt="menu item" /> </a>
                     <div class="product-body">
-                        <div class="product-desc">
-                            <h4> <a href="menu-item-v1.html">{{product.name}}</a> </h4>
+                        <div class="product-desc" routerLink="/products/{{product.id}}">
+                            <h4> {{product.name}} </h4>
                             <p>{{product.description}}</p>
                             <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable"> Измени <i
                                     class="fas fa-plus"></i> </a>
