@@ -1,148 +1,42 @@
 <!-- Cart Sidebar Start -->
-<div class="cart-sidebar-wrapper">
+<div class="cart-open">
   <aside class="cart-sidebar">
-    <div class="cart-sidebar-header">
-      <h3>Кошничка</h3>
-      <div class="close-btn cart-trigger close-dark">
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-    <div class="cart-sidebar-body">
-      <div class="cart-sidebar-scroll">
-        <div class="cart-sidebar-item">
-          <div class="media">
-            <a href="menu-item-v1.html"><img src="/assets/img/prods-sm/1.png" alt="product"></a>
-            <div class="media-body">
-              <h5> <a href="menu-item-v1.html" title="Pepperoni">Pepperoni</a> </h5>
-              <span>4x 9.99$</span>
-            </div>
-          </div>
-          <div class="cart-sidebar-item-meta">
-            <span>14 Inches</span>
-            <span>Extra Cheese</span>
-            <span>Cheese Crust</span>
-          </div>
-          <div class="cart-sidebar-price">
-            36.99$
-          </div>
-          <div class="close-btn">
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="cart-sidebar-item">
-          <div class="media">
-            <a href="menu-item-v1.html"><img src="/assets/img/prods-sm/2.png" alt="product"></a>
-            <div class="media-body">
-              <h5> <a href="menu-item-v1.html" title="Vegetarian">Vegetarian</a> </h5>
-              <span>2x 5.99$</span>
-            </div>
-          </div>
-          <div class="cart-sidebar-item-meta">
-            <span>14 Inches</span>
-          </div>
-          <div class="cart-sidebar-price">
-            12.99$
-          </div>
-          <div class="close-btn">
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="cart-sidebar-item">
-          <div class="media">
-            <a href="menu-item-v1.html"><img src="/assets/img/prods-sm/3.png" alt="product"></a>
-            <div class="media-body">
-              <h5> <a href="menu-item-v1.html" title="Italian Jalapeno Special">Italian Jalapeno Special</a> </h5>
-              <span>1x 12.99$</span>
-            </div>
-          </div>
-          <div class="cart-sidebar-item-meta">
-            <span>14 Inches</span>
-            <span>Extra Cheese</span>
-            <span>Cheese Crust</span>
-          </div>
-          <div class="cart-sidebar-price">
-            12.99$
-          </div>
-          <div class="close-btn">
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="cart-sidebar-item">
-          <div class="media">
-            <a href="menu-item-v1.html"><img src="/assets/img/prods-sm/4.png" alt="product"></a>
-            <div class="media-body">
-              <h5> <a href="menu-item-v1.html" title="Barbeque Chicken">Barbeque Chicken</a> </h5>
-              <span>4x 9.99$</span>
-            </div>
-          </div>
-          <div class="cart-sidebar-item-meta">
-            <span>12 Inches</span>
-            <span>Extra Cheese</span>
-            <span>Cheese Crust</span>
-            <span>Added Chicken</span>
-          </div>
-          <div class="cart-sidebar-price">
-            36.99$
-          </div>
-          <div class="close-btn">
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="cart-sidebar-item">
-          <div class="media">
-            <a href="menu-item-v1.html"><img src="/assets/img/prods-sm/5.png" alt="product"></a>
-            <div class="media-body">
-              <h5> <a href="menu-item-v1.html" title="Four Cheese">Four Cheese</a> </h5>
-              <span>2x 5.99$</span>
-            </div>
-          </div>
-          <div class="cart-sidebar-item-meta">
-            <span>12 Inches</span>
-            <span>Added Chicken</span>
-          </div>
-          <div class="cart-sidebar-price">
-            12.99$
-          </div>
-          <div class="close-btn">
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="cart-sidebar-item">
-          <div class="media">
-            <a href="menu-item-v1.html"><img src="/assets/img/prods-sm/6.png" alt="product"></a>
-            <div class="media-body">
-              <h5> <a href="menu-item-v1.html" title="Swiss Mushroom">Swiss Mushroom</a> </h5>
-              <span>1x 12.99$</span>
-            </div>
-          </div>
-          <div class="cart-sidebar-item-meta">
-            <span>12 Inches</span>
-            <span>Extra Cheese</span>
-            <span>Cheese Crust</span>
-            <span>Added Chicken</span>
-          </div>
-          <div class="cart-sidebar-price">
-            12.99$
-          </div>
-          <div class="close-btn">
-            <span></span>
-            <span></span>
-          </div>
+    <div class="cart-sidebar-wrapper">
+      <div class="cart-sidebar-header">
+        <h3>Кошничка</h3>
+        <div class="close-btn cart-trigger close-dark" (click)="closeModal()">
+          <span></span>
+          <span></span>
         </div>
       </div>
-    </div>
-    <div class="cart-sidebar-footer">
-      <h4>Вкупно: <span>299.00</span> ден.</h4>
-      <a href="/checkout" class="btn-custom">Кон наплата</a>
+      <div class="cart-sidebar-body">
+        <ng-scrollbar style="height:500px">
+          <div class="cart-sidebar-item" *ngFor="let cartItem of cartItems">
+            <div class="media">
+              <a href="menu-item-v1.html"><img src="/assets/img/prods-sm/1.png" alt="product"></a>
+              <div class="media-body">
+                <h5><span>{{cartItem.product.name}}</span></h5>
+                <span>{{cartItem.quantity}} * {{cartItem.product.price}}</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-item-meta">
+              <span *ngFor="let ingredient of cartItem.product.ingredients">{{ingredient.name}}</span>
+            </div>
+            <div class="cart-sidebar-price">
+              {{cartItem.quantity * cartItem.product.price}} ден.
+            </div>
+            <div class="close-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </ng-scrollbar>
+      </div>
+      <div class="cart-sidebar-footer">
+        <h4>Вкупно: <span>{{calculateTotal()}}</span> ден.</h4>
+        <a href="/checkout" class="btn-custom">Кон наплата</a>
+      </div>
     </div>
   </aside>
-  <div class="cart-sidebar-overlay cart-trigger">
-  </div>
 </div>
 <!-- Cart Sidebar End -->
