@@ -5,7 +5,6 @@ import {Product} from 'src/model/Product';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap'
 import {CustomizeModalComponent} from '../customize-modal/customize-modal.component';
 import {ProductsService} from '../products.service';
-import {OrderItem} from "../../model/OrderItem";
 import {ShoppingCartService} from "../shopping-cart.service";
 
 @Component({

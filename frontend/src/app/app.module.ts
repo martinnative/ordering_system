@@ -32,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { LoadingInterceptor } from './loading.interceptor';
+import { NgScrollbarModule} from "ngx-scrollbar";
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -68,10 +69,11 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    NgbModule,
     FormsModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    NgbModule,
+    NgScrollbarModule
   ],
   providers: [
     {

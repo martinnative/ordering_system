@@ -54,6 +54,10 @@ export class ShoppingCartService {private cartItems: OrderItem[] = [];
       this.cartItems = JSON.parse(this.decrypt(storedItems));
     }
   }
+
+  calculateTotal(): number {
+    return this.getCartItems().map(a => a.product.price * a.quantity).reduce((a,b) => a+b,0);
+  }
   encrypt(message:string):String {
     var encrypted = CryptoJS.AES.encrypt(message, this.key, {
       keySize: 128 / 8,

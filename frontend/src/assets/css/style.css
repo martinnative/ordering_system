@@ -1321,6 +1321,7 @@ table img{
   -o-transition: opacity .3s;
   transition: opacity .3s;
 }
+
 .cart-open .cart-sidebar{
   right: 0;
 }
@@ -4049,52 +4050,6 @@ td.quantity{
   background-color: #1D2228;
 }
 
-/* 8.5. About Us */
-.imgs-wrapper{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-.imgs-wrapper img{
-  position: absolute;
-  max-width: 300px;
-}
-.imgs-wrapper img:nth-child(1){
-  top: 150px;
-  left: -100px;
-}
-.imgs-wrapper img:nth-child(2){
-  right: -100px;
-  bottom: 0;
-}
-.signature{
-  width: 220px;
-  margin-bottom: 20px;
-}
-
-.ct-single-img-wrapper .ct-dots{
-  width: 100%;
-  height: 100%;
-  content: '';
-  background-position: 0 0,6px 6px;
-  background-size: 12px 12px;
-  position: absolute;
-  display: block;
-  background-image: -o-radial-gradient(#d1d4d8 1px,transparent 1px),-o-radial-gradient(#d1d4d8 1px,transparent 1px);
-  background-image: radial-gradient(#d1d4d8 1px,transparent 1px),radial-gradient(#d1d4d8 1px,transparent 1px);
-  -webkit-transition: opacity .3s;
-  -o-transition: opacity .3s;
-  transition: opacity .3s;
-  background-color: transparent;
-  top: -17px;
-  left: 17px;
-  opacity: 1;
-  z-index: -1;
-}
-.ct-single-img-wrapper img{
-  border-radius: 8px;
-}
 
 /* 8.6. 404 Pages */
 .page-404-wrapper{

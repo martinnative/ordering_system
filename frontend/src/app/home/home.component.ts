@@ -27,11 +27,11 @@ export class HomeComponent implements OnInit,AfterViewInit {
       adaptiveHeight: true
     });
   }
-  
+
   ngOnInit(): void {
     (function($) {
       'use strict';
-    
+
       /*-------------------------------------------------------------------------------
       Aside Menu
       -------------------------------------------------------------------------------*/
@@ -43,36 +43,29 @@ export class HomeComponent implements OnInit,AfterViewInit {
         e.preventDefault();
         submenu.slideToggle(200);
       })
-    
-      /*-------------------------------------------------------------------------------
-      Cart Trigger
-      -------------------------------------------------------------------------------*/
-      $(".cart-trigger").on('click', function(e) {
-        $("body").toggleClass('cart-open');
-      });
-    
+
       /*-------------------------------------------------------------------------------
       Search Trigger
       -------------------------------------------------------------------------------*/
       $(".search-trigger").on('click', function(e) {
         $(".search-form-wrapper").toggleClass('open');
       });
-    
+
       /*-------------------------------------------------------------------------------
       Checkout Notices
       -------------------------------------------------------------------------------*/
       $(".ct-notice a").on('click', function(e){
         e.preventDefault();
-    
+
         $(this).closest('.ct-notice').next().slideToggle();
       });
-    
+
       /*-------------------------------------------------------------------------------
       Sticky Header
       -------------------------------------------------------------------------------*/
       function doSticky() {
         var header = $(".can-sticky");
-    
+
         if (window.pageYOffset > 50) {
           header.addClass("sticky");
         } else {
@@ -88,55 +81,32 @@ export class HomeComponent implements OnInit,AfterViewInit {
         const mainAside = $('.main-aside');
         const navbarBrand = $(".main-aside .navbar-brand");
         const asideScroll = $('.aside-scroll')[0]; // Get the DOM element
-      
+
         const scrollHeight = mainAside.innerHeight()! - navbarBrand.innerHeight()!; // Calculate the height of the scroll container
         const calculatedHeight = isNaN(scrollHeight) ? "auto" : scrollHeight;
-      
+
         const ps = new PerfectScrollbar(asideScroll, {
           wheelPropagation: true,
           wheelSpeed: 5,
           swipeEasing: true,
           suppressScrollX: true,
         });
-      
+
         // Set the height of the PerfectScrollbar container
         $(asideScroll).height(calculatedHeight);
-      
+
         // Optional: Destroy the PerfectScrollbar instance when it's no longer needed
         // ps.destroy();
       }
-      
+
       initAsideScrollbar();
       /*-------------------------------------------------------------------------------
       Cart Scroll
       -------------------------------------------------------------------------------*/
 
-      function initCartScrollbar() {
-        const cartSidebar = $('.cart-sidebar');
-        const cartSidebarHeader = $('.cart-sidebar .cart-sidebar-header');
-        const cartSidebarFooter = $('.cart-sidebar .cart-sidebar-footer');
-        const cartSidebarScroll = $('.cart-sidebar-scroll')[0]; // Get the DOM element
-      
-        const scrollHeight = cartSidebar.innerHeight()! - cartSidebarHeader.innerHeight()! - cartSidebarFooter.innerHeight()! - 40; // Calculate the height of the scroll container
-        const calculatedHeight = isNaN(scrollHeight) ? "auto" : scrollHeight;
-      
-        const ps = new PerfectScrollbar(cartSidebarScroll, {
-          wheelPropagation: true,
-          wheelSpeed: 5,
-          swipeEasing: true,
-          suppressScrollX: true
-        });
-      
-        // Set the height of the PerfectScrollbar container
-        $(cartSidebarScroll).height(calculatedHeight);
-      
-        // Optional: Destroy the PerfectScrollbar instance when it's no longer needed
-        // ps.destroy();
-      }
-      
-      initCartScrollbar();
-      
-    
+
+
+
       /*-------------------------------------------------------------------------------
       Tooltips
       -------------------------------------------------------------------------------*/
@@ -144,7 +114,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
       // tooltipTriggerList.map(function (tooltipTriggerEl) {
       //   return new bootstrap.Tooltip(tooltipTriggerEl)
       // });
-    
+
       /*-------------------------------------------------------------------------------
       Magnific Popup
       -------------------------------------------------------------------------------*/
@@ -162,7 +132,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
       //   gallery: {
       //     enabled: true
       //   },
-      // }); 
+      // });
     // TODO: FIX
       /*-------------------------------------------------------------------------------
       Banner Slider (Home 1)
@@ -180,7 +150,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
           }
         }]
       });
-    
+
       /*-------------------------------------------------------------------------------
       Banner Slider Nav (Home 1)
       -------------------------------------------------------------------------------*/
@@ -208,7 +178,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
           }
         ]
       });
-    
+
       /*-------------------------------------------------------------------------------
       Gallery Slider (Home 3)
       -------------------------------------------------------------------------------*/
@@ -234,8 +204,8 @@ export class HomeComponent implements OnInit,AfterViewInit {
           }
         ]
       });
-    
-    
+
+
       /*-------------------------------------------------------------------------------
       Banner Slider (Home 2)
       -------------------------------------------------------------------------------*/
@@ -251,7 +221,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
           }
         }]
       });
-    
+
       /*-------------------------------------------------------------------------------
       Category Slider (Home 2)
       -------------------------------------------------------------------------------*/
@@ -270,7 +240,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
           }
         }]
       });
-    
+
       /*-------------------------------------------------------------------------------
       Banner Slider (Home 3)
       -------------------------------------------------------------------------------*/
@@ -306,7 +276,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
       $('.banner-slider-3').on('afterChange', function(event, slick, currentSlide, nextSlide) {
         $(".banner-3 .current-slide span").text(currentSlide + 1);
       });
-    
+
       /*-------------------------------------------------------------------------------
       Related Posts slider
       -------------------------------------------------------------------------------*/
@@ -322,7 +292,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
           }
         }]
       });
-    
+
       /*-------------------------------------------------------------------------------
       Testimonials Slider (Home 1)
       -------------------------------------------------------------------------------*/
@@ -348,7 +318,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
           }
         ]
       });
-    
+
       /*-------------------------------------------------------------------------------
       Products Slider (Home 1)
       -------------------------------------------------------------------------------*/
@@ -374,7 +344,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
           }
         ]
       });
-    
+
       /*-------------------------------------------------------------------------------
       Menu Category Slider
       -------------------------------------------------------------------------------*/
@@ -411,7 +381,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
         ]
       });
 
-    
+
       /*-------------------------------------------------------------------------------
       Add / Subtract Quantity
       -------------------------------------------------------------------------------*/
@@ -424,23 +394,22 @@ export class HomeComponent implements OnInit,AfterViewInit {
       //     return qtyVal > 1 ? qty.val(qtyVal - 1) : 0;
       //   }
       // })
-    
+
       //On scroll events
       $(window).on('scroll', function() {
-    
+
         doSticky();
-    
+
       });
-    
+
       //On resize events
       //TODO:REVIEW
       $(window).on('resize', function() {
-    
+
         initAsideScrollbar();
-        initCartScrollbar();
-    
+
       });
-    
+
     })(jQuery);
   }
 
