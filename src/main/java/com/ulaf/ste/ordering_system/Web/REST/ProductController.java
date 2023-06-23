@@ -29,6 +29,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) throws NotFoundByIdException {
+        System.out.println(id);
         Product product = productService.getProductById(id);
         if (product != null) {
             return ResponseEntity.ok(product);
@@ -46,7 +47,7 @@ public class ProductController {
         List<Product> products = productService.findAllProductsWithCategory(category_name);
         return ResponseEntity.ok(products);
     }
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<Product> getProductByName(@PathVariable String name) throws NotFoundByIdException {
         Product product = productService.getProductByName(name);
         if (product != null) {

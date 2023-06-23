@@ -19,9 +19,6 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent},
   { path: 'najava', component: LoginComponent},
   { path: 'product/:id', component: ProductSingleComponent},
-
-
-
 ];
 
 @NgModule({

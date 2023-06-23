@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from "../../model/Product";
 import { ProductsService } from "../products.service";
 import { ActivatedRoute } from "@angular/router";
+import {filter, map, mergeMap, tap} from "rxjs";
 
 @Component({
   selector: 'app-product-single',
@@ -19,11 +20,13 @@ export class ProductSingleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this._id = params['id'];
-      this.productsService.findProductById(this._id).subscribe(product => {
-        this.product = product;
-      });
-    });
+    this.productsService.findProductById(1);
+    this.route.paramMap.pipe(
+      filter(params => params.has("id")),
+      map(param => +param.get("id")!),
+      mergeMap(p => this.productsService.findProductById(p)),
+      tap(data => console.log(data))
+    )
+      .subscribe(data => this.product = data);
   }
 }
