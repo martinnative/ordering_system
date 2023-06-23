@@ -26,168 +26,18 @@
 <body>
 <app-header></app-header>
 <div *ngIf="product">
-<!-- Customize Modal Start -->
-<div class="modal fade" id="customizeModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header modal-bg" style="background-image: url('/assets/img/blog/11.jpg')">
 
-        <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
-          <span></span>
-          <span></span>
-        </button>
-
-      </div>
-      <div class="modal-body">
-
-        <div class="customize-meta">
-          <h4 class="customize-title">{{product.name}} <span class="custom-primary">{{product.price}}</span> </h4>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-          </p>
-        </div>
-
-        <div class="customize-variations">
-
-          <div class="customize-size-wrapper">
-            <h5>Size: </h5>
-            <div class="customize-size active">
-              11"
-            </div>
-            <div class="customize-size">
-              16"
-            </div>
-            <div class="customize-size">
-              21"
-            </div>
-          </div>
-
-          <div class="row">
-
-            <!-- Variation Start -->
-            <div class="col-lg-4 col-12">
-              <div class="customize-variation-wrapper">
-                <i class="flaticon-bread-roll"></i>
-                <h5>Dough</h5>
-                <div class="customize-variation-item" data-price="0.00">
-                  <div class="custom-control custom-radio">
-                    <input type="radio" checked id="regularDough" name="dough" class="custom-control-input">
-                    <label class="custom-control-label" for="regularDough">Regular</label>
-                  </div>
-                  <span>+0.00$</span>
-                </div>
-                <div class="customize-variation-item" data-price="2.00">
-                  <div class="custom-control custom-radio">
-                    <input type="radio" id="thinDough" name="dough" class="custom-control-input">
-                    <label class="custom-control-label" for="thinDough">Hand Flipped</label>
-                  </div>
-                  <span>+2.00$</span>
-                </div>
-                <div class="customize-variation-item" data-price="4.00">
-                  <div class="custom-control custom-radio">
-                    <input type="radio" id="multiGrainDough" name="dough" class="custom-control-input">
-                    <label class="custom-control-label" for="multiGrainDough">Multi Grain</label>
-                  </div>
-                  <span>+4.00$</span>
-                </div>
-              </div>
-            </div>
-            <!-- Variation End -->
-
-            <!-- Variation Start -->
-            <div class="col-lg-4 col-12">
-              <div class="customize-variation-wrapper">
-                <i class="flaticon-pizza-slice"></i>
-                <h5>Crust</h5>
-                <div class="customize-variation-item" data-price="4.00">
-                  <div class="custom-control custom-radio">
-                    <input type="radio" id="cheeseCrust" name="crust" class="custom-control-input">
-                    <label class="custom-control-label" for="cheeseCrust">Cheese</label>
-                  </div>
-                  <span>+4.00$</span>
-                </div>
-                <div class="customize-variation-item" data-price="3.25">
-                  <div class="custom-control custom-radio">
-                    <input type="radio" id="butterCrust" name="crust" class="custom-control-input">
-                    <label class="custom-control-label" for="butterCrust">Butter</label>
-                  </div>
-                  <span>+3.25$</span>
-                </div>
-              </div>
-            </div>
-            <!-- Variation End -->
-
-            <!-- Variation Start -->
-            <div class="col-lg-4 col-12">
-              <div class="customize-variation-wrapper">
-                <i class="flaticon-pizza-and-cutted-slice"></i>
-                <h5>Add</h5>
-                <div class="customize-variation-item" data-price="2.00">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="addChicken">
-                    <label class="custom-control-label" for="addChicken">Chicken</label>
-                  </div>
-                  <span>+2.00$</span>
-                </div>
-                <div class="customize-variation-item" data-price="1.20">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="addFourCheese">
-                    <label class="custom-control-label" for="addFourCheese">Four Cheese</label>
-                  </div>
-                  <span>+1.20$</span>
-                </div>
-                <div class="customize-variation-item" data-price="0.75">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="addFreshMushroom">
-                    <label class="custom-control-label" for="addFreshMushroom">Fresh Mushroom</label>
-                  </div>
-                  <span>+0.75$</span>
-                </div>
-                <div class="customize-variation-item" data-price="0.25">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="addBellPepper">
-                    <label class="custom-control-label" for="addBellPepper">Bell Peppers</label>
-                  </div>
-                  <span>+0.25$</span>
-                </div>
-              </div>
-            </div>
-            <!-- Variation End -->
-
-          </div>
-        </div>
-
-        <div class="customize-controls">
-          <div class="qty">
-            <span class="qty-subtract"><i class="fas fa-minus"></i></span>
-            <input type="text" name="qty" value="1">
-            <span class="qty-add"><i class="fas fa-plus"></i></span>
-          </div>
-          <div class="customize-total" data-price="13.99">
-            <h5>Total Price: <span class="final-price custom-primary">13.99 <span>$</span> </span> </h5>
-          </div>
-        </div>
-
-        <button type="button" class="btn-custom btn-block">Order Now</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Customize Modal End -->
 
 
 
 <!-- Subheader Start -->
-<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('/assets/img/subheader.jpg')">
+<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('/assets/img/pexels-marta-dzedyshko-2067401.jpg')">
   <div class="container">
     <div class="subheader-inner">
-      <h1>Menu Item v1</h1>
+      <h1></h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Menu</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Menu Item v1</li>
+
         </ol>
       </nav>
     </div>
@@ -213,34 +63,22 @@
         <div class="product-content">
 
           <!-- Product Title -->
-          <h2 class="title">Pepperoni Pizza</h2>
+          <h2 class="title">{{product.name}}</h2>
           <!-- /Product Title -->
 
           <div class="favorite">
             <i class="far fa-heart"></i>
           </div>
 
-          <!-- Rating -->
-          <div class="ct-rating-wrapper">
-            <div class="ct-rating">
-              <i class="fas fa-star active"></i>
-              <i class="fas fa-star active"></i>
-              <i class="fas fa-star active"></i>
-              <i class="fas fa-star active"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <span>(24 ratings)</span>
-          </div>
-          <!-- /Rating -->
 
           <!-- Price -->
           <div class="price-wrapper">
-            <p class="product-price">14.99$</p>
+            <p class="product-price">{{product.price}}ден.</p>
           </div>
           <!-- /Price -->
 
           <!-- Product Short Description -->
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+          <p>{{product.description}}</p>
           <!-- /Product Short Description -->
 
           <!-- Variations -->
@@ -410,17 +248,15 @@
           <!-- Product Meta -->
           <ul class="product-meta">
             <li>
-              <span>Categories: </span>
+              <span>Категорија: </span>
               <div class="product-meta-item">
-                <a href="#">Pizza</a>
+                <a>{{product.category.name}}</a>
               </div>
             </li>
             <li>
-              <span>Tags: </span>
+              <span>Состјки: </span>
               <div class="product-meta-item">
-                <a href="#">Pizza</a>,
-                <a href="#">Cheese</a>,
-                <a href="#">Cheesy Crusts</a>
+                <a *ngFor="let ingredient of product.ingredients">{{ ingredient.name }}, </a>
               </div>
             </li>
             <li>
@@ -560,74 +396,7 @@
 <div class="section section-padding related-products pt-0">
   <div class="container">
     <h3>You might also like</h3>
-
-    <div class="row menu-v2">
-      <!-- Product Start -->
-      <div class="col-lg-4 col-md-6">
-        <div class="product">
-          <div class="favorite">
-            <i class="far fa-heart"></i>
-          </div>
-          <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/1.png" alt="menu item" /> </a>
-          <div class="product-body">
-            <div class="product-desc">
-              <h4> <a href="menu-item-v1.html">Four Cheese</a> </h4>
-              <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-              <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
-            </div>
-            <div class="product-controls">
-              <p class="product-price">12.99$</p>
-              <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Product End -->
-
-      <!-- Product Start -->
-      <div class="col-lg-4 col-md-6">
-        <div class="product">
-          <div class="favorite">
-            <i class="far fa-heart"></i>
-          </div>
-          <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/2.png" alt="menu item" /> </a>
-          <div class="product-body">
-            <div class="product-desc">
-              <h4> <a href="menu-item-v1.html">Barbqeue Chicken</a> </h4>
-              <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-              <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
-            </div>
-            <div class="product-controls">
-              <p class="product-price">12.99$</p>
-              <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Product End -->
-
-      <!-- Product Start -->
-      <div class="col-lg-4 col-md-6">
-        <div class="product">
-          <div class="favorite">
-            <i class="far fa-heart"></i>
-          </div>
-          <a class="product-thumb" href="menu-item-v1.html"> <img src="/assets/img/prods-sm/5.png" alt="menu item" /> </a>
-          <div class="product-body">
-            <div class="product-desc">
-              <h4> <a href="menu-item-v1.html">Vegetarian</a> </h4>
-              <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-              <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal" data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
-            </div>
-            <div class="product-controls">
-              <p class="product-price">12.99$</p>
-              <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Product End -->
-    </div>
+    <app-categories-menu-homepage></app-categories-menu-homepage>
 
   </div>
 </div>
