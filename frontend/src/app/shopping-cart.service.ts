@@ -8,7 +8,8 @@ import {environment} from "@ng-bootstrap/ng-bootstrap/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class ShoppingCartService {private cartItems: OrderItem[] = [];
+export class ShoppingCartService {
+  private cartItems: OrderItem[] = [];
 
   private key = CryptoJS.enc.Utf8.parse("1203199320052021");
   private iv = CryptoJS.enc.Utf8.parse("1203199320052021");
@@ -54,7 +55,6 @@ export class ShoppingCartService {private cartItems: OrderItem[] = [];
       this.cartItems = JSON.parse(this.decrypt(storedItems));
     }
   }
-
   calculateTotal(): number {
     return this.getCartItems().map(a => a.product.price * a.quantity).reduce((a,b) => a+b,0);
   }

@@ -7,11 +7,8 @@
   <title>Slices - Pizzeria HTML Template</title>
 
   <!-- Vendor Stylesheets -->
-  <link rel="stylesheet" href="/assets/css/plugins/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/css/plugins/animate.min.css">
   <link rel="stylesheet" href="/assets/css/plugins/magnific-popup.css">
-  <link rel="stylesheet" href="/assets/css/plugins/slick.css">
-  <link rel="stylesheet" href="/assets/css/plugins/slick-theme.css">
   <!-- Icon Fonts -->
   <link rel="stylesheet" href="/assets/fonts/flaticon/flaticon.css">
   <link rel="stylesheet" href="/assets/fonts/font-awesome/css/all.min.css">
@@ -90,53 +87,25 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td data-title="Product">
-                <div class="cart-product-wrapper">
-                  <div class="cart-product-body">
-                    <h6> <a href="#">Pepperoni</a> </h6>
-                    <p>21 Inch</p>
-                    <p>Extra Cheese</p>
-                    <p>Extra Pepperoni</p>
-                    <p>Cheese Crust</p>
-                    <p>Added Bacon</p>
-                  </div>
-                </div>
-              </td>
-              <td data-title="Quantity">x1</td>
-              <td data-title="Total"> <strong>23.99$</strong> </td>
-            </tr>
-            <tr>
-              <td data-title="Product">
-                <div class="cart-product-wrapper">
-                  <div class="cart-product-body">
-                    <h6> <a href="#">Vegetarian</a> </h6>
-                    <p>14 Inch</p>
-                  </div>
-                </div>
-              </td>
-              <td data-title="Quantity">x1</td>
-              <td data-title="Total"> <strong>9.99$</strong> </td>
-            </tr>
-            <tr>
-              <td data-title="Product">
-                <div class="cart-product-wrapper">
-                  <div class="cart-product-body">
-                    <h6> <a href="#">Four Cheese</a> </h6>
-                    <p>21 Inch</p>
-                    <p>Added Cheese</p>
-                  </div>
-                </div>
-              </td>
-              <td data-title="Quantity">x2</td>
-              <td data-title="Total"> <strong>13.99$</strong> </td>
-            </tr>
-            <tr class="total">
+            <tr *ngFor="let orderItem of orderItems">
               <td>
-                <h6 class="mb-0">Вкупно за наплата:</h6>
+                <div class="cart-product-wrapper">
+                  <div class="cart-product-body">
+                    <h6> {{orderItem.product.name}} </h6>
+                    <p *ngFor="let ingredient of orderItem.product.ingredients">{{ingredient.name}}</p>
+                  </div>
+                </div>
               </td>
-              <td></td>
-              <td> <strong>56.99 ден.</strong> </td>
+              <td>{{orderItem.quantity}}</td>
+              <td> <strong>{{orderItem.product.price * orderItem.quantity}} ден.</strong> </td>
+            </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody>
+            <tr>
+              <th>Вкупно за наплата</th>
+              <td> <b>{{getTotalFromCart()}} денари.</b> </td>
             </tr>
             </tbody>
           </table>
