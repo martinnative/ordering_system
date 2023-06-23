@@ -1,0 +1,41 @@
+.qty{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.qty span{
+  cursor: pointer;
+  width: 40px;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,.1);
+  font-size: 13px;
+  background-color: #fff;
+}
+.qty span:hover{
+  background-color: #f9f9f9;
+}
+.qty span.qty-subtract{
+  border-right: 0;
+  border-radius: 25px 0 0 25px;
+}
+.qty span.qty-add{
+  border-left: 0;
+  border-radius: 0 25px 25px 0;
+}
+.qty input{
+  background-color: #fff;
+  border: 0;
+  outline: none;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,.1);
+}

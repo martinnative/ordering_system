@@ -1,66 +1,67 @@
 <div *ngIf="product">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header modal-bg" style="background-image: url('/assets/img/blog/11.jpg')">
-          <button type="button" class="close-btn" (click)="closeModal()">
-            <span></span>
-            <span></span>
-          </button>
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header modal-bg" style="background-image: url('/assets/img/blog/11.jpg')">
+        <button type="button" class="close-btn" (click)="closeModal()">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="customize-meta">
+          <h4 class="customize-title">{{product.name}} <span class="custom-primary">{{product.price}} денари</span></h4>
+          <p>
+            {{product.description}}
+          </p>
         </div>
-        <div class="modal-body">
-          <div class="customize-meta">
-            <h4 class="customize-title">{{product.name}} <span class="custom-primary">{{product.price}} денари</span> </h4>
-            <p>
-                {{product.description}}
-            </p>
+
+        <div class="customize-variations">
+
+          <!-- <div class="customize-size-wrapper"> -->
+          <h5>Големина: <span class="text-muted">стандардна</span></h5>
+          <!-- <div class="customize-size active">
+            11"
           </div>
+          <div class="customize-size">
+            16"
+          </div>
+          <div class="customize-size">
+            21"
+          </div>
+        </div> -->
 
-          <div class="customize-variations">
-
-            <!-- <div class="customize-size-wrapper"> -->
-              <h5>Големина: <span class="text-muted">стандардна</span> </h5>
-              <!-- <div class="customize-size active">
-                11"
-              </div>
-              <div class="customize-size">
-                16"
-              </div>
-              <div class="customize-size">
-                21"
-              </div>
-            </div> -->
-
-            <div class="row">
-              <!-- Variation Start -->
-              <div class="col-lg-6 col-12">
-                <div class="customize-variation-wrapper">
-                  <i class="flaticon-pizza-and-cutted-slice"></i>
-                  <h5>Состојки</h5>
-                  <div class="customize-variation-item" *ngFor="let ingredient of product.ingredients">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input">
-                      <label class="custom-control-label">{{ingredient.name}}</label>
-                    </div>
+          <div class="row">
+            <!-- Variation Start -->
+            <div class="col-lg-6 col-12">
+              <div class="customize-variation-wrapper">
+                <i class="flaticon-pizza-and-cutted-slice"></i>
+                <h5>Состојки</h5>
+                <div class="customize-variation-item" *ngFor="let ingredient of product.ingredients">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input">
+                    <label class="custom-control-label">{{ingredient.name}}</label>
                   </div>
                 </div>
               </div>
-              <!-- Variation End -->
+            </div>
+            <!-- Variation End -->
 
-            </div>
           </div>
-
-          <div class="customize-controls">
-            <div class="qty">
-              <span class="qty-subtract" (click)="subQuantity()"><i class="fas fa-minus"></i></span>
-              <input type="text" name="quantity" [(ngModel)]="quantity">
-              <span class="qty-add" (click)="addQuantity()"><i class="fas fa-plus"></i></span>
-            </div>
-            <div class="customize-total">
-              <h5>Вкупна цена: <span class="final-price custom-primary">{{product.price * quantity}} <span>денари</span> </span> </h5>
-            </div>
-          </div>
-          <button type="button" class="btn-custom btn-block" (click)="save()">Нарачај сега</button>
         </div>
+
+        <div class="customize-controls">
+          <div class="qty">
+            <span class="qty-subtract" (click)="subQuantity()"><i class="fas fa-minus"></i></span>
+            <input type="text" name="quantity" [(ngModel)]="quantity">
+            <span class="qty-add" (click)="addQuantity()"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="customize-total">
+            <h5>Вкупна цена: <span class="final-price custom-primary">{{product.price * quantity}} <span>денари</span> </span>
+            </h5>
+          </div>
+        </div>
+        <button type="button" class="btn-custom btn-block" (click)="save()">Нарачај сега</button>
       </div>
     </div>
   </div>
+</div>
