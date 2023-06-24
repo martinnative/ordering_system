@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent},
   { path: 'cart', component: CartComponent},
   { path: 'checkout', component: CheckoutComponent},
-  { path: 'najava', component: LoginComponent},
+  { path: 'auth', component: LoginComponent},
   { path: 'product/:id', component: ProductSingleComponent},
 ];
 
