@@ -11,13 +11,16 @@ import {FloatingCartComponent} from "../floating-cart/floating-cart.component";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(private shoppingCartService:ShoppingCartService,
-              private modalService:NgbModal) {
+  cartOpen:boolean = false;
+  constructor(private shoppingCartService:ShoppingCartService) {
   }
   showCartItems() {
     console.log(this.shoppingCartService.getCartItems());
   }
   openModal() {
-    const modalRef = this.modalService.open(FloatingCartComponent);
+    this.cartOpen = true;
+  }
+  closeCart() {
+    this.cartOpen = false;
   }
 }

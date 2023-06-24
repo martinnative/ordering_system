@@ -6,6 +6,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap'
 import {CustomizeModalComponent} from '../customize-modal/customize-modal.component';
 import {ProductsService} from '../products.service';
 import {ShoppingCartService} from "../shopping-cart.service";
+import {FloatingCartComponent} from "../floating-cart/floating-cart.component";
 
 @Component({
   selector: 'app-categories-menu-homepage',
@@ -67,5 +68,6 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
 
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
+    const modalRef = this.modalService.open(FloatingCartComponent);
   }
 }

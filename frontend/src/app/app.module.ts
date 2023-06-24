@@ -73,7 +73,7 @@ import { LoginComponent } from './login/login.component';
     RouterModule,
     CommonModule,
     NgbModule,
-    NgScrollbarModule
+    NgScrollbarModule,
   ],
   providers: [
     {

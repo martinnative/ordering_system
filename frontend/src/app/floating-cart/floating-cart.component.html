@@ -1,5 +1,5 @@
 <!-- Cart Sidebar Start -->
-<div class="cart-open">
+<div [ngClass]="{'cart-open':cartOpen}">
   <aside class="cart-sidebar-wrapper">
     <div class="cart-sidebar">
       <div class="cart-sidebar-header">
@@ -38,5 +38,7 @@
       </div>
     </div>
   </aside>
+  <div class="cart-sidebar-overlay cart-trigger" (click)="closeModal()">
+  </div>
+  <!-- Cart Sidebar End -->
 </div>
-<!-- Cart Sidebar End -->
