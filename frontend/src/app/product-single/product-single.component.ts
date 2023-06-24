@@ -29,4 +29,6 @@ export class ProductSingleComponent implements OnInit {
     )
       .subscribe(data => this.product = data);
   }
+
+  protected readonly undefined = undefined;
 }
