@@ -9,13 +9,17 @@ import {FloatingCartComponent} from "../floating-cart/floating-cart.component";
   styleUrls: ['./header-transparent.component.css']
 })
 export class HeaderTransparentComponent {
+  cartOpen:boolean = false;
   constructor(private shoppingCartService:ShoppingCartService,
               private modalService:NgbModal) {
   }
   showCartItems() {
     console.log(this.shoppingCartService.getCartItems());
   }
-  openModal() {
-    const modalRef = this.modalService.open(FloatingCartComponent);
+  openCart() {
+    this.cartOpen = true;
+  }
+  closeCart() {
+    this.cartOpen = false;
   }
 }

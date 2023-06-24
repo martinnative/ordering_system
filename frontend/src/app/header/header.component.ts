@@ -17,7 +17,7 @@ export class HeaderComponent {
   showCartItems() {
     console.log(this.shoppingCartService.getCartItems());
   }
-  openModal() {
+  openCart() {
     this.cartOpen = true;
   }
   closeCart() {
