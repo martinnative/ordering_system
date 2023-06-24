@@ -14,7 +14,6 @@ export class ProductsService {
   findAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('/api/products');
   }
-
   findProductById(productId: Number): Observable<Product> {
     return this.http.get<Product>(`/api/products/${productId}`);
   }

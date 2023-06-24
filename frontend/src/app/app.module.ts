@@ -75,7 +75,7 @@ import { ProductSingleComponent } from './product-single/product-single.componen
     RouterModule,
     CommonModule,
     NgbModule,
-    NgScrollbarModule
+    NgScrollbarModule,
   ],
   providers: [
     {

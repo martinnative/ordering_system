@@ -6,6 +6,7 @@
   display: inline-block;
   text-align: center;
   cursor: pointer;
+  text-decoration: none;
 }
 .ct-menu-category-item h6{
   color: #fff;
@@ -34,6 +35,9 @@
 }
 .product{
   margin-bottom: 30px;
+}
+.product:hover {
+  cursor:pointer;
 }
 .product .product-body{
   background-color: #f9f9f9;
