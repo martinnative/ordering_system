@@ -7,10 +7,7 @@ import {CustomizeModalComponent} from '../customize-modal/customize-modal.compon
 import {ProductsService} from '../products.service';
 import {ShoppingCartService} from "../shopping-cart.service";
 import {FloatingCartComponent} from "../floating-cart/floating-cart.component";
-<<<<<<< HEAD
-=======
 import {Router} from "@angular/router";
->>>>>>> c7a63f4e6cd04ceb374ad9cf4e4bb9f51ff62482
 
 @Component({
   selector: 'app-categories-menu-homepage',
@@ -73,14 +70,11 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
 
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
-<<<<<<< HEAD
     const modalRef = this.modalService.open(FloatingCartComponent);
-=======
     this.modalService.open(FloatingCartComponent);
   }
 
   openProduct(id: Number) {
     this.router.navigate(['/product', id]);
->>>>>>> c7a63f4e6cd04ceb374ad9cf4e4bb9f51ff62482
   }
 }
