@@ -27,8 +27,16 @@
 <app-header></app-header>
 <div *ngIf="product">
 
+      </div>
+      <div class="modal-body">
 
-
+        <div class="customize-meta">
+          <h4 class="customize-title">{{product.name}} <span class="custom-primary">{{product.price}}</span> </h4>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+          </p>
+        </div>
+        <div class="customize-variations">
 
   <!-- Subheader Start -->
   <div class="subheader dark-overlay dark-overlay-2" style="background-image: url('/assets/img/pexels-marta-dzedyshko-2067401.jpg')">
@@ -159,7 +167,7 @@
     <div class="container">
       <!-- Additional Information Start -->
       <div class="product-additional-info">
-        <ul class="nav" id="bordered-tab" role="tablist">
+        <ul class="nav" id="bordmoered-tab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="tab-product-desc-tab" data-bs-toggle="pill" href="#tab-product-desc" role="tab" aria-controls="tab-product-desc" aria-selected="true">Опис</a>
           </li>
