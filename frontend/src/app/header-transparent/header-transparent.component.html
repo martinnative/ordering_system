@@ -105,7 +105,7 @@
         <ul class="header-controls-inner">
           <li class="cart-dropdown-wrapper cart-trigger">
             <span class="cart-item-count">4</span>
-            <i class="flaticon-shopping-bag"></i>
+            <i class="flaticon-shopping-bag" (click)="openModal()"></i>
           </li>
           <li class="search-dropdown-wrapper search-trigger">
             <i class="flaticon-search"></i>
@@ -124,6 +124,5 @@
 </header>
 
 <app-search-form></app-search-form>
-<app-floating-cart></app-floating-cart>
 <app-mobile-navigation></app-mobile-navigation>
 <!-- Header End -->
