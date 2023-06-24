@@ -6,6 +6,7 @@
 .qty span{
   cursor: pointer;
   width: 40px;
+  display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;

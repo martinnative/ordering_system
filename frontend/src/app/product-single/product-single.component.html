@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slices - Pizzeria HTML Template</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32"
+        href="../../../../../../Desktop/slices-template/Product%20File/favicon.ico">
+
+</head>
+
+<body>
+<app-header></app-header>
+<div *ngIf="product">
+  <div class="customize-variations">
+    <!-- Subheader Start -->
+    <div class="subheader dark-overlay dark-overlay-2"
+         style="background-image: url('/assets/img/pexels-marta-dzedyshko-2067401.jpg')">
+      <div class="container">
+        <div class="subheader-inner">
+          <h1></h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+
+            </ol>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+    <!-- Subheader End -->
+
+    <div class="section product-single">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-5">
+
+            <!-- Main Thumb -->
+            <div class="product-thumb">
+              <img src="/assets/img/prods/3.png" alt="pizza">
+            </div>
+            <!-- /Main Thumb -->
+
+          </div>
+          <div class="col-md-7">
+            <div class="product-content">
+
+              <!-- Product Title -->
+              <h2 class="title">{{product.name}}</h2>
+              <!-- /Product Title -->
+
+              <div class="favorite">
+                <i class="far fa-heart"></i>
+              </div>
+
+
+              <!-- Price -->
+              <div class="price-wrapper">
+                <p class="product-price">{{product.price}}ден.</p>
+              </div>
+              <!-- /Price -->
+
+              <!-- Product Short Description -->
+              <p>{{product.description}}</p>
+              <!-- /Product Short Description -->
+
+              <!-- Variations -->
+              <div class="customize-variations">
+
+                <div class="customize-size-wrapper">
+                  <h5>Големина: Стандардна </h5>
+                </div>
+
+                <div class="row">
+                  <!-- Variation Start -->
+                  <div class="col-lg-6 col-12">
+                    <div class="customize-variation-wrapper">
+                      <i class="flaticon-pizza-and-cutted-slice"></i>
+                      <h5>Состојки и алергени</h5>
+                      <div class="customize-variation-item" data-price="2.00"
+                           *ngFor="let ingredient of product.ingredients">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" value="{{ingredient.id}}" class="custom-control-input"
+                                 id="addChicken1">
+                          <label class="custom-control-label" for="addChicken1">{{ingredient.name}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Variation End -->
+
+
+                </div>
+
+              </div>
+              <!-- /Variations -->
+
+              <!-- Add To Cart Form -->
+              <form class="atc-form" method="post">
+                <div class="form-group">
+                  <label>Количина</label>
+                  <div class="qty">
+                    <span class="qty-subtract"><i class="fas fa-minus"></i></span>
+                    <input type="text" name="qty" value="1">
+                    <span class="qty-add"><i class="fas fa-plus"></i></span>
+                  </div>
+                </div>
+                <button type="submit" name="button" class="btn-custom secondary"> Order <i
+                  class="fas fa-shopping-cart"></i></button>
+              </form>
+              <!-- /Add To Cart Form -->
+
+              <!-- Product Meta -->
+              <ul class="product-meta">
+                <li>
+                  <span>Категорија: </span>
+                  <div class="product-meta-item">
+                    <a>{{product.category.name}}</a>
+                  </div>
+                </li>
+                <li>
+                  <span>Состјки: </span>
+                  <div class="product-meta-item">
+                    <a *ngFor="let ingredient of product.ingredients">{{ ingredient.name }}, </a>
+                  </div>
+                </li>
+                <li>
+                  <span>Шифра: </span>
+                  <div class="product-meta-item">
+                    <span>N/A</span>
+                  </div>
+                </li>
+              </ul>
+              <!-- /Product Meta -->
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section pt-0">
+      <div class="container">
+        <!-- Additional Information Start -->
+        <div class="product-additional-info">
+          <ul class="nav" id="bordmoered-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="tab-product-desc-tab" data-bs-toggle="pill" href="#tab-product-desc"
+                 role="tab" aria-controls="tab-product-desc" aria-selected="true">Опис</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="bordered-tabContent">
+            <div class="tab-pane fade show active" id="tab-product-desc" role="tabpanel"
+                 aria-labelledby="tab-product-desc-tab">
+              <h4>Опис</h4>
+              {{product.description}}
+            </div>
+          </div>
+        </div>
+        <!-- Additional Information End -->
+      </div>
+    </div>
+
+    <!-- Related Start -->
+    <div class="section section-padding related-products pt-0">
+      <div class="container">
+        <h3>Останати производи</h3>
+        <app-categories-menu-homepage></app-categories-menu-homepage>
+
+      </div>
+    </div>
+    <!-- Related End -->
+
+    <app-footer></app-footer>
+
+    <!-- Vendor Scripts -->
+    <script src="/assets/js/plugins/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/plugins/popper.min.js"></script>
+    <script src="/assets/js/plugins/waypoint.js"></script>
+    <script src="/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/plugins/jquery.slimScroll.min.js"></script>
+    <script src="/assets/js/plugins/imagesloaded.min.js"></script>
+    <script src="/assets/js/plugins/jquery.steps.min.js"></script>
+    <script src="/assets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="/assets/js/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/plugins/slick.min.js"></script>
+
+    <!-- Slices Scripts -->
+    <script src="/assets/js/main.js"></script>
+  </div>
+</div>
+</body>
+
+</html>
