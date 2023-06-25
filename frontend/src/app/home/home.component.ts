@@ -17,20 +17,15 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit {
   private readonly viewport = inject(ViewportScroller);
-
+  scrollToTop(el:HTMLElement) {
+    console.log("Scroll")
+    el.scrollIntoView({behavior:"smooth"});
+  }
 
 
   ngOnInit(): void {
     (function($) {
       'use strict';
-      //BACK TO TOP
-
-      $('.back-to-top').on('click', function() {
-        $("html, body").animate({
-          scrollTop: 0
-        }, 600);
-        return false;
-      })
 
       /*-------------------------------------------------------------------------------
       Search Trigger
