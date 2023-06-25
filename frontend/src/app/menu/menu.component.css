@@ -1,0 +1,110 @@
+.menu-category-thumb img{
+  border-radius: 50%;
+}
+.product{
+  margin-bottom: 30px;
+}
+
+.overlay {
+  z-index: 9 !important;
+  background: grey;
+  position:absolute;
+  opacity:70%;
+  width:100%;
+  height:100%;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  border-radius:8px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay h4{
+  color:white;
+  border:1px solid white;
+  padding: 10px 10px 10px 10px;
+}
+.product:hover {
+  cursor:pointer;
+}
+.product .product-body{
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 3px 12px 0 rgba(25,31,33,.1);
+  box-shadow: 0 3px 12px 0 rgba(25,31,33,.1);
+  padding: 70px 20px 20px;
+  text-align: center;
+}
+.product .product-body .product-desc h4{
+  margin-bottom: 15px;
+}
+.product .product-body .product-desc .ct-rating-wrapper{
+  margin-bottom: 10px;
+}
+.product .product-thumb{
+  display: block;
+  text-align: center;
+  margin-bottom: -60px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+.product .product-thumb img{
+  margin: 0 auto;
+}
+.product:hover .product-thumb{
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+
+.product .product-desc h4 a{
+  color: #1D2228;
+}
+.product .product-desc h4 a:hover{
+  color: #ED4E53;
+}
+.product p{
+  margin-bottom: 20px;
+}
+.product .product-controls{
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+.product .product-price{
+  font-weight: 700;
+  color: #1D2228;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,.1);
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 25px;
+}
+.product .favorite{
+  margin-left: 10px;
+  border: 1px solid rgba(0,0,0,.1);
+  width: 40px;
+  height: 40px;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 50%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1D2228;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+.product .favorite:hover{
+  color: #ff295a;
+  border-color: #ff295a;
+}

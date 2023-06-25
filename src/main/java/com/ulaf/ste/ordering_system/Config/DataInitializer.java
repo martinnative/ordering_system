@@ -53,7 +53,6 @@ public class DataInitializer {
         Ingredient kecap = ingredientService.createIngredient(new Ingredient("Kechap"));
         Ingredient kromid = ingredientService.createIngredient(new Ingredient("Kromid"));
 
-
         List<Ingredient> productIngredients = new ArrayList<>();
         productIngredients.add(kecap);
         productIngredients.add(kaskaval);

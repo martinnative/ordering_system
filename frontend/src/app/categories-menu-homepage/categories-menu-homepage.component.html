@@ -21,23 +21,24 @@
       <div *ngIf="filteredProducts.length == 0" class="text-center">Нема достапни продукти во оваа категорија</div>
       <!-- Product Start -->
       <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
-          <div class="product" *ngIf="product.available">
-            <a class="product-thumb"> <img src="/assets/img/prods-sm/5.png" alt="menu item"/> </a>
-            <div class="product-body">
-              <div class="product-desc">
-                <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
-                <p>{{product.description}}</p>
-                <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable">
-                  Измени <i
-                  class="fas fa-plus"></i> </a>
-              </div>
-              <div class="product-controls">
-                <p class="product-price">{{product.price}} ден.</p>
-                <a class="order-item btn-custom btn-sm shadow-none" (click)="addToCart(product)">Додади во кошничка <i
-                  class="fas fa-shopping-cart"></i> </a>
-              </div>
+        <div class="product" *ngIf="product.available">
+          <a class="product-thumb" routerLink="/product/{{product.id}}"> <img src="/assets/img/prods-sm/5.png"
+                                                                              alt="menu item"/> </a>
+          <div class="product-body">
+            <div class="product-desc">
+              <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
+              <p>{{product.description}}</p>
+              <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable">
+                Измени <i
+                class="fas fa-plus"></i> </a>
+            </div>
+            <div class="product-controls">
+              <p class="product-price">{{product.price}} ден.</p>
+              <a class="order-item btn-custom btn-sm shadow-none" (click)="addToCart(product)">Додади во кошничка <i
+                class="fas fa-shopping-cart"></i> </a>
             </div>
           </div>
+        </div>
         <div class="product" *ngIf="!product.available">
           <a class="product-thumb"> <img src="/assets/img/prods-sm/5.png" alt="menu item"/> </a>
           <div class="product-body">
@@ -54,12 +55,12 @@
                 class="fas fa-shopping-cart"></i> </a>
             </div>
           </div>
-          <div class="overlay"> <h4>Моментално недостапно</h4> </div>
+          <div class="overlay"><h4>Моментално недостапно</h4></div>
         </div>
         <!-- Product End -->
       </div>
     </div>
   </div>
 </div>
-  <!-- Menu Wrapper End -->
-  <!-- Menu Categories End -->
+<!-- Menu Wrapper End -->
+<!-- Menu Categories End -->

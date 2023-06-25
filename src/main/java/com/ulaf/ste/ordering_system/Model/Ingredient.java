@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Ingredient {
@@ -15,7 +14,12 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     private String name;
-
+    @Lob
+    private byte[] image;
+    public Ingredient(String name,byte[] image) {
+        this.name = name;
+        this.image = image;
+    }
 
     public Ingredient(String name) {
         this.name = name;

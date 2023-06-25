@@ -1,12 +1,8 @@
-import {AfterViewInit, Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import 'slick-carousel';
-import * as isotope from 'isotope-layout';
-import * as imagesLoaded from 'imagesloaded';
-import { SlimScroll} from 'angular-io-slimscroll'
 import 'jquery-slimscroll/jquery.slimscroll';
 import PerfectScrollbar from 'perfect-scrollbar';
 import {ViewportScroller} from "@angular/common";
-import {animate} from "@angular/animations";
 
 declare var $: any;
 
@@ -18,10 +14,8 @@ declare var $: any;
 export class HomeComponent implements OnInit {
   private readonly viewport = inject(ViewportScroller);
   scrollToTop(el:HTMLElement) {
-    console.log("Scroll")
     el.scrollIntoView({behavior:"smooth"});
   }
-
 
   ngOnInit(): void {
     (function($) {
@@ -69,29 +63,9 @@ export class HomeComponent implements OnInit {
         $(asideScroll).height(calculatedHeight);
 
         // Optional: Destroy the PerfectScrollbar instance when it's no longer needed
-        // ps.destroy();
       }
 
       initAsideScrollbar();
-
-      /*-------------------------------------------------------------------------------
-      Magnific Popup
-      -------------------------------------------------------------------------------*/
-      // $('.popup-youtube').magnificPop`up`({
-      //   type: 'iframe'
-      // });
-      // $('.popup-vimeo').magnificPopup({
-      //   type: 'iframe'
-      // });
-      // $('.popup-video').magnificPopup({
-      //   type: 'iframe'
-      // });
-      // $('.gallery-thumb').magnificPopup({
-      //   type: 'image',
-      //   gallery: {
-      //     enabled: true
-      //   },
-      // });
     // TODO: FIX
       /*-------------------------------------------------------------------------------
       Banner Slider (Home 3)
@@ -166,6 +140,4 @@ export class HomeComponent implements OnInit {
       });
     })(jQuery);
   }
-
-  protected readonly scroll = scroll;
 }

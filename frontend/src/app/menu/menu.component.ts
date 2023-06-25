@@ -7,6 +7,7 @@ import {ProductsService} from "../products.service";
 import {ShoppingCartService} from "../shopping-cart.service";
 import {Router} from "@angular/router";
 import {Category} from "../../model/Category";
+import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
 
 @Component({
   selector: 'app-menu',
@@ -19,8 +20,8 @@ export class MenuComponent implements OnInit, AfterViewInit{
 
   constructor(private categoryService: CategoriesService,
               private productsService: ProductsService,
-              private shoppingCartService: ShoppingCartService
-
+              private shoppingCartService: ShoppingCartService,
+              private modalService: NgbModal,
   ) {
   }
   ngAfterViewInit(): void {
@@ -457,4 +458,15 @@ export class MenuComponent implements OnInit, AfterViewInit{
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
   }
+  openModal(product: Product) {
+    console.log("product");
+    const modalRef = this.modalService.open(CustomizeModalComponent);
+    modalRef.componentInstance.product = product;
+    modalRef.result.then((result) => {
+      if (result) {
+        console.log(result)
+      }
+    });
+  }
+
 }

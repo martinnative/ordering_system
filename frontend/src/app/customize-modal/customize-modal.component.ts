@@ -8,15 +8,13 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './customize-modal.component.html',
   styleUrls: ['./customize-modal.component.css']
 })
-export class CustomizeModalComponent implements OnInit{
-  @Input() public product:Product|undefined; 
+export class CustomizeModalComponent {
+  @Input() public product:Product|undefined;
   quantity:number = 1;
 
   constructor(public activeModal: NgbActiveModal) {};
   closeModal() {
     this.activeModal.close();
-  }
-  ngOnInit(): void {
   }
   addQuantity() {
     this.quantity++;
@@ -35,5 +33,5 @@ export class CustomizeModalComponent implements OnInit{
     }
   }
   //TODO: FIX INGREDIENTS TO ACTUALLY RETURN A THING WHEN SELECTED AND RETREIVE THEM IN BACKEND
-  
+
 }
