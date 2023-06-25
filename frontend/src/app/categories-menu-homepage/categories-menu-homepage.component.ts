@@ -70,8 +70,6 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
 
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
-    const modalRef = this.modalService.open(FloatingCartComponent);
-    this.modalService.open(FloatingCartComponent);
   }
 
   openProduct(id: Number) {

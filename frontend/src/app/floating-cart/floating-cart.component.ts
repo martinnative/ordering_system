@@ -26,7 +26,7 @@ export class FloatingCartComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+    this.cartItems = this.shoppingCartService.getCartItems();
   }
 
   removeFromCart(orderItem: OrderItem){

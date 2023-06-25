@@ -34,7 +34,9 @@ export class ShoppingCartService {
       const existingItem = this.cartItems[index];
       existingItem.quantity -= 1;
       if (existingItem.quantity === 0) {
-        this.cartItems.splice(index);
+        this.cartItems.splice(index,0);
+      }if (existingItem.quantity < 0) {
+        existingItem.quantity = 0
       }
       this.saveCartItems();
     }
