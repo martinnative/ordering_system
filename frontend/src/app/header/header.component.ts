@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ShoppingCartService} from "../shopping-cart.service";
 import {Product} from "../../model/Product";
 import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
@@ -10,7 +10,7 @@ import {FloatingCartComponent} from "../floating-cart/floating-cart.component";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   cartOpen:boolean = false;
   constructor(private shoppingCartService:ShoppingCartService) {
   }
@@ -22,5 +22,19 @@ export class HeaderComponent {
   }
   closeCart() {
     this.cartOpen = false;
+  }
+
+  ngOnInit(): void {
+    (function($) {
+      'use strict';
+      $(".aside-trigger").on('click', function() {
+        $(".main-aside").toggleClass('open');
+      });
+      $(".main-aside .menu-item-has-children > a").on('click', function(e) {
+        var submenu = $(this).next(".submenu");
+        e.preventDefault();
+        submenu.slideToggle(200);
+      })
+    })(jQuery);
   }
 }
