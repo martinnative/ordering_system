@@ -24,13 +24,11 @@ export class FloatingCartComponent implements OnInit, OnChanges{
   calculateTotal(): number {
     return this.shoppingCartService.calculateTotal();
   }
-
   ngOnChanges(changes: SimpleChanges): void {
     this.cartItems = this.shoppingCartService.getCartItems();
   }
 
   removeFromCart(orderItem: OrderItem){
-    this.shoppingCartService.removeFromCart(orderItem)
-    this.cartItems = this.shoppingCartService.getCartItems()
+    this.cartItems = this.shoppingCartService.removeFromCart(orderItem);
   }
 }

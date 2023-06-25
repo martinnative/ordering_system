@@ -39,7 +39,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     });
     this.productsService.findAllProducts().subscribe(data => {
       this.products = data;
-      this.filteredProducts = data;
+      this.filteredProducts = data.sort((a,b) => Number(b.available) - Number(a.available));
     });
   }
 
@@ -49,7 +49,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     }
     else {
       this.selectedCategory = category;
-      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id);
+      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id).sort((a,b) => Number(b.available) - Number(a.available));
     }
   }
 

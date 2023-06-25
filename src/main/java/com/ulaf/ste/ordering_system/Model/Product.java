@@ -23,7 +23,7 @@ public class Product {
     private Double price;
     private String description;
     private Boolean customizable;
-    private Boolean availability;
+    private Boolean available;
 
     @ElementCollection
     private List<Integer> ratings;
@@ -37,7 +37,7 @@ public class Product {
     @Lob
     private byte[] image;
 
-    public Product(String name, double price,String description,Boolean customizable,Boolean availability, List<Ingredient> ingredients, byte[] image, Category category) {
+    public Product(String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, byte[] image, Category category) {
         this.name = name;
         this.price = price;
         this.category = category;
@@ -45,7 +45,7 @@ public class Product {
         this.image = image;
         this.description = description;
         this.customizable = customizable;
-        this.availability = availability;
+        this.available = available;
         this.ratings = new ArrayList<>();
     }
     public double calculateAverageRating() {

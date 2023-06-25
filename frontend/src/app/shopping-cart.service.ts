@@ -28,7 +28,7 @@ export class ShoppingCartService {
     this.saveCartItems();
   }
 
-  removeFromCart(orderItem: OrderItem): void {
+  removeFromCart(orderItem: OrderItem): OrderItem[] {
     const index = this.cartItems.findIndex(item => item.product.id === orderItem.product.id);
     if (index !== -1) {
       const existingItem = this.cartItems[index];
@@ -40,8 +40,11 @@ export class ShoppingCartService {
       }
       this.saveCartItems();
     }
+    return this.cartItems;
   }
-
+  getNumberOfCartItems() {
+    return this.cartItems.length;
+  }
   getCartItems(): OrderItem[] {
     this.loadCartItems();
     return this.cartItems;

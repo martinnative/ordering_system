@@ -1,47 +1,65 @@
 <div class="ct-menu-categories menu-filter" style="background: darkred">
-    <div class="container">
-        <div class="menu-category-slider d-flex justify-content-center">
-            <a class="ct-menu-category-item ps-4" *ngFor="let category of categories"
-                (click)="setSelectedCategory(category)"
-                [ngClass]="{'active':category == selectedCategory || category.name == 'Сите категории' && selectedCategory == undefined}">
-                <div class="menu-category-thumb">
-                    <img src="/assets/img/categories/6.jpg" alt="category">
-                </div>
-                <div class="menu-category-desc">
-                    <h6>{{category.name}}</h6>
-                </div>
-            </a>
+  <div class="container">
+    <div class="menu-category-slider d-flex justify-content-center">
+      <a class="ct-menu-category-item ps-4" *ngFor="let category of categories"
+         (click)="setSelectedCategory(category)"
+         [ngClass]="{'active':category == selectedCategory || category.name == 'Сите категории' && selectedCategory == undefined}">
+        <div class="menu-category-thumb">
+          <img src="/assets/img/categories/6.jpg" alt="category">
         </div>
+        <div class="menu-category-desc">
+          <h6>{{category.name}}</h6>
+        </div>
+      </a>
     </div>
+  </div>
 </div>
 <!-- Menu Wrapper Start -->
 <div class="section section-padding">
-    <div class="container">
-        <div class="menu-container row menu-v2">
-            <div *ngIf="filteredProducts.length == 0" class="text-center">Нема достапни продукти во оваа категорија</div>
-            <!-- Product Start -->
-            <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
-                <div class="product">
-                    <a class="product-thumb"> <img src="/assets/img/prods-sm/5.png"
-                            alt="menu item" /> </a>
-                    <div class="product-body">
-                        <div class="product-desc">
-                            <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
-                            <p>{{product.description}}</p>
-                            <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable"> Измени <i
-                                    class="fas fa-plus"></i> </a>
-                        </div>
-                        <div class="product-controls">
-                            <p class="product-price">{{product.price}} ден.</p>
-                            <a class="order-item btn-custom btn-sm shadow-none" (click)="addToCart(product)">Додади во кошничка <i class="fas fa-shopping-cart"></i> </a>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="menu-container row menu-v2">
+      <div *ngIf="filteredProducts.length == 0" class="text-center">Нема достапни продукти во оваа категорија</div>
+      <!-- Product Start -->
+      <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
+          <div class="product" *ngIf="product.available">
+            <a class="product-thumb"> <img src="/assets/img/prods-sm/5.png" alt="menu item"/> </a>
+            <div class="product-body">
+              <div class="product-desc">
+                <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
+                <p>{{product.description}}</p>
+                <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable">
+                  Измени <i
+                  class="fas fa-plus"></i> </a>
+              </div>
+              <div class="product-controls">
+                <p class="product-price">{{product.price}} ден.</p>
+                <a class="order-item btn-custom btn-sm shadow-none" (click)="addToCart(product)">Додади во кошничка <i
+                  class="fas fa-shopping-cart"></i> </a>
+              </div>
             </div>
-            <!-- Product End -->
+          </div>
+        <div class="product" *ngIf="!product.available">
+          <a class="product-thumb"> <img src="/assets/img/prods-sm/5.png" alt="menu item"/> </a>
+          <div class="product-body">
+            <div class="product-desc">
+              <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
+              <p>{{product.description}}</p>
+              <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable">
+                Измени <i
+                class="fas fa-plus"></i> </a>
+            </div>
+            <div class="product-controls">
+              <p class="product-price">{{product.price}} ден.</p>
+              <a class="order-item btn-custom btn-sm shadow-none" (click)="addToCart(product)">Додади во кошничка <i
+                class="fas fa-shopping-cart"></i> </a>
+            </div>
+          </div>
+          <div class="overlay"> </div>
         </div>
-
+        <!-- Product End -->
+      </div>
     </div>
+  </div>
 </div>
-<!-- Menu Wrapper End -->
-<!-- Menu Categories End -->
+  <!-- Menu Wrapper End -->
+  <!-- Menu Categories End -->

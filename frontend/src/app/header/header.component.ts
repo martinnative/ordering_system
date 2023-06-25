@@ -23,6 +23,9 @@ export class HeaderComponent implements OnInit{
   closeCart() {
     this.cartOpen = false;
   }
+  getNumOfCartItems() {
+    return this.shoppingCartService.getNumberOfCartItems();
+  }
 
   ngOnInit(): void {
     (function($) {
