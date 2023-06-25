@@ -1,11 +1,12 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, inject, OnInit} from '@angular/core';
 import 'slick-carousel';
 import * as isotope from 'isotope-layout';
 import * as imagesLoaded from 'imagesloaded';
-import { SlickCarouselComponent } from 'ngx-slick-carousel';
 import { SlimScroll} from 'angular-io-slimscroll'
 import 'jquery-slimscroll/jquery.slimscroll';
 import PerfectScrollbar from 'perfect-scrollbar';
+import {ViewportScroller} from "@angular/common";
+import {animate} from "@angular/animations";
 
 declare var $: any;
 
@@ -14,24 +15,22 @@ declare var $: any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit,AfterViewInit {
+export class HomeComponent implements OnInit {
+  private readonly viewport = inject(ViewportScroller);
 
-  ngAfterViewInit(): void {
-    $('.banner-slider-3').slick({
-      dots: true,
-      arrows: false,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 3,
-      centerMode: true,
-      adaptiveHeight: true
-    });
-  }
+
 
   ngOnInit(): void {
     (function($) {
       'use strict';
+      //BACK TO TOP
 
+      $('.back-to-top').on('click', function() {
+        $("html, body").animate({
+          scrollTop: 0
+        }, 600);
+        return false;
+      })
       /*-------------------------------------------------------------------------------
       Aside Menu
       -------------------------------------------------------------------------------*/
@@ -63,16 +62,6 @@ export class HomeComponent implements OnInit,AfterViewInit {
       /*-------------------------------------------------------------------------------
       Sticky Header
       -------------------------------------------------------------------------------*/
-      function doSticky() {
-        var header = $(".can-sticky");
-
-        if (window.pageYOffset > 50) {
-          header.addClass("sticky");
-        } else {
-          header.removeClass("sticky");
-        }
-      }
-      doSticky();
       //TODO: REVIEW FOLLOWING LINES
       /*-------------------------------------------------------------------------------
       Aside Scroll
@@ -100,25 +89,11 @@ export class HomeComponent implements OnInit,AfterViewInit {
       }
 
       initAsideScrollbar();
-      /*-------------------------------------------------------------------------------
-      Cart Scroll
-      -------------------------------------------------------------------------------*/
-
-
-
-
-      /*-------------------------------------------------------------------------------
-      Tooltips
-      -------------------------------------------------------------------------------*/
-      // var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-      // tooltipTriggerList.map(function (tooltipTriggerEl) {
-      //   return new bootstrap.Tooltip(tooltipTriggerEl)
-      // });
 
       /*-------------------------------------------------------------------------------
       Magnific Popup
       -------------------------------------------------------------------------------*/
-      // $('.popup-youtube').magnificPopup({
+      // $('.popup-youtube').magnificPop`up`({
       //   type: 'iframe'
       // });
       // $('.popup-vimeo').magnificPopup({
@@ -205,23 +180,8 @@ export class HomeComponent implements OnInit,AfterViewInit {
           },
         ]
       });
-
-      //On scroll events
-      $(window).on('scroll', function() {
-
-        doSticky();
-
-      });
-
-      //On resize events
-      //TODO:REVIEW
-      $(window).on('resize', function() {
-
-        initAsideScrollbar();
-
-      });
-
     })(jQuery);
   }
 
+  protected readonly scroll = scroll;
 }

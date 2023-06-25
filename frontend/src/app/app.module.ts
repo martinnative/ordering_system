@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { InfographicsComponent } from './infographics/infographics.component';
 import { FooterComponent } from './footer/footer.component';
 import { InstagramComponent } from './instagram/instagram.component';
@@ -65,7 +64,6 @@ import { ProductSingleComponent } from './product-single/product-single.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SlickCarouselModule,
     NgOptimizedImage,
     HttpClientModule,
     MatButtonModule,
