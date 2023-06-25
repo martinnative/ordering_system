@@ -1,5 +1,12 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import PerfectScrollbar from "perfect-scrollbar";
+import {Product} from "../../model/Product";
+import {CategoriesService} from "../categories.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ProductsService} from "../products.service";
+import {ShoppingCartService} from "../shopping-cart.service";
+import {Router} from "@angular/router";
+import {Category} from "../../model/Category";
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +14,14 @@ import PerfectScrollbar from "perfect-scrollbar";
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit, AfterViewInit{
+  products: Product[] = [];
+  categories: Category[] = [];
+
+  constructor(private categoryService: CategoriesService,
+              private productsService: ProductsService,
+
+  ) {
+  }
   ngAfterViewInit(): void {
     $('.banner-slider-3').slick({
       dots: true,
@@ -20,6 +35,9 @@ export class MenuComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
+    this.productsService.findAllProducts().subscribe(data => {
+      this.products = data;
+    });
     (function($) {
       'use strict';
 
