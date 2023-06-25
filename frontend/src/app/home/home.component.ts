@@ -31,17 +31,6 @@ export class HomeComponent implements OnInit {
         }, 600);
         return false;
       })
-      /*-------------------------------------------------------------------------------
-      Aside Menu
-      -------------------------------------------------------------------------------*/
-      $(".aside-trigger").on('click', function() {
-        $(".main-aside").toggleClass('open');
-      });
-      $(".main-aside .menu-item-has-children > a").on('click', function(e) {
-        var submenu = $(this).next(".submenu");
-        e.preventDefault();
-        submenu.slideToggle(200);
-      })
 
       /*-------------------------------------------------------------------------------
       Search Trigger
