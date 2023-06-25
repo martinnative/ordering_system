@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'auth', component: LoginComponent},
   { path: 'product/:id', component: ProductSingleComponent},
   { path: 'not-found', component: NotFoundComponent},
-  { path: '**', redirectTo: '/not-found' }
+  { path: '**', redirectTo: '/not-found' },
 
 ];
 
