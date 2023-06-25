@@ -20,7 +20,7 @@
         <div class="menu-container row menu-v2">
             <div *ngIf="filteredProducts.length == 0" class="text-center">Нема достапни продукти во оваа категорија</div>
             <!-- Product Start -->
-            <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts" routerLink="/product/{{product.id}}">
+            <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
                 <div class="product">
                     <a class="product-thumb"> <img src="/assets/img/prods-sm/5.png"
                             alt="menu item" /> </a>

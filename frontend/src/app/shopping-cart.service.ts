@@ -28,13 +28,13 @@ export class ShoppingCartService {
     this.saveCartItems();
   }
 
-  removeFromCart(product: Product): void {
-    const index = this.cartItems.findIndex(item => item.product.id === product.id);
+  removeFromCart(orderItem: OrderItem): void {
+    const index = this.cartItems.findIndex(item => item.product.id === orderItem.product.id);
     if (index !== -1) {
       const existingItem = this.cartItems[index];
       existingItem.quantity -= 1;
       if (existingItem.quantity === 0) {
-        this.cartItems.splice(index, 1);
+        this.cartItems.splice(index);
       }
       this.saveCartItems();
     }

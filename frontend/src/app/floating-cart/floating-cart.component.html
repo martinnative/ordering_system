@@ -25,7 +25,7 @@
             <div class="cart-sidebar-price">
               {{cartItem.quantity * cartItem.product.price}} ден.
             </div>
-            <div class="close-btn">
+            <div class="close-btn" (click)="removeFromCart(cartItem)">
               <span></span>
               <span></span>
             </div>
