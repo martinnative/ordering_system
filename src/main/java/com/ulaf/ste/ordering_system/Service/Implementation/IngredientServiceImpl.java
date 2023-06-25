@@ -2,10 +2,14 @@ package com.ulaf.ste.ordering_system.Service.Implementation;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Ingredient;
+import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Repository.IngredientsRepository;
 import com.ulaf.ste.ordering_system.Service.IngredientService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 @Service
 public class IngredientServiceImpl implements IngredientService {
@@ -43,4 +47,27 @@ public class IngredientServiceImpl implements IngredientService {
     public void deleteIngredient(Long id) {
         ingredientsRepository.deleteById(id);
     }
+
+    @Override
+    public Ingredient uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException {
+        Ingredient ingredient = getIngredientById(id);
+        if (ingredient != null) {
+            byte[] imageBytes = file.getBytes();
+            ingredient.setImage(imageBytes);
+            return ingredientsRepository.save(ingredient);
+        }
+        throw new NotFoundByIdException("ID was not found.");
+    }
+
+    @Override
+    public String getImageBase64(Long id) throws NotFoundByIdException {
+        Ingredient ingredient = getIngredientById(id);
+        if (ingredient != null && ingredient.getImage() != null) {
+            byte[] imageBytes = ingredient.getImage();
+            return Base64.getEncoder().encodeToString(imageBytes);
+        }
+        throw new NotFoundByIdException("ID was not found or this ingredient does not have an image.");
+    }
+
+
 }

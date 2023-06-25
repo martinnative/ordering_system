@@ -15,14 +15,17 @@ public class Order {
     private List<OrderItem> items;
     private String customerName;
     private String customerAddress;
+    private String customerPhone;
+    private Boolean finished;
 
     public Order(List<OrderItem> items, String customerName, String customerAddress, String customerPhone) {
         this.items = items;
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerPhone = customerPhone;
+        this.finished = false;
     }
 
-    private String customerPhone;
+
 
 }
