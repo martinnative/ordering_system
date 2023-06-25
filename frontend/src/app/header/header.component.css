@@ -128,6 +128,7 @@
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  text-decoration: none;
 }
 
 .navbar .navbar-nav > .menu-item:last-child > a{
@@ -247,4 +248,8 @@
 }
 .header-controls-inner li:hover i{
   color: #ED4E53;
+}
+
+a{
+  text-decoration: none;
 }
