@@ -34,6 +34,7 @@ import { LoadingInterceptor } from './loading.interceptor';
 import { NgScrollbarModule} from "ngx-scrollbar";
 import { LoginComponent } from './login/login.component';
 import { ProductSingleComponent } from './product-single/product-single.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ProductSingleComponent } from './product-single/product-single.componen
     HeaderTransparentComponent,
     CategoriesMenuHomepageComponent,
     LoginComponent,
-    ProductSingleComponent
+    ProductSingleComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
