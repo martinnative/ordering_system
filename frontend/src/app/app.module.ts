@@ -7,7 +7,6 @@ import { InfographicsComponent } from './infographics/infographics.component';
 import { FooterComponent } from './footer/footer.component';
 import { InstagramComponent } from './instagram/instagram.component';
 import { HowWeDoItComponent } from './how-we-do-it/how-we-do-it.component';
-import { MakeYourOwnPizzaComponent } from './make-your-own-pizza/make-your-own-pizza.component';
 import { BannerComponent } from './banner/banner.component';
 import { AboutComponent } from './about/about.component';
 import { MenuComponent } from './menu/menu.component';
@@ -44,7 +43,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     InstagramComponent,
     HowWeDoItComponent,
-    MakeYourOwnPizzaComponent,
     BannerComponent,
     AboutComponent,
     MenuComponent,
