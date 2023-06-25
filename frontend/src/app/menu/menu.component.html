@@ -59,14 +59,15 @@
             </a>
             <div class="product-body">
               <div class="product-desc">
-                <h4><a href="menu-item-v1.html">{{product.name}}</a></h4>
+                <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
                 <p>{{product.description}}</p>
                 <a href="#" class="btn-custom light btn-sm shadow-none" data-bs-toggle="modal"
-                   data-bs-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+                   data-bs-target="#customizeModal"> Измени <i class="fas fa-plus"></i> </a>
               </div>
+              <br>
               <div class="product-controls">
                 <p class="product-price">{{product.price}} ден.</p>
-                <a href="#" class="order-item btn-custom btn-sm shadow-none">Додади во кошничка <i class="fas fa-shopping-cart"></i>
+                <a (click)="addToCart(product)" class="order-item btn-custom btn-sm shadow-none">Додади во кошничка <i class="fas fa-shopping-cart"></i>
                 </a>
               </div>
             </div>

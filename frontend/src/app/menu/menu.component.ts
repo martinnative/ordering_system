@@ -19,6 +19,7 @@ export class MenuComponent implements OnInit, AfterViewInit{
 
   constructor(private categoryService: CategoriesService,
               private productsService: ProductsService,
+              private shoppingCartService: ShoppingCartService
 
   ) {
   }
@@ -453,4 +454,7 @@ export class MenuComponent implements OnInit, AfterViewInit{
     })(jQuery);
   }
 
+  addToCart(product: Product) {
+    this.shoppingCartService.addToCart(product);
+  }
 }
