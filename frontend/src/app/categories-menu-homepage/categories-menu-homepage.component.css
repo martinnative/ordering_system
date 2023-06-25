@@ -50,6 +50,14 @@
   right:0;
   border-radius:8px;
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay h4{
+  color:white;
+  border:1px solid white;
+  padding: 10px 10px 10px 10px;
 }
 .product:hover {
   cursor:pointer;
