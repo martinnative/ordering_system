@@ -8,6 +8,7 @@ import {ShoppingCartService} from "../shopping-cart.service";
 import {Router} from "@angular/router";
 import {Category} from "../../model/Category";
 import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-menu',
@@ -22,6 +23,7 @@ export class MenuComponent implements OnInit, AfterViewInit{
               private productsService: ProductsService,
               private shoppingCartService: ShoppingCartService,
               private modalService: NgbModal,
+              private sanitizer: DomSanitizer
   ) {
   }
   ngAfterViewInit(): void {
@@ -54,6 +56,21 @@ export class MenuComponent implements OnInit, AfterViewInit{
         console.log(result)
       }
     });
+  }
+  transformData(data: Product):Product {
+    let url = `data:image/png;base64,${data.image}`;
+    let image = this.sanitizer.bypassSecurityTrustUrl(url);
+    return {
+      id:data.id,
+      name:data.name,
+      ingredients:data.ingredients,
+      price:data.price,
+      description:data.description,
+      customizable:data.customizable,
+      image:image,
+      category:data.category,
+      available:data.available
+    } as Product
   }
 
 }

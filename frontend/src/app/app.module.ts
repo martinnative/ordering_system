@@ -33,6 +33,7 @@ import { NgScrollbarModule} from "ngx-scrollbar";
 import { LoginComponent } from './login/login.component';
 import { ProductSingleComponent } from './product-single/product-single.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CreateIngredientComponent } from './create-ingredient/create-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CategoriesMenuHomepageComponent,
     LoginComponent,
     ProductSingleComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CreateIngredientComponent
   ],
   imports: [
     BrowserModule,

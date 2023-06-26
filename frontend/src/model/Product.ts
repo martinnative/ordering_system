@@ -1,6 +1,7 @@
 import {Category} from "./Category";
 import {Ingredient} from "./Ingredient";
 
+
 export interface Product {
   id: Number,
   name: String,
@@ -9,5 +10,6 @@ export interface Product {
   ingredients: Ingredient[],
   customizable: boolean,
   category: Category,
-  available: boolean
+  available: boolean,
+  image: any;
 }

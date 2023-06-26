@@ -8,6 +8,7 @@ import {ProductsService} from '../products.service';
 import {ShoppingCartService} from "../shopping-cart.service";
 import {FloatingCartComponent} from "../floating-cart/floating-cart.component";
 import {Router} from "@angular/router";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-categories-menu-homepage',
@@ -24,7 +25,8 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
               private modalService: NgbModal,
               private productsService: ProductsService,
               private shoppingCartService: ShoppingCartService,
-              private router:Router
+              private router:Router,
+              private sanitizer:DomSanitizer
   ) {
   }
 
@@ -41,6 +43,21 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
       this.products = data;
       this.filteredProducts = data.sort((a,b) => Number(b.available) - Number(a.available));
     });
+  }
+  transformData(data: Product):Product {
+    let url = `data:image/png;base64,${data.image}`;
+    let image = this.sanitizer.bypassSecurityTrustUrl(url);
+    return {
+      id:data.id,
+      name:data.name,
+      ingredients:data.ingredients,
+      price:data.price,
+      description:data.description,
+      customizable:data.customizable,
+      image:image,
+      category:data.category,
+      available:data.available
+    } as Product
   }
 
   setSelectedCategory(category: Category) {
