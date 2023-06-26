@@ -60,7 +60,7 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    public String getImageBase64(Long id) throws NotFoundByIdException {
+    public String getImage(Long id) throws NotFoundByIdException {
         Ingredient ingredient = getIngredientById(id);
         if (ingredient != null && ingredient.getImage() != null) {
             byte[] imageBytes = ingredient.getImage();

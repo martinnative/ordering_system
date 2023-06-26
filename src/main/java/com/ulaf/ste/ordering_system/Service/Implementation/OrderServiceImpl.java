@@ -52,4 +52,11 @@ public class OrderServiceImpl implements OrderService {
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
     }
+
+    @Override
+    public Order finishOrder(Long id) throws NotFoundByIdException {
+        Order order = orderRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Order with the provided ID was not found"));;
+        order.setFinished(true);
+        return order;
+    }
 }
