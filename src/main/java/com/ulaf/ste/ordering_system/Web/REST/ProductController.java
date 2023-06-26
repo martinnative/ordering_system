@@ -87,8 +87,8 @@ public class ProductController {
     }
 
     @GetMapping("/{id}/image")
-    public ResponseEntity<String> getImageBase64(@PathVariable Long id) throws NotFoundByIdException {
-        String base64Image = productService.getImageBase64(id);
+    public ResponseEntity<String> getImage(@PathVariable Long id) throws NotFoundByIdException {
+        String base64Image = productService.getImage(id);
         return ResponseEntity.ok(base64Image);
     }
 

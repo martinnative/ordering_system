@@ -11,4 +11,6 @@ public interface OrderService {
     List<Order> getAllOrders();
     Order updateOrder(Long id, Order order) throws NotFoundByIdException;
     void deleteOrder(Long id);
+
+    Order finishOrder(Long id);
 }

@@ -55,4 +55,14 @@ public class OrderController {
         orderService.deleteOrder(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/finish/{id}")
+    public ResponseEntity<Order> finishOrder(@PathVariable Long id)
+    {
+        Order finishedOrder = orderService.finishOrder(id);
+        if (finishedOrder != null) {
+            return ResponseEntity.ok(finishedOrder);
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

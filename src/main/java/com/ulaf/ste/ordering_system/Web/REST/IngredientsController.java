@@ -2,7 +2,6 @@ package com.ulaf.ste.ordering_system.Web.REST;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Ingredient;
-import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Service.IngredientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -67,8 +66,8 @@ public class IngredientsController {
     }
 
     @GetMapping("/{id}/image")
-    public ResponseEntity<String> getImageBase64(@PathVariable Long id) throws NotFoundByIdException {
-        String base64Image = ingredientService.getImageBase64(id);
+    public ResponseEntity<String> getImage(@PathVariable Long id) throws NotFoundByIdException {
+        String base64Image = ingredientService.getImage(id);
         return ResponseEntity.ok(base64Image);
     }
 }

@@ -113,7 +113,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String getImageBase64(Long id) throws NotFoundByIdException {
+    public String getImage(Long id) throws NotFoundByIdException {
         Product product = getProductById(id);
         if (product != null && product.getImage() != null) {
             byte[] imageBytes = product.getImage();
