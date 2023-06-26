@@ -12,8 +12,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
     // Add any custom query methods if required
-    @Modifying
-    @Transactional
-    @Query("UPDATE Order o SET o.finished = true WHERE o.id = :id")
-    Order markOrderAsFinished(@Param("id") Long id);
+
 }

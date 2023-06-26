@@ -16,7 +16,7 @@ public class Order {
     private String customerName;
     private String customerAddress;
     private String customerPhone;
-    private Boolean finished;
+    private boolean finished;
 
     public Order(List<OrderItem> items, String customerName, String customerAddress, String customerPhone) {
         this.items = items;

@@ -56,9 +56,8 @@ public class OrderController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/finish/{id}")
-    public ResponseEntity<Order> finishOrder(@PathVariable Long id)
-    {
+    @PutMapping("/{id}/finish") //so GetMapping rabota
+    public ResponseEntity<Order> finishOrder(@PathVariable Long id) throws NotFoundByIdException {
         Order finishedOrder = orderService.finishOrder(id);
         if (finishedOrder != null) {
             return ResponseEntity.ok(finishedOrder);

@@ -54,7 +54,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order finishOrder(Long id) {
-        return orderRepository.markOrderAsFinished(id);
+    public Order finishOrder(Long id) throws NotFoundByIdException {
+        Order order = orderRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Order with the provided ID was not found"));;
+        order.setFinished(true);
+        return order;
     }
 }
