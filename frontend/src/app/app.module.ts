@@ -22,7 +22,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomizeModalComponent } from './customize-modal/customize-modal.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PreloaderComponent } from './preloader/preloader.component';
-import { HeaderTransparentComponent } from './header-transparent/header-transparent.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -54,7 +53,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CustomizeModalComponent,
     CheckoutComponent,
     PreloaderComponent,
-    HeaderTransparentComponent,
     CategoriesMenuHomepageComponent,
     LoginComponent,
     ProductSingleComponent,
