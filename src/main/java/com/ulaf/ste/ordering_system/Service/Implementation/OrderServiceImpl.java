@@ -39,7 +39,7 @@ public class OrderServiceImpl implements OrderService {
         if (existingOrder != null) {
             existingOrder.setId(order.getId());
             existingOrder.setItems(order.getItems());
-            existingOrder.setCustomerAddress(order.getCustomerAddress());
+            existingOrder.setCustomerEmailAddress(order.getCustomerEmailAddress());
             existingOrder.setCustomerName(order.getCustomerName());
             existingOrder.setCustomerPhone(order.getCustomerPhone());
             return orderRepository.save(existingOrder);

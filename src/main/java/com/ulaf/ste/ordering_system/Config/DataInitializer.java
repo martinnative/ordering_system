@@ -74,17 +74,9 @@ public class DataInitializer {
         product_qtyRepository.save(new OrderItem(2L,productService.getProductById(2L), 3));
         listItems.add(product_qtyRepository.findById(1L).orElseThrow());
         listItems.add(product_qtyRepository.findById(2L).orElseThrow());
-        Order order1 = new Order(listItems,"Gorjan","Tetovo","070344899");
+        Order order1 = new Order(listItems,"Gorjan","Spirovski","gorjanspiroski@gmail.com","075222358");
         orderService.createOrder(order1);
         categoryService.getCategoryById(1L).setProducts(productService.getAllProducts());
-
-       /* List<OrderItem> listItems2 = new ArrayList<>();
-        product_qtyRepository.save(new OrderItem(3L,productService.getProductById(1L), 4));
-        product_qtyRepository.save(new OrderItem(4L,productService.getProductById(2L), 2));
-        listItems2.add(product_qtyRepository.findById(3L).orElseThrow());
-        listItems2.add(product_qtyRepository.findById(4L).orElseThrow());
-        Order order2 = new Order(listItems2,"Dragan","Tetovo","071519218");
-        orderService.createOrder(order2);*/
 
     }
 }

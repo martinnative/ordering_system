@@ -7,6 +7,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,18 +15,16 @@ public class Order {
     @OneToMany
     private List<OrderItem> items;
     private String customerName;
-    private String customerAddress;
+    private String customerSurname;
+    private String customerEmailAddress;
     private String customerPhone;
     private boolean finished;
 
-    public Order(List<OrderItem> items, String customerName, String customerAddress, String customerPhone) {
+    public Order(List<OrderItem> items, String customerName, String customerSurname, String customerEmailAddress, String customerPhone) {
         this.items = items;
         this.customerName = customerName;
-        this.customerAddress = customerAddress;
+        this.customerSurname = customerSurname;
+        this.customerEmailAddress = customerEmailAddress;
         this.customerPhone = customerPhone;
-        this.finished = false;
     }
-
-
-
 }
