@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+<div #target></div>
 <!-- Login Form Start -->
 <div class="section" style="background-image: url('/assets/img/pexels-roman-odintsov-4553111.jpg'); background-size: cover;">
 
@@ -59,7 +59,7 @@
 </div>
 <!-- Login Form End -->
 
-<app-footer></app-footer>
+<app-footer (scrollEmitter)="scrollToTop(target)"></app-footer>
 
 <!-- Vendor Scripts -->
 <script src="assets/js/plugins/jquery-3.4.1.min.js"></script>

@@ -18,5 +18,8 @@ export class CheckoutComponent implements OnInit{
   getTotalFromCart():Number {
     return this.shoppingCartSerice.calculateTotal();
   }
+  scrollToTop(el:HTMLElement) {
+    el.scrollIntoView({behavior:"smooth"});
+  }
 
 }

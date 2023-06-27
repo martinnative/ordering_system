@@ -12,9 +12,8 @@
 </head>
 
 <body>
-
+<div #target></div>
 <app-header></app-header>
-
 <!-- Subheader Start -->
 <div class="subheader dark-overlay dark-overlay-2" style="background-image: url('/assets/img/pexels-marta-dzedyshko-2067401.jpg')">
   <div class="container">
@@ -145,7 +144,7 @@
 </section>
 <!-- Cart End -->
 
-<app-footer></app-footer>
+<app-footer (scrollEmitter)="scrollToTop(target)"></app-footer>
 
 <!-- Vendor Scripts -->
 <script src="/assets/js/plugins/jquery-3.4.1.min.js"></script>

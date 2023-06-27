@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+<div #target></div>
 <!-- Header Start -->
 <app-header></app-header>
 <!-- Header End -->
@@ -101,7 +101,7 @@
 </div>
 <!-- Contact End -->
 <!-- Footer Start -->
-<app-footer></app-footer>
+<app-footer (scrollEmitter)="scrollToTop(target)"></app-footer>
 <!-- Footer End -->
 
 <!-- Vendor Scripts -->

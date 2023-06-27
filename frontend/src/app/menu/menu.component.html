@@ -9,8 +9,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
 
 </head>
-<app-header></app-header>
 <body>
+<div #target></div>
+<app-header></app-header>
 <!-- Header Start -->
 <!-- Header End -->
 <!-- Subheader Start -->
@@ -150,7 +151,7 @@
 <!-- Menu Wrapper End -->
 
 <!-- Footer Start -->
-<app-footer></app-footer>
+<app-footer (scrollEmitter)="scrollToTop(target)"></app-footer>
 <!-- Footer End -->
 
 <!-- Vendor Scripts -->

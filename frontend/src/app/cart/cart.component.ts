@@ -18,5 +18,8 @@ export class CartComponent {
       this.quantity = 1;
     }
   }
+  scrollToTop(el:HTMLElement) {
+    el.scrollIntoView({behavior:"smooth"});
+  }
 
 }

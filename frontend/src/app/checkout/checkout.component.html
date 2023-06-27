@@ -12,9 +12,7 @@
 </head>
 
 <body>
-
-
-
+<div #target></div>
 <app-header></app-header>
 
 <!-- Subheader Start -->
@@ -135,7 +133,7 @@
 <!-- Checkout End -->
 
 
-<app-footer></app-footer>
+<app-footer (scrollEmitter)="scrollToTop(target)"></app-footer>
 <!-- Vendor Scripts -->
 <script src="/assets/js/plugins/jquery-3.4.1.min.js"></script>
 <script src="/assets/js/plugins/popper.min.js"></script>

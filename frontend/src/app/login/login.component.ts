@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  scrollToTop(el:HTMLElement) {
+    el.scrollIntoView({behavior:"smooth"});
+  }
 }
