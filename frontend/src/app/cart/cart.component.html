@@ -43,80 +43,31 @@
         <th>Производ</th>
         <th>Цена</th>
         <th>Количина</th>
-        <th>Total</th>
+        <th>Вкупно</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
+      <tr *ngFor="let cartItem of cartItems">
         <td class="remove">
-          <button type="button" class="close-btn close-danger remove-from-cart">
+          <button (click)="removeFromCart(cartItem)" type="button" class="close-btn close-danger remove-from-cart">
             <span></span>
             <span></span>
           </button>
         </td>
         <td data-title="Product">
           <div class="cart-product-wrapper">
-            <img src="/assets/img/prods-sm/1.png" alt="prod1">
+            <img [src]="transformData(cartItem.product).image" alt="prod1">
             <div class="cart-product-body">
-              <h6> <a href="#">Pepperoni</a> </h6>
-              <p>21 Inch</p>
-              <p>Extra Cheese</p>
-              <p>Extra Pepperoni</p>
-              <p>Cheese Crust</p>
-              <p>Added Bacon</p>
+              <h6> <a href="">{{cartItem.product.name}}</a> </h6>
+              <p *ngFor="let ingredient of cartItem.product.ingredients"></p>
             </div>
           </div>
         </td>
-        <td data-title="Price"> <strong>12.99$</strong> </td>
+        <td data-title="Price"> <strong>{{cartItem.product.price}}</strong>ден. </td>
         <td class="quantity" (click)="subQuantity()" data-title="Quantity">
-          <input type="number" class="qty form-control" min="1" [(ngModel)]="quantity">
+          {{cartItem.quantity}}
         </td>
-        <td data-title="Total"> <strong>12.99$</strong> </td>
-      </tr>
-      <tr>
-        <td class="remove">
-          <button type="button" class="close-btn close-danger remove-from-cart">
-            <span></span>
-            <span></span>
-          </button>
-        </td>
-        <td data-title="Product">
-          <div class="cart-product-wrapper">
-            <img src="/assets/img/prods-sm/5.png" alt="prod1">
-            <div class="cart-product-body">
-              <h6> <a href="#">Vegetarian</a> </h6>
-              <p>14 Inch</p>
-            </div>
-          </div>
-        </td>
-        <td data-title="Price"> <strong>9.99$</strong> </td>
-        <td class="quantity" data-title="Quantity">
-          <input type="number" class="qty form-control" value="1">
-        </td>
-        <td data-title="Total"> <strong>9.99$</strong> </td>
-      </tr>
-      <tr>
-        <td class="remove">
-          <button type="button" class="close-btn close-danger remove-from-cart">
-            <span></span>
-            <span></span>
-          </button>
-        </td>
-        <td data-title="Product">
-          <div class="cart-product-wrapper">
-            <img src="/assets/img/prods-sm/3.png" alt="prod1">
-            <div class="cart-product-body">
-              <h6> <a href="#">Four Cheese</a> </h6>
-              <p>21 Inch</p>
-              <p>Extra Cheese</p>
-            </div>
-          </div>
-        </td>
-        <td data-title="Price"> <strong>13.99$</strong> </td>
-        <td class="quantity" data-title="Quantity">
-          <input type="number" class="qty form-control" value="1">
-        </td>
-        <td data-title="Total"> <strong>13.99$</strong> </td>
+        <td data-title="Total"> <strong>{{cartItem.product.price * cartItem.quantity}}</strong>ден. </td>
       </tr>
 
       </tbody>
@@ -131,11 +82,11 @@
           <tbody>
           <tr>
             <th>Вкупоно за наплата</th>
-            <td> <b>99.99$</b> </td>
+            <td> <b>{{calculateTotal()}}</b>ден. </td>
           </tr>
           </tbody>
         </table>
-        <a href="#" class="btn-custom primary btn-block">Продолжи кон наплата</a>
+        <a routerLink="/checkout" class="btn-custom primary btn-block">Продолжи кон наплата</a>
       </div>
     </div>
     <!-- Cart form End -->
