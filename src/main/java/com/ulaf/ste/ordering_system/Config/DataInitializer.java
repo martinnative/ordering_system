@@ -188,8 +188,8 @@ public class DataInitializer {
         byte[] imgAnduja = getPizzaImageBytes("Pica/anduja.png");
         byte[] imgPrshuto = getPizzaImageBytes("Pica/prshuto.png");
         byte[] imgVentrichina = getPizzaImageBytes("Pica/ventrichina.png");
-        byte[] imgNapoletana = getPizzaImageBytes("Pica/napoletana.png");
         byte[] imgAlpesto = getPizzaImageBytes("Pica/alpesto.png");
+        byte[] imgNapoletana = getPizzaImageBytes("Pica/napoletana.png");
 
         //SOKOVI SLIKI
         byte[] imgCocacola = getPizzaImageBytes("Pijaloci/Sok/coca_cola.png");
