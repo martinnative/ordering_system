@@ -8,6 +8,8 @@ import {ShoppingCartService} from "../shopping-cart.service";
 import {Router} from "@angular/router";
 import {Category} from "../../model/Category";
 import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
+import {DomSanitizer} from "@angular/platform-browser";
+import {ImageService} from "../image.service";
 
 @Component({
   selector: 'app-menu',
@@ -22,6 +24,7 @@ export class MenuComponent implements OnInit, AfterViewInit{
               private productsService: ProductsService,
               private shoppingCartService: ShoppingCartService,
               private modalService: NgbModal,
+              private imageService: ImageService
   ) {
   }
   ngAfterViewInit(): void {
@@ -34,6 +37,9 @@ export class MenuComponent implements OnInit, AfterViewInit{
       centerMode: true,
       adaptiveHeight: true
     });
+  }
+  scrollToTop(el:HTMLElement) {
+    el.scrollIntoView({behavior:"smooth"});
   }
 
   ngOnInit(): void {
@@ -54,6 +60,9 @@ export class MenuComponent implements OnInit, AfterViewInit{
         console.log(result)
       }
     });
+  }
+  transformData(data: Product):Product {
+    return this.imageService.transformData(data);
   }
 
 }
