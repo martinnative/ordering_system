@@ -3,6 +3,7 @@ import { Product } from "../../model/Product";
 import { ProductsService } from "../products.service";
 import { ActivatedRoute } from "@angular/router";
 import {filter, map, mergeMap, tap} from "rxjs";
+import {ImageService} from "../image.service";
 
 @Component({
   selector: 'app-product-single',
@@ -16,7 +17,8 @@ export class ProductSingleComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private imageService: ImageService
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class ProductSingleComponent implements OnInit {
     )
       .subscribe(data => this.product = data);
   }
-
-  protected readonly undefined = undefined;
+  sanitizeImage(product:Product):Product {
+    return this.imageService.transformData(product);
+  }
 }

@@ -58,18 +58,4 @@ public class Product {
         }
         return (double) sum / this.ratings.size();
     }
-
-//    public Product(Long id, String name, double price, List<Ingredient> ingredients, byte[] image, Category category) {
-//        this.id = id;
-//        this.name = name;
-//        this.price = price;
-//        this.category = category;
-//        this.ingredients = ingredients;
-//        this.image = image;
-//    }
-//
-//    public Product(String name, double price) {
-//        this.name = name;
-//        this.price = price;
-//    }
 }

@@ -26,14 +26,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import {FormsModule } from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { LoadingInterceptor } from './loading.interceptor';
 import { NgScrollbarModule} from "ngx-scrollbar";
 import { LoginComponent } from './login/login.component';
 import { ProductSingleComponent } from './product-single/product-single.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CreateIngredientComponent } from './create-ingredient/create-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +58,6 @@ import { CreateIngredientComponent } from './create-ingredient/create-ingredient
     LoginComponent,
     ProductSingleComponent,
     NotFoundComponent,
-    CreateIngredientComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +72,7 @@ import { CreateIngredientComponent } from './create-ingredient/create-ingredient
     CommonModule,
     NgbModule,
     NgScrollbarModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

@@ -10,6 +10,5 @@ public interface CategoryService {
     Category getCategoryById(Long id) throws NotFoundByIdException;
     List<Category> getAllCategories();
     Category updateCategory(Long id, Category category) throws NotFoundByIdException;
-
     void deleteCategory(Long id);
 }
