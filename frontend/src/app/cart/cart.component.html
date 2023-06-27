@@ -59,8 +59,8 @@
             <img [src]="transformData(cartItem.product).image" alt="prod1">
             <div class="cart-product-body">
               <h6> <a href="">{{cartItem.product.name}}</a> </h6>
-              <p *ngFor="let ingredient of cartItem.product.ingredients"></p>
             </div>
+            <span *ngFor="let ingredient of cartItem.product.ingredients">{{ingredient.name}}, </span>
           </div>
         </td>
         <td data-title="Price"> <strong>{{cartItem.product.price}}</strong>ден. </td>
@@ -69,7 +69,6 @@
         </td>
         <td data-title="Total"> <strong>{{cartItem.product.price * cartItem.quantity}}</strong>ден. </td>
       </tr>
-
       </tbody>
     </table>
     <!-- Cart Table End -->

@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="cart-sidebar-body">
-        <ng-scrollbar style="height:500px">
+        <ng-scrollbar style="height:650px">
           <div class="cart-sidebar-item" *ngFor="let cartItem of cartItems">
             <div class="media">
               <a routerLink="/products/{{cartItem.product.id}}"><img [src]="transformData(cartItem.product).image" alt="product"></a>
@@ -20,7 +20,6 @@
               </div>
             </div>
             <div class="cart-sidebar-item-meta">
-              <span *ngFor="let ingredient of cartItem.product.ingredients">{{ingredient.name}}</span>
             </div>
             <div class="cart-sidebar-price">
               {{cartItem.quantity * cartItem.product.price}} ден.
