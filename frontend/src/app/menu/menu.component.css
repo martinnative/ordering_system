@@ -54,6 +54,8 @@
 }
 .product .product-thumb img{
   margin: 0 auto;
+  width:300px;
+  height:300px;
 }
 .product:hover .product-thumb{
   -webkit-transform: translateY(-5px);

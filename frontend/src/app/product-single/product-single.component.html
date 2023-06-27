@@ -42,7 +42,7 @@
 
           <!-- Main Thumb -->
           <div class="product-thumb">
-            <img src="/assets/img/prods/3.png" alt="pizza">
+            <img [src]="sanitizeImage(product).image" alt="pizza">
           </div>
           <!-- /Main Thumb -->
 
@@ -53,11 +53,6 @@
             <!-- Product Title -->
             <h2 class="title">{{product.name}}</h2>
             <!-- /Product Title -->
-
-            <div class="favorite">
-              <i class="far fa-heart"></i>
-            </div>
-
 
             <!-- Price -->
             <div class="price-wrapper">
@@ -91,9 +86,6 @@
                   </div>
                 </div>
                 <!-- Variation End -->
-
-
-
               </div>
 
             </div>

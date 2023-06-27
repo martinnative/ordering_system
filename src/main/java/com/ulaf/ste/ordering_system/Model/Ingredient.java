@@ -23,5 +23,5 @@ public class Ingredient {
 
     public Ingredient(String name) {
         this.name = name;
-    }
+    } // TODO:Remove this after creating api call to create with image
 }

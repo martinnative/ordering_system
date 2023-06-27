@@ -22,8 +22,7 @@
       <!-- Product Start -->
       <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
         <div class="product" *ngIf="product.available">
-          <a class="product-thumb" routerLink="/product/{{product.id}}"> <img src="/assets/img/ulaf_ste/viber_image_2023-06-19_13-56-29-290.jpg"
-                                                                              alt="menu item" [width]="300" [height]="300"/> </a>
+          <a class="product-thumb" routerLink="/product/{{product.id}}"> <img [src]="transformData(product).image" alt="image"/> </a>
           <div class="product-body">
             <div class="product-desc">
               <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
@@ -40,7 +39,7 @@
           </div>
         </div>
         <div class="product" *ngIf="!product.available">
-          <a class="product-thumb"> <img src="/assets/img/prods-sm/5.png" alt="menu item"/> </a>
+          <a class="product-thumb"> <img [src]="transformData(product).image" alt="menu item"/> </a>
           <div class="product-body">
             <div class="product-desc">
               <h4><a>{{product.name}}</a></h4>

@@ -6,8 +6,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap'
 import {CustomizeModalComponent} from '../customize-modal/customize-modal.component';
 import {ProductsService} from '../products.service';
 import {ShoppingCartService} from "../shopping-cart.service";
-import {FloatingCartComponent} from "../floating-cart/floating-cart.component";
 import {Router} from "@angular/router";
+import {ImageService} from "../image.service";
 
 @Component({
   selector: 'app-categories-menu-homepage',
@@ -24,7 +24,8 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
               private modalService: NgbModal,
               private productsService: ProductsService,
               private shoppingCartService: ShoppingCartService,
-              private router:Router
+              private router:Router,
+              private imageService:ImageService
   ) {
   }
 
@@ -41,6 +42,9 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
       this.products = data;
       this.filteredProducts = data.sort((a,b) => Number(b.available) - Number(a.available));
     });
+  }
+  transformData(data: Product):Product {
+    return this.imageService.transformData(data);
   }
 
   setSelectedCategory(category: Category) {

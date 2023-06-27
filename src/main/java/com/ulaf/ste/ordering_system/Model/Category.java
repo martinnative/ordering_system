@@ -8,8 +8,7 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class Category {
 
@@ -18,6 +17,8 @@ public class Category {
     private Long Id;
     private String name;
     private String description;
+    @Lob
+    private byte[] image;
     @JsonBackReference
     @OneToMany(mappedBy = "category")
     private List<Product> products;
@@ -25,5 +26,11 @@ public class Category {
     public Category(String name, String description) {
         this.name = name;
         this.description = description;
+    } // TODO:Remove this after creating api call to create with image
+
+    public Category(String name, String description, byte[] image) {
+        this.name = name;
+        this.description = description;
+        this.image = image;
     }
 }

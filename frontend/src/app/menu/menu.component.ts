@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, inject, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import PerfectScrollbar from "perfect-scrollbar";
 import {Product} from "../../model/Product";
 import {CategoriesService} from "../categories.service";
@@ -8,7 +8,6 @@ import {ShoppingCartService} from "../shopping-cart.service";
 import {Router} from "@angular/router";
 import {Category} from "../../model/Category";
 import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
-import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'app-menu',
@@ -16,7 +15,6 @@ import {ViewportScroller} from "@angular/common";
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit, AfterViewInit{
-  private readonly viewport = inject(ViewportScroller);
   products: Product[] = [];
   categories: Category[] = [];
 
@@ -43,9 +41,7 @@ export class MenuComponent implements OnInit, AfterViewInit{
       this.products = data;
     });
   }
-  scrollToTop(el:HTMLElement) {
-    el.scrollIntoView({behavior:"smooth"});
-  }
+
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
   }

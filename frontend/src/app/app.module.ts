@@ -26,7 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import {FormsModule } from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { LoadingInterceptor } from './loading.interceptor';
 import { NgScrollbarModule} from "ngx-scrollbar";
@@ -71,6 +71,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CommonModule,
     NgbModule,
     NgScrollbarModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
