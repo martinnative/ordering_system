@@ -33,7 +33,6 @@ import { NgScrollbarModule} from "ngx-scrollbar";
 import { LoginComponent } from './login/login.component';
 import { ProductSingleComponent } from './product-single/product-single.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -25,9 +25,6 @@ public class Product {
     private Boolean customizable;
     private Boolean available;
 
-    @ElementCollection
-    private List<Integer> ratings;
-
     @JsonManagedReference
     @ManyToOne
     private Category category;
@@ -46,16 +43,6 @@ public class Product {
         this.description = description;
         this.customizable = customizable;
         this.available = available;
-        this.ratings = new ArrayList<>();
-    }
-    public double calculateAverageRating() {
-        if (this.ratings.isEmpty()) {
-            return 0;
-        }
-        int sum = 0;
-        for (int rating : this.ratings) {
-            sum += rating;
-        }
-        return (double) sum / this.ratings.size();
+        //this.ratings = new ArrayList<>();
     }
 }

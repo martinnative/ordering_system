@@ -21,7 +21,8 @@ public interface ProductService {
     String getImage(Long id) throws NotFoundByIdException;
 
     List<Product> findAllProductsWithCategory(String category) throws NotFoundByIdException;
-    Integer findRatingByPId(Long id) throws NotFoundByIdException;
-    void addRatingByProductId(Long id, int rating) throws NotFoundByIdException;
+
+//    Integer findRatingByPId(Long id) throws NotFoundByIdException;
+//    void addRatingByProductId(Long id, int rating) throws NotFoundByIdException;
 
 }

@@ -92,13 +92,14 @@ public class ProductController {
         return ResponseEntity.ok(base64Image);
     }
 
-    @PostMapping("/{id}/ratings")
-    public void addRating(@PathVariable Long id, @RequestBody int rating) throws NotFoundByIdException {
-        productService.addRatingByProductId(id, rating);
-    }
+//    @PostMapping("/{id}/ratings")
+//    public void addRating(@PathVariable Long id, @RequestBody int rating) throws NotFoundByIdException {
+//        productService.addRatingByProductId(id, rating);
+//    }
+//
+//    @GetMapping("/{id}/ratings")
+//    public double findRatingByProductId(@PathVariable Long id) throws NotFoundByIdException {
+//        return productService.findRatingByPId(id);
+//    }
 
-    @GetMapping("/{id}/ratings")
-    public double findRatingByProductId(@PathVariable Long id) throws NotFoundByIdException {
-        return productService.findRatingByPId(id);
-    }
 }

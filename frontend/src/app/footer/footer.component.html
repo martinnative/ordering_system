@@ -7,8 +7,8 @@
           <img src="/assets/img/ulaf_ste_logo-removebg-preview.png" alt="logo" width="100px" height="50px">
         </div>
         <div class="footer-buttons">
-          <a href="#"> <img src="/assets/img/android (1).png"> </a>
-          <a href="#"> <img src="assets/img/ios (1).png" alt="download it on the app store"></a>
+          <a routerLink="#"> <img src="/assets/img/android (1).png"> </a>
+          <a routerLink="#"> <img src="assets/img/ios (1).png" alt="download it on the app store"></a>
         </div>
       </div>
     </div>
@@ -20,37 +20,33 @@
           <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
             <h5 class="widget-title"> > Навигација</h5>
             <ul>
-              <li> <a href="">Почетна</a> </li>
-              <li> <a href="/about">За нас</a> </li>
-              <li> <a href="/menu">Mени</a> </li>
-              <li> <a href="/contact">Контакт</a> </li>
+              <li> <a routerLink="">Почетна</a> </li>
+              <li> <a routerLink="/about">За нас</a> </li>
+              <li> <a routerLink="/menu">Mени</a> </li>
+              <li> <a routerLink="/contact">Контакт</a> </li>
             </ul>
           </div>
           <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
             <h5 class="widget-title"> > Најпопуларни производи</h5>
             <ul>
-              <li> <a href="#">Пеперони</a> </li>
-              <li> <a href="#">Swiss Mushroom</a> </li>
-              <li> <a href="#">Barbeque Chicken</a> </li>
-              <li> <a href="#">Vegetarian</a> </li>
-              <li> <a href="#">Ham & Cheese</a> </li>
+              <li> <a routerLink="/product/2">Капричиоза</a> </li>
+              <li> <a routerLink="">Пеперони</a> </li>
+              <li> <a routerLink="/product/1">Маргарита</a> </li>
             </ul>
           </div>
           <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
             <h5 class="widget-title"> > Корисни линкови</h5>
             <ul>
-              <li> <a href="checkout.html">Checkout</a> </li>
-              <li> <a href="cart.html">Cart</a> </li>
-              <li> <a href="menu-item-v1.html">Product</a> </li>
-              <li> <a href="locations.html">Locations</a> </li>
-              <li> <a href="legal.html">Legal</a> </li>
+              <li> <a routerLink="/checkout">Наплата</a> </li>
+              <li> <a routerLink="/cart">Кошничка</a> </li>
+              <li> <a routerLink="/menu">Производи</a> </li>
             </ul>
           </div>
           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 footer-widget">
             <h5 class="widget-title">Заследете не на социјалните мрежи</h5>
             <ul class="social-media">
-              <li> <a href="https://www.facebook.com/ulafstecoffeshop/" class="facebook"> <i class="fab fa-facebook-f"></i> </a> </li>
-              <li> <a href="https://www.instagram.com/ulafstecoffeshop/" class="instagram"> <i class="fab fa-instagram"></i> </a> </li>
+              <li> <a routerLink="https://www.facebook.com/ulafstecoffeshop/" class="facebook"> <i class="fab fa-facebook-f"></i> </a> </li>
+              <li> <a routerLink="https://www.instagram.com/ulafstecoffeshop/" class="instagram"> <i class="fab fa-instagram"></i> </a> </li>
             </ul>
           </div>
         </div>
@@ -61,12 +57,12 @@
     <div class="footer-bottom">
       <div class="container">
         <ul>
-          <li> <a href="#">Политика на приватност</a> </li>
-          <li> <a href="#">Колачиња</a> </li>
-          <li> <a href="#">Правила и услови</a> </li>
+          <li> <a routerLink="#">Политика на приватност</a> </li>
+          <li> <a routerLink="#">Колачиња</a> </li>
+          <li> <a routerLink="#">Правила и услови</a> </li>
         </ul>
         <div class="footer-copyright">
-          <p> Copyright &copy; 2023 Powered By <a href="https://nativecreativa.com/">NativeCreativa</a> Сите права задржани. </p>
+          <p> Copyright &copy; 2023 Powered By <a routerLink="https://nativecreativa.com/">NativeCreativa</a> Сите права задржани. </p>
           <a class="back-to-top" (click)="scrollToTop()"> <i class="fas fa-chevron-up"></i> </a>
         </div>
       </div>
