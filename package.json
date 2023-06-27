@@ -1,5 +1,15 @@
 {
   "dependencies": {
+    "@angular/cli": "^16.1.1",
+    "@angular/forms": "^16.1.2",
+    "@angular/material": "^16.1.2",
+    "@angular/router": "^16.1.2",
+    "angular-tabler-icons": "^2.22.0",
+    "ng-apexcharts": "^1.7.7",
     "tslib": "^2.5.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.1.1",
+    "@types/jest": "^29.5.2"
   }
 }

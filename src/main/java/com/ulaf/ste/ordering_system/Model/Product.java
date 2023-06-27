@@ -25,8 +25,8 @@ public class Product {
     private Boolean customizable;
     private Boolean available;
 
-    @ElementCollection
-    private List<Integer> ratings;
+//    @ElementCollection
+//    private List<Integer> ratings;
 
     @JsonManagedReference
     @ManyToOne
@@ -46,18 +46,19 @@ public class Product {
         this.description = description;
         this.customizable = customizable;
         this.available = available;
-        this.ratings = new ArrayList<>();
+        //this.ratings = new ArrayList<>();
     }
-    public double calculateAverageRating() {
-        if (this.ratings.isEmpty()) {
-            return 0;
-        }
-        int sum = 0;
-        for (int rating : this.ratings) {
-            sum += rating;
-        }
-        return (double) sum / this.ratings.size();
-    }
+
+//    public double calculateAverageRating() {
+//        if (this.ratings.isEmpty()) {
+//            return 0;
+//        }
+//        int sum = 0;
+//        for (int rating : this.ratings) {
+//            sum += rating;
+//        }
+//        return (double) sum / this.ratings.size();
+//    }
 
 //    public Product(Long id, String name, double price, List<Ingredient> ingredients, byte[] image, Category category) {
 //        this.id = id;
