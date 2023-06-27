@@ -80,26 +80,25 @@ public class ProductServiceImpl implements ProductService {
         }
         throw new NotFoundByIdException("Category not found.");
     }
-    @Override
-    public void addRatingByProductId(Long id, int rating) throws NotFoundByIdException {
-        Product product = productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
-        if (product != null) {
-            List<Integer> productRatingsList = product.getRatings();
-            productRatingsList.add(rating);
-            product.setRatings(productRatingsList);
-        }
-    }
 
-    @Override
-    public Integer findRatingByPId(Long id) throws NotFoundByIdException {
-        Product product = productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
-        if (product != null) {
-            return (int) product.calculateAverageRating();
-        }
-        return 0;
-    }
-
-
+//    @Override
+//    public void addRatingByProductId(Long id, int rating) throws NotFoundByIdException {
+//        Product product = productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
+//        if (product != null) {
+//            List<Integer> productRatingsList = product.getRatings();
+//            productRatingsList.add(rating);
+//            product.setRatings(productRatingsList);
+//        }
+//    }
+//
+//    @Override
+//    public Integer findRatingByPId(Long id) throws NotFoundByIdException {
+//        Product product = productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
+//        if (product != null) {
+//            return (int) product.calculateAverageRating();
+//        }
+//        return 0;
+//    }
 
     @Override
     public Product uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException {
