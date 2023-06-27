@@ -93,13 +93,175 @@
     <!-- Category Start -->
     <div class="menu-category dark-overlay dark-overlay-2"
          style="background-image: url('/assets/img/pexels-alleksana-4113663.jpg')">
-      <h3>Пијалоци</h3>
+      <h3>Сокови</h3>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
         standard</p>
     </div>
     <div class="row">
       <ng-container *ngFor="let product of products">
-        <ng-container *ngIf="product.category.name == 'Пијалоци' ">
+        <ng-container *ngIf="product.category.name == 'Сокови' ">
+          <!-- Product Start -->
+          <div class="col-lg-4 col-md-6">
+            <div class="product" *ngIf="product.available">
+              <a class="product-thumb" routerLink="/product/{{product.id}}"> <img [src]="transformData(product).image"
+                                                                                  alt="menu item"/> </a>
+              <div class="product-body">
+                <div class="product-desc">
+                  <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
+                  <p>{{product.description}}</p>
+                  <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable">
+                    Измени <i
+                    class="fas fa-plus"></i> </a>
+                </div>
+                <div class="product-controls">
+                  <p class="product-price">{{product.price}} ден.</p>
+                  <a class="order-item btn-custom btn-sm shadow-none" (click)="addToCart(product)">Додади во кошничка <i
+                    class="fas fa-shopping-cart"></i> </a>
+                </div>
+              </div>
+            </div>
+            <div class="product" *ngIf="!product.available">
+              <a class="product-thumb"> <img [src]="transformData(product).image" alt="menu item"/> </a>
+              <div class="product-body">
+                <div class="product-desc">
+                  <h4><a>{{product.name}}</a></h4>
+                  <p>{{product.description}}</p>
+                  <a class="btn-custom light btn-sm shadow-none" *ngIf="product.customizable">
+                    Измени <i
+                    class="fas fa-plus"></i> </a>
+                </div>
+                <div class="product-controls">
+                  <p class="product-price">{{product.price}} ден.</p>
+                  <a class="order-item btn-custom btn-sm shadow-none">Додади во кошничка <i
+                    class="fas fa-shopping-cart"></i> </a>
+                </div>
+              </div>
+              <div class="overlay"> <h4>Моментално недостапно</h4> </div>
+            </div>
+          </div>
+          <!-- Product End -->
+        </ng-container>
+      </ng-container>
+    </div>
+    <!-- Category End -->
+    <!-- Category Start -->
+    <div class="menu-category dark-overlay dark-overlay-2"
+         style="background-image: url('/assets/img/pexels-alleksana-4113663.jpg')">
+      <h3>Кафе</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard</p>
+    </div>
+    <div class="row">
+      <ng-container *ngFor="let product of products">
+        <ng-container *ngIf="product.category.name == 'Кафе' ">
+          <!-- Product Start -->
+          <div class="col-lg-4 col-md-6">
+            <div class="product" *ngIf="product.available">
+              <a class="product-thumb" routerLink="/product/{{product.id}}"> <img [src]="transformData(product).image"
+                                                                                  alt="menu item"/> </a>
+              <div class="product-body">
+                <div class="product-desc">
+                  <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
+                  <p>{{product.description}}</p>
+                  <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable">
+                    Измени <i
+                    class="fas fa-plus"></i> </a>
+                </div>
+                <div class="product-controls">
+                  <p class="product-price">{{product.price}} ден.</p>
+                  <a class="order-item btn-custom btn-sm shadow-none" (click)="addToCart(product)">Додади во кошничка <i
+                    class="fas fa-shopping-cart"></i> </a>
+                </div>
+              </div>
+            </div>
+            <div class="product" *ngIf="!product.available">
+              <a class="product-thumb"> <img [src]="transformData(product).image" alt="menu item"/> </a>
+              <div class="product-body">
+                <div class="product-desc">
+                  <h4><a>{{product.name}}</a></h4>
+                  <p>{{product.description}}</p>
+                  <a class="btn-custom light btn-sm shadow-none" *ngIf="product.customizable">
+                    Измени <i
+                    class="fas fa-plus"></i> </a>
+                </div>
+                <div class="product-controls">
+                  <p class="product-price">{{product.price}} ден.</p>
+                  <a class="order-item btn-custom btn-sm shadow-none">Додади во кошничка <i
+                    class="fas fa-shopping-cart"></i> </a>
+                </div>
+              </div>
+              <div class="overlay"> <h4>Моментално недостапно</h4> </div>
+            </div>
+          </div>
+          <!-- Product End -->
+        </ng-container>
+      </ng-container>
+    </div>
+    <!-- Category End -->
+    <!-- Category Start -->
+    <div class="menu-category dark-overlay dark-overlay-2"
+         style="background-image: url('/assets/img/pexels-alleksana-4113663.jpg')">
+      <h3>Пиво</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard</p>
+    </div>
+    <div class="row">
+      <ng-container *ngFor="let product of products">
+        <ng-container *ngIf="product.category.name == 'Пиво' ">
+          <!-- Product Start -->
+          <div class="col-lg-4 col-md-6">
+            <div class="product" *ngIf="product.available">
+              <a class="product-thumb" routerLink="/product/{{product.id}}"> <img [src]="transformData(product).image"
+                                                                                  alt="menu item"/> </a>
+              <div class="product-body">
+                <div class="product-desc">
+                  <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
+                  <p>{{product.description}}</p>
+                  <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable">
+                    Измени <i
+                    class="fas fa-plus"></i> </a>
+                </div>
+                <div class="product-controls">
+                  <p class="product-price">{{product.price}} ден.</p>
+                  <a class="order-item btn-custom btn-sm shadow-none" (click)="addToCart(product)">Додади во кошничка <i
+                    class="fas fa-shopping-cart"></i> </a>
+                </div>
+              </div>
+            </div>
+            <div class="product" *ngIf="!product.available">
+              <a class="product-thumb"> <img [src]="transformData(product).image" alt="menu item"/> </a>
+              <div class="product-body">
+                <div class="product-desc">
+                  <h4><a>{{product.name}}</a></h4>
+                  <p>{{product.description}}</p>
+                  <a class="btn-custom light btn-sm shadow-none" *ngIf="product.customizable">
+                    Измени <i
+                    class="fas fa-plus"></i> </a>
+                </div>
+                <div class="product-controls">
+                  <p class="product-price">{{product.price}} ден.</p>
+                  <a class="order-item btn-custom btn-sm shadow-none">Додади во кошничка <i
+                    class="fas fa-shopping-cart"></i> </a>
+                </div>
+              </div>
+              <div class="overlay"> <h4>Моментално недостапно</h4> </div>
+            </div>
+          </div>
+          <!-- Product End -->
+        </ng-container>
+      </ng-container>
+    </div>
+    <!-- Category End -->
+    <!-- Category Start -->
+    <div class="menu-category dark-overlay dark-overlay-2"
+         style="background-image: url('/assets/img/pexels-alleksana-4113663.jpg')">
+      <h3>Жестоко</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard</p>
+    </div>
+    <div class="row">
+      <ng-container *ngFor="let product of products">
+        <ng-container *ngIf="product.category.name == 'Жестоко' ">
           <!-- Product Start -->
           <div class="col-lg-4 col-md-6">
             <div class="product" *ngIf="product.available">
