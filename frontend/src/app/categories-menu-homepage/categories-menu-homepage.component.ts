@@ -46,7 +46,6 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   transformData(data: Product):Product {
     return this.imageService.transformData(data);
   }
-
   setSelectedCategory(category: Category) {
     if(category.name == "Сите категории") {
       this.resetFilter();
@@ -56,7 +55,6 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
       this.filteredProducts = this.products.filter(prod => prod.category.id == category.id).sort((a,b) => Number(b.available) - Number(a.available));
     }
   }
-
   openModal(product: Product) {
     const modalRef = this.modalService.open(CustomizeModalComponent);
     modalRef.componentInstance.product = product;
@@ -66,7 +64,6 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
   resetFilter() {
     this.filteredProducts = this.products;
     this.selectedCategory = undefined;

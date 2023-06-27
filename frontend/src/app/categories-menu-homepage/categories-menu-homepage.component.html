@@ -5,7 +5,7 @@
          (click)="setSelectedCategory(category)"
          [ngClass]="{'active':category == selectedCategory || category.name == 'Сите категории' && selectedCategory == undefined}">
         <div class="menu-category-thumb">
-          <img src="/assets/img/categories/6.jpg" alt="category">
+          <img src="/assets/img/категории.jpg" alt="category">
         </div>
         <div class="menu-category-desc">
           <h6>{{category.name}}</h6>
@@ -18,7 +18,7 @@
 <div class="section section-padding">
   <div class="container">
     <div class="menu-container row menu-v2">
-      <div *ngIf="filteredProducts.length == 0" class="text-center">Нема достапни продукти во оваа категорија</div>
+      <div *ngIf="filteredProducts.length == 0" class="text-center">Не се пронајдени производи за оваа категорија</div>
       <!-- Product Start -->
       <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
         <div class="product" *ngIf="product.available">
