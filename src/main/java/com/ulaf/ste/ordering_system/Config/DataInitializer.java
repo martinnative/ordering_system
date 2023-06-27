@@ -279,8 +279,8 @@ public class DataInitializer {
         //PIVO PRODUCTS
         productService.createProduct(new Product("Amstel", 200.0, "Пиво", false, true, new ArrayList<>(), imgAmstel, catPivo));
         productService.createProduct(new Product("Heineken", 180.0, "Пиво", false, true, new ArrayList<>(), imgHeineken, catPivo));
-        productService.createProduct(new Product("Skopsko", 150.0, "Пиво", false, true, new ArrayList<>(), imgSkopsko, catPivo));
-        productService.createProduct(new Product("Skopsko Smooth", 160.0, "Пиво", false, true, new ArrayList<>(), imgSmooth, catPivo));
+        productService.createProduct(new Product("Скопско", 150.0, "Пиво", false, true, new ArrayList<>(), imgSkopsko, catPivo));
+        productService.createProduct(new Product("Скопско Smooth", 160.0, "Пиво", false, true, new ArrayList<>(), imgSmooth, catPivo));
 
         //KAFE PRODUCTS
         productService.createProduct(new Product("American Espresso", 90.0, "Кафе", false, true, new ArrayList<>(), imgAmericanEspresso, catKafe));
