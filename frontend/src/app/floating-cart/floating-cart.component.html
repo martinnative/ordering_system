@@ -13,7 +13,7 @@
         <ng-scrollbar style="height:500px">
           <div class="cart-sidebar-item" *ngFor="let cartItem of cartItems">
             <div class="media">
-              <a routerLink="/products/{{cartItem.product.id}}"><img src="/assets/img/prods-sm/1.png" alt="product"></a>
+              <a routerLink="/products/{{cartItem.product.id}}"><img [src]="transformData(cartItem.product).image" alt="product"></a>
               <div class="media-body">
                 <h5><span>{{cartItem.product.name}}</span></h5>
                 <span>{{cartItem.quantity}} * {{cartItem.product.price}}</span>

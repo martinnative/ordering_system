@@ -2,6 +2,8 @@ import {AfterContentInit, Component, Input, OnChanges, OnInit, SimpleChanges} fr
 import {ShoppingCartService} from "../shopping-cart.service";
 import {OrderItem} from "../../model/OrderItem";
 import { Output, EventEmitter } from '@angular/core';
+import {ImageService} from "../image.service";
+import {Product} from "../../model/Product";
 
 @Component({
   selector: 'app-floating-cart',
@@ -13,10 +15,14 @@ export class FloatingCartComponent implements OnInit, OnChanges{
   @Input() cartOpen:boolean = false;
   @Output() cartCloseEvent = new EventEmitter<string>();
 
-  constructor(private shoppingCartService:ShoppingCartService) {};
+  constructor(private shoppingCartService:ShoppingCartService,private imageService:ImageService
+  ) {};
   closeModal() {
     this.cartOpen = false;
     this.cartCloseEvent.emit();
+  }
+  transformData(data: Product):Product {
+    return this.imageService.transformData(data);
   }
   ngOnInit(): void {
     this.cartItems = this.shoppingCartService.getCartItems();
