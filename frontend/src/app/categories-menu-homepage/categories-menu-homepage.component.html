@@ -20,7 +20,7 @@
     <div class="menu-container row menu-v2">
       <div *ngIf="filteredProducts.length == 0" class="text-center">Не се пронајдени производи за оваа категорија</div>
       <!-- Product Start -->
-      <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
+      <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts.slice(0,6)">
         <div class="product" *ngIf="product.available">
           <a class="product-thumb" routerLink="/product/{{product.id}}"> <img [src]="transformData(product).image" alt="image"/> </a>
           <div class="product-body">
@@ -60,6 +60,10 @@
       </div>
     </div>
   </div>
+  <div class="section-btn">
+    <a href="/menu" class="btn-custom">Види повеќе !</a>
+  </div>
 </div>
 <!-- Menu Wrapper End -->
 <!-- Menu Categories End -->
+
