@@ -3,6 +3,7 @@ import { Product } from 'src/model/Product';
 import { OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {ShoppingCartService} from "../shopping-cart.service";
+import {ImageService} from "../image.service";
 
 @Component({
   selector: 'app-customize-modal',
@@ -13,7 +14,7 @@ export class CustomizeModalComponent {
   @Input() public product:Product|undefined;
   quantity:number = 1;
 
-  constructor(public activeModal: NgbActiveModal, private shoppingCartService:ShoppingCartService) {};
+  constructor(public activeModal: NgbActiveModal, private shoppingCartService:ShoppingCartService,private imageService:ImageService) {};
   closeModal() {
     this.activeModal.close();
   }
@@ -24,6 +25,9 @@ export class CustomizeModalComponent {
     if(this.quantity>0) {
       this.quantity--;
     }
+  }
+  transformData(data: Product):Product {
+    return this.imageService.transformData(data);
   }
   save() {
     if(this.quantity < 0 || isNaN(this.quantity)) {
