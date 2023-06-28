@@ -41,7 +41,7 @@ public class IngredientsController {
     @PostMapping
     public ResponseEntity<Ingredient> createIngredient(@RequestBody IngredientRequest ingredientRequest) {
         Image image = imageService.findById(ingredientRequest.getImageId());
-        Ingredient createdIngredient = new Ingredient(ingredientRequest.getName(),image.getBytes());
+        Ingredient createdIngredient = new Ingredient(ingredientRequest.getName(),image);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdIngredient);
     }
 
@@ -60,18 +60,18 @@ public class IngredientsController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/{id}/upload")
-    public ResponseEntity<Ingredient> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws NotFoundByIdException, IOException {
-        Ingredient updatedIngredient = ingredientService.uploadImage(id, file);
-        if (updatedIngredient != null) {
-            return ResponseEntity.ok(updatedIngredient);
-        }
-        return ResponseEntity.notFound().build();
-    }
+//    @PostMapping("/{id}/upload")
+//    public ResponseEntity<Ingredient> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws NotFoundByIdException, IOException {
+////        Ingredient updatedIngredient = ingredientService.uploadImage(id, file);
+//        if (updatedIngredient != null) {
+//            return ResponseEntity.ok(updatedIngredient);
+//        }
+//        return ResponseEntity.notFound().build();
+//    }
 
-    @GetMapping("/{id}/image")
-    public ResponseEntity<String> getImage(@PathVariable Long id) throws NotFoundByIdException {
-        String base64Image = ingredientService.getImage(id);
-        return ResponseEntity.ok(base64Image);
-    }
+//    @GetMapping("/{id}/image")
+//    public ResponseEntity<String> getImage(@PathVariable Long id) throws NotFoundByIdException {
+//        String base64Image = ingredientService.getImage(id);
+//        return ResponseEntity.ok(base64Image);
+//    }
 }

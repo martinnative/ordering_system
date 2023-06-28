@@ -11,7 +11,7 @@ export class ImageService {
   constructor(private sanitizer:DomSanitizer,private http:HttpClient) { }
 
   transformData(data: Product):Product {
-    let url = `data:image/png;base64,${data.image}`;
+    let url = `data:image/png;base64,${data.image.bytes}`;
     let image = this.sanitizer.bypassSecurityTrustUrl(url);
     return {
       id:data.id,

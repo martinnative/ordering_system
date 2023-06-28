@@ -48,26 +48,26 @@ public class IngredientServiceImpl implements IngredientService {
         ingredientsRepository.deleteById(id);
     }
 
-    @Override
-    public Ingredient uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException {
-        Ingredient ingredient = getIngredientById(id);
-        if (ingredient != null) {
-            byte[] imageBytes = file.getBytes();
-            ingredient.setImage(imageBytes);
-            return ingredientsRepository.save(ingredient);
-        }
-        throw new NotFoundByIdException("ID was not found.");
-    }
+//    @Override
+//    public Ingredient uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException {
+//        Ingredient ingredient = getIngredientById(id);
+//        if (ingredient != null) {
+//            byte[] imageBytes = file.getBytes();
+//            ingredient.setImage(imageBytes);
+//            return ingredientsRepository.save(ingredient);
+//        }
+//        throw new NotFoundByIdException("ID was not found.");
+//    }
 
-    @Override
-    public String getImage(Long id) throws NotFoundByIdException {
-        Ingredient ingredient = getIngredientById(id);
-        if (ingredient != null && ingredient.getImage() != null) {
-            byte[] imageBytes = ingredient.getImage();
-            return Base64.getEncoder().encodeToString(imageBytes);
-        }
-        throw new NotFoundByIdException("ID was not found or this ingredient does not have an image.");
-    }
+//    @Override
+//    public String getImage(Long id) throws NotFoundByIdException {
+//        Ingredient ingredient = getIngredientById(id);
+//        if (ingredient != null && ingredient.getImage() != null) {
+//            byte[] imageBytes = ingredient.getImage();
+//            return Base64.getEncoder().encodeToString(imageBytes);
+//        }
+//        throw new NotFoundByIdException("ID was not found or this ingredient does not have an image.");
+//    }
 
 
 }

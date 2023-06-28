@@ -2,7 +2,11 @@ package com.ulaf.ste.ordering_system.Web.REST;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Category;
+import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Service.CategoryService;
+import com.ulaf.ste.ordering_system.Service.ImageService;
+import com.ulaf.ste.ordering_system.Web.requests.CategoryRequest;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +15,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/categories")
+@AllArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
+    private final ImageService imageService;
 
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
 
     @GetMapping
     public ResponseEntity<List<Category>> getAllCategories() {
@@ -34,7 +37,9 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Category> createCategory(@RequestBody Category category) {
+    public ResponseEntity<Category> createCategory(@RequestBody CategoryRequest categoryRequest) {
+        Image image = imageService.findById(categoryRequest.getImageId());
+        Category category = new Category(categoryRequest.getName(), categoryRequest.getDescription(),image);
         Category createdCategory = categoryService.createCategory(category);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCategory);
     }
