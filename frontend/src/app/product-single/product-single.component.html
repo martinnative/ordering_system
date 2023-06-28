@@ -160,8 +160,8 @@
     <div class="container">
       <h3>Останати производи</h3>
       <div class="row">
-        <ng-container *ngFor="let product of products.slice(0,3)">
-          <ng-container *ngIf="product.category.name == 'Пица' ">
+        <ng-container *ngFor="let product of products.slice(product.id.valueOf(), product.id.valueOf() + 3)">
+          <ng-container>
             <!-- Product Start -->
             <div class="col-lg-4 col-md-6">
               <div class="product" *ngIf="product.available">

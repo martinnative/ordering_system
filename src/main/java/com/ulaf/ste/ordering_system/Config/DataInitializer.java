@@ -241,7 +241,7 @@ public class DataInitializer {
         Product kaprichoza = new Product("Капричиоза", 320.0, "Пица со кашкавал, печурски и салама", true, true, margaritaIngredients, imgKaprichoza, catPizza);
         productService.createProduct(kaprichoza);
 
-        Product formadzhi = new Product("Чинкве Формаџи", 350.0, "Пица со кашкавал, формаџи и маслиново масло", true, true, formadzhiIngredients, imgFormadzhi, catPizza);
+        Product formadzhi = new Product("Чинкве Фромаџи", 350.0, "Пица со кашкавал, формаџи и маслиново масло", true, true, formadzhiIngredients, imgFormadzhi, catPizza);
         productService.createProduct(formadzhi);
 
         Product vekia = new Product("Векиа Наполи", 320.0, "Пица со кашкавал, горгонзола и маслиново масло", true, true, vekiaIngredients, imgVekia, catPizza);
