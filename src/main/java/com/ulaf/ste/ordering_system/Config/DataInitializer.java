@@ -46,7 +46,7 @@ public class DataInitializer {
     @PostConstruct
     public void initializeData() throws NotFoundByIdException {
         Category catPizza = categoryService.createCategory(new Category("Пица","Категорија за пица"));
-        Category catSok = categoryService.createCategory(new Category("Сокови","Категорија за сокови"));
+        Category catSok = categoryService.createCategory(new Category("Ладни пијалоци","Категорија за сокови"));
         Category catPivo = categoryService.createCategory(new Category("Пиво","Категорија за пиво"));
         Category catKafe = categoryService.createCategory(new Category("Кафе","Категорија за кафе"));
         Category catZhestoko = categoryService.createCategory(new Category("Жестоко","Категорија за жестоко"));
