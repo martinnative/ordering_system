@@ -65,7 +65,7 @@
             <!-- /Product Short Description -->
 
             <!-- Variations -->
-            <div class="customize-variations">
+            <div class="customize-variations" *ngIf="product.category.name == 'Пица'">
 
               <div class="customize-size-wrapper">
                 <h5>Големина: Стандардна </h5>
@@ -101,7 +101,7 @@
                   <span class="qty-add"><i class="fas fa-plus"></i></span>
                 </div>
               </div>
-              <button type="submit" name="button" class="btn-custom secondary"> Додади во кошничка <i class="fas fa-shopping-cart"></i> </button>
+              <button type="submit" name="button" class="btn-custom secondary" (click)="addToCart(product)"> Додади во кошничка <i class="fas fa-shopping-cart"></i> </button>
             </form>
             <!-- /Add To Cart Form -->
 
@@ -113,7 +113,7 @@
                   <a>{{product.category.name}}</a>
                 </div>
               </li>
-              <li>
+              <li *ngIf="product.category.name == 'Пица'">
                 <span>Состјки: </span>
                 <div class="product-meta-item">
                   <a *ngFor="let ingredient of product.ingredients">{{ ingredient.name }}, </a>
@@ -122,7 +122,7 @@
               <li>
                 <span>Шифра: </span>
                 <div class="product-meta-item">
-                  <span>N/A</span>
+                  <span>MKПР0{{product.id}}</span>
                 </div>
               </li>
             </ul>

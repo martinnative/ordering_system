@@ -4,6 +4,7 @@ import { ProductsService } from "../products.service";
 import { ActivatedRoute } from "@angular/router";
 import {filter, map, mergeMap, tap} from "rxjs";
 import {ImageService} from "../image.service";
+import {ShoppingCartService} from "../shopping-cart.service";
 
 @Component({
   selector: 'app-product-single',
@@ -18,7 +19,9 @@ export class ProductSingleComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductsService,
-    private imageService: ImageService
+    private imageService: ImageService,
+    private shoppingCartService: ShoppingCartService,
+
   ) { }
 
   ngOnInit(): void {
@@ -33,5 +36,8 @@ export class ProductSingleComponent implements OnInit {
   }
   sanitizeImage(product:Product):Product {
     return this.imageService.transformData(product);
+  }
+  addToCart(product: Product) {
+    this.shoppingCartService.addToCart(product);
   }
 }
