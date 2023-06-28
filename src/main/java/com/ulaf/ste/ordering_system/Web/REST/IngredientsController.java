@@ -1,8 +1,13 @@
 package com.ulaf.ste.ordering_system.Web.REST;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
+import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Model.Ingredient;
+import com.ulaf.ste.ordering_system.Service.ImageService;
 import com.ulaf.ste.ordering_system.Service.IngredientService;
+import com.ulaf.ste.ordering_system.Web.requests.IngredientRequest;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,12 +18,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/ingredients")
+@AllArgsConstructor
 public class IngredientsController {
     private final IngredientService ingredientService;
-
-    public IngredientsController(IngredientService ingredientService) {
-        this.ingredientService = ingredientService;
-    }
+    private final ImageService imageService;
 
     @GetMapping
     public ResponseEntity<List<Ingredient>> getAllIngredients() {
@@ -36,8 +39,9 @@ public class IngredientsController {
     }
 
     @PostMapping
-    public ResponseEntity<Ingredient> createIngredient(@RequestBody Ingredient ingredient) {
-        Ingredient createdIngredient = ingredientService.createIngredient(ingredient);
+    public ResponseEntity<Ingredient> createIngredient(@RequestBody IngredientRequest ingredientRequest) {
+        Image image = imageService.findById(ingredientRequest.getImageId());
+        Ingredient createdIngredient = new Ingredient(ingredientRequest.getName(),image.getBytes());
         return ResponseEntity.status(HttpStatus.CREATED).body(createdIngredient);
     }
 
