@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
       -------------------------------------------------------------------------------*/
       $(".ct-notice a").on('click', function(e){
         e.preventDefault();
-
         $(this).closest('.ct-notice').next().slideToggle();
       });
 
