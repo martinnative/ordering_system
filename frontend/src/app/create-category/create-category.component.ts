@@ -39,8 +39,7 @@ export class CreateCategoryComponent {
           "description":this.createCategory.controls['categoryDescription'].value!,
           "imageId":data
       })
-      ),
-      finalize(() => window.parent.location.href = "http://localhost:4200")
-    ).subscribe();
+      )
+    ).subscribe(data => console.log(data));
   }
 }

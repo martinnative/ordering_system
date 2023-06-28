@@ -1,4 +1,4 @@
-<div class="ct-menu-categories menu-filter" style="background: darkred">
+<div class="ct-menu-categories menu-filter" style="background: darkred" *ngIf="categories.length > 0">
   <div class="container">
     <div class="menu-category-slider d-flex justify-content-center">
       <a class="ct-menu-category-item ps-4" *ngFor="let category of categories"
@@ -15,7 +15,7 @@
   </div>
 </div>
 <!-- Menu Wrapper Start -->
-<div class="section section-padding">
+<div class="section section-padding" *ngIf="filteredProducts.length > 0">
   <div class="container">
     <div class="menu-container row menu-v2">
       <div *ngIf="filteredProducts.length == 0" class="text-center">Не се пронајдени производи за оваа категорија</div>
