@@ -11,4 +11,7 @@ export class CategoriesService {
   findAllCategories():Observable<Category[]> {
     return this.http.get<Category[]>(`/api/categories`);
   }
+  saveCategory(category:any):Observable<Category> {
+    return this.http.post<Category>("/api/categories",category);
+  }
 }

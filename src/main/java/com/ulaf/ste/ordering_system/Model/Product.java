@@ -31,10 +31,10 @@ public class Product {
     @ManyToMany
     private List<Ingredient> ingredients;
 
-    @Lob
-    private byte[] image;
+    @OneToOne
+    private Image image;
 
-    public Product(String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, byte[] image, Category category) {
+    public Product(String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, Image image, Category category) {
         this.name = name;
         this.price = price;
         this.category = category;

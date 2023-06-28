@@ -1,1 +1,47 @@
-<p>create-category works!</p>
+<app-header></app-header>
+<div class="bg">
+  <div class="container border backgroundphoto">
+    <div id="header">CREATE NEW CATEGORY</div>
+    <form [formGroup]="createCategory" class="container" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="categoryName">Category Name</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          id="categoryName"
+          placeholder="Enter category name"
+          formControlName="categoryName"
+          required
+        />
+      </div>
+      <br/>
+      <div class="form-group">
+        <label for="categoryName">Category description</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          id="categoryDescription"
+          placeholder="Enter category description"
+          formControlName="categoryDescription"
+          required
+        />
+      </div>
+      <br/>
+      <label for="image">Category image</label>
+      <input
+        id="image"
+        name="image"
+        class="form-control"
+        type="file"
+        formControlName="categoryImage"
+        (change)="onFileChange($event)"
+        required
+      />
+      <br/>
+      <button type="submit" class="btn btn-primary my-4">Submit</button>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

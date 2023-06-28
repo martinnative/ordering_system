@@ -77,20 +77,20 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/{id}/upload")
-    public ResponseEntity<Product> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws NotFoundByIdException, IOException {
-        Product updatedProduct = productService.uploadImage(id, file);
-        if (updatedProduct != null) {
-            return ResponseEntity.ok(updatedProduct);
-        }
-        return ResponseEntity.notFound().build();
-    }
-
-    @GetMapping("/{id}/image")
-    public ResponseEntity<String> getImage(@PathVariable Long id) throws NotFoundByIdException {
-        String base64Image = productService.getImage(id);
-        return ResponseEntity.ok(base64Image);
-    }
+//    @PostMapping("/{id}/upload")
+//    public ResponseEntity<Product> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws NotFoundByIdException, IOException {
+//        Product updatedProduct = productService.uploadImage(id, file);
+//        if (updatedProduct != null) {
+//            return ResponseEntity.ok(updatedProduct);
+//        }
+//        return ResponseEntity.notFound().build();
+//    }
+//
+//    @GetMapping("/{id}/image")
+//    public ResponseEntity<String> getImage(@PathVariable Long id) throws NotFoundByIdException {
+//        String base64Image = productService.getImage(id);
+//        return ResponseEntity.ok(base64Image);
+//    }
 
 //    @PostMapping("/{id}/ratings")
 //    public void addRating(@PathVariable Long id, @RequestBody int rating) throws NotFoundByIdException {

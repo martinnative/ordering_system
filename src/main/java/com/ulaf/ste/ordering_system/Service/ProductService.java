@@ -16,9 +16,9 @@ public interface ProductService {
     Product getProductByName(String name);
     void deleteProduct(Long id);
 
-    Product uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException;
-
-    String getImage(Long id) throws NotFoundByIdException;
+//    Product uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException;
+//
+//    String getImage(Long id) throws NotFoundByIdException;
 
     List<Product> findAllProductsWithCategory(String category) throws NotFoundByIdException;
 

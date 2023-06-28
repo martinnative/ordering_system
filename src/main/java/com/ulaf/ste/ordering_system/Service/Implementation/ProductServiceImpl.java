@@ -100,25 +100,25 @@ public class ProductServiceImpl implements ProductService {
 //        return 0;
 //    }
 
-    @Override
-    public Product uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException {
-        Product product = getProductById(id);
-        if (product != null) {
-            byte[] imageBytes = file.getBytes();
-            product.setImage(imageBytes);
-            return productRepository.save(product);
-        }
-        throw new NotFoundByIdException("ID was not found.");
-    }
-
-    @Override
-    public String getImage(Long id) throws NotFoundByIdException {
-        Product product = getProductById(id);
-        if (product != null && product.getImage() != null) {
-            byte[] imageBytes = product.getImage();
-            return Base64.getEncoder().encodeToString(imageBytes);
-        }
-        throw new NotFoundByIdException("ID was not found or this pizza does not have an image.");
-    }
+//    @Override
+//    public Product uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException {
+//        Product product = getProductById(id);
+//        if (product != null) {
+//            byte[] imageBytes = file.getBytes();
+//            product.setImage(imageBytes);
+//            return productRepository.save(product);
+//        }
+//        throw new NotFoundByIdException("ID was not found.");
+//    }
+//
+//    @Override
+//    public String getImage(Long id) throws NotFoundByIdException {
+//        Product product = getProductById(id);
+//        if (product != null && product.getImage() != null) {
+//            byte[] imageBytes = product.getImage();
+//            return Base64.getEncoder().encodeToString(imageBytes);
+//        }
+//        throw new NotFoundByIdException("ID was not found or this pizza does not have an image.");
+//    }
 
 }

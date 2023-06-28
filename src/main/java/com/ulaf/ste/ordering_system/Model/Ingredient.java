@@ -14,14 +14,10 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     private String name;
-    @Lob
-    private byte[] image;
-    public Ingredient(String name,byte[] image) {
+    @OneToOne
+    private Image image;
+    public Ingredient(String name,Image image) {
         this.name = name;
         this.image = image;
     }
-
-    public Ingredient(String name) {
-        this.name = name;
-    } // TODO:Remove this after creating api call to create with image
 }

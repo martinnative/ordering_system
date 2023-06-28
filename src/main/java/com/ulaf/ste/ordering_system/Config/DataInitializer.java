@@ -3,40 +3,33 @@ package com.ulaf.ste.ordering_system.Config;
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.*;
 import com.ulaf.ste.ordering_system.Repository.OrderItemRepository;
-import com.ulaf.ste.ordering_system.Service.CategoryService;
-import com.ulaf.ste.ordering_system.Service.IngredientService;
-import com.ulaf.ste.ordering_system.Service.OrderService;
-import com.ulaf.ste.ordering_system.Service.ProductService;
+import com.ulaf.ste.ordering_system.Service.*;
 import jakarta.annotation.PostConstruct;
+import lombok.AllArgsConstructor;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
 
+import java.beans.Transient;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@AllArgsConstructor
 public class DataInitializer {
 
     private final CategoryService categoryService;
     private final IngredientService ingredientService;
     private final ProductService productService;
     private final OrderService orderService;
+    private final ImageService imageService;
     private final OrderItemRepository product_qtyRepository;
 
-    public DataInitializer(CategoryService categoryService, IngredientService ingredientService, ProductService productService, OrderService orderService, OrderItemRepository orderItemRepository) {
-        this.categoryService = categoryService;
-        this.ingredientService = ingredientService;
-        this.productService = productService;
-        this.orderService = orderService;
-        this.product_qtyRepository = orderItemRepository;
-    }
-
-    private byte[] getPizzaImageBytes(String imageName) {
+    private Image getImage(String imageName,String type) {
         try {
             ClassPathResource resource = new ClassPathResource("images/" + imageName);
-            return StreamUtils.copyToByteArray(resource.getInputStream());
+            return new Image(imageName,StreamUtils.copyToByteArray(resource.getInputStream()),type);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -51,34 +44,63 @@ public class DataInitializer {
         Category catKafe = categoryService.createCategory(new Category("Кафе","Категорија за кафе"));
         Category catZhestoko = categoryService.createCategory(new Category("Жестоко","Категорија за жестоко"));
 
+
         //INGREDIENTS SLIKI
-        byte[] imgBalsamicCream = getPizzaImageBytes("icons/balsamic_cream.png");
-        byte[] imgBosilek = getPizzaImageBytes("icons/bosilek.png");
-        byte[] imgBrokula = getPizzaImageBytes("icons/brokula.png");
-        byte[] imgChili = getPizzaImageBytes("icons/chili.png");
-        byte[] imgEdamer = getPizzaImageBytes("icons/edamer.png");
-        byte[] imgGorgonzola = getPizzaImageBytes("icons/gorgonzola.png");
-        byte[] imgInchuni = getPizzaImageBytes("icons/inchuni.png");
-        byte[] imgKaperi = getPizzaImageBytes("icons/kaperi.png");
-        byte[] imgKromid = getPizzaImageBytes("icons/kromid.png");
-        byte[] imgLuk = getPizzaImageBytes("icons/luk.png");
-        byte[] imgMaslinke = getPizzaImageBytes("icons/maslinke.png");
-        byte[] imgMaslinovoMaslo = getPizzaImageBytes("icons/maslinovo_maslo.png");
-        byte[] imgMortadela = getPizzaImageBytes("icons/mortadela.png");
-        byte[] imgMozzarella = getPizzaImageBytes("icons/mozzarella.png");
-        byte[] imgNdujaSpianataSalami = getPizzaImageBytes("icons/nduja_spianata_salami.png");
-        byte[] imgOrevi = getPizzaImageBytes("icons/orevi.png");
-        byte[] imgParmezan = getPizzaImageBytes("icons/parmezan.png");
-        byte[] imgPatlidzhan = getPizzaImageBytes("icons/patlidzhan.png");
-        byte[] imgPechurki = getPizzaImageBytes("icons/pechurki.png");
-        byte[] imgPesto = getPizzaImageBytes("icons/pesto.png");
-        byte[] imgPiper = getPizzaImageBytes("icons/piper.png");
-        byte[] imgProvola = getPizzaImageBytes("icons/provola.png");
-        byte[] imgPrshuta = getPizzaImageBytes("icons/prshuta.png");
-        byte[] imgRukola = getPizzaImageBytes("icons/rukola.png");
-        byte[] imgSlanina = getPizzaImageBytes("icons/slanina.png");
-        byte[] imgVentricinaSalami = getPizzaImageBytes("icons/ventricina_salami.png");
-        byte[] imgShunka = getPizzaImageBytes("icons/shunka.png");
+
+        Image imgBalsamicCream = getImage("icons/balsamic_cream.png","ingredient");
+        Image imgBosilek = getImage("icons/bosilek.png","ingredient");
+        Image imgBrokula = getImage("icons/brokula.png","ingredient");
+        Image imgChili = getImage("icons/chili.png","ingredient");
+        Image imgEdamer = getImage("icons/edamer.png","ingredient");
+        Image imgGorgonzola = getImage("icons/gorgonzola.png","ingredient");
+        Image imgInchuni = getImage("icons/inchuni.png","ingredient");
+        Image imgKaperi = getImage("icons/kaperi.png","ingredient");
+        Image imgKromid = getImage("icons/kromid.png","ingredient");
+        Image imgLuk = getImage("icons/luk.png","ingredient");
+        Image imgMaslinke = getImage("icons/maslinke.png","ingredient");
+        Image imgMaslinovoMaslo = getImage("icons/maslinovo_maslo.png","ingredient");
+        Image imgMortadela = getImage("icons/mortadela.png","ingredient");
+        Image imgMozzarella = getImage("icons/mozzarella.png","ingredient");
+        Image imgNdujaSpianataSalami = getImage("icons/nduja_spianata_salami.png","ingredient");
+        Image imgOrevi = getImage("icons/orevi.png","ingredient");
+        Image imgParmezan = getImage("icons/parmezan.png","ingredient");
+        Image imgPatlidzhan = getImage("icons/patlidzhan.png","ingredient");
+        Image imgPechurki = getImage("icons/pechurki.png","ingredient");
+        Image imgPesto = getImage("icons/pesto.png","ingredient");
+        Image imgPiper = getImage("icons/piper.png","ingredient");
+        Image imgProvola = getImage("icons/provola.png","ingredient");
+        Image imgPrshuta = getImage("icons/prshuta.png","ingredient");
+        Image imgRukola = getImage("icons/rukola.png","ingredient");
+        Image imgSlanina = getImage("icons/slanina.png","ingredient");
+        Image imgVentricinaSalami = getImage("icons/ventricina_salami.png","ingredient");
+        Image imgShunka = getImage("icons/shunka.png","ingredient");
+        imageService.saveImage(imgBalsamicCream);
+        imageService.saveImage(imgBosilek);
+        imageService.saveImage(imgBrokula);
+        imageService.saveImage(imgChili);
+        imageService.saveImage(imgEdamer);
+        imageService.saveImage(imgGorgonzola);
+        imageService.saveImage(imgInchuni);
+        imageService.saveImage(imgKaperi);
+        imageService.saveImage(imgKromid);
+        imageService.saveImage(imgLuk);
+        imageService.saveImage(imgMaslinke);
+        imageService.saveImage(imgMaslinovoMaslo);
+        imageService.saveImage(imgMortadela);
+        imageService.saveImage(imgMozzarella);
+        imageService.saveImage(imgNdujaSpianataSalami);
+        imageService.saveImage(imgOrevi);
+        imageService.saveImage(imgParmezan);
+        imageService.saveImage(imgPatlidzhan);
+        imageService.saveImage(imgPechurki);
+        imageService.saveImage(imgPesto);
+        imageService.saveImage(imgPiper);
+        imageService.saveImage(imgProvola);
+        imageService.saveImage(imgPrshuta);
+        imageService.saveImage(imgRukola);
+        imageService.saveImage(imgSlanina);
+        imageService.saveImage(imgVentricinaSalami);
+        imageService.saveImage(imgShunka);
 
         //INGREDIENTS
         Ingredient slanina = ingredientService.createIngredient(new Ingredient("Сланина",imgSlanina));
@@ -180,59 +202,109 @@ public class DataInitializer {
         alpestoIngredients.add(orevi);
 
         //PIZZA SLIKI
-        byte[] imgMargarita = getPizzaImageBytes("Pica/margarita.png");
-        byte[] imgKaprichoza = getPizzaImageBytes("Pica/kaprichoza.png");
-        byte[] imgFormadzhi = getPizzaImageBytes("Pica/formadzhi.png");
-        byte[] imgVekia = getPizzaImageBytes("Pica/vekia.png");
-        byte[] imgPulchinela = getPizzaImageBytes("Pica/pulchinela.png");
-        byte[] imgAnduja = getPizzaImageBytes("Pica/anduja.png");
-        byte[] imgPrshuto = getPizzaImageBytes("Pica/prshuto.png");
-        byte[] imgVentrichina = getPizzaImageBytes("Pica/ventrichina.png");
-        byte[] imgAlpesto = getPizzaImageBytes("Pica/alpesto.png");
-        byte[] imgNapoletana = getPizzaImageBytes("Pica/napoletana.png");
+
+        Image imgMargarita = getImage("Pica/margarita.png","Pizza");
+        Image imgKaprichoza = getImage("Pica/kaprichoza.png","Pizza");
+        Image imgFormadzhi = getImage("Pica/formadzhi.png","Pizza");
+        Image imgVekia = getImage("Pica/vekia.png","Pizza");
+        Image imgPulchinela = getImage("Pica/pulchinela.png","Pizza");
+        Image imgAnduja = getImage("Pica/anduja.png","Pizza");
+        Image imgPrshuto = getImage("Pica/prshuto.png","Pizza");
+        Image imgVentrichina = getImage("Pica/ventrichina.png","Pizza");
+        Image imgAlpesto = getImage("Pica/alpesto.png","Pizza");
+        Image imgNapoletana = getImage("Pica/napoletana.png","Pizza");
 
         //SOKOVI SLIKI
-        byte[] imgCocacola = getPizzaImageBytes("Pijaloci/Sok/coca_cola.png");
-        byte[] imgCedevita = getPizzaImageBytes("Pijaloci/Sok/cedevita.png");
-        byte[] imgFanta = getPizzaImageBytes("Pijaloci/Sok/fanta.png");
-        byte[] imgSprite = getPizzaImageBytes("Pijaloci/Sok/sprite.png");
-        byte[] imgPelisterska = getPizzaImageBytes("Pijaloci/Sok/pelisterska.png");
-        byte[] imgBitter = getPizzaImageBytes("Pijaloci/Sok/scchweppes_bitter_lemon.png");
-        byte[] imgPink = getPizzaImageBytes("Pijaloci/Sok/schwepees_pink_soda.png");
-        byte[] imgMandarina = getPizzaImageBytes("Pijaloci/Sok/schweppes_mandarina.png");
-        byte[] imgSchweppes = getPizzaImageBytes("Pijaloci/Sok/schweppes.png");
+        Image imgCocacola = getImage("Pijaloci/Sok/coca_cola.png","Sokovi");
+        Image imgCedevita = getImage("Pijaloci/Sok/cedevita.png","Sokovi");
+        Image imgFanta = getImage("Pijaloci/Sok/fanta.png","Sokovi");
+        Image imgSprite = getImage("Pijaloci/Sok/sprite.png","Sokovi");
+        Image imgPelisterska = getImage("Pijaloci/Sok/pelisterska.png","Sokovi");
+        Image imgBitter = getImage("Pijaloci/Sok/scchweppes_bitter_lemon.png","Sokovi");
+        Image imgPink = getImage("Pijaloci/Sok/schwepees_pink_soda.png","Sokovi");
+        Image imgMandarina = getImage("Pijaloci/Sok/schweppes_mandarina.png","Sokovi");
+        Image imgSchweppes = getImage("Pijaloci/Sok/schweppes.png","Sokovi");
 
         //PIVO SLIKI
-        byte[] imgAmstel = getPizzaImageBytes("Pijaloci/Pivo/amstel.png");
-        byte[] imgHeineken = getPizzaImageBytes("Pijaloci/Pivo/heineken.png");
-        byte[] imgSkopsko = getPizzaImageBytes("Pijaloci/Pivo/skopsko.png");
-        byte[] imgSmooth = getPizzaImageBytes("Pijaloci/Pivo/skopsko_smooth.png");
+        Image imgAmstel = getImage("Pijaloci/Pivo/amstel.png","Sokovi");
+        Image imgHeineken = getImage("Pijaloci/Pivo/heineken.png","Sokovi");
+        Image imgSkopsko = getImage("Pijaloci/Pivo/skopsko.png","Sokovi");
+        Image imgSmooth = getImage("Pijaloci/Pivo/skopsko_smooth.png","Sokovi");
 
         //KAFE SLIKI
-        byte[] imgAmericanEspresso = getPizzaImageBytes("Pijaloci/Kafe/american_espresso.png");
-        byte[] imgCappucino = getPizzaImageBytes("Pijaloci/Kafe/cappucino.png");
-        byte[] imgEspresso = getPizzaImageBytes("Pijaloci/Kafe/espresso.png");
-        byte[] imgFreddoEspresso = getPizzaImageBytes("Pijaloci/Kafe/freddo_espresso.png");
-        byte[] imgIceCoffee = getPizzaImageBytes("Pijaloci/Kafe/ice_coffee.png");
-        byte[] imgLatteMacchiato = getPizzaImageBytes("Pijaloci/Kafe/latte_macchiato.png");
-        byte[] imgMacchiato = getPizzaImageBytes("Pijaloci/Kafe/macchiato.png");
-        byte[] imgNescafe = getPizzaImageBytes("Pijaloci/Kafe/nescafe.png");
-        byte[] imgTursko = getPizzaImageBytes("Pijaloci/Kafe/tursko.png");
+        Image imgAmericanEspresso = getImage("Pijaloci/Kafe/american_espresso.png","Sokovi");
+        Image imgCappucino = getImage("Pijaloci/Kafe/cappucino.png","Sokovi");
+        Image imgEspresso = getImage("Pijaloci/Kafe/espresso.png","Sokovi");
+        Image imgFreddoEspresso = getImage("Pijaloci/Kafe/freddo_espresso.png","Sokovi");
+        Image imgIceCoffee = getImage("Pijaloci/Kafe/ice_coffee.png","Sokovi");
+        Image imgLatteMacchiato = getImage("Pijaloci/Kafe/latte_macchiato.png","Sokovi");
+        Image imgMacchiato = getImage("Pijaloci/Kafe/macchiato.png","Sokovi");
+        Image imgNescafe = getImage("Pijaloci/Kafe/nescafe.png","Sokovi");
+        Image imgTursko = getImage("Pijaloci/Kafe/tursko.png","Sokovi");
 
         //ZHESTOKO SLIKI
-        byte[] imgAperol = getPizzaImageBytes("Pijaloci/Zhestoko/aperol.png");
-        byte[] imgBaileys = getPizzaImageBytes("Pijaloci/Zhestoko/baileys.png");
-        byte[] imgCampari = getPizzaImageBytes("Pijaloci/Zhestoko/campari.png");
-        byte[] imgCaptainMorgan = getPizzaImageBytes("Pijaloci/Zhestoko/captain_morgan.png");
-        byte[] imgGordons = getPizzaImageBytes("Pijaloci/Zhestoko/gordons.png");
-        byte[] imgJackDaniels = getPizzaImageBytes("Pijaloci/Zhestoko/jack_daniels.png");
-        byte[] imgJagermeister = getPizzaImageBytes("Pijaloci/Zhestoko/jagermeister.png");
-        byte[] imgJameson = getPizzaImageBytes("Pijaloci/Zhestoko/jameson.png");
-        byte[] imgJB = getPizzaImageBytes("Pijaloci/Zhestoko/jb.png");
-        byte[] imgJohnnieWalker = getPizzaImageBytes("Pijaloci/Zhestoko/johnnie_walker.png");
-        byte[] imgMartini = getPizzaImageBytes("Pijaloci/Zhestoko/martini.png");
-        byte[] imgPelinkovac = getPizzaImageBytes("Pijaloci/Zhestoko/pelinkovac.png");
-        byte[] imgSmirnoff = getPizzaImageBytes("Pijaloci/Zhestoko/smirnoff.png");
+        Image imgAperol = getImage("Pijaloci/Zhestoko/aperol.png","Sokovi");
+        Image imgBaileys = getImage("Pijaloci/Zhestoko/baileys.png","Sokovi");
+        Image imgCampari = getImage("Pijaloci/Zhestoko/campari.png","Sokovi");
+        Image imgCaptainMorgan = getImage("Pijaloci/Zhestoko/captain_morgan.png","Sokovi");
+        Image imgGordons = getImage("Pijaloci/Zhestoko/gordons.png","Sokovi");
+        Image imgJackDaniels = getImage("Pijaloci/Zhestoko/jack_daniels.png","Sokovi");
+        Image imgJagermeister = getImage("Pijaloci/Zhestoko/jagermeister.png","Sokovi");
+        Image imgJameson = getImage("Pijaloci/Zhestoko/jameson.png","Sokovi");
+        Image imgJB = getImage("Pijaloci/Zhestoko/jb.png","Sokovi");
+        Image imgJohnnieWalker = getImage("Pijaloci/Zhestoko/johnnie_walker.png","Sokovi");
+        Image imgMartini = getImage("Pijaloci/Zhestoko/martini.png","Sokovi");
+        Image imgPelinkovac = getImage("Pijaloci/Zhestoko/pelinkovac.png","Sokovi");
+        Image imgSmirnoff = getImage("Pijaloci/Zhestoko/smirnoff.png","Sokovi");
+        imageService.saveImage(imgMargarita);
+        imageService.saveImage(imgKaprichoza);
+        imageService.saveImage(imgFormadzhi);
+        imageService.saveImage(imgVekia);
+        imageService.saveImage(imgPulchinela);
+        imageService.saveImage(imgAnduja);
+        imageService.saveImage(imgPrshuto);
+        imageService.saveImage(imgVentrichina);
+        imageService.saveImage(imgAlpesto);
+        imageService.saveImage(imgNapoletana);
+
+        imageService.saveImage(imgCocacola);
+        imageService.saveImage(imgCedevita);
+        imageService.saveImage(imgFanta);
+        imageService.saveImage(imgSprite);
+        imageService.saveImage(imgPelisterska);
+        imageService.saveImage(imgBitter);
+        imageService.saveImage(imgPink);
+        imageService.saveImage(imgMandarina);
+        imageService.saveImage(imgSchweppes);
+
+        imageService.saveImage(imgAmstel);
+        imageService.saveImage(imgHeineken);
+        imageService.saveImage(imgSkopsko);
+        imageService.saveImage(imgSmooth);
+
+        imageService.saveImage(imgAmericanEspresso);
+        imageService.saveImage(imgCappucino);
+        imageService.saveImage(imgEspresso);
+        imageService.saveImage(imgFreddoEspresso);
+        imageService.saveImage(imgIceCoffee);
+        imageService.saveImage(imgLatteMacchiato);
+        imageService.saveImage(imgMacchiato);
+        imageService.saveImage(imgNescafe);
+        imageService.saveImage(imgTursko);
+
+        imageService.saveImage(imgAperol);
+        imageService.saveImage(imgBaileys);
+        imageService.saveImage(imgCampari);
+        imageService.saveImage(imgCaptainMorgan);
+        imageService.saveImage(imgGordons);
+        imageService.saveImage(imgJackDaniels);
+        imageService.saveImage(imgJagermeister);
+        imageService.saveImage(imgJameson);
+        imageService.saveImage(imgJB);
+        imageService.saveImage(imgJohnnieWalker);
+        imageService.saveImage(imgMartini);
+        imageService.saveImage(imgPelinkovac);
+        imageService.saveImage(imgSmirnoff);
 
         //PIZZA PRODUCTS
         Product margarita = new Product("Маргарита", 280.0, "Пица со кашкавал и кечап", true, true, kaprichozaIngredients, imgMargarita, catPizza);
