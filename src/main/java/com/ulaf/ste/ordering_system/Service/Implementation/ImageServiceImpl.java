@@ -5,6 +5,8 @@ import com.ulaf.ste.ordering_system.Repository.ImageRepository;
 import com.ulaf.ste.ordering_system.Service.ImageService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ImageServiceImpl implements ImageService {
     private final ImageRepository imageRepository;
@@ -21,5 +23,10 @@ public class ImageServiceImpl implements ImageService {
     @Override
     public Image findById(Long id) {
         return this.imageRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Image> findAll() {
+        return this.imageRepository.findAll();
     }
 }
