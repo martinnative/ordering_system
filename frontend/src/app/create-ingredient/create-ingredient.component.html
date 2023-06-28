@@ -1,0 +1,34 @@
+<app-header></app-header>
+<div class="bg">
+  <div class="container border backgroundphoto">
+    <div id="header">CREATE NEW INGREDIENT</div>
+    <form [formGroup]="createIngredient" class="container" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="ingredientName">Ingredient Name</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          id="ingredientName"
+          placeholder="Enter ingredient name"
+          formControlName="ingredientName"
+          required
+        />
+      </div>
+      <br/>
+      <label for="image">Ingredient image</label>
+      <input
+        id="image"
+        name="image"
+        class="form-control"
+        type="file"
+        formControlName="ingredientImage"
+        (change)="onFileChange($event)"
+        required
+      />
+      <br/>
+      <button type="submit" class="btn btn-primary my-4">Submit</button>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

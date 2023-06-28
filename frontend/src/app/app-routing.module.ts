@@ -9,6 +9,9 @@ import {CheckoutComponent} from "./checkout/checkout.component";
 import {LoginComponent} from "./login/login.component";
 import {ProductSingleComponent} from "./product-single/product-single.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {CreateIngredientComponent} from "./create-ingredient/create-ingredient.component";
+import {CreateProductComponent} from "./create-product/create-product.component";
+import {CreateCategoryComponent} from "./create-category/create-category.component";
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -19,10 +22,11 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent},
   { path: 'auth', component: LoginComponent},
   { path: 'product/:id', component: ProductSingleComponent},
+  { path: 'create-ingredient', component: CreateIngredientComponent},
+  { path: 'create-product', component: CreateProductComponent},
+  { path: 'create-category', component: CreateCategoryComponent},
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found' },
-
-
 ];
 
 @NgModule({
