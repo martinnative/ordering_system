@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Hompage/home/home.component';
@@ -24,7 +23,6 @@ import { CheckoutComponent } from './Shop/checkout/checkout.component';
 import { PreloaderComponent } from './Navigation/preloader/preloader.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { RouterModule } from '@angular/router';
@@ -37,6 +35,11 @@ import { CreateProductComponent } from './Admin/create-product/create-product.co
 import { CreateIngredientComponent } from './Admin/create-ingredient/create-ingredient.component';
 import { CreateCategoryComponent } from './Admin/create-category/create-category.component';
 import { CreateUserComponent } from './Admin/create-user/create-user.component';
+import {ButtonModule} from "primeng/button";
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'primeng/carousel';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +82,9 @@ import { CreateUserComponent } from './Admin/create-user/create-user.component';
     CommonModule,
     NgbModule,
     NgScrollbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule,
+    ButtonModule,
   ],
   providers: [
     {
