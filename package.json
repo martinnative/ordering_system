@@ -6,6 +6,7 @@
     "@angular/router": "^16.1.2",
     "angular-tabler-icons": "^2.22.0",
     "ng-apexcharts": "^1.7.7",
+    "primeng": "^16.0.2",
     "tslib": "^2.5.3"
   },
   "devDependencies": {

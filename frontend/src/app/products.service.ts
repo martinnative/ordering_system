@@ -17,4 +17,7 @@ export class ProductsService {
   findProductById(productId: Number): Observable<Product> {
     return this.http.get<Product>(`/api/products/${productId}`);
   }
+  getBannerProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>('/api/products/banner');
+  }
 }
