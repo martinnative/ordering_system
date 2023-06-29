@@ -10,7 +10,6 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
 
-import java.beans.Transient;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,15 +37,26 @@ public class DataInitializer {
 
     @PostConstruct
     public void initializeData() throws NotFoundByIdException {
-        Category catPizza = categoryService.createCategory(new Category("Пица","Категорија за пица"));
-        Category catSok = categoryService.createCategory(new Category("Ладни пијалоци","Категорија за сокови"));
-        Category catPivo = categoryService.createCategory(new Category("Пиво","Категорија за пиво"));
-        Category catKafe = categoryService.createCategory(new Category("Кафе","Категорија за кафе"));
-        Category catZhestoko = categoryService.createCategory(new Category("Жестоко","Категорија за жестоко"));
+
+        Image imgCatPizza = getImage("Kategorii/pizzaBackground.png","category");
+        Image imgCatSok = getImage("Kategorii/ladniBackground.png","category");
+        Image imgCatPivo = getImage("Kategorii/pivoBackground.png","category");
+        Image imgCatKafe = getImage("Kategorii/kafeBackground.png","category");
+        Image imgCatZhestoko = getImage("Kategorii/zhestokoBackground.png","category");
+        imageService.saveImage(imgCatPizza);
+        imageService.saveImage(imgCatKafe);
+        imageService.saveImage(imgCatZhestoko);
+        imageService.saveImage(imgCatPivo);
+        imageService.saveImage(imgCatSok);
+
+        Category catPizza = categoryService.createCategory(new Category("Пица","Категорија за пица",imgCatPizza));
+        Category catSok = categoryService.createCategory(new Category("Ладни пијалоци","Категорија за сокови",imgCatSok));
+        Category catPivo = categoryService.createCategory(new Category("Пиво","Категорија за пиво",imgCatPivo));
+        Category catKafe = categoryService.createCategory(new Category("Кафе","Категорија за кафе",imgCatKafe));
+        Category catZhestoko = categoryService.createCategory(new Category("Жестоко","Категорија за жестоко",imgCatZhestoko));
 
 
         //INGREDIENTS SLIKI
-
         Image imgBalsamicCream = getImage("icons/balsamic_cream.png","ingredient");
         Image imgBosilek = getImage("icons/bosilek.png","ingredient");
         Image imgBrokula = getImage("icons/brokula.png","ingredient");
