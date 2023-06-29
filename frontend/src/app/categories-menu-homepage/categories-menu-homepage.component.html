@@ -5,7 +5,6 @@
          (click)="setSelectedCategory(category)"
          [ngClass]="{'active':category == selectedCategory || category.name == 'Сите категории' && selectedCategory == undefined}">
         <div class="menu-category-thumb" *ngIf="category.name !== 'Сите категории'">
-<!--          <img src="/assets/img/категории.jpg" alt="category">-->
           <img [src]="transformDataCategory(category).image" alt="image" [width]="80" [height]="80"/>
         </div>
         <div class="menu-category-thumb" *ngIf="category.name == 'Сите категории'">
