@@ -76,7 +76,7 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping
+    @GetMapping("/banner")
     public ResponseEntity<List<Product>> getImagesForBanner() {
         List<Product> products = productService.getAllProducts();
 
@@ -88,7 +88,6 @@ public class ProductController {
 
         return ResponseEntity.ok(randomProducts);
     }
-
 
 //    @PostMapping("/{id}/upload")
 //    public ResponseEntity<Product> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws NotFoundByIdException, IOException {
