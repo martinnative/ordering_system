@@ -8,6 +8,7 @@ import {ProductsService} from '../products.service';
 import {ShoppingCartService} from "../shopping-cart.service";
 import {Router} from "@angular/router";
 import {ImageService} from "../image.service";
+import {Image} from "../../model/Image";
 
 @Component({
   selector: 'app-categories-menu-homepage',
@@ -35,7 +36,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.categoryService.findAllCategories().subscribe(data => {
       this.categories = data;
-      this.categories.push({id:this.categories.length,name:"Сите категории",description:"Сите категории"});
+      this.categories.push({id:this.categories.length,name:"Сите категории",description:"Сите категории",image:""});
       this.categories = this.categories.reverse();
     });
     this.productsService.findAllProducts().subscribe(data => {
@@ -46,6 +47,11 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   transformData(data: Product):Product {
     return this.imageService.transformData(data);
   }
+
+  transformDataCategory(data: Category):Category {
+    return this.imageService.transformDataCategory(data);
+  }
+
   setSelectedCategory(category: Category) {
     if(category.name == "Сите категории") {
       this.resetFilter();
