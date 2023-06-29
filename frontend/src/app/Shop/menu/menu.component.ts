@@ -43,7 +43,7 @@ export class MenuComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.productsService.findAllProducts().subscribe(data => {
+    this.productsService.findAllProducts(true).subscribe(data => {
       this.products = data;
     });
   }

@@ -16,7 +16,7 @@ import { MobileNavigationComponent } from './Navigation/mobile-navigation/mobile
 import { CartComponent } from './Shop/cart/cart.component';
 import { FloatingCartComponent } from './Shop/floating-cart/floating-cart.component';
 import { SearchFormComponent } from './Navigation/search-form/search-form.component';
-import {CommonModule, NgOptimizedImage} from "@angular/common";
+import {CommonModule, NgIf, NgOptimizedImage} from "@angular/common";
 import { CategoriesMenuHomepageComponent } from './Hompage/categories-menu-homepage/categories-menu-homepage.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomizeModalComponent } from './Shop/customize-modal/customize-modal.component';
@@ -79,7 +79,7 @@ import { CreateUserComponent } from './Admin/create-user/create-user.component';
     CommonModule,
     NgbModule,
     NgScrollbarModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

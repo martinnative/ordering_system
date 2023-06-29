@@ -1,15 +1,24 @@
 package com.ulaf.ste.ordering_system.Web.REST;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
+import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Service.ProductService;
+import net.coobird.thumbnailator.Thumbnails;
+import org.imgscalr.Scalr;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/products")
@@ -22,8 +31,20 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> getAllProducts() {
-        List<Product> products = productService.getAllProducts();
+    public ResponseEntity<List<Product>> getAllProducts(@RequestParam(required = false) Boolean thumbnail) {
+        List<Product> products;
+        if(!thumbnail) {
+            products = productService.getAllProducts();
+        }
+        else {
+            products = productService.getAllProducts().stream().map(prod -> {
+                try {
+                    return productService.createProductWithThumbnail(prod);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }).collect(Collectors.toList());
+        }
         return ResponseEntity.ok(products);
     }
 
@@ -48,7 +69,7 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
     @GetMapping("/name/{name}")
-    public ResponseEntity<Product> getProductByName(@PathVariable String name) throws NotFoundByIdException {
+    public ResponseEntity<Product> getProductByName(@PathVariable String name) {
         Product product = productService.getProductByName(name);
         if (product != null) {
             return ResponseEntity.ok(product);
@@ -75,6 +96,17 @@ public class ProductController {
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/banner")
+    public ResponseEntity<List<Product>> getImagesForBanner() {
+        List<Product> products = productService.getAllProducts().stream().filter(prod -> Objects.equals(prod.getCategory().getName(), "Пица") && prod.getAvailable()).collect(Collectors.toList());
+        if (products.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        Collections.shuffle(products);
+        List<Product> randomProducts = products.subList(0, Math.min(products.size(), 4));
+        return ResponseEntity.ok(randomProducts);
     }
 
 //    @PostMapping("/{id}/upload")

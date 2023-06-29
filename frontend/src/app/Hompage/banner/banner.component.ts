@@ -13,10 +13,6 @@ export class BannerComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.productService.findAllProducts().subscribe(data => {
-      this.products = data;
-      console.log(data);
-    }  )
   }
   prevSlide(): void {
     $('.banner-slider-3').slick('slickPrev');
