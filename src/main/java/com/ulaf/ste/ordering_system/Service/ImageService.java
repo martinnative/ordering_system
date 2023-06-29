@@ -8,4 +8,5 @@ public interface ImageService {
     Image saveImage(Image image);
     Image findById(Long id);
     List<Image> findAll();
+
 }
