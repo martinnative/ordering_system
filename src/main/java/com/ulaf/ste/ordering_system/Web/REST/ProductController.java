@@ -89,7 +89,6 @@ public class ProductController {
         return ResponseEntity.ok(randomProducts);
     }
 
-
 //    @PostMapping("/{id}/upload")
 //    public ResponseEntity<Product> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws NotFoundByIdException, IOException {
 //        Product updatedProduct = productService.uploadImage(id, file);
