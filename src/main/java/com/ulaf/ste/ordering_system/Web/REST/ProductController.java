@@ -76,7 +76,7 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping
+    @GetMapping("/banner")
     public ResponseEntity<List<Product>> getImagesForBanner() {
         List<Product> products = productService.getAllProducts();
 
