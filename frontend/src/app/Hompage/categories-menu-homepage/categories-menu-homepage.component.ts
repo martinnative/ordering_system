@@ -78,8 +78,4 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
   }
-
-  openProduct(id: Number) {
-    this.router.navigate(['/product', id]);
-  }
 }
