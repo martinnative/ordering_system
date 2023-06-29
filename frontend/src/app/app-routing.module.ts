@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import {AboutComponent} from "./about/about.component";
-import {ContactComponent} from "./contact/contact.component";
-import {MenuComponent} from "./menu/menu.component";
-import {CartComponent} from "./cart/cart.component";
-import {CheckoutComponent} from "./checkout/checkout.component";
-import {LoginComponent} from "./login/login.component";
-import {ProductSingleComponent} from "./product-single/product-single.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
-import {CreateIngredientComponent} from "./create-ingredient/create-ingredient.component";
-import {CreateProductComponent} from "./create-product/create-product.component";
-import {CreateCategoryComponent} from "./create-category/create-category.component";
+import { HomeComponent } from './Hompage/home/home.component';
+import {AboutComponent} from "./Static/about/about.component";
+import {ContactComponent} from "./Static/contact/contact.component";
+import {MenuComponent} from "./Shop/menu/menu.component";
+import {CartComponent} from "./Shop/cart/cart.component";
+import {CheckoutComponent} from "./Shop/checkout/checkout.component";
+import {LoginComponent} from "./Admin/login/login.component";
+import {ProductSingleComponent} from "./Shop/product-single/product-single.component";
+import {NotFoundComponent} from "./Static/not-found/not-found.component";
+import {CreateIngredientComponent} from "./Admin/create-ingredient/create-ingredient.component";
+import {CreateProductComponent} from "./Admin/create-product/create-product.component";
+import {CreateCategoryComponent} from "./Admin/create-category/create-category.component";
 
 const routes: Routes = [
   { path: '', component:HomeComponent },

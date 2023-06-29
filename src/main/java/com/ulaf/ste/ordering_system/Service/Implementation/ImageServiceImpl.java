@@ -29,4 +29,5 @@ public class ImageServiceImpl implements ImageService {
     public List<Image> findAll() {
         return this.imageRepository.findAll();
     }
+
 }

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slices - Pizzeria HTML Template</title>
+
+  <!-- Favicon -->
+
+
+</head>
+
+<body>
+<div #target></div>
+<app-header></app-header>
+
+<!-- Subheader Start -->
+<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('/assets/img/pexels-marta-dzedyshko-2067401.jpg')">
+  <div class="container">
+    <div class="subheader-inner">
+      <h1>Наплата</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="">Почетна</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Наплата</li>
+        </ol>
+      </nav>
+    </div>
+
+  </div>
+</div>
+<!-- Subheader End -->
+
+<!-- Checkout Start -->
+<section class="section">
+  <div class="container">
+
+    <form method="post">
+      <div class="row">
+        <div class="col-xl-7">
+
+
+          <!-- Buyer Info -->
+          <h4>Детали за нарачката</h4>
+          <div class="row">
+            <div class="form-group col-xl-6">
+              <label>Име <span class="text-danger">*</span></label>
+              <input type="text" placeholder="Внесете Име" name="fname" class="form-control" value="" required="true">
+            </div>
+            <div class="form-group col-xl-6">
+              <label>Презиме <span class="text-danger">*</span></label>
+              <input type="text" placeholder="Внесете Презиме" name="lname" class="form-control" value="" required="true">
+            </div>
+            <div class="form-group">
+              <label>Контакт телефон <span class="text-danger">*</span></label>
+              <input type="text" placeholder="Внесете Контакт телефон" name="phone" class="form-control" value="" required="true">
+            </div>
+            <div class="form-group">
+              <label>Емаил Адреса <span class="text-danger">*</span></label>
+              <input type="email" placeholder="Внесете Емаил Ареса" name="email" class="form-control" value="" required="true">
+            </div>
+          </div>
+
+          <!-- /Buyer Info -->
+
+        </div>
+        <div class="col-xl-5 checkout-billing">
+          <!-- Order Details Start -->
+          <table class="ct-responsive-table">
+            <thead>
+            <tr>
+              <th>Производ</th>
+              <th>Количина</th>
+              <th>Вкупно</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let orderItem of orderItems">
+              <td>
+                <div class="cart-product-wrapper">
+                  <div class="cart-product-body">
+                    <h6> {{orderItem.product.name}} </h6>
+                    <p *ngFor="let ingredient of orderItem.product.ingredients">{{ingredient.name}}</p>
+                  </div>
+                </div>
+              </td>
+              <td>{{orderItem.quantity}}</td>
+              <td> <strong>{{orderItem.product.price * orderItem.quantity}} ден.</strong> </td>
+            </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody>
+            <tr>
+              <th>Вкупно за наплата</th>
+              <td> <b>{{getTotalFromCart()}} денари.</b> </td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="form-group">
+            <label>Card Number</label>
+            <input type="text" class="form-control" name="master-number" placeholder="Card Number" value="">
+          </div>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" name="master-name" placeholder="Full Name" value="">
+          </div>
+          <div class="row">
+            <div class="col-xl-6 form-group">
+              <label>Expiry Date</label>
+              <input type="text" class="form-control" name="master-expiry" placeholder="Expiry Date (MM/YY)" value="">
+            </div>
+            <div class="col-xl-6 form-group">
+              <label>CVV*</label>
+              <input type="number" class="form-control" name="master-cvv" placeholder="CVV" value="">
+            </div>
+          </div>
+
+          <p class="small">Вашите лични податоци ќе се користат за обработка на вашата нарачка и за други цели опишани во нашата
+            <a class="btn-link" href="#">полиса за приватност.</a> </p>
+          <button type="submit" class="btn-custom primary btn-block">Направи нарачка</button>
+
+          <!-- Order Details End -->
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+</section>
+<!-- Checkout End -->
+<app-footer (scrollEmitter)="scrollToTop(target)"></app-footer>
+</body>
+
+</html>
