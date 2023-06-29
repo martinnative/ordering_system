@@ -35,7 +35,6 @@ public class ThumbnailController {
             if (image == null) {
                 return ResponseEntity.notFound().build();
             }
-
             // Load the original image file
             Path imagePath = Paths.get("images/", image.getName());
             UrlResource resource = new UrlResource(imagePath.toUri());

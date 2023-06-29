@@ -1,9 +1,0 @@
-@use 'variables';
-
-$utilities: (
-  'border-radius': (
-    property: border-radius,
-    class: rounded,
-    values: variables.$radius
-  ),
-);

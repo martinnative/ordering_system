@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/products")
@@ -78,14 +80,12 @@ public class ProductController {
 
     @GetMapping("/banner")
     public ResponseEntity<List<Product>> getImagesForBanner() {
-        List<Product> products = productService.getAllProducts();
-
+        List<Product> products = productService.getAllProducts().stream().filter(prod -> Objects.equals(prod.getCategory().getName(), "Пица") && prod.getAvailable()).collect(Collectors.toList());
         if (products.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
         Collections.shuffle(products);
         List<Product> randomProducts = products.subList(0, Math.min(products.size(), 4));
-
         return ResponseEntity.ok(randomProducts);
     }
 
