@@ -3,6 +3,7 @@ import {Product} from "../model/Product";
 import {DomSanitizer} from "@angular/platform-browser";
 import {HttpClient} from "@angular/common/http";
 import {Image} from "../model/Image";
+import {Category} from "../model/Category";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,18 @@ export class ImageService {
       available:data.available
     } as Product
   }
+
+  transformDataCategory(data: Category):Category {
+    let url = `data:image/png;base64,${data.image.bytes}`;
+    let image = this.sanitizer.bypassSecurityTrustUrl(url);
+    return {
+      id:data.id,
+      name:data.name,
+      description:data.description,
+      image:image,
+    } as Category
+  }
+
   saveImage(formData:FormData) {
     return this.http.post<Image>("/api/images/save",formData);
   }
