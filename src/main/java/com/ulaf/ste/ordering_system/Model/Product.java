@@ -13,7 +13,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Product {
 
     @Id
@@ -43,6 +42,17 @@ public class Product {
         this.description = description;
         this.customizable = customizable;
         this.available = available;
-        //this.ratings = new ArrayList<>();
+    }
+
+    public Product(Long id, String name, Double price, String description, Boolean customizable, Boolean available, Category category, List<Ingredient> ingredients, Image image) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.customizable = customizable;
+        this.available = available;
+        this.category = category;
+        this.ingredients = ingredients;
+        this.image = image;
     }
 }

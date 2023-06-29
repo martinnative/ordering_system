@@ -38,7 +38,7 @@ export class ProductSingleComponent implements OnInit {
       tap(data => console.log(data))
     )
       .subscribe(data => this.product = data);
-    this.productsService.findAllProducts().subscribe(products => {
+    this.productsService.findAllProducts(true).subscribe(products => {
       this.products = products;
     });
   }
