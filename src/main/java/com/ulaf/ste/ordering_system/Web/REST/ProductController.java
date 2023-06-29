@@ -6,9 +6,8 @@ import com.ulaf.ste.ordering_system.Service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -48,7 +47,7 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
     @GetMapping("/name/{name}")
-    public ResponseEntity<Product> getProductByName(@PathVariable String name) throws NotFoundByIdException {
+    public ResponseEntity<Product> getProductByName(@PathVariable String name) {
         Product product = productService.getProductByName(name);
         if (product != null) {
             return ResponseEntity.ok(product);
@@ -76,6 +75,20 @@ public class ProductController {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping
+    public ResponseEntity<List<Product>> getImagesForBanner() {
+        List<Product> products = productService.getAllProducts();
+
+        if (products.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        Collections.shuffle(products);
+        List<Product> randomProducts = products.subList(0, Math.min(products.size(), 4));
+
+        return ResponseEntity.ok(randomProducts);
+    }
+
 
 //    @PostMapping("/{id}/upload")
 //    public ResponseEntity<Product> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws NotFoundByIdException, IOException {
