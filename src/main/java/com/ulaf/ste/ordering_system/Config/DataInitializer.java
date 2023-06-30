@@ -316,10 +316,10 @@ public class DataInitializer {
         imageService.saveImage(imgSmirnoff);
 
         //PIZZA PRODUCTS
-        Product margarita = new Product("Маргарита", 320, "Пица со доматен сос, моцарела, босилек, маслиново масло", true, true, kaprichozaIngredients, imgMargarita, catPizza,0);
+        Product margarita = new Product("Маргарита", 320, "Пица со доматен сос, моцарела, босилек, маслиново масло", true, false, kaprichozaIngredients, imgMargarita, catPizza,0);
         productService.createProduct(margarita);
 
-        Product kaprichoza = new Product("Капричиоза", 340, "Пица со доматен сос, едамер, шунка, печурки", true, true, margaritaIngredients, imgKaprichoza, catPizza,1);
+        Product kaprichoza = new Product("Капричиоза", 340, "Пица со доматен сос, едамер, шунка, печурки", true, false, margaritaIngredients, imgKaprichoza, catPizza,1);
         productService.createProduct(kaprichoza);
 
         Product formadzhi = new Product("Чинкве Фромаџи", 400, "Пица со доматен сос, едамер, моцарела, провола, горгонзола, пармезан", true, true, formadzhiIngredients, imgFormadzhi, catPizza,2);
