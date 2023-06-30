@@ -1,4 +1,6 @@
 package com.ulaf.ste.ordering_system.Model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,4 +22,5 @@ public class OrderItem {
         this.product = product;
         this.quantity = quantity;
     }
+
 }

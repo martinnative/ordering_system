@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -390,13 +391,14 @@ public class DataInitializer {
         productService.createProduct(new Product("Смирноф / Smirnoff", 110, "Алкохолен пијалок", false, true, new ArrayList<>(), imgSmirnoff, catZhestoko));
 
         List<OrderItem> listItems = new ArrayList<>();
-        product_qtyRepository.save(new OrderItem(1L,productService.getProductById(1L), 2));
-        product_qtyRepository.save(new OrderItem(2L,productService.getProductById(2L), 3));
+        product_qtyRepository.save(new OrderItem(productService.getProductById(1L), 2));
+        product_qtyRepository.save(new OrderItem(productService.getProductById(2L), 3));
         listItems.add(product_qtyRepository.findById(1L).orElseThrow());
         listItems.add(product_qtyRepository.findById(2L).orElseThrow());
-        Order order1 = new Order(listItems,"Gorjan","Spirovski","gorjanspiroski@gmail.com","075222358");
+        Order order1 = new Order(listItems,"Gorjan","Spirovski","gorjanspiroski@gmail.com","075222358", LocalDateTime.now());
+        Order order2 = new Order(listItems,"Dragan","Bozhinoski","test@test123.com","071519218", LocalDateTime.of(2023,11,10, 0,0,0));
         orderService.createOrder(order1);
+        orderService.createOrder(order2);
         categoryService.getCategoryById(1L).setProducts(productService.getAllProducts());
-
     }
 }

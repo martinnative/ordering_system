@@ -1,3 +1,4 @@
+<app-preloader></app-preloader>
 <section class="h-100 gradient-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -5,9 +6,15 @@
         <div class="card" style="border-radius: 10px;">
           <div class="card-header px-4 py-5">
             <h5 class="text-muted mb-0"><span style="color: #a8729a;">Нарачки</span></h5>
+            <h6 class="text-muted mb-0 mt-3">
+              <button type="button" class="btn btn-info btn-sm me-4 text-white" (click)="resetFilter()">All orders</button>
+              <button type="button" class="btn btn-warning btn-sm me-4 text-white" (click)="showProcessing()">Processing</button>
+              <button type="button" class="btn btn-success btn-sm me-4 text-white" (click)="showFinished()">Finished</button>
+            </h6>
           </div>
           <div class="card-body p-4">
-            <div class="card shadow-0 border mb-4" *ngFor="let order of orders">
+            <div class="card shadow-0 border mb-4" *ngFor="let order of filteredOrders">
+              <h5 class="mt-2 ms-2 text-center">{{order.customerName + ' ' + order.customerSurname}} [ {{order.customerPhone}} ] - {{order.createdOn}}</h5>
               <div class="card-body" *ngFor="let productItem of order.items">
                 <div class="row">
                   <div class="col-md-2">
@@ -26,6 +33,8 @@
                   <div class="col-md-6 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0 small">LIST NOT INGREDIENTS HERE</p>
                   </div>
+                  <span class="badge badge-warning ms-3" style="width:5rem" *ngIf="!order.finished">Processing</span>
+                  <span class="badge badge-success ms-3" style="width:5rem" *ngIf="order.finished">Finished</span>
                 </div>
               </div>
               <p class="text-muted mt-1 mb-0 text-center ms-xl-5">

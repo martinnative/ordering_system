@@ -1,11 +1,12 @@
 import {OrderItem} from "./OrderItem";
 
 export interface Order {
-  id:number,
+  id:Number,
   items: OrderItem[],
-  customerName:string,
-  customerSurname:string,
-  customerEmailAddress:string,
-  customerPhone:string,
+  customerName:String,
+  customerSurname:String,
+  customerEmailAddress:String,
+  customerPhone:String,
   finished:boolean,
+  createdOn:Date,
 }

@@ -4,7 +4,10 @@ package com.ulaf.ste.ordering_system.Web.REST;
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Order;
 import com.ulaf.ste.ordering_system.Service.OrderService;
+import com.ulaf.ste.ordering_system.Web.requests.OrderRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +21,21 @@ public class OrderController {
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }
-
+    @GetMapping
+    public ResponseEntity<List<Order>> getAllOrders(){
+        List<Order> orders = orderService.getAllOrders();
+        return ResponseEntity.ok(orders);
+    }
+    @GetMapping("/today")
+    public ResponseEntity<List<Order>> getTodaysOrders() {
+        List<Order> orders = orderService.getTodaysOrders();
+        return ResponseEntity.ok(orders);
+    }
+    @PutMapping(value = "/status",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Order>> changeOrderStatus(@RequestBody OrderRequest order) {
+        List<Order> orders = orderService.changeOrderStatus(order.getId());
+        return ResponseEntity.ok(orders);
+    }
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
         Order createdOrder = orderService.createOrder(order);
@@ -33,12 +50,6 @@ public class OrderController {
             return ResponseEntity.ok(order);
         }
         return ResponseEntity.notFound().build();
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Order>> getAllOrders(){
-        List<Order> orders = orderService.getAllOrders();
-        return ResponseEntity.ok(orders);
     }
 
     @PutMapping("/{id}")
