@@ -12,6 +12,7 @@ import {NotFoundComponent} from "./Static/not-found/not-found.component";
 import {CreateIngredientComponent} from "./Admin/create-ingredient/create-ingredient.component";
 import {CreateProductComponent} from "./Admin/create-product/create-product.component";
 import {CreateCategoryComponent} from "./Admin/create-category/create-category.component";
+import {AdminPanelComponent} from "./Admin/admin-panel/admin-panel.component";
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'create-ingredient', component: CreateIngredientComponent},
   { path: 'create-product', component: CreateProductComponent},
   { path: 'create-category', component: CreateCategoryComponent},
+  { path: 'admin', component: AdminPanelComponent},
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found' },
 ];
