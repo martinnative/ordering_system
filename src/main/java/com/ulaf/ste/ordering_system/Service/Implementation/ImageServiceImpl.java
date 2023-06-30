@@ -3,8 +3,16 @@ package com.ulaf.ste.ordering_system.Service.Implementation;
 import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Repository.ImageRepository;
 import com.ulaf.ste.ordering_system.Service.ImageService;
+import lombok.SneakyThrows;
+import net.coobird.thumbnailator.Thumbnails;
+import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -16,18 +24,42 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public Image saveImage(Image image) {
-        return imageRepository.save(image);
+    public Image saveImage(Image image)  {
+        Image compressedImage = compressImage(image, 800, 600, 0.8);
+        return imageRepository.save(compressedImage);
     }
 
     @Override
     public Image findById(Long id) {
-        return this.imageRepository.findById(id).orElse(null);
+        return imageRepository.findById(id).orElse(null);
     }
 
     @Override
     public List<Image> findAll() {
-        return this.imageRepository.findAll();
+        return imageRepository.findAll();
     }
 
+    @SneakyThrows
+    private Image compressImage(Image image, int maxWidth, int maxHeight, double quality)  {
+        byte[] imageData = image.getBytes();
+        BufferedImage originalImage = ImageIO.read(new ByteArrayInputStream(imageData));
+        ByteArrayOutputStream compressedImageStream = new ByteArrayOutputStream();
+        try {
+            Thumbnails.of(originalImage)
+                    .size(maxWidth, maxHeight)
+                    .outputQuality(quality)
+                    .outputFormat("png")
+                    .toOutputStream(compressedImageStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        byte[] compressedImageData = compressedImageStream.toByteArray();
+        image.setBytes(compressedImageData);
+
+        return image;
+    }
 }
+
+
+
