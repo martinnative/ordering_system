@@ -1,1 +1,76 @@
-<p>admin-toggle-products works!</p>
+<!--<section class="h-100 gradient-custom">-->
+<!--  <div class="container py-5 h-100">-->
+<!--    <div class="row d-flex justify-content-center align-items-center h-100">-->
+<!--      <div class="col-lg-10 col-xl-8">-->
+<!--        <div class="card" style="border-radius: 10px;">-->
+<!--          <div class="card-header px-4 py-5">-->
+<!--            <h5 class="text-muted mb-0"><span style="color: #a8729a;">Листа на производи</span></h5>-->
+<!--          </div>-->
+<!--          <div class="card p-4">-->
+<!--              <div class="card-body shadow-0 border mb-4" *ngFor="let product of products">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-md-2">-->
+<!--                    <span class="badge badge-info" style="font-size:1rem;">#{{product.id}}</span>-->
+<!--                    <img [src]="transformData(product).image"-->
+<!--                         class="img-fluid" alt="Phone">-->
+<!--                  </div>-->
+<!--                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">-->
+<!--                    <p class="text-muted mb-0">{{product.name}}</p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <p class="text-muted mt-1 mb-0 text-center ms-xl-5">-->
+<!--                  <label class="switch">-->
+<!--                    <input type="checkbox" [(ngModel)]="product.available" name="orderFinished"-->
+<!--                           (change)="productAvailabilityChanged(product)">-->
+<!--                    <span class="slider"></span>-->
+<!--                  </label>-->
+<!--                </p>-->
+<!--              </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<section class="h-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-8">
+        <div class="card" style="border-radius: 10px;">
+          <div class="card-header px-4 py-5">
+            <h5 class="text-muted mb-0"><span style="color: #a8729a;">Листа на производи</span></h5>
+          </div>
+          <div class="card p-4">
+            <div class="form-group">
+              <label for="categorySelect">Избери категорија:</label>
+              <select class="form-control" id="categorySelect" #categorySelect (change)="categoryChanged(categorySelect.value)">
+                <option value="">Сите</option>
+                <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+              </select>
+            </div>
+            <div class="card-body shadow-0 border mb-4" *ngFor="let product of filteredProducts">
+              <!-- Product display code -->
+              <div class="row">
+                <div class="col-md-2">
+                  <span class="badge badge-info" style="font-size:1rem;">#{{ product.id }}</span>
+                  <img [src]="transformData(product).image" class="img-fluid" alt="Phone">
+                </div>
+                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                  <p class="text-muted mb-0">{{ product.name }}</p>
+                </div>
+              </div>
+              <p class="text-muted mt-1 mb-0 text-center ms-xl-5">
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="product.available" name="orderFinished"
+                         (change)="productAvailabilityChanged(product)">
+                  <span class="slider"></span>
+                </label>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

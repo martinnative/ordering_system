@@ -11,7 +11,7 @@ import {ImageService} from "../../image.service";
 })
 export class AdminOrdersComponent implements OnInit{
   orders: Order[] = []
-  constructor(private ordersService:OrdersService,private imageService:ImageService) {
+  constructor(private ordersService:OrdersService, private imageService:ImageService) {
   }
   ngOnInit(): void {
     this.ordersService.findAllOrders().subscribe(data => this.orders = data);
