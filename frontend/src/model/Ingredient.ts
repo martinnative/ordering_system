@@ -1,4 +1,6 @@
 export interface Ingredient {
     id:Number,
-    name:String
+    name:String,
+    image: any
+
 }

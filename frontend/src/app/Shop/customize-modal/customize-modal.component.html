@@ -20,14 +20,17 @@
           <h5>Големина: <span class="text-muted">стандардна</span></h5>
           <div class="row">
             <!-- Variation Start -->
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-12" style="width:auto;">
               <div class="customize-variation-wrapper">
                 <i class="flaticon-pizza-and-cutted-slice"></i>
                 <h5>Состојки</h5>
                 <div class="customize-variation-item" *ngFor="let ingredient of product.ingredients">
-                  <div class="custom-control custom-checkbox">
+                  <div class="custom-control custom-checkbox justify-content-center d-flex">
                     <input type="checkbox" class="custom-control-input">
+                    <img [src]="transformDataIngredient(ingredient).image" alt="menu item" height="40px" width="40px"/>
+                    <br>
                     <label class="custom-control-label">{{ingredient.name}}</label>
+
                   </div>
                 </div>
               </div>
