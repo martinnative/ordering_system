@@ -1,19 +1,14 @@
 package com.ulaf.ste.ordering_system.Web.REST;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
-import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Service.ProductService;
-import net.coobird.thumbnailator.Thumbnails;
-import org.imgscalr.Scalr;
+
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
