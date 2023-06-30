@@ -41,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'primeng/carousel';
 import { AdminPanelComponent } from './Admin/admin-panel/admin-panel.component';
 import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.component';
+import { AdminToggleProductsComponent } from './Admin/admin-toggle-products/admin-toggle-products.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.componen
     CreateUserComponent,
     AdminPanelComponent,
     AdminOrdersComponent,
+    AdminToggleProductsComponent,
   ],
   imports: [
     BrowserModule,
