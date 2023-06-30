@@ -65,6 +65,8 @@ import { CreateUserComponent } from './Admin/create-user/create-user.component';
     CreateIngredientComponent,
     CreateCategoryComponent,
     CreateUserComponent,
+    AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +82,14 @@ import { CreateUserComponent } from './Admin/create-user/create-user.component';
     NgbModule,
     NgScrollbarModule,
     ReactiveFormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    TablerIconsModule.pick(TablerIcons),
   ],
   providers: [
     {
