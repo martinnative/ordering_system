@@ -39,6 +39,7 @@ import {ButtonModule} from "primeng/button";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'primeng/carousel';
+import { AdminPanelComponent } from './Admin/admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { CarouselModule } from 'primeng/carousel';
     CreateIngredientComponent,
     CreateCategoryComponent,
     CreateUserComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,

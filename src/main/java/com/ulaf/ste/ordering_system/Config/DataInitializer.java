@@ -212,7 +212,6 @@ public class DataInitializer {
         alpestoIngredients.add(orevi);
 
         //PIZZA SLIKI
-
         Image imgMargarita = getImage("Pica/margarita.png","Pizza");
         Image imgKaprichoza = getImage("Pica/kaprichoza.png","Pizza");
         Image imgFormadzhi = getImage("Pica/formadzhi.png","Pizza");
@@ -225,47 +224,47 @@ public class DataInitializer {
         Image imgNapoletana = getImage("Pica/napoletana.png","Pizza");
 
         //SOKOVI SLIKI
-        Image imgCocacola = getImage("Pijaloci/Sok/coca_cola.png","Sokovi");
-        Image imgCedevita = getImage("Pijaloci/Sok/cedevita.png","Sokovi");
-        Image imgFanta = getImage("Pijaloci/Sok/fanta.png","Sokovi");
-        Image imgSprite = getImage("Pijaloci/Sok/sprite.png","Sokovi");
-        Image imgPelisterska = getImage("Pijaloci/Sok/pelisterska.png","Sokovi");
-        Image imgBitter = getImage("Pijaloci/Sok/scchweppes_bitter_lemon.png","Sokovi");
-        Image imgPink = getImage("Pijaloci/Sok/schwepees_pink_soda.png","Sokovi");
-        Image imgMandarina = getImage("Pijaloci/Sok/schweppes_mandarina.png","Sokovi");
-        Image imgSchweppes = getImage("Pijaloci/Sok/schweppes.png","Sokovi");
+        Image imgCocacola = getImage("Pijaloci/Sok/coca_cola.png","Ladni Pijaloci");
+        Image imgCedevita = getImage("Pijaloci/Sok/cedevita.png","Ladni Pijaloci");
+        Image imgFanta = getImage("Pijaloci/Sok/fanta.png","Ladni Pijaloci");
+        Image imgSprite = getImage("Pijaloci/Sok/sprite.png","Ladni Pijaloci");
+        Image imgPelisterska = getImage("Pijaloci/Sok/pelisterska.png","Ladni Pijaloci");
+        Image imgBitter = getImage("Pijaloci/Sok/scchweppes_bitter_lemon.png","Ladni Pijaloci");
+        Image imgPink = getImage("Pijaloci/Sok/schwepees_pink_soda.png","Ladni Pijaloci");
+        Image imgMandarina = getImage("Pijaloci/Sok/schweppes_mandarina.png","Ladni Pijaloci");
+        Image imgSchweppes = getImage("Pijaloci/Sok/schweppes.png","Ladni Pijaloci");
 
         //PIVO SLIKI
-        Image imgAmstel = getImage("Pijaloci/Pivo/amstel.png","Sokovi");
-        Image imgHeineken = getImage("Pijaloci/Pivo/heineken.png","Sokovi");
-        Image imgSkopsko = getImage("Pijaloci/Pivo/skopsko.png","Sokovi");
-        Image imgSmooth = getImage("Pijaloci/Pivo/skopsko_smooth.png","Sokovi");
+        Image imgAmstel = getImage("Pijaloci/Pivo/amstel.png","Pivo");
+        Image imgHeineken = getImage("Pijaloci/Pivo/heineken.png","Pivo");
+        Image imgSkopsko = getImage("Pijaloci/Pivo/skopsko.png","Pivo");
+        Image imgSmooth = getImage("Pijaloci/Pivo/skopsko_smooth.png","Pivo");
 
         //KAFE SLIKI
-        Image imgAmericanEspresso = getImage("Pijaloci/Kafe/american_espresso.png","Sokovi");
-        Image imgCappucino = getImage("Pijaloci/Kafe/cappucino.png","Sokovi");
-        Image imgEspresso = getImage("Pijaloci/Kafe/espresso.png","Sokovi");
-        Image imgFreddoEspresso = getImage("Pijaloci/Kafe/freddo_espresso.png","Sokovi");
-        Image imgIceCoffee = getImage("Pijaloci/Kafe/ice_coffee.png","Sokovi");
-        Image imgLatteMacchiato = getImage("Pijaloci/Kafe/latte_macchiato.png","Sokovi");
-        Image imgMacchiato = getImage("Pijaloci/Kafe/macchiato.png","Sokovi");
-        Image imgNescafe = getImage("Pijaloci/Kafe/nescafe.png","Sokovi");
-        Image imgTursko = getImage("Pijaloci/Kafe/tursko.png","Sokovi");
+        Image imgAmericanEspresso = getImage("Pijaloci/Kafe/american_espresso.png","Kafe");
+        Image imgCappucino = getImage("Pijaloci/Kafe/cappucino.png","Kafe");
+        Image imgEspresso = getImage("Pijaloci/Kafe/espresso.png","Kafe");
+        Image imgFreddoEspresso = getImage("Pijaloci/Kafe/freddo_espresso.png","Kafe");
+        Image imgIceCoffee = getImage("Pijaloci/Kafe/ice_coffee.png","Kafe");
+        Image imgLatteMacchiato = getImage("Pijaloci/Kafe/latte_macchiato.png","Kafe");
+        Image imgMacchiato = getImage("Pijaloci/Kafe/macchiato.png","Kafe");
+        Image imgNescafe = getImage("Pijaloci/Kafe/nescafe.png","Kafe");
+        Image imgTursko = getImage("Pijaloci/Kafe/tursko.png","Kafe");
 
         //ZHESTOKO SLIKI
-        Image imgAperol = getImage("Pijaloci/Zhestoko/aperol.png","Sokovi");
-        Image imgBaileys = getImage("Pijaloci/Zhestoko/baileys.png","Sokovi");
-        Image imgCampari = getImage("Pijaloci/Zhestoko/campari.png","Sokovi");
-        Image imgCaptainMorgan = getImage("Pijaloci/Zhestoko/captain_morgan.png","Sokovi");
-        Image imgGordons = getImage("Pijaloci/Zhestoko/gordons.png","Sokovi");
-        Image imgJackDaniels = getImage("Pijaloci/Zhestoko/jack_daniels.png","Sokovi");
-        Image imgJagermeister = getImage("Pijaloci/Zhestoko/jagermeister.png","Sokovi");
-        Image imgJameson = getImage("Pijaloci/Zhestoko/jameson.png","Sokovi");
-        Image imgJB = getImage("Pijaloci/Zhestoko/jb.png","Sokovi");
-        Image imgJohnnieWalker = getImage("Pijaloci/Zhestoko/johnnie_walker.png","Sokovi");
-        Image imgMartini = getImage("Pijaloci/Zhestoko/martini.png","Sokovi");
-        Image imgPelinkovac = getImage("Pijaloci/Zhestoko/pelinkovac.png","Sokovi");
-        Image imgSmirnoff = getImage("Pijaloci/Zhestoko/smirnoff.png","Sokovi");
+        Image imgAperol = getImage("Pijaloci/Zhestoko/aperol.png","Zhestoko");
+        Image imgBaileys = getImage("Pijaloci/Zhestoko/baileys.png","Zhestoko");
+        Image imgCampari = getImage("Pijaloci/Zhestoko/campari.png","Zhestoko");
+        Image imgCaptainMorgan = getImage("Pijaloci/Zhestoko/captain_morgan.png","Zhestoko");
+        Image imgGordons = getImage("Pijaloci/Zhestoko/gordons.png","Zhestoko");
+        Image imgJackDaniels = getImage("Pijaloci/Zhestoko/jack_daniels.png","Zhestoko");
+        Image imgJagermeister = getImage("Pijaloci/Zhestoko/jagermeister.png","Zhestoko");
+        Image imgJameson = getImage("Pijaloci/Zhestoko/jameson.png","Zhestoko");
+        Image imgJB = getImage("Pijaloci/Zhestoko/jb.png","Zhestoko");
+        Image imgJohnnieWalker = getImage("Pijaloci/Zhestoko/johnnie_walker.png","Zhestoko");
+        Image imgMartini = getImage("Pijaloci/Zhestoko/martini.png","Zhestoko");
+        Image imgPelinkovac = getImage("Pijaloci/Zhestoko/pelinkovac.png","Zhestoko");
+        Image imgSmirnoff = getImage("Pijaloci/Zhestoko/smirnoff.png","Zhestoko");
         imageService.saveImage(imgMargarita);
         imageService.saveImage(imgKaprichoza);
         imageService.saveImage(imgFormadzhi);
@@ -317,78 +316,78 @@ public class DataInitializer {
         imageService.saveImage(imgSmirnoff);
 
         //PIZZA PRODUCTS
-        Product margarita = new Product("Маргарита", 280.0, "Пица со кашкавал и кечап", true, true, kaprichozaIngredients, imgMargarita, catPizza);
+        Product margarita = new Product("Маргарита", 320, "Пица со доматен сос, моцарела, босилек, маслиново масло", true, true, kaprichozaIngredients, imgMargarita, catPizza);
         productService.createProduct(margarita);
 
-        Product kaprichoza = new Product("Капричиоза", 320.0, "Пица со кашкавал, печурски и салама", true, true, margaritaIngredients, imgKaprichoza, catPizza);
+        Product kaprichoza = new Product("Капричиоза", 340, "Пица со доматен сос, едамер, шунка, печурки", true, true, margaritaIngredients, imgKaprichoza, catPizza);
         productService.createProduct(kaprichoza);
 
-        Product formadzhi = new Product("Чинкве Фромаџи", 350.0, "Пица со кашкавал, формаџи и маслиново масло", true, true, formadzhiIngredients, imgFormadzhi, catPizza);
+        Product formadzhi = new Product("Чинкве Фромаџи", 400, "Пица со доматен сос, едамер, моцарела, провола, горгонзола, пармезан", true, true, formadzhiIngredients, imgFormadzhi, catPizza);
         productService.createProduct(formadzhi);
 
-        Product vekia = new Product("Векиа Наполи", 320.0, "Пица со кашкавал, горгонзола и маслиново масло", true, true, vekiaIngredients, imgVekia, catPizza);
+        Product vekia = new Product("Векиа Наполи", 350, "Пица со моцарела, маслинки, пиперки, песто, рукола", true, true, vekiaIngredients, imgVekia, catPizza);
         productService.createProduct(vekia);
 
-        Product pulchinela = new Product("Пулчинела", 360.0, "Пица со кашкавал, мортадела и маслиново масло", true, true, pulchinelaIngredients, imgPulchinela, catPizza);
+        Product pulchinela = new Product("Пулчинела", 370, "Пица со доматен сос, моцарела, сланина, печурки, пиперки, кромид", true, true, pulchinelaIngredients, imgPulchinela, catPizza);
         productService.createProduct(pulchinela);
 
-        Product anduja = new Product("Андуја Калабрезе", 340.0, "Пица со кашкавал, печурки и андуја", true, true, andujaIngredients, imgAnduja, catPizza);
+        Product anduja = new Product("Андуја Калабрезе", 400, "Пица со доматен сос, моцарела, н'дуја спианата салами", true, true, andujaIngredients, imgAnduja, catPizza);
         productService.createProduct(anduja);
 
-        Product prshuto = new Product("Пршуто крудо и рукола", 380.0, "Пица со кашкавал и пршуто", true, true, prshutoIngredients, imgPrshuto, catPizza);
+        Product prshuto = new Product("Пршуто крудо и рукола", 420, "Пица со доматен сос, моцарела, пршута, рукола, пармезан, балсамик крем, ореви", true, true, prshutoIngredients, imgPrshuto, catPizza);
         productService.createProduct(prshuto);
 
-        Product ventrichina = new Product("Вентричина Диавола", 360.0, "Пица со кашкавал и вентричина", true, true, ventrichinaIngredients, imgVentrichina, catPizza);
+        Product ventrichina = new Product("Вентричина Диавола", 400, "Пица со доматен сос, моцарела, вентричина салами, чили, печурки", true, true, ventrichinaIngredients, imgVentrichina, catPizza);
         productService.createProduct(ventrichina);
 
-        Product napoletana = new Product("Наполетана", 350.0, "Пица со кашкавал и наполетана салама", true, true, napoletanaIngredients, imgNapoletana, catPizza);
+        Product napoletana = new Product("Наполетана", 380, "Пица со доматен сос, лук, моцарела, маслинки, инчуни, капери", true, true, napoletanaIngredients, imgNapoletana, catPizza);
         productService.createProduct(napoletana);
 
-        Product alpesto = new Product("Ал Песто и Мортадела", 370.0, "Пица со кашкавал и алпесто соус", true, true, alpestoIngredients, imgAlpesto, catPizza);
+        Product alpesto = new Product("Ал Песто и Мортадела", 380, "Пица со моцарела, песто, мортадела, ореви", true, true, alpestoIngredients, imgAlpesto, catPizza);
         productService.createProduct(alpesto);
 
         //SOKOVI PRODUCTS
-        productService.createProduct(new Product("Coca Cola",120.0,"Сок",false,true, new ArrayList<>(),imgCocacola,catSok));
-        productService.createProduct(new Product("Cedevita", 100.0, "Сок", false, true, new ArrayList<>(), imgCedevita, catSok));
-        productService.createProduct(new Product("Fanta", 110.0, "Сок", false, true, new ArrayList<>(), imgFanta, catSok));
-        productService.createProduct(new Product("Sprite", 90.0, "Сок", false, true, new ArrayList<>(), imgSprite, catSok));
-        productService.createProduct(new Product("Pelisterska", 80.0, "Сок", false, true, new ArrayList<>(), imgPelisterska, catSok));
-        productService.createProduct(new Product("Schweppes Bitter Lemon", 130.0, "Сок", false, true, new ArrayList<>(), imgBitter, catSok));
-        productService.createProduct(new Product("Schweppes Pink Soda", 115.0, "Сок", false, true, new ArrayList<>(), imgPink, catSok));
-        productService.createProduct(new Product("Schweppes Mandarina", 105.0, "Сок", false, true, new ArrayList<>(), imgMandarina, catSok));
-        productService.createProduct(new Product("Schweppes", 95.0, "Сок", false, true, new ArrayList<>(), imgSchweppes, catSok));
+        productService.createProduct(new Product("Кока кола / Coca Cola",80,"Сок",false,true, new ArrayList<>(),imgCocacola,catSok));
+        productService.createProduct(new Product("Цедевита / Cedevita", 60, "Сок", false, true, new ArrayList<>(), imgCedevita, catSok));
+        productService.createProduct(new Product("Фанта / Fanta", 80, "Сок", false, true, new ArrayList<>(), imgFanta, catSok));
+        productService.createProduct(new Product("Спрајт / Sprite", 80, "Сок", false, true, new ArrayList<>(), imgSprite, catSok));
+        productService.createProduct(new Product("Пелистерка / Pelisterka", 60, "Сок", false, true, new ArrayList<>(), imgPelisterska, catSok));
+        productService.createProduct(new Product("Швепс / Schweppes", 80, "Сок", false, true, new ArrayList<>(), imgBitter, catSok));
+        productService.createProduct(new Product("Швепс Розев Миксер / Schweppes Pink Mixer", 80, "Сок", false, true, new ArrayList<>(), imgPink, catSok));
+        productService.createProduct(new Product("Швепс Портокал / Schweppes Orange", 80, "Сок", false, true, new ArrayList<>(), imgMandarina, catSok));
+        productService.createProduct(new Product("Швепс Тоник / Schweppes Tonic", 80, "Сок", false, true, new ArrayList<>(), imgSchweppes, catSok));
 
         //PIVO PRODUCTS
-        productService.createProduct(new Product("Amstel", 200.0, "Пиво", false, true, new ArrayList<>(), imgAmstel, catPivo));
-        productService.createProduct(new Product("Heineken", 180.0, "Пиво", false, true, new ArrayList<>(), imgHeineken, catPivo));
-        productService.createProduct(new Product("Скопско", 150.0, "Пиво", false, true, new ArrayList<>(), imgSkopsko, catPivo));
-        productService.createProduct(new Product("Скопско Smooth", 160.0, "Пиво", false, true, new ArrayList<>(), imgSmooth, catPivo));
+        productService.createProduct(new Product("Амстел / Amstel", 100, "Пиво", false, true, new ArrayList<>(), imgAmstel, catPivo));
+        productService.createProduct(new Product("Хаинекен / Heineken", 130, "Пиво", false, true, new ArrayList<>(), imgHeineken, catPivo));
+        productService.createProduct(new Product("Скопско / Skopsko", 100, "Пиво", false, true, new ArrayList<>(), imgSkopsko, catPivo));
+        productService.createProduct(new Product("Скопско Смут / Skopsko Smooth", 100, "Пиво", false, true, new ArrayList<>(), imgSmooth, catPivo));
 
         //KAFE PRODUCTS
-        productService.createProduct(new Product("American Espresso", 90.0, "Кафе", false, true, new ArrayList<>(), imgAmericanEspresso, catKafe));
-        productService.createProduct(new Product("Cappucino", 100.0, "Кафе", false, true, new ArrayList<>(), imgCappucino, catKafe));
-        productService.createProduct(new Product("Espresso", 80.0, "Кафе", false, true, new ArrayList<>(), imgEspresso, catKafe));
-        productService.createProduct(new Product("Freddo Espresso", 110.0, "Кафе", false, true, new ArrayList<>(), imgFreddoEspresso, catKafe));
-        productService.createProduct(new Product("Ice Coffee", 120.0, "Кафе", false, true, new ArrayList<>(), imgIceCoffee, catKafe));
-        productService.createProduct(new Product("Latte Macchiato", 95.0, "Кафе", false, true, new ArrayList<>(), imgLatteMacchiato, catKafe));
-        productService.createProduct(new Product("Macchiato", 85.0, "Кафе", false, true, new ArrayList<>(), imgMacchiato, catKafe));
-        productService.createProduct(new Product("Nescafe", 80.0, "Кафе", false, true, new ArrayList<>(), imgNescafe, catKafe));
-        productService.createProduct(new Product("Tursko", 75.0, "Кафе", false, true, new ArrayList<>(), imgTursko, catKafe));
+        productService.createProduct(new Product("Американско Еспресо / American Espresso", 70, "Кафе", false, true, new ArrayList<>(), imgAmericanEspresso, catKafe));
+        productService.createProduct(new Product("Капучино / Cappucino", 80, "Кафе", false, true, new ArrayList<>(), imgCappucino, catKafe));
+        productService.createProduct(new Product("Еспресо / Espresso", 60, "Кафе", false, true, new ArrayList<>(), imgEspresso, catKafe));
+        productService.createProduct(new Product("Фредо Еспресо / Freddo Espresso", 80, "Кафе", false, true, new ArrayList<>(), imgFreddoEspresso, catKafe));
+        productService.createProduct(new Product("Ајс Кафе / Ice Coffee", 100, "Кафе", false, true, new ArrayList<>(), imgIceCoffee, catKafe));
+        productService.createProduct(new Product("Лате Макијато / Latte Macchiato", 80, "Кафе", false, true, new ArrayList<>(), imgLatteMacchiato, catKafe));
+        productService.createProduct(new Product("Макијато / Macchiato", 70, "Кафе", false, true, new ArrayList<>(), imgMacchiato, catKafe));
+        productService.createProduct(new Product("Нескафе / Nescafe", 100, "Кафе", false, true, new ArrayList<>(), imgNescafe, catKafe));
+        productService.createProduct(new Product("Турско / Tursko", 60, "Кафе", false, true, new ArrayList<>(), imgTursko, catKafe));
 
         //ZHESTOKO PRODUCTS
-        productService.createProduct(new Product("Aperol", 250.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgAperol, catZhestoko));
-        productService.createProduct(new Product("Baileys", 280.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgBaileys, catZhestoko));
-        productService.createProduct(new Product("Campari", 270.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgCampari, catZhestoko));
-        productService.createProduct(new Product("Captain Morgan", 300.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgCaptainMorgan, catZhestoko));
-        productService.createProduct(new Product("Gordons", 220.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgGordons, catZhestoko));
-        productService.createProduct(new Product("Jack Daniels", 320.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJackDaniels, catZhestoko));
-        productService.createProduct(new Product("Jagermeister", 230.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJagermeister, catZhestoko));
-        productService.createProduct(new Product("Jameson", 290.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJameson, catZhestoko));
-        productService.createProduct(new Product("JB", 210.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJB, catZhestoko));
-        productService.createProduct(new Product("Johnnie Walker", 270.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJohnnieWalker, catZhestoko));
-        productService.createProduct(new Product("Martini", 240.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgMartini, catZhestoko));
-        productService.createProduct(new Product("Pelinkovac", 200.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgPelinkovac, catZhestoko));
-        productService.createProduct(new Product("Smirnoff", 190.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgSmirnoff, catZhestoko));
+        productService.createProduct(new Product("Аперол / Aperol", 150, "Алкохолен пијалок", false, true, new ArrayList<>(), imgAperol, catZhestoko));
+        productService.createProduct(new Product("Бејлис / Baileys", 120, "Алкохолен пијалок", false, true, new ArrayList<>(), imgBaileys, catZhestoko));
+        productService.createProduct(new Product("Кампари / Campari", 120, "Алкохолен пијалок", false, true, new ArrayList<>(), imgCampari, catZhestoko));
+        productService.createProduct(new Product("Морган / Captain Morgan", 120, "Алкохолен пијалок", false, true, new ArrayList<>(), imgCaptainMorgan, catZhestoko));
+        productService.createProduct(new Product("Џин Гордонс / Gordons", 110, "Алкохолен пијалок", false, true, new ArrayList<>(), imgGordons, catZhestoko));
+        productService.createProduct(new Product("Џек Даниелс / Jack Daniels", 150, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJackDaniels, catZhestoko));
+        productService.createProduct(new Product("Јегер / Jagermeister", 150, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJagermeister, catZhestoko));
+        productService.createProduct(new Product("Џејмисон / Jameson", 290.0, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJameson, catZhestoko));
+        productService.createProduct(new Product("ЏиБи / JB", 120, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJB, catZhestoko));
+        productService.createProduct(new Product("Џони Вокер / Johnnie Walker", 150, "Алкохолен пијалок", false, true, new ArrayList<>(), imgJohnnieWalker, catZhestoko));
+        productService.createProduct(new Product("Мартини / Martini", 120, "Алкохолен пијалок", false, true, new ArrayList<>(), imgMartini, catZhestoko));
+        productService.createProduct(new Product("Пелинковац / Pelinkovac", 90, "Алкохолен пијалок", false, true, new ArrayList<>(), imgPelinkovac, catZhestoko));
+        productService.createProduct(new Product("Смирноф / Smirnoff", 110, "Алкохолен пијалок", false, true, new ArrayList<>(), imgSmirnoff, catZhestoko));
 
         List<OrderItem> listItems = new ArrayList<>();
         product_qtyRepository.save(new OrderItem(1L,productService.getProductById(1L), 2));
