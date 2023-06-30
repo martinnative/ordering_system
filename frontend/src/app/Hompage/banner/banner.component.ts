@@ -40,4 +40,11 @@ export class BannerComponent implements OnInit {
   transformData(data: Product): Product {
     return this.imageService.transformData(data);
   }
+  prevSlide(): void {
+    $('.banner-slider-3').slick('slickPrev');
+  }
+
+  nextSlide(): void {
+    $('.banner-slider-3').slick('slickNext');
+  }
 }
