@@ -13,6 +13,7 @@ import {CreateIngredientComponent} from "./Admin/create-ingredient/create-ingred
 import {CreateProductComponent} from "./Admin/create-product/create-product.component";
 import {CreateCategoryComponent} from "./Admin/create-category/create-category.component";
 import {AdminPanelComponent} from "./Admin/admin-panel/admin-panel.component";
+import {AdminOrdersComponent} from "./Admin/admin-orders/admin-orders.component";
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'create-product', component: CreateProductComponent},
   { path: 'create-category', component: CreateCategoryComponent},
   { path: 'admin', component: AdminPanelComponent},
+  { path: 'admin/orders', component: AdminOrdersComponent},
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found' },
 ];

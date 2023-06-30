@@ -1,9 +1,8 @@
-
-<p-carousel [value]="products" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [autoplayInterval]="3000">
+<p-carousel [value]="products" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [autoplayInterval]="3000" [circular]="true">
   <ng-template let-product pTemplate="item">
     <div class="product-item" style="width:100%;height:100%;">
       <div class="product-item-content">
-        <div class="mb-3">
+        <div class="mb-3 h-50 w-50 m-auto">
           <img [src]="transformData(product).image" [alt]="product.name" class="product-image" />
         </div>
         <div class="text-center">
