@@ -7,42 +7,34 @@
             <h5 class="text-muted mb-0"><span style="color: #a8729a;">Нарачки</span></h5>
           </div>
           <div class="card-body p-4">
-            <div class="card shadow-0 border mb-4">
-              <div class="card-body">
-
+            <div class="card shadow-0 border mb-4" *ngFor="let order of orders">
+              <div class="card-body" *ngFor="let productItem of order.items">
                 <div class="row">
                   <div class="col-md-2">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
+                    <span class="badge badge-info" style="font-size:1rem;">#{{productItem.product.pizzaNumber}}</span>
+                    <img [src]="transformData(productItem.product).image"
                          class="img-fluid" alt="Phone">
                   </div>
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0">Маргарита</p>
+                    <p class="text-muted mb-0">{{productItem.product.name}}</p>
                   </div>
-                  <div class="col-md-1 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">Количина</p>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">Количина: <span class="fw-bolder"
+                                                                     style="color: #a8729a;">{{productItem.quantity}}</span>
+                    </p>
                   </div>
-                  <div class="col-md-7 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">NOT-ingredients</p>
-                  </div>
-                </div>
-                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
-                <div class="row d-flex align-items-center">
-                  <div class="col-md-2">
-                    <p class="text-mutedmb-0 fw-bolder">#13</p>
-                  </div>
-                  <div class="col-md-10">
-                    <div class="d-flex justify-content-around">
-                      <p class="text-muted mt-1 mb-0 small ms-xl-5">1200ден</p>
-                      <p class="text-muted mt-1 mb-0 small ms-xl-5">
-                        <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider"></span>
-                        </label>
-                      </p>
-                    </div>
+                  <div class="col-md-6 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">LIST NOT INGREDIENTS HERE</p>
                   </div>
                 </div>
               </div>
+              <p class="text-muted mt-1 mb-0 text-center ms-xl-5">
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="order.finished" name="orderFinished"
+                         (change)="orderStatusChanged(order)">
+                  <span class="slider"></span>
+                </label>
+              </p>
             </div>
           </div>
         </div>

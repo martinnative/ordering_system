@@ -11,5 +11,6 @@ export interface Product {
   customizable: boolean,
   category: Category,
   available: boolean,
-  image: any;
+  image: any,
+  pizzaNumber:number
 }
