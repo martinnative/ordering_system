@@ -40,6 +40,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'primeng/carousel';
 import { AdminPanelComponent } from './Admin/admin-panel/admin-panel.component';
+import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { AdminPanelComponent } from './Admin/admin-panel/admin-panel.component';
     CreateCategoryComponent,
     CreateUserComponent,
     AdminPanelComponent,
+    AdminOrdersComponent,
   ],
   imports: [
     BrowserModule,

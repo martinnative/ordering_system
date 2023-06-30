@@ -100,7 +100,7 @@ public class ProductController {
             return ResponseEntity.noContent().build();
         }
         Collections.shuffle(products);
-        List<Product> randomProducts = products.subList(0, Math.min(products.size(), 4));
+        List<Product> randomProducts = products.subList(0, Math.min(products.size(), 6));
         return ResponseEntity.ok(randomProducts);
     }
 
