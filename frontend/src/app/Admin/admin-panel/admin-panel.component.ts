@@ -16,4 +16,7 @@ export class AdminPanelComponent implements OnInit{
   showOrders(): void {
     this.iFrameUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('/admin/orders');
   }
+  showToggleSettings(): void {
+    this.iFrameUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('/admin/toggle');
+  }
 }

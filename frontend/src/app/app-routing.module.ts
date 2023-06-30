@@ -14,6 +14,7 @@ import {CreateProductComponent} from "./Admin/create-product/create-product.comp
 import {CreateCategoryComponent} from "./Admin/create-category/create-category.component";
 import {AdminPanelComponent} from "./Admin/admin-panel/admin-panel.component";
 import {AdminOrdersComponent} from "./Admin/admin-orders/admin-orders.component";
+import {AdminToggleProductsComponent} from "./Admin/admin-toggle-products/admin-toggle-products.component";
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'create-category', component: CreateCategoryComponent},
   { path: 'admin', component: AdminPanelComponent},
   { path: 'admin/orders', component: AdminOrdersComponent},
+  { path: 'admin/toggle', component: AdminToggleProductsComponent },
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found' },
 ];

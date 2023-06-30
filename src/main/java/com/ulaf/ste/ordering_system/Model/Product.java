@@ -23,6 +23,7 @@ public class Product {
     private String description;
     private Boolean customizable;
     private Boolean available;
+    private int pizzaNumber;
 
     @JsonManagedReference
     @ManyToOne
@@ -43,6 +44,19 @@ public class Product {
         this.customizable = customizable;
         this.available = available;
     }
+    public Product(String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, Image image, Category category,int pizzaNumber) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.ingredients = ingredients;
+        this.image = image;
+        this.description = description;
+        this.customizable = customizable;
+        this.available = available;
+        this.pizzaNumber = pizzaNumber;
+    }
+
+
 
     public Product(Long id, String name, Double price, String description, Boolean customizable, Boolean available, Category category, List<Ingredient> ingredients, Image image) {
         this.id = id;
