@@ -1,1 +1,123 @@
-<p>create-product works!</p>
+<app-header></app-header>
+
+<div class="container">
+<div class="bg">
+  <div class="container border backgroundphoto">
+    <div id="header">CREATE NEW PRODUCT</div>
+    <form [formGroup]="createProduct" class="container" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control form-control-sm"
+          id="productName"
+          placeholder="Enter product name"
+          formControlName="productName"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="productPrice">Product Price</label>
+        <input
+          type="number"
+          name="price"
+          class="form-control form-control-sm"
+          id="productPrice"
+          placeholder="Enter product price"
+          formControlName="productPrice"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="productDescription">Product Description</label>
+        <textarea
+          name="description"
+          class="form-control form-control-sm"
+          id="productDescription"
+          placeholder="Enter product description"
+          formControlName="productDescription"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Product Ingredients</label>
+        <div class="row">
+          <div class="col-6" *ngFor="let ingredient of ingredients; let i = index" [formGroupName]="i">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [formControlName]="i"
+                [checked]="false"
+                id="productIngredients{{ i }}"
+              />
+              <label class="form-check-label" for="productIngredients{{ i }}">
+                {{ ingredient.name }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <input
+            type="checkbox"
+            name="customizable"
+            class="form-check-input"
+            id="productCustomizable"
+            formControlName="productCustomizable"
+          />
+          <label class="form-check-label" for="productCustomizable">Is Product Customizable</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="productCategory">Product Category</label>
+        <select
+          name="category"
+          class="form-control form-control-sm"
+          id="productCategory"
+          formControlName="productCategory"
+          required
+        >
+          <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <input
+            type="checkbox"
+            name="available"
+            class="form-check-input"
+            id="productAvailability"
+            formControlName="productAvailability"
+          />
+          <label class="form-check-label" for="productAvailability">Is Product Available</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="productImage">Product Image</label>
+        <input
+          id="productImage"
+          name="productImage"
+          class="form-control form-control-sm"
+          type="file"
+          formControlName="productImage"
+          (change)="onFileChange($event)"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary my-4">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>

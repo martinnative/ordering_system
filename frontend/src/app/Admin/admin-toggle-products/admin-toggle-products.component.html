@@ -1,47 +1,12 @@
-<!--<section class="h-100 gradient-custom">-->
-<!--  <div class="container py-5 h-100">-->
-<!--    <div class="row d-flex justify-content-center align-items-center h-100">-->
-<!--      <div class="col-lg-10 col-xl-8">-->
-<!--        <div class="card" style="border-radius: 10px;">-->
-<!--          <div class="card-header px-4 py-5">-->
-<!--            <h5 class="text-muted mb-0"><span style="color: #a8729a;">Листа на производи</span></h5>-->
-<!--          </div>-->
-<!--          <div class="card p-4">-->
-<!--              <div class="card-body shadow-0 border mb-4" *ngFor="let product of products">-->
-<!--                <div class="row">-->
-<!--                  <div class="col-md-2">-->
-<!--                    <span class="badge badge-info" style="font-size:1rem;">#{{product.id}}</span>-->
-<!--                    <img [src]="transformData(product).image"-->
-<!--                         class="img-fluid" alt="Phone">-->
-<!--                  </div>-->
-<!--                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">-->
-<!--                    <p class="text-muted mb-0">{{product.name}}</p>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <p class="text-muted mt-1 mb-0 text-center ms-xl-5">-->
-<!--                  <label class="switch">-->
-<!--                    <input type="checkbox" [(ngModel)]="product.available" name="orderFinished"-->
-<!--                           (change)="productAvailabilityChanged(product)">-->
-<!--                    <span class="slider"></span>-->
-<!--                  </label>-->
-<!--                </p>-->
-<!--              </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
-
-<section class="h-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-10 col-xl-8">
-        <div class="card" style="border-radius: 10px;">
-          <div class="card-header px-4 py-5">
+<section class="gradient-custom d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-lg">
+        <div class="card border-0">
+          <div class="card-header px-3 py-4">
             <h5 class="text-muted mb-0"><span style="color: #a8729a;">Листа на производи</span></h5>
           </div>
-          <div class="card p-4">
+          <div class="card p-3">
             <div class="form-group">
               <label for="categorySelect">Избери категорија:</label>
               <select class="form-control" id="categorySelect" #categorySelect (change)="categoryChanged(categorySelect.value)">
@@ -49,24 +14,28 @@
                 <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
               </select>
             </div>
-            <div class="card-body shadow-0 border mb-4" *ngFor="let product of filteredProducts">
-              <!-- Product display code -->
-              <div class="row">
-                <div class="col-md-2">
-                  <span class="badge badge-info" style="font-size:1rem;">#{{ product.id }}</span>
-                  <img [src]="transformData(product).image" class="img-fluid" alt="Phone">
+            <div class="row">
+              <ng-container *ngFor="let product of filteredProducts; let i = index;">
+                <div class="col-md-3">
+                  <div class="card shadow-sm mb-3">
+                    <div class="card-body p-3">
+                      <div class="text-center mb-2">
+                        <img [src]="transformData(product).image" class="img-fluid" alt="Phone" style="max-height: 120px;">
+                      </div>
+                      <p class="text-muted mb-0 text-center" style="font-size: 14px;">{{ product.name }}</p>
+                      <p class="text-muted mt-1 mb-0 text-center">
+                        <label class="switch" style="font-size: 14px;">
+                          <input type="checkbox" [(ngModel)]="product.available" name="orderFinished"
+                                 (change)="productAvailabilityChanged(product)">
+                          <span class="slider"></span>
+                        </label>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                  <p class="text-muted mb-0">{{ product.name }}</p>
-                </div>
-              </div>
-              <p class="text-muted mt-1 mb-0 text-center ms-xl-5">
-                <label class="switch">
-                  <input type="checkbox" [(ngModel)]="product.available" name="orderFinished"
-                         (change)="productAvailabilityChanged(product)">
-                  <span class="slider"></span>
-                </label>
-              </p>
+                <!-- Add a new row after every fourth product -->
+                <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div>
+              </ng-container>
             </div>
           </div>
         </div>
@@ -74,3 +43,51 @@
     </div>
   </div>
 </section>
+
+
+
+<!--<section class="gradient-custom d-flex justify-content-center align-items-center" style="min-height: 100vh;">-->
+<!--  <div class="container-fluid py-5">-->
+<!--    <div class="row">-->
+<!--      <div class="col-lg">-->
+<!--        <div class="card border-0">-->
+<!--          <div class="card-header px-4 py-5">-->
+<!--            <h5 class="text-muted mb-0"><span style="color: #a8729a;">Листа на производи</span></h5>-->
+<!--          </div>-->
+<!--          <div class="card p-4">-->
+<!--            <div class="form-group">-->
+<!--              <label for="categorySelect">Избери категорија:</label>-->
+<!--              <select class="form-control" id="categorySelect" #categorySelect (change)="categoryChanged(categorySelect.value)">-->
+<!--                <option value="">Сите</option>-->
+<!--                <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>-->
+<!--              </select>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--              <ng-container *ngFor="let product of filteredProducts; let i = index;">-->
+<!--                <div class="col-md-6">-->
+<!--                  <div class="card shadow-sm mb-4">-->
+<!--                    <div class="card-body">-->
+<!--                      <div class="text-center mb-3">-->
+<!--                        <img [src]="transformData(product).image" class="img-fluid" alt="Phone">-->
+<!--                      </div>-->
+<!--                      <p class="text-muted mb-0 text-center">{{ product.name }}</p>-->
+<!--                      <p class="text-muted mt-1 mb-0 text-center">-->
+<!--                        <label class="switch">-->
+<!--                          <input type="checkbox" [(ngModel)]="product.available" name="orderFinished"-->
+<!--                                 (change)="productAvailabilityChanged(product)">-->
+<!--                          <span class="slider"></span>-->
+<!--                        </label>-->
+<!--                      </p>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Add a new row after every second product &ndash;&gt;-->
+<!--                <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>-->
+<!--              </ng-container>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
