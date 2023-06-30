@@ -25,7 +25,7 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public Image saveImage(Image image)  {
-        Image compressedImage = compressImage(image, 800, 600, 0.8);
+        Image compressedImage = compressImage(image, 800, 600, 0.9);
         return imageRepository.save(compressedImage);
     }
 

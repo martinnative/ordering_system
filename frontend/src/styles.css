@@ -3,8 +3,6 @@
 @import "./assets/fonts/flaticon/flaticon.css";
 @import "./assets/fonts/font-awesome/css/all.min.css";
 
-html, body { height: 100%; }
-/*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
 /*
 Template Name: Slices - Pizzeria HTML Template
 Author: Androthemes
@@ -4635,4 +4633,5 @@ td.quantity{
   .product .product-thumb img{
     width: 200px;
   }
+
 }
