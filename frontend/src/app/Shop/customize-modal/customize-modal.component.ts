@@ -4,6 +4,7 @@ import { OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {ShoppingCartService} from "../../shopping-cart.service";
 import {ImageService} from "../../image.service";
+import {Ingredient} from "../../../model/Ingredient";
 
 @Component({
   selector: 'app-customize-modal',
@@ -28,6 +29,8 @@ export class CustomizeModalComponent {
   }
   transformData(data: Product):Product {
     return this.imageService.transformData(data);
+  } transformDataIngredient(data: Ingredient):Ingredient {
+    return this.imageService.transformIngredient(data);
   }
   save() {
     if(this.quantity < 0 || isNaN(this.quantity)) {

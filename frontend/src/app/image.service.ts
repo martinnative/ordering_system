@@ -4,6 +4,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {HttpClient} from "@angular/common/http";
 import {Image} from "../model/Image";
 import {Category} from "../model/Category";
+import {Ingredient} from "../model/Ingredient";
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,14 @@ export class ImageService {
       description:data.description,
       image:image,
     } as Category
+  } transformIngredient(data: Ingredient):Ingredient {
+    let url = `data:image/png;base64,${data.image.bytes}`;
+    let image = this.sanitizer.bypassSecurityTrustUrl(url);
+    return {
+      id:data.id,
+      name:data.name,
+      image:image,
+    } as Ingredient
   }
 
   saveImage(formData:FormData) {
