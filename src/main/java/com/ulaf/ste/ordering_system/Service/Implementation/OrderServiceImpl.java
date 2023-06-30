@@ -6,7 +6,9 @@ import com.ulaf.ste.ordering_system.Repository.OrderRepository;
 import com.ulaf.ste.ordering_system.Service.OrderService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -14,6 +16,22 @@ public class OrderServiceImpl implements OrderService {
 
     public OrderServiceImpl(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
+    }
+    @Override
+    public List<Order> getAllOrders() {
+        return orderRepository.findAll();
+    }
+    @Override
+    public List<Order> getTodaysOrders() {
+        return orderRepository.findAll().stream().filter(order -> order.getCreatedOn().toLocalDate().equals(LocalDateTime.now().toLocalDate())).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Order> changeOrderStatus(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(RuntimeException::new);
+        order.setFinished(!order.isFinished());
+        orderRepository.save(order);
+        return orderRepository.findAll().stream().sorted((a,b) -> Boolean.compare(a.isFinished(),b.isFinished())).collect(Collectors.toList());
     }
 
     @Override
@@ -24,11 +42,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order getOrderById(Long id) throws NotFoundByIdException {
         return orderRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Order with the provided ID was not found"));
-    }
-
-    @Override
-    public List<Order> getAllOrders() {
-        return orderRepository.findAll();
     }
 
     @Override

@@ -12,5 +12,4 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
     // Add any custom query methods if required
-
 }

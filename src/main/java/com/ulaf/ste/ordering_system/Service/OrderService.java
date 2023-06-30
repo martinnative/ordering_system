@@ -9,6 +9,8 @@ public interface OrderService {
     Order createOrder(Order order);
     Order getOrderById(Long id) throws NotFoundByIdException;
     List<Order> getAllOrders();
+    List<Order> getTodaysOrders();
+    List<Order> changeOrderStatus(Long orderId);
     Order updateOrder(Long id, Order order) throws NotFoundByIdException;
     void deleteOrder(Long id);
 
