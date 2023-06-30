@@ -224,47 +224,47 @@ public class DataInitializer {
         Image imgNapoletana = getImage("Pica/napoletana.png","Pizza");
 
         //SOKOVI SLIKI
-        Image imgCocacola = getImage("Pijaloci/Sok/coca_cola.png","Sokovi");
-        Image imgCedevita = getImage("Pijaloci/Sok/cedevita.png","Sokovi");
-        Image imgFanta = getImage("Pijaloci/Sok/fanta.png","Sokovi");
-        Image imgSprite = getImage("Pijaloci/Sok/sprite.png","Sokovi");
-        Image imgPelisterska = getImage("Pijaloci/Sok/pelisterska.png","Sokovi");
-        Image imgBitter = getImage("Pijaloci/Sok/scchweppes_bitter_lemon.png","Sokovi");
-        Image imgPink = getImage("Pijaloci/Sok/schwepees_pink_soda.png","Sokovi");
-        Image imgMandarina = getImage("Pijaloci/Sok/schweppes_mandarina.png","Sokovi");
-        Image imgSchweppes = getImage("Pijaloci/Sok/schweppes.png","Sokovi");
+        Image imgCocacola = getImage("Pijaloci/Sok/coca_cola.png","Ladni Pijaloci");
+        Image imgCedevita = getImage("Pijaloci/Sok/cedevita.png","Ladni Pijaloci");
+        Image imgFanta = getImage("Pijaloci/Sok/fanta.png","Ladni Pijaloci");
+        Image imgSprite = getImage("Pijaloci/Sok/sprite.png","Ladni Pijaloci");
+        Image imgPelisterska = getImage("Pijaloci/Sok/pelisterska.png","Ladni Pijaloci");
+        Image imgBitter = getImage("Pijaloci/Sok/scchweppes_bitter_lemon.png","Ladni Pijaloci");
+        Image imgPink = getImage("Pijaloci/Sok/schwepees_pink_soda.png","Ladni Pijaloci");
+        Image imgMandarina = getImage("Pijaloci/Sok/schweppes_mandarina.png","Ladni Pijaloci");
+        Image imgSchweppes = getImage("Pijaloci/Sok/schweppes.png","Ladni Pijaloci");
 
         //PIVO SLIKI
-        Image imgAmstel = getImage("Pijaloci/Pivo/amstel.png","Sokovi");
-        Image imgHeineken = getImage("Pijaloci/Pivo/heineken.png","Sokovi");
-        Image imgSkopsko = getImage("Pijaloci/Pivo/skopsko.png","Sokovi");
-        Image imgSmooth = getImage("Pijaloci/Pivo/skopsko_smooth.png","Sokovi");
+        Image imgAmstel = getImage("Pijaloci/Pivo/amstel.png","Pivo");
+        Image imgHeineken = getImage("Pijaloci/Pivo/heineken.png","Pivo");
+        Image imgSkopsko = getImage("Pijaloci/Pivo/skopsko.png","Pivo");
+        Image imgSmooth = getImage("Pijaloci/Pivo/skopsko_smooth.png","Pivo");
 
         //KAFE SLIKI
-        Image imgAmericanEspresso = getImage("Pijaloci/Kafe/american_espresso.png","Sokovi");
-        Image imgCappucino = getImage("Pijaloci/Kafe/cappucino.png","Sokovi");
-        Image imgEspresso = getImage("Pijaloci/Kafe/espresso.png","Sokovi");
-        Image imgFreddoEspresso = getImage("Pijaloci/Kafe/freddo_espresso.png","Sokovi");
-        Image imgIceCoffee = getImage("Pijaloci/Kafe/ice_coffee.png","Sokovi");
-        Image imgLatteMacchiato = getImage("Pijaloci/Kafe/latte_macchiato.png","Sokovi");
-        Image imgMacchiato = getImage("Pijaloci/Kafe/macchiato.png","Sokovi");
-        Image imgNescafe = getImage("Pijaloci/Kafe/nescafe.png","Sokovi");
-        Image imgTursko = getImage("Pijaloci/Kafe/tursko.png","Sokovi");
+        Image imgAmericanEspresso = getImage("Pijaloci/Kafe/american_espresso.png","Kafe");
+        Image imgCappucino = getImage("Pijaloci/Kafe/cappucino.png","Kafe");
+        Image imgEspresso = getImage("Pijaloci/Kafe/espresso.png","Kafe");
+        Image imgFreddoEspresso = getImage("Pijaloci/Kafe/freddo_espresso.png","Kafe");
+        Image imgIceCoffee = getImage("Pijaloci/Kafe/ice_coffee.png","Kafe");
+        Image imgLatteMacchiato = getImage("Pijaloci/Kafe/latte_macchiato.png","Kafe");
+        Image imgMacchiato = getImage("Pijaloci/Kafe/macchiato.png","Kafe");
+        Image imgNescafe = getImage("Pijaloci/Kafe/nescafe.png","Kafe");
+        Image imgTursko = getImage("Pijaloci/Kafe/tursko.png","Kafe");
 
         //ZHESTOKO SLIKI
-        Image imgAperol = getImage("Pijaloci/Zhestoko/aperol.png","Sokovi");
-        Image imgBaileys = getImage("Pijaloci/Zhestoko/baileys.png","Sokovi");
-        Image imgCampari = getImage("Pijaloci/Zhestoko/campari.png","Sokovi");
-        Image imgCaptainMorgan = getImage("Pijaloci/Zhestoko/captain_morgan.png","Sokovi");
-        Image imgGordons = getImage("Pijaloci/Zhestoko/gordons.png","Sokovi");
-        Image imgJackDaniels = getImage("Pijaloci/Zhestoko/jack_daniels.png","Sokovi");
-        Image imgJagermeister = getImage("Pijaloci/Zhestoko/jagermeister.png","Sokovi");
-        Image imgJameson = getImage("Pijaloci/Zhestoko/jameson.png","Sokovi");
-        Image imgJB = getImage("Pijaloci/Zhestoko/jb.png","Sokovi");
-        Image imgJohnnieWalker = getImage("Pijaloci/Zhestoko/johnnie_walker.png","Sokovi");
-        Image imgMartini = getImage("Pijaloci/Zhestoko/martini.png","Sokovi");
-        Image imgPelinkovac = getImage("Pijaloci/Zhestoko/pelinkovac.png","Sokovi");
-        Image imgSmirnoff = getImage("Pijaloci/Zhestoko/smirnoff.png","Sokovi");
+        Image imgAperol = getImage("Pijaloci/Zhestoko/aperol.png","Zhestoko");
+        Image imgBaileys = getImage("Pijaloci/Zhestoko/baileys.png","Zhestoko");
+        Image imgCampari = getImage("Pijaloci/Zhestoko/campari.png","Zhestoko");
+        Image imgCaptainMorgan = getImage("Pijaloci/Zhestoko/captain_morgan.png","Zhestoko");
+        Image imgGordons = getImage("Pijaloci/Zhestoko/gordons.png","Zhestoko");
+        Image imgJackDaniels = getImage("Pijaloci/Zhestoko/jack_daniels.png","Zhestoko");
+        Image imgJagermeister = getImage("Pijaloci/Zhestoko/jagermeister.png","Zhestoko");
+        Image imgJameson = getImage("Pijaloci/Zhestoko/jameson.png","Zhestoko");
+        Image imgJB = getImage("Pijaloci/Zhestoko/jb.png","Zhestoko");
+        Image imgJohnnieWalker = getImage("Pijaloci/Zhestoko/johnnie_walker.png","Zhestoko");
+        Image imgMartini = getImage("Pijaloci/Zhestoko/martini.png","Zhestoko");
+        Image imgPelinkovac = getImage("Pijaloci/Zhestoko/pelinkovac.png","Zhestoko");
+        Image imgSmirnoff = getImage("Pijaloci/Zhestoko/smirnoff.png","Zhestoko");
         imageService.saveImage(imgMargarita);
         imageService.saveImage(imgKaprichoza);
         imageService.saveImage(imgFormadzhi);
@@ -371,7 +371,6 @@ public class DataInitializer {
         productService.createProduct(new Product("Ајс Кафе / Ice Coffee", 100, "Кафе", false, true, new ArrayList<>(), imgIceCoffee, catKafe));
         productService.createProduct(new Product("Лате Макијато / Latte Macchiato", 80, "Кафе", false, true, new ArrayList<>(), imgLatteMacchiato, catKafe));
         productService.createProduct(new Product("Макијато / Macchiato", 70, "Кафе", false, true, new ArrayList<>(), imgMacchiato, catKafe));
-        productService.createProduct(new Product("Големо Макијато / Big Macchiato", 80, "Кафе", false, true, new ArrayList<>(), imgMacchiato, catKafe));
         productService.createProduct(new Product("Нескафе / Nescafe", 100, "Кафе", false, true, new ArrayList<>(), imgNescafe, catKafe));
         productService.createProduct(new Product("Турско / Tursko", 60, "Кафе", false, true, new ArrayList<>(), imgTursko, catKafe));
 
