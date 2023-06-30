@@ -2,13 +2,19 @@ package com.ulaf.ste.ordering_system.Service.Implementation;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Category;
+import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Model.Product;
 import com.ulaf.ste.ordering_system.Repository.CategoryRepository;
 import com.ulaf.ste.ordering_system.Repository.ProductRepository;
 import com.ulaf.ste.ordering_system.Service.ProductService;
+import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.Collections;
@@ -36,7 +42,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(Long id) throws NotFoundByIdException {
-        return productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
+        return productRepository.findById(id).orElseThrow(() -> new NotFoundByIdException("ID was not found"));
     }
 
     @Override
@@ -74,51 +80,21 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAllProductsWithCategory(String category) throws NotFoundByIdException {
         Category existingCategory = categoryRepository.findCategoryByName(category);
-        if(existingCategory!=null)
-        {
+        if (existingCategory != null) {
             return productRepository.findProductsByCategory(existingCategory);
         }
         throw new NotFoundByIdException("Category not found.");
     }
 
-//    @Override
-//    public void addRatingByProductId(Long id, int rating) throws NotFoundByIdException {
-//        Product product = productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
-//        if (product != null) {
-//            List<Integer> productRatingsList = product.getRatings();
-//            productRatingsList.add(rating);
-//            product.setRatings(productRatingsList);
-//        }
-//    }
-//
-//    @Override
-//    public Integer findRatingByPId(Long id) throws NotFoundByIdException {
-//        Product product = productRepository.findById(id).orElseThrow(()->new NotFoundByIdException("ID was not found"));
-//        if (product != null) {
-//            return (int) product.calculateAverageRating();
-//        }
-//        return 0;
-//    }
-
-//    @Override
-//    public Product uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException {
-//        Product product = getProductById(id);
-//        if (product != null) {
-//            byte[] imageBytes = file.getBytes();
-//            product.setImage(imageBytes);
-//            return productRepository.save(product);
-//        }
-//        throw new NotFoundByIdException("ID was not found.");
-//    }
-//
-//    @Override
-//    public String getImage(Long id) throws NotFoundByIdException {
-//        Product product = getProductById(id);
-//        if (product != null && product.getImage() != null) {
-//            byte[] imageBytes = product.getImage();
-//            return Base64.getEncoder().encodeToString(imageBytes);
-//        }
-//        throw new NotFoundByIdException("ID was not found or this pizza does not have an image.");
-//    }
+    public Product createProductWithThumbnail(Product prod) throws IOException {
+        ByteArrayInputStream bis = new ByteArrayInputStream(prod.getImage().getBytes());
+        BufferedImage bi = ImageIO.read(bis);
+        BufferedImage thumbnail = Thumbnails.of(bi).size(300, 300).asBufferedImage();
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ImageIO.write(thumbnail, "png", bos);
+        byte[] thumbnailBytes = bos.toByteArray();
+        Image image = new Image(prod.getImage().getName() + ".thumbnail", thumbnailBytes, "png");
+        return new Product(prod.getId(), prod.getName(), prod.getPrice(), prod.getDescription(), prod.getCustomizable(), prod.getAvailable(), prod.getCategory(), prod.getIngredients(), image);
+    }
 
 }

@@ -39,7 +39,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
       this.categories.push({id:this.categories.length,name:"Сите категории",description:"Сите категории",image:""});
       this.categories = this.categories.reverse();
     });
-    this.productsService.findAllProducts().subscribe(data => {
+    this.productsService.findAllProducts(true).subscribe(data => {
       this.products = data;
       this.filteredProducts = data.sort((a,b) => Number(b.available) - Number(a.available));
     });
@@ -77,9 +77,5 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
 
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
-  }
-
-  openProduct(id: Number) {
-    this.router.navigate(['/product', id]);
   }
 }

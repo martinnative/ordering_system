@@ -15,6 +15,7 @@ public interface ProductService {
     Product updateProduct(Long id, Product product) throws NotFoundByIdException;
     Product getProductByName(String name);
     void deleteProduct(Long id);
+    Product createProductWithThumbnail(Product product) throws IOException;
 
 //    Product uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException;
 //
