@@ -1,13 +1,37 @@
-<div class="">
-  <div class="sidenav text-center">
-    <a routerLink="/">Home</a>
-    <hr class="bg-danger mx-auto" style="height:5px; width:4vmax">
-    <a (click)="showOrders()">Orders</a>
-    <a (click)="showToggleSettings()">Settings</a>
+<!--<div class="">-->
+<!--  <div class="sidenav text-center">-->
+<!--    <a routerLink="/">Home</a>-->
+<!--    <hr class="bg-danger mx-auto" style="height:5px; width:4vmax">-->
+<!--    <a (click)="showOrders()">Orders</a>-->
+<!--    <a (click)="showToggleSettings()">Settings</a>-->
 
-  </div>
+<!--  </div>-->
   <!-- Page content -->
-  <div class="main" style="height:99.8vh">
-    <iframe [src]="iFrameUrl" class="w-100" style="height:100%"></iframe>
+<!--  <div class="main" style="height:99.8vh">-->
+<!--    <iframe [src]="iFrameUrl" class="w-100" style="height:100%"></iframe>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a routerLink="/" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+          <i class="fas fa-home fa-fw"></i>
+        </a>
+        <a (click)="showOrders()" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-shopping-cart fa-fw"></i>
+        </a>
+        <a (click)="showToggleSettings()" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-cogs fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex-grow-1">
+    <iframe [src]="iFrameUrl" class="w-100" style="height:100vh; border: none;"></iframe>
   </div>
 </div>
+
+
