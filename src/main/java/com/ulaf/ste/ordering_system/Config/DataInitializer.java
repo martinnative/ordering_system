@@ -395,10 +395,12 @@ public class DataInitializer {
         product_qtyRepository.save(new OrderItem(productService.getProductById(2L), 3));
         listItems.add(product_qtyRepository.findById(1L).orElseThrow());
         listItems.add(product_qtyRepository.findById(2L).orElseThrow());
-        Order order1 = new Order(listItems,"Gorjan","Spirovski","gorjanspiroski@gmail.com","075222358", LocalDateTime.now());
+        Order order1 = new Order(listItems,"Gorjan","Spirovski","gorjanspiroski@gmail.com","070344899", LocalDateTime.now());
         Order order2 = new Order(listItems,"Dragan","Bozhinoski","test@test123.com","071519218", LocalDateTime.of(2023,11,10, 0,0,0));
+        Order order3 = new Order(listItems,"Martin","Fidanovski","martin@test123.com","075222358", LocalDateTime.of(2023,7,10, 13,10,0));
         orderService.createOrder(order1);
         orderService.createOrder(order2);
+        orderService.createOrder(order3);
         categoryService.getCategoryById(1L).setProducts(productService.getAllProducts());
     }
 }
