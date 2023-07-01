@@ -61,7 +61,9 @@
 /*  height: 2em;*/
 /*  bottom: 0;*/
 /*}*/
-
+.container {
+  height:100vh;
+}
 .gradient-custom {
   /* fallback for old browsers */
   background: #8e98e8;

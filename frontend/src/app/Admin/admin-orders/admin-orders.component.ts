@@ -4,6 +4,7 @@ import {OrdersService} from "../../orders.service";
 import {Product} from "../../../model/Product";
 import {ImageService} from "../../image.service";
 import {LoadingService} from "../../loading.service";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-orders',
@@ -26,12 +27,54 @@ export class AdminOrdersComponent implements OnInit{
     return this.imageService.transformData(data);
   }
   orderStatusChanged(order:Order) {
-    this.loaderService.setLoading(true);
-    this.ordersService.changeOrderStatus(order).subscribe(data => {
-      this.orders=data;
-      this.filteredOrders = data;
-      this.loaderService.setLoading(false);
-    });
+    if(order.finished) {
+      Swal.fire({
+        title: 'Дали сте сигурни дека сакате да ја завршите нарачката?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Да',
+        cancelButtonText: 'Не',
+        heightAuto:false,
+      }).then((result) => {
+        if (result.value) {
+          this.loaderService.setLoading(true);
+          this.ordersService.changeOrderStatus(order).subscribe(data => {
+            this.orders=data;
+            this.filteredOrders = data;
+            this.loaderService.setLoading(false);
+          });
+          Swal.fire('Успешно!', 'Нарачката е сега завршена', 'success');
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          order.finished = !order.finished;
+          Swal.fire('Откажано!', 'Нема промени во нарачката', 'error');
+        }
+      });
+    }
+    else {
+      Swal.fire({
+        title: 'Дали сте сигурни дека сакате да ја вратите во процесирање?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Да',
+        cancelButtonText: 'Не',
+        heightAuto:false,
+      }).then((result) => {
+        if (result.value) {
+          this.loaderService.setLoading(true);
+          this.ordersService.changeOrderStatus(order).subscribe(data => {
+            this.orders=data;
+            this.filteredOrders = data;
+            this.loaderService.setLoading(false);
+          });
+          Swal.fire('Успешно!', 'Нарачката е сега во процесирање', 'success');
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          order.finished = !order.finished;
+          Swal.fire('Откажано!', 'Нема промени во нарачката', 'error');
+        }
+      });
+    }
+
+
   }
   resetFilter() {
     this.filteredOrders = this.orders;
