@@ -40,31 +40,6 @@ export class HomeComponent implements OnInit {
       Sticky Header
       -------------------------------------------------------------------------------*/
       //TODO: REVIEW FOLLOWING LINES
-      /*-------------------------------------------------------------------------------
-      Aside Scroll
-      -------------------------------------------------------------------------------*/
-      function initAsideScrollbar() {
-        const mainAside = $('.main-aside');
-        const navbarBrand = $(".main-aside .navbar-brand");
-        const asideScroll = $('.aside-scroll')[0]; // Get the DOM element
-
-        const scrollHeight = mainAside.innerHeight()! - navbarBrand.innerHeight()!; // Calculate the height of the scroll container
-        const calculatedHeight = isNaN(scrollHeight) ? "auto" : scrollHeight;
-
-        const ps = new PerfectScrollbar(asideScroll, {
-          wheelPropagation: true,
-          wheelSpeed: 5,
-          swipeEasing: true,
-          suppressScrollX: true,
-        });
-
-        // Set the height of the PerfectScrollbar container
-        $(asideScroll).height(calculatedHeight);
-
-        // Optional: Destroy the PerfectScrollbar instance when it's no longer needed
-      }
-
-      initAsideScrollbar();
     // TODO: FIX
       /*-------------------------------------------------------------------------------
       Banner Slider (Home 3)
