@@ -4387,6 +4387,7 @@ td.quantity{
 .customize-size:not(.active):hover{
   color: #ED4E53;
 }
+
 .customize-size.active{
   background-color: #ED4E53;
   color: #fff;

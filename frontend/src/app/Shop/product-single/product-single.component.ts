@@ -7,6 +7,7 @@ import {ImageService} from "../../image.service";
 import {ShoppingCartService} from "../../shopping-cart.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
+import {Ingredient} from "../../../model/Ingredient";
 
 @Component({
   selector: 'app-product-single',
@@ -57,5 +58,8 @@ export class ProductSingleComponent implements OnInit {
         console.log(result)
       }
     });
+  }
+  transformDataIngredient(data: Ingredient):Ingredient {
+    return this.imageService.transformIngredient(data);
   }
 }

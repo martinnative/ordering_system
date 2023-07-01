@@ -80,6 +80,8 @@
                     <div class="customize-variation-item" data-price="2.00" *ngFor="let ingredient of product.ingredients">
                       <div class="custom-control custom-checkbox">
                         <input type="checkbox" value="{{ingredient.id}}" class="custom-control-input" id="addChicken1">
+                        <img [src]="transformDataIngredient(ingredient).image" alt="menu item" height="40px" width="40px"/>
+                        <br>
                         <label class="custom-control-label" for="addChicken1">{{ingredient.name}}</label>
                       </div>
                     </div>
