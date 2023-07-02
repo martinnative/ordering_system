@@ -41,10 +41,10 @@
                     </div>
                   </div>
                 </div>
-                <span class="badge badge-warning ms-3 align-self-center" style="width:15rem" *ngIf="!order.finished"> Сатусот на нарачката е : <strong style="color:royalblue">Процесирање</strong></span>
-                <span class="badge badge-success ms-3 align-self-center" style="width:15rem" *ngIf="order.finished"> Сатусот на нарачката е : <strong style="color:lightgoldenrodyellow">Завршена</strong></span>
+                <span class="badge badge-warning ms-3 align-self-center" style="width:15rem" *ngIf="!order.finished">  <strong style="color:royalblue">Процесирање</strong></span>
+                <span class="badge badge-success ms-3 align-self-center" style="width:15rem" *ngIf="order.finished">  <strong style="color:lightgoldenrodyellow">Завршена</strong></span>
                 <br>
-                <p class="text-muted mt-1 mb-0 text-center ms-xl-5">
+                <p class="text-muted mt-1 mb-0 text-center align-self-center">
                   <label class="switch">
                     <input type="checkbox" [(ngModel)]="order.finished" name="orderFinished"
                            (change)="orderStatusChanged(order)">
