@@ -25,6 +25,7 @@ public class DataInitializer {
     private final OrderService orderService;
     private final ImageService imageService;
     private final OrderItemRepository product_qtyRepository;
+    private final UserService userService;
 
     private Image getImage(String imageName,String type) {
         try {
@@ -409,5 +410,7 @@ public class DataInitializer {
         orderService.createOrder(order3);
         orderService.createOrder(order4);
         categoryService.getCategoryById(1L).setProducts(productService.getAllProducts());
+
+        userService.save("dbozhinoski","Dragan","Bozhinoski","123",Role.ROLE_ADMIN);
     }
 }

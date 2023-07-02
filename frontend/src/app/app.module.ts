@@ -42,6 +42,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { AdminPanelComponent } from './Admin/admin-panel/admin-panel.component';
 import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.component';
 import { AdminToggleProductsComponent } from './Admin/admin-toggle-products/admin-toggle-products.component';
+import {httpInterceptorProviders} from "./_helpers/http.interceptor";
 
 @NgModule({
   declarations: [
@@ -93,9 +94,7 @@ import { AdminToggleProductsComponent } from './Admin/admin-toggle-products/admi
     ButtonModule,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi:true
-    }
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
