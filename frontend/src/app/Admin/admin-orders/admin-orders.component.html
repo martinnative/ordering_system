@@ -7,12 +7,12 @@
           <div class="card-header px-4 py-5">
             <h5 class="text-muted mb-0"><span style="color: #a8729a;">Нарачки</span></h5>
             <h6 class="text-muted mb-0 mt-3">
-              <button type="button" class="btn btn-info btn-sm me-4 text-white" (click)="resetFilter()">All orders
+              <button type="button" class="btn btn-info btn-sm me-4 text-white" (click)="resetFilter()">Сите нарачки
               </button>
               <button type="button" class="btn btn-warning btn-sm me-4 text-white" (click)="showProcessing()">
-                Processing
+                Процесирање
               </button>
-              <button type="button" class="btn btn-success btn-sm me-4 text-white" (click)="showFinished()">Finished
+              <button type="button" class="btn btn-success btn-sm me-4 text-white" (click)="showFinished()">Завршени
               </button>
             </h6>
           </div>
@@ -24,7 +24,7 @@
                 <div class="card-body" *ngFor="let productItem of order.items">
                   <div class="row">
                     <div class="col-md-2">
-                      <span class="badge badge-info" style="font-size:1rem;">#{{productItem.product.pizzaNumber}}</span>
+                      <span class="badge badge-info" style="font-size:1rem;" *ngIf="productItem.product.category.name == 'Пица'">#{{productItem.product.pizzaNumber}}</span>
                       <img [src]="transformData(productItem.product).image"
                            class="img-fluid" alt="Phone">
                     </div>
@@ -39,8 +39,8 @@
                     <div class="col-md-6 text-center d-flex justify-content-center align-items-center">
                       <p class="text-muted mb-0 small">LIST NOT INGREDIENTS HERE</p>
                     </div>
-                    <span class="badge badge-warning ms-3" style="width:5rem" *ngIf="!order.finished">Processing</span>
-                    <span class="badge badge-success ms-3" style="width:5rem" *ngIf="order.finished">Finished</span>
+                    <span class="badge badge-warning ms-3" style="width:6rem" *ngIf="!order.finished">Процесирање</span>
+                    <span class="badge badge-success ms-3" style="width:6rem" *ngIf="order.finished">Завршена</span>
                   </div>
                 </div>
                 <p class="text-muted mt-1 mb-0 text-center ms-xl-5">

@@ -34,6 +34,7 @@ public class ProductController {
         else {
             products = productService.getAllProducts().stream().map(prod -> {
                 try {
+                    System.out.println(prod.getId());
                     return productService.createProductWithThumbnail(prod);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -103,30 +104,10 @@ public class ProductController {
         List<Product> randomProducts = products.subList(0, Math.min(products.size(), 6));
         return ResponseEntity.ok(randomProducts);
     }
-
-//    @PostMapping("/{id}/upload")
-//    public ResponseEntity<Product> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws NotFoundByIdException, IOException {
-//        Product updatedProduct = productService.uploadImage(id, file);
-//        if (updatedProduct != null) {
-//            return ResponseEntity.ok(updatedProduct);
-//        }
-//        return ResponseEntity.notFound().build();
-//    }
-//
-//    @GetMapping("/{id}/image")
-//    public ResponseEntity<String> getImage(@PathVariable Long id) throws NotFoundByIdException {
-//        String base64Image = productService.getImage(id);
-//        return ResponseEntity.ok(base64Image);
-//    }
-
-//    @PostMapping("/{id}/ratings")
-//    public void addRating(@PathVariable Long id, @RequestBody int rating) throws NotFoundByIdException {
-//        productService.addRatingByProductId(id, rating);
-//    }
-//
-//    @GetMapping("/{id}/ratings")
-//    public double findRatingByProductId(@PathVariable Long id) throws NotFoundByIdException {
-//        return productService.findRatingByPId(id);
-//    }
+    @PutMapping("/availability")
+    public ResponseEntity<List<Product>> changeProductAvailability(@RequestParam("id") String id) {
+        List<Product> products = productService.changeProductAvailability(Long.parseLong(id));
+        return ResponseEntity.ok(products);
+    }
 
 }

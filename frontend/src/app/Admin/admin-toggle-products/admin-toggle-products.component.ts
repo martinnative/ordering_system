@@ -5,6 +5,7 @@ import { ProductsService } from "../../products.service";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ImageService } from "../../image.service";
 import { Category } from "../../../model/Category";
+import {LoadingService} from "../../loading.service";
 
 @Component({
   selector: 'app-admin-toggle-products',
@@ -21,17 +22,19 @@ export class AdminToggleProductsComponent {
     private productsService: ProductsService,
     private modalService: NgbModal,
     private imageService: ImageService,
-    private categoryService: CategoriesService
+    private categoryService: CategoriesService,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit(): void {
+    this.loadingService.setLoading(true);
+    this.categoryService.findAllCategories().subscribe(data => {
+      this.categories = data;
+    });
     this.productsService.findAllProducts(true).subscribe(data => {
       this.products = data;
       this.filteredProducts = data; // Initialize filteredProducts with all products
-    });
-
-    this.categoryService.findAllCategories().subscribe(data => {
-      this.categories = data;
+      this.loadingService.setLoading(false);
     });
   }
 
@@ -40,7 +43,11 @@ export class AdminToggleProductsComponent {
   }
 
   productAvailabilityChanged(product: Product) {
-    product.available = !product.available;
+    this.loadingService.setLoading(true);
+    this.productsService.changeProductAvailability(product).subscribe(data => {
+      this.products = data;
+      this.loadingService.setLoading(false);
+    });
   }
 
   categoryChanged(categoryId: string) {

@@ -390,18 +390,24 @@ public class DataInitializer {
         productService.createProduct(new Product("Мартини / Martini", 120, "Алкохолен пијалок", false, true, new ArrayList<>(), imgMartini, catZhestoko));
         productService.createProduct(new Product("Пелинковац / Pelinkovac", 90, "Алкохолен пијалок", false, true, new ArrayList<>(), imgPelinkovac, catZhestoko));
         productService.createProduct(new Product("Смирноф / Smirnoff", 110, "Алкохолен пијалок", false, true, new ArrayList<>(), imgSmirnoff, catZhestoko));
-
         List<OrderItem> listItems = new ArrayList<>();
+        List<OrderItem> list2 = new ArrayList<>();
         product_qtyRepository.save(new OrderItem(productService.getProductById(1L), 2));
         product_qtyRepository.save(new OrderItem(productService.getProductById(2L), 3));
+        product_qtyRepository.save(new OrderItem(productService.getProductById(11L), 1));
+        product_qtyRepository.save(new OrderItem(productService.getProductById(15L), 2));
         listItems.add(product_qtyRepository.findById(1L).orElseThrow());
         listItems.add(product_qtyRepository.findById(2L).orElseThrow());
+        list2.add(product_qtyRepository.findById(3L).orElseThrow());
+        list2.add(product_qtyRepository.findById(4L).orElseThrow());
         Order order1 = new Order(listItems,"Gorjan","Spirovski","gorjanspiroski@gmail.com","070344899", LocalDateTime.now());
         Order order2 = new Order(listItems,"Dragan","Bozhinoski","test@test123.com","071519218", LocalDateTime.of(2023,11,10, 0,0,0));
         Order order3 = new Order(listItems,"Martin","Fidanovski","martin@test123.com","075222358", LocalDateTime.of(2023,7,10, 13,10,0));
+        Order order4 = new Order(list2,"Martin2","Fidanovski2","martin@test123.com","075222358", LocalDateTime.of(2023,7,10, 13,10,0));
         orderService.createOrder(order1);
         orderService.createOrder(order2);
         orderService.createOrder(order3);
+        orderService.createOrder(order4);
         categoryService.getCategoryById(1L).setProducts(productService.getAllProducts());
     }
 }
