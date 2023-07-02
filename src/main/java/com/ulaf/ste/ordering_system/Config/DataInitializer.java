@@ -319,34 +319,35 @@ public class DataInitializer {
         imageService.saveImage(imgSmirnoff);
 
         //PIZZA PRODUCTS
-        Product margarita = new Product("Маргарита", 320, "Пица со доматен сос, моцарела, босилек, маслиново масло", true, false, kaprichozaIngredients, imgMargarita, catPizza,0);
-        productService.createProduct(margarita);
 
-        Product kaprichoza = new Product("Капричиоза", 340, "Пица со доматен сос, едамер, шунка, печурки", true, false, margaritaIngredients, imgKaprichoza, catPizza,1);
+        Product kaprichoza = new Product("Капричиоза", 340, "Пица со доматен сос, едамер, шунка, печурки", true, false, kaprichozaIngredients, imgKaprichoza, catPizza,1);
         productService.createProduct(kaprichoza);
 
-        Product formadzhi = new Product("Чинкве Фромаџи", 400, "Пица со доматен сос, едамер, моцарела, провола, горгонзола, пармезан", true, true, formadzhiIngredients, imgFormadzhi, catPizza,2);
+        Product margarita = new Product("Маргарита", 320, "Пица со доматен сос, моцарела, босилек, маслиново масло", true, false, margaritaIngredients, imgMargarita, catPizza,2);
+        productService.createProduct(margarita);
+
+        Product formadzhi = new Product("Чинкве Фромаџи", 400, "Пица со доматен сос, едамер, моцарела, провола, горгонзола, пармезан", true, true, formadzhiIngredients, imgFormadzhi, catPizza,3);
         productService.createProduct(formadzhi);
 
-        Product vekia = new Product("Векиа Наполи", 350, "Пица со моцарела, маслинки, пиперки, песто, рукола", true, true, vekiaIngredients, imgVekia, catPizza,3);
+        Product vekia = new Product("Векиа Наполи", 350, "Пица со моцарела, маслинки, пиперки, песто, рукола", true, true, vekiaIngredients, imgVekia, catPizza,4);
         productService.createProduct(vekia);
 
-        Product pulchinela = new Product("Пулчинела", 370, "Пица со доматен сос, моцарела, сланина, печурки, пиперки, кромид", true, true, pulchinelaIngredients, imgPulchinela, catPizza,4);
+        Product pulchinela = new Product("Пулчинела", 370, "Пица со доматен сос, моцарела, сланина, печурки, пиперки, кромид", true, true, pulchinelaIngredients, imgPulchinela, catPizza,5);
         productService.createProduct(pulchinela);
 
-        Product anduja = new Product("Андуја Калабрезе", 400, "Пица со доматен сос, моцарела, н'дуја спианата салами", true, true, andujaIngredients, imgAnduja, catPizza,5);
+        Product anduja = new Product("Андуја Калабрезе", 400, "Пица со доматен сос, моцарела, н'дуја спианата салами", true, true, andujaIngredients, imgAnduja, catPizza,6);
         productService.createProduct(anduja);
 
-        Product prshuto = new Product("Пршуто крудо и рукола", 420, "Пица со доматен сос, моцарела, пршута, рукола, пармезан, балсамик крем, ореви", true, true, prshutoIngredients, imgPrshuto, catPizza,6);
+        Product prshuto = new Product("Пршуто крудо и рукола", 420, "Пица со доматен сос, моцарела, пршута, рукола, пармезан, балсамик крем, ореви", true, true, prshutoIngredients, imgPrshuto, catPizza,7);
         productService.createProduct(prshuto);
 
-        Product ventrichina = new Product("Вентричина Диавола", 400, "Пица со доматен сос, моцарела, вентричина салами, чили, печурки", true, true, ventrichinaIngredients, imgVentrichina, catPizza,7);
+        Product ventrichina = new Product("Вентричина Диавола", 400, "Пица со доматен сос, моцарела, вентричина салами, чили, печурки", true, true, ventrichinaIngredients, imgVentrichina, catPizza,8);
         productService.createProduct(ventrichina);
 
-        Product napoletana = new Product("Наполетана", 380, "Пица со доматен сос, лук, моцарела, маслинки, инчуни, капери", true, true, napoletanaIngredients, imgNapoletana, catPizza,8);
+        Product napoletana = new Product("Наполетана", 380, "Пица со доматен сос, лук, моцарела, маслинки, инчуни, капери", true, true, napoletanaIngredients, imgNapoletana, catPizza,9);
         productService.createProduct(napoletana);
 
-        Product alpesto = new Product("Ал Песто и Мортадела", 380, "Пица со моцарела, песто, мортадела, ореви", true, true, alpestoIngredients, imgAlpesto, catPizza,9);
+        Product alpesto = new Product("Ал Песто и Мортадела", 380, "Пица со моцарела, песто, мортадела, ореви", true, true, alpestoIngredients, imgAlpesto, catPizza,10);
         productService.createProduct(alpesto);
 
         //SOKOVI PRODUCTS
