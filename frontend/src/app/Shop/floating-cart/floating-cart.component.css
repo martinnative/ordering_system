@@ -1,16 +1,32 @@
-
-.cart-sidebar{
-  position: fixed;
-  top: 0;
-  right: -1200px;
-  width: 95%;
-  max-width: 1200px;
-  height: 100%;
-  background-color: #fff;
-  z-index: 1000;
-  -webkit-transition: right .3s;
-  -o-transition: right .3s;
-  transition: right .3s;
+@media only screen and (min-width : 1024px) {
+  .cart-sidebar{
+    position: fixed;
+    top: 0;
+    right: -1200px;
+    width: 40%;
+    max-width: 1200px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    -webkit-transition: right .3s;
+    -o-transition: right .3s;
+    transition: right .3s;
+  }
+}
+@media only screen and (max-width : 1024px) {
+  .cart-sidebar{
+    position: fixed;
+    top: 0;
+    right: -1200px;
+    width: 95%;
+    max-width: 1200px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    -webkit-transition: right .3s;
+    -o-transition: right .3s;
+    transition: right .3s;
+  }
 }
 .cart-sidebar-overlay{
   position: fixed;
