@@ -2,7 +2,7 @@
 <section class="gradient-custom d-flex flex-column h-100" style="background-image: url('/assets/img/360_F_340930009_WtmPbofCmuBGo3SxTR59e3qUrUs8Bm2Y.jpg');">
   <div class="container flex-grow-1">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-10 col-xl-8">
+      <div class="col-lg-10 col-xl-10">
         <div class="card" style="border-radius: 10px;">
           <div class="card-header px-4 py-5">
             <h5 class="text-muted mb-0"><span style="color: #a8729a;">Нарачки</span></h5>
@@ -39,10 +39,11 @@
                     <div class="col-md-6 text-center d-flex justify-content-center align-items-center">
                       <p class="text-muted mb-0 small">LIST NOT INGREDIENTS HERE</p>
                     </div>
-                    <span class="badge badge-warning ms-3" style="width:6rem" *ngIf="!order.finished">Процесирање</span>
-                    <span class="badge badge-success ms-3" style="width:6rem" *ngIf="order.finished">Завршена</span>
                   </div>
                 </div>
+                <span class="badge badge-warning ms-3 align-self-center" style="width:15rem" *ngIf="!order.finished"> Сатусот на нарачката е : <strong style="color:royalblue">Процесирање</strong></span>
+                <span class="badge badge-success ms-3 align-self-center" style="width:15rem" *ngIf="order.finished"> Сатусот на нарачката е : <strong style="color:lightgoldenrodyellow">Завршена</strong></span>
+                <br>
                 <p class="text-muted mt-1 mb-0 text-center ms-xl-5">
                   <label class="switch">
                     <input type="checkbox" [(ngModel)]="order.finished" name="orderFinished"
