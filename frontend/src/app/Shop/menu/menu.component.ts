@@ -16,7 +16,7 @@ import {ImageService} from "../../image.service";
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit, AfterViewInit{
+export class MenuComponent implements OnInit{
   products: Product[] = [];
   categories: Category[] = [];
 
@@ -27,24 +27,13 @@ export class MenuComponent implements OnInit, AfterViewInit{
               private imageService: ImageService
   ) {
   }
-  ngAfterViewInit(): void {
-    $('.banner-slider-3').slick({
-      dots: true,
-      arrows: false,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 3,
-      centerMode: true,
-      adaptiveHeight: true
-    });
-  }
   scrollToTop(el:HTMLElement) {
     el.scrollIntoView({behavior:"smooth"});
   }
 
   ngOnInit(): void {
     this.productsService.findAllProducts(true).subscribe(data => {
-      this.products = data;
+      this.products = data.reverse();
     });
   }
 

@@ -40,8 +40,8 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
       this.categories = this.categories.reverse();
     });
     this.productsService.findAllProducts(true).subscribe(data => {
-      this.products = data;
-      this.filteredProducts = data;
+      this.products = data.reverse();
+      this.filteredProducts = data.reverse().filter(a => a.available);
     });
   }
   transformData(data: Product):Product {
@@ -58,7 +58,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     }
     else {
       this.selectedCategory = category;
-      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id);
+      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id).reverse();
     }
   }
   openModal(product: Product) {
