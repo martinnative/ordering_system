@@ -1,5 +1,5 @@
 <app-preloader></app-preloader>
-<section class="gradient-custom d-flex flex-column">
+<section class="gradient-custom d-flex flex-column h-100">
   <div class="container flex-grow-1">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-10 col-xl-8">
@@ -17,7 +17,7 @@
             </h6>
           </div>
           <div class="card-body p-4">
-            <ng-scrollbar style="height:650px">
+            <ng-scrollbar style="height:68vh">
               <div class="card shadow-0 border mb-4" *ngFor="let order of filteredOrders">
                 <h5 class="mt-2 ms-2 text-center">{{order.customerName + ' ' + order.customerSurname}}
                   [ {{order.customerPhone}} ] - {{order.createdOn}}</h5>
