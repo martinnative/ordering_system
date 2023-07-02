@@ -43,6 +43,9 @@ import { AdminPanelComponent } from './Admin/admin-panel/admin-panel.component';
 import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.component';
 import { AdminToggleProductsComponent } from './Admin/admin-toggle-products/admin-toggle-products.component';
 import {httpInterceptorProviders} from "./_helpers/http.interceptor";
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+
+
 
 @NgModule({
   declarations: [
@@ -92,6 +95,7 @@ import {httpInterceptorProviders} from "./_helpers/http.interceptor";
     ReactiveFormsModule,
     CarouselModule,
     ButtonModule,
+    LazyLoadImageModule,
   ],
   providers: [
     httpInterceptorProviders
