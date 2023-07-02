@@ -1,5 +1,5 @@
 <app-preloader></app-preloader>
-<section class="gradient-custom d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+<section class="gradient-custom d-flex justify-content-center align-items-center" style="min-height: 100vh;background-image: url('/assets/img/360_F_340930009_WtmPbofCmuBGo3SxTR59e3qUrUs8Bm2Y.jpg');">
   <div class="container py-4">
     <div class="row">
       <div class="col-lg">
@@ -13,7 +13,8 @@
               <select class="form-control" id="categorySelect" #categorySelect
                       (change)="categoryChanged(categorySelect.value)">
                 <option value="">Сите</option>
-                <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+                <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}
+                </option>
               </select>
             </div>
             <ng-scrollbar style="height:68vh">
@@ -27,10 +28,7 @@
                           <img [src]="transformData(product).image" class="img-fluid" alt="Phone"
                                style="max-height: 120px;">
                         </div>
-                        <p class="text-muted mb-0 text-center" style="font-size: 14px;"><span style="color: #a8729a;"
-                                                                                              class="fw-bolder"
-                                                                                              *ngIf="product.category.name == 'Пица'">[ #{{product.pizzaNumber}}
-                          ] </span>{{ product.name }}</p>
+                        <p class="text-muted mb-0 text-center" style="font-size: 14px;"><span style="color: #a8729a;" class="fw-bolder" *ngIf="product.category.name == 'Пица'">[#{{product.pizzaNumber}}] </span>{{ product.name }}</p>
                         <p class="text-muted mt-1 mb-0 text-center">
                           <label class="switch" style="font-size: 14px;">
                             <input type="checkbox" [(ngModel)]="product.available" name="orderFinished"

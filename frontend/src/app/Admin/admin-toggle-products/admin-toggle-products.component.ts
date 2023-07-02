@@ -41,6 +41,9 @@ export class AdminToggleProductsComponent {
   transformData(data: Product): Product {
     return this.imageService.transformData(data);
   }
+  transformDataCategory(data: Category): Category {
+    return this.imageService.transformDataCategory(data);
+  }
 
   productAvailabilityChanged(product: Product) {
     this.loadingService.setLoading(true);
