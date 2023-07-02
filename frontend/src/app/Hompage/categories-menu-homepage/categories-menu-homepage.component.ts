@@ -9,6 +9,7 @@ import {ShoppingCartService} from "../../shopping-cart.service";
 import {Router} from "@angular/router";
 import {ImageService} from "../../image.service";
 import {Image} from "../../../model/Image";
+import {LoadingService} from "../../loading.service";
 
 @Component({
   selector: 'app-categories-menu-homepage',
@@ -26,7 +27,8 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
               private productsService: ProductsService,
               private shoppingCartService: ShoppingCartService,
               private router:Router,
-              private imageService:ImageService
+              private imageService:ImageService,
+              private loadingService:LoadingService
   ) {
   }
 
@@ -34,6 +36,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.loadingService.setLoading(true);
     this.categoryService.findAllCategories().subscribe(data => {
       this.categories = data;
       this.categories.push({id:this.categories.length,name:"Сите категории",description:"Сите категории",image:""});
@@ -42,6 +45,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     this.productsService.findAllProducts(true).subscribe(data => {
       this.products = data.reverse();
       this.filteredProducts = data.reverse().filter(a => a.available);
+      this.loadingService.setLoading(false);
     });
   }
   transformData(data: Product):Product {
