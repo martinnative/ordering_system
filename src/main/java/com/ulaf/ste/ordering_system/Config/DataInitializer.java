@@ -85,6 +85,7 @@ public class DataInitializer {
         Image imgSlanina = getImage("icons/slanina.png","ingredient");
         Image imgVentricinaSalami = getImage("icons/ventricina_salami.png","ingredient");
         Image imgShunka = getImage("icons/shunka.png","ingredient");
+
         imageService.saveImage(imgBalsamicCream);
         imageService.saveImage(imgBosilek);
         imageService.saveImage(imgBrokula);

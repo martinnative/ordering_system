@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public Image saveImage(Image image)  {
-        Image compressedImage = compressImage(image, 800, 600, 0.9);
+        Image compressedImage = compressImage(image);
         return imageRepository.save(compressedImage);
     }
 
@@ -40,14 +39,14 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @SneakyThrows
-    private Image compressImage(Image image, int maxWidth, int maxHeight, double quality)  {
+    private Image compressImage(Image image)  {
         byte[] imageData = image.getBytes();
         BufferedImage originalImage = ImageIO.read(new ByteArrayInputStream(imageData));
         ByteArrayOutputStream compressedImageStream = new ByteArrayOutputStream();
         try {
             Thumbnails.of(originalImage)
-                    .size(maxWidth, maxHeight)
-                    .outputQuality(quality)
+                    .size(800, 600)
+                    .outputQuality(0.9)
                     .outputFormat("png")
                     .toOutputStream(compressedImageStream);
         } catch (IOException e) {
