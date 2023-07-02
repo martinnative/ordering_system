@@ -10,6 +10,7 @@ import {Category} from "../../../model/Category";
 import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
 import {DomSanitizer} from "@angular/platform-browser";
 import {ImageService} from "../../image.service";
+import {LoadingService} from "../../loading.service";
 
 @Component({
   selector: 'app-menu',
@@ -24,7 +25,8 @@ export class MenuComponent implements OnInit{
               private productsService: ProductsService,
               private shoppingCartService: ShoppingCartService,
               private modalService: NgbModal,
-              private imageService: ImageService
+              private imageService: ImageService,
+              private loadingService: LoadingService
   ) {
   }
   scrollToTop(el:HTMLElement) {
@@ -32,8 +34,10 @@ export class MenuComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.loadingService.setLoading(true);
     this.productsService.findAllProducts(true).subscribe(data => {
       this.products = data.reverse();
+      this.loadingService.setLoading(false);
     });
   }
 
