@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -32,12 +33,20 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return productRepository.findAll().stream().sorted((a,b) -> Boolean.compare(a.getAvailable(),b.getAvailable())).collect(Collectors.toList());
     }
 
     @Override
     public List<Product> getAllProductsByCategoryId(Long categoryId) {
         return productRepository.findProductsByCategory(categoryRepository.findCategoryById(categoryId));
+    }
+
+    @Override
+    public List<Product> changeProductAvailability(Long productId) {
+        Product product = productRepository.findById(productId).orElseThrow(RuntimeException::new);
+        product.setAvailable(!product.getAvailable());
+        productRepository.save(product);
+        return productRepository.findAll().stream().sorted((a,b) -> Boolean.compare(a.getAvailable(),b.getAvailable())).collect(Collectors.toList());
     }
 
     @Override
@@ -94,7 +103,7 @@ public class ProductServiceImpl implements ProductService {
         ImageIO.write(thumbnail, "png", bos);
         byte[] thumbnailBytes = bos.toByteArray();
         Image image = new Image(prod.getImage().getName() + ".thumbnail", thumbnailBytes, "png");
-        return new Product(prod.getId(), prod.getName(), prod.getPrice(), prod.getDescription(), prod.getCustomizable(), prod.getAvailable(), prod.getCategory(), prod.getIngredients(), image);
+        return new Product(prod.getId(),prod.getName(),prod.getPrice(),prod.getDescription(),prod.getCustomizable(),prod.getAvailable(),prod.getIngredients(),image,prod.getCategory(),prod.getPizzaNumber());
     }
 
 }

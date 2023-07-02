@@ -55,18 +55,17 @@ public class Product {
         this.available = available;
         this.pizzaNumber = pizzaNumber;
     }
-
-
-
-    public Product(Long id, String name, Double price, String description, Boolean customizable, Boolean available, Category category, List<Ingredient> ingredients, Image image) {
-        this.id = id;
+    public Product(Long id, String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, Image image, Category category,int pizzaNumber) {
+        this.id=id;
         this.name = name;
         this.price = price;
-        this.description = description;
-        this.customizable = customizable;
-        this.available = available;
         this.category = category;
         this.ingredients = ingredients;
         this.image = image;
+        this.description = description;
+        this.customizable = customizable;
+        this.available = available;
+        this.pizzaNumber = pizzaNumber;
     }
+
 }

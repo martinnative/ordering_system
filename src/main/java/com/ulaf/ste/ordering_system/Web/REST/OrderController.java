@@ -31,7 +31,7 @@ public class OrderController {
         List<Order> orders = orderService.getTodaysOrders();
         return ResponseEntity.ok(orders);
     }
-    @PutMapping(value = "/status",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/status")
     public ResponseEntity<List<Order>> changeOrderStatus(@RequestBody OrderRequest order) {
         List<Order> orders = orderService.changeOrderStatus(order.getId());
         return ResponseEntity.ok(orders);

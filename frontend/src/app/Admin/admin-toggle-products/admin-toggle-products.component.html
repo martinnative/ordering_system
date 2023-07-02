@@ -1,3 +1,4 @@
+<app-preloader></app-preloader>
 <section class="gradient-custom d-flex justify-content-center align-items-center" style="min-height: 100vh;">
   <div class="container py-4">
     <div class="row">
@@ -27,7 +28,8 @@
                                style="max-height: 120px;">
                         </div>
                         <p class="text-muted mb-0 text-center" style="font-size: 14px;"><span style="color: #a8729a;"
-                                                                                              class="fw-bolder">[ {{product.pizzaNumber}}
+                                                                                              class="fw-bolder"
+                                                                                              *ngIf="product.category.name == 'Пица'">[ #{{product.pizzaNumber}}
                           ] </span>{{ product.name }}</p>
                         <p class="text-muted mt-1 mb-0 text-center">
                           <label class="switch" style="font-size: 14px;">

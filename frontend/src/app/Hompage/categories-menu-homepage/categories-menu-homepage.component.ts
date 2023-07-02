@@ -41,7 +41,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     });
     this.productsService.findAllProducts(true).subscribe(data => {
       this.products = data;
-      this.filteredProducts = data.sort((a,b) => Number(b.available) - Number(a.available));
+      this.filteredProducts = data;
     });
   }
   transformData(data: Product):Product {
@@ -58,7 +58,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     }
     else {
       this.selectedCategory = category;
-      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id).sort((a,b) => Number(b.available) - Number(a.available));
+      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id);
     }
   }
   openModal(product: Product) {
