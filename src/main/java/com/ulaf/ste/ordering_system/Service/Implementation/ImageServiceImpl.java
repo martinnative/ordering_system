@@ -1,5 +1,4 @@
 package com.ulaf.ste.ordering_system.Service.Implementation;
-
 import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Repository.ImageRepository;
 import com.ulaf.ste.ordering_system.Service.ImageService;
@@ -7,7 +6,6 @@ import lombok.SneakyThrows;
 import net.coobird.thumbnailator.Thumbnails;
 import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 import org.springframework.stereotype.Service;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;

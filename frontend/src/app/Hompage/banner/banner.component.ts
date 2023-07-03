@@ -17,6 +17,13 @@ export class BannerComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getBannerProducts().subscribe(data => this.products = data);
+    (function($) {
+      'use strict';
+
+
+
+    })(jQuery);
+
   }
 
   transformData(data: Product): Product {
