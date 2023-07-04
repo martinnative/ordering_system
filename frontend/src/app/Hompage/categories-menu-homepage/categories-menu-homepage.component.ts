@@ -62,7 +62,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     }
     else {
       this.selectedCategory = category;
-      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id).reverse();
+      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id && prod.available).reverse();
     }
   }
   openModal(product: Product) {
@@ -75,7 +75,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     });
   }
   resetFilter() {
-    this.filteredProducts = this.products;
+    this.filteredProducts = this.products.filter(prod => prod.available && prod.category.name == 'Пица').reverse();
     this.selectedCategory = undefined;
   }
 
