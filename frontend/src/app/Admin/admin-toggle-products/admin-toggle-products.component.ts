@@ -6,6 +6,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ImageService } from "../../image.service";
 import { Category } from "../../../model/Category";
 import {LoadingService} from "../../loading.service";
+import {Image} from "../../../model/Image";
 
 @Component({
   selector: 'app-admin-toggle-products',
@@ -15,7 +16,7 @@ import {LoadingService} from "../../loading.service";
 export class AdminToggleProductsComponent {
   products: Product[] = [];
   categories: Category[] = [];
-  selectedCategoryId: string = '';
+  //selectedCategoryId: string = '';
   filteredProducts: Product[] = [];
 
   constructor(
@@ -53,17 +54,38 @@ export class AdminToggleProductsComponent {
     });
   }
 
-  categoryChanged(categoryId: string) {
-    this.selectedCategoryId = categoryId;
-    this.filterProducts();
+  // categoryChanged(categoryId: string) {
+  //   this.selectedCategoryId = categoryId;
+  //   this.filterProducts();
+  // }
+  //
+  // filterProducts() {
+  //   if (this.selectedCategoryId) {
+  //     this.filteredProducts = this.products
+  //       .filter(product => product.category.id.toString() === this.selectedCategoryId);
+  //   } else {
+  //     this.filteredProducts = this.products;
+  //   }
+  // }
+
+  showAllCategories() {
+    this.filteredProducts = this.products;
   }
 
-  filterProducts() {
-    if (this.selectedCategoryId) {
-      this.filteredProducts = this.products
-        .filter(product => product.category.id.toString() === this.selectedCategoryId);
-    } else {
-      this.filteredProducts = this.products;
-    }
+  showPizzaCategories() {
+    this.filteredProducts = this.products.filter(a => a.category.name=="Пица");
+
+  }
+
+  showLadniCategories() {
+    this.filteredProducts = this.products.filter(a => a.category.name=="Ладни пијалоци");
+  }
+
+  showPivoCategories() {
+    this.filteredProducts = this.products.filter(a => a.category.name=="Пиво");
+  }
+
+  showZhestokoCategories() {
+    this.filteredProducts = this.products.filter(a => a.category.name=="Жестоко");
   }
 }
