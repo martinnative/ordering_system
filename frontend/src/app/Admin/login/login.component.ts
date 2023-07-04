@@ -10,8 +10,8 @@ import {AuthService} from "../../_services/auth.service";
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    username: new FormControl<string>("undefined", Validators.required),
-    password: new FormControl<string>("undefined", Validators.required),
+    username: new FormControl<string>("", Validators.required),
+    password: new FormControl<string>("", Validators.required),
   });
   isLoggedIn = false;
   isLoginFailed = false;

@@ -12,13 +12,13 @@
 <app-header></app-header>
 <!-- Login Form Start -->
 <div class="section"
-     style="background-image: url('/assets/img/pexels-roman-odintsov-4553111.jpg'); background-size: cover; height:100vh">
+     style="background-image: url(''); background-size: cover; height:100vh">
 
   <div class="container">
     <div class="auth-wrapper">
 
       <div class="auth-description bg-cover bg-center dark-overlay dark-overlay-2"
-           style="background-image: url('/assets/img/pexels-nataliya-vaitkevich-5792328.jpg')">
+           style="background-image: url('https://images.pexels.com/photos/2233348/pexels-photo-2233348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
         <div class="auth-description-inner">
           <i class="flaticon-chili"></i>
           <h2>Добредојдовте !</h2>
@@ -46,7 +46,7 @@
                    required
                    value="">
           </div>
-          <a href="#">Ја заборавивте лозинката?</a>
+<!--          <a href="#">Ја заборавивте лозинката?</a>-->
           <button type="submit" class="btn-custom primary">Најави се</button>
           <div class="form-group">
             <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
@@ -55,10 +55,9 @@
           </div>
         </form>
       </div>
-
     </div>
   </div>
 </div>
-</body>
 <app-footer></app-footer>
+</body>
 </html>

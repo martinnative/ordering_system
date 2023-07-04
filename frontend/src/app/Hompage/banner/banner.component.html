@@ -4,16 +4,17 @@
 
   <main>
     <div class="pasta spaghetti">
-      <img class="pasta__background" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/pasta-spaghetti.png" />
-      <div class="pasta__info">
-        <small>Recipes for</small>
-        <h2 data-splitting>Spaghetti</h2>
+      <img class="pasta__background" [lazyLoad]="'/assets/img/2.png'"/>
+      <div class="pasta__info text-white">
+        <small class="" style="font-famliy:Rubik;">Најпопуларни </small>
+        <h2 data-splitting>Пици</h2>
 
-        <div class="pasta__info__recipes">
-          <a target="_blank" href="/"><span>BA's Best Bolognese</span></a>
-          <a target="_blank" href="/"><span>White Pesto Pasta</span></a>
-          <a target="_blank" href="/"><span>Shrimp Scampi</span></a>
+        <div class="pasta__info__recipes ">
+          <a target="_blank" routerLink="/product/3"><span class="text-white">Чинкве Фромаџи</span></a>
+          <a target="_blank" routerLink="/product/7"><span class="text-white">Пршуто крудо и рукола</span></a>
+          <a target="_blank" routerLink="/product/6"><span class="text-white">Андуја Калапрезе</span></a>
         </div>
+        <img class="" [lazyLoad]="'/assets/img/12.png'"/>
       </div>
       <figure class="pasta__dish">
         <div class="pasta__dish__container">
