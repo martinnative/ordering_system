@@ -268,6 +268,7 @@ public class DataInitializer {
         Image imgMartini = getImage("Pijaloci/Zhestoko/martini.png","Zhestoko");
         Image imgPelinkovac = getImage("Pijaloci/Zhestoko/pelinkovac.png","Zhestoko");
         Image imgSmirnoff = getImage("Pijaloci/Zhestoko/smirnoff.png","Zhestoko");
+
         imageService.saveImage(imgMargarita);
         imageService.saveImage(imgKaprichoza);
         imageService.saveImage(imgFormadzhi);
