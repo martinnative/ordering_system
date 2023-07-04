@@ -98,7 +98,8 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     LazyLoadImageModule,
   ],
   providers: [
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    LoadingInterceptor,
   ],
   bootstrap: [AppComponent]
 })
