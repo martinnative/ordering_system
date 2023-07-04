@@ -10,8 +10,8 @@ import * as CryptoJS from 'crypto-js';
 export class ShoppingCartService {
   private cartItems: OrderItem[] = [];
 
-  private key = CryptoJS.enc.Utf8.parse("12031993");
-  private iv = CryptoJS.enc.Utf8.parse("12031993");
+  private key = CryptoJS.enc.Utf8.parse("1203");
+  private iv = CryptoJS.enc.Utf8.parse("1203");
   constructor() {
     this.loadCartItems();
   }
@@ -65,7 +65,7 @@ export class ShoppingCartService {
   }
   encrypt(message:string):String {
     var encrypted = CryptoJS.AES.encrypt(message, this.key, {
-      keySize: 64 / 8,
+      keySize: 8 / 2,
       iv: this.iv,
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.Pkcs7
@@ -74,7 +74,7 @@ export class ShoppingCartService {
   }
   decrypt(message:string) {
     var decrypted = CryptoJS.AES.decrypt(message, this.key, {
-      keySize: 64 / 8,
+      keySize: 8 / 2,
       iv: this.iv,
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.Pkcs7
