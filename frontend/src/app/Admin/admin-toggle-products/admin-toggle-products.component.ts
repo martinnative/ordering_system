@@ -6,7 +6,6 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ImageService } from "../../image.service";
 import { Category } from "../../../model/Category";
 import {LoadingService} from "../../loading.service";
-import {Image} from "../../../model/Image";
 
 @Component({
   selector: 'app-admin-toggle-products',
@@ -42,9 +41,9 @@ export class AdminToggleProductsComponent {
   transformData(data: Product): Product {
     return this.imageService.transformData(data);
   }
-  transformDataCategory(data: Category): Category {
-    return this.imageService.transformDataCategory(data);
-  }
+  // transformDataCategory(data: Category): Category {
+  //   return this.imageService.transformDataCategory(data);
+  // }
 
   productAvailabilityChanged(product: Product) {
     this.loadingService.setLoading(true);
