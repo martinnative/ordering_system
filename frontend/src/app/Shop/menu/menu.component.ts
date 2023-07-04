@@ -42,7 +42,7 @@ export class MenuComponent implements OnInit{
   }
 
   addToCart(product: Product) {
-    this.shoppingCartService.addToCart(product);
+    this.shoppingCartService.addToCart(product,"");
   }
   openModal(product: Product) {
     console.log("product");
@@ -56,6 +56,10 @@ export class MenuComponent implements OnInit{
   }
   transformData(data: Product):Product {
     return this.imageService.transformData(data);
+  }
+
+  transformDataCategory(data: Category):Category {
+    return this.imageService.transformDataCategory(data);
   }
 
 }

@@ -1,0 +1,23 @@
+
+.page-404-wrapper{
+  position: relative;
+  padding: 200px 15px;
+  min-height: 800px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.page-404-text{
+  text-align: center;
+}
+.page-404-wrapper .banner-bottom-img{
+  bottom: -300px;
+}
+.page-404-wrapper .banner-bottom-img img:first-child{
+}
+.page-404-wrapper .banner-bottom-img img:last-child{
+}

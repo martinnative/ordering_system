@@ -80,6 +80,6 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   }
 
   addToCart(product: Product) {
-    this.shoppingCartService.addToCart(product);
+    this.shoppingCartService.addToCart(product,"");
   }
 }

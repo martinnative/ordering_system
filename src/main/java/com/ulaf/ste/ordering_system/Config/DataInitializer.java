@@ -395,6 +395,10 @@ public class DataInitializer {
         productService.createProduct(new Product("Смирноф / Smirnoff", 110, "Алкохолен пијалок", false, true, new ArrayList<>(), imgSmirnoff, catZhestoko));
         List<OrderItem> listItems = new ArrayList<>();
         List<OrderItem> list2 = new ArrayList<>();
+        Product p1 = productService.getProductById(1L);
+        Product p2 = productService.getProductById(2L);
+        Product p3 = productService.getProductById(11L);
+        Product p4 = productService.getProductById(15L);
         product_qtyRepository.save(new OrderItem(productService.getProductById(1L), 2));
         product_qtyRepository.save(new OrderItem(productService.getProductById(2L), 3));
         product_qtyRepository.save(new OrderItem(productService.getProductById(11L), 1));

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {Product} from "../model/Product";
 import {OrderItem} from "../model/OrderItem";
 import * as CryptoJS from 'crypto-js';
-import {environment} from "@ng-bootstrap/ng-bootstrap/environment";
 
 
 @Injectable({
@@ -11,25 +10,25 @@ import {environment} from "@ng-bootstrap/ng-bootstrap/environment";
 export class ShoppingCartService {
   private cartItems: OrderItem[] = [];
 
-  private key = CryptoJS.enc.Utf8.parse("1203199320052021");
-  private iv = CryptoJS.enc.Utf8.parse("1203199320052021");
+  private key = CryptoJS.enc.Utf8.parse("12031993");
+  private iv = CryptoJS.enc.Utf8.parse("12031993");
   constructor() {
     this.loadCartItems();
   }
 
-  addToCart(product: Product): void {
-    const existingItem = this.cartItems.find(item => item.product.id === product.id);
+  addToCart(product: Product,notIngredients:String): void {
+    const existingItem = this.cartItems.find(item => item.productId === product.id);
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
-      const newItem: OrderItem = { product: product, quantity: 1 };
+      const newItem: OrderItem = { productId: product.id, productName: product.name, price:product.price,productImage:product.image,description:product.description, quantity: 1, notIngredients:notIngredients, categoryName: product.category.name,pizzaNumber:product.pizzaNumber };
       this.cartItems.push(newItem);
     }
     this.saveCartItems();
   }
 
   removeFromCart(orderItem: OrderItem): OrderItem[] {
-    const index = this.cartItems.findIndex(item => item.product.id === orderItem.product.id);
+    const index = this.cartItems.findIndex(item => item.productId === orderItem.productId);
     if (index !== -1) {
       const existingItem = this.cartItems[index];
       existingItem.quantity -= 1;
@@ -51,7 +50,7 @@ export class ShoppingCartService {
   }
 
   private saveCartItems(): void {
-    localStorage.setItem('cartItems', this.encrypt(JSON.stringify(this.cartItems)) as string);
+    localStorage.setItem('cartItems', this.encrypt(JSON.stringify(this.cartItems)) as string)
   }
 
   private loadCartItems(): void {
@@ -59,13 +58,14 @@ export class ShoppingCartService {
     if (storedItems) {
       this.cartItems = JSON.parse(this.decrypt(storedItems));
     }
+
   }
   calculateTotal(): number {
-    return this.getCartItems().map(a => a.product.price * a.quantity).reduce((a,b) => a+b,0);
+    return this.getCartItems().map(a => a.price * a.quantity).reduce((a,b) => a+b,0);
   }
   encrypt(message:string):String {
     var encrypted = CryptoJS.AES.encrypt(message, this.key, {
-      keySize: 128 / 8,
+      keySize: 64 / 8,
       iv: this.iv,
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.Pkcs7
@@ -74,7 +74,7 @@ export class ShoppingCartService {
   }
   decrypt(message:string) {
     var decrypted = CryptoJS.AES.decrypt(message, this.key, {
-      keySize: 128 / 8,
+      keySize: 64 / 8,
       iv: this.iv,
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.Pkcs7
