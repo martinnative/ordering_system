@@ -316,6 +316,7 @@ main {
 }
 .spaghetti .pasta__background {
   transform: rotate(20deg);
+  visibility: visible;
 }
 .body-clone {
   background: #ffd862;

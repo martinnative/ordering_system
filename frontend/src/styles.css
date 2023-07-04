@@ -1,9 +1,6 @@
 @import "./assets/css/plugins/magnific-popup.css";
 @import "./assets/fonts/flaticon/flaticon.css";
 @import "./assets/fonts/font-awesome/css/all.min.css";
-html {
-  overflow-x: initial !important;
-}
 html, body { height: 100%; }
 /*===========================
  =  Table of Contents

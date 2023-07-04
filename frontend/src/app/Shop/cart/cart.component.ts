@@ -14,8 +14,8 @@ export class CartComponent implements OnInit, OnChanges {
   constructor(private shoppingCartService:ShoppingCartService,private imageService:ImageService
   ) {};
 
-  transformData(data: Product):Product {
-    return this.imageService.transformData(data);
+  transformData(data: OrderItem):OrderItem {
+    return this.imageService.transformDataOrderItem(data);
   }
   ngOnInit(): void {
     this.cartItems = this.shoppingCartService.getCartItems();

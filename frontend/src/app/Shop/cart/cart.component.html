@@ -56,18 +56,18 @@
         </td>
         <td data-title="Product">
           <div class="cart-product-wrapper">
-            <img [src]="transformData(cartItem.product).image" alt="prod1">
+            <img [src]="transformData(cartItem).productImage" alt="prod1">
             <div class="cart-product-body">
-              <h6> <a href="">{{cartItem.product.name}}</a> </h6>
+              <h6> <a href="">{{cartItem.productName}}</a> </h6>
             </div>
-            <span *ngFor="let ingredient of cartItem.product.ingredients">{{ingredient.name}}, </span>
+            <span> {{cartItem.notIngredients}} </span>
           </div>
         </td>
-        <td data-title="Price"> <strong>{{cartItem.product.price}}</strong>ден. </td>
+        <td data-title="Price"> <strong>{{cartItem.price}}</strong>ден. </td>
         <td class="quantity" (click)="subQuantity()" data-title="Quantity">
           {{cartItem.quantity}}
         </td>
-        <td data-title="Total"> <strong>{{cartItem.product.price * cartItem.quantity}}</strong>ден. </td>
+        <td data-title="Total"> <strong>{{cartItem.price * cartItem.quantity}}</strong>ден. </td>
       </tr>
       </tbody>
     </table>

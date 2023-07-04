@@ -21,8 +21,8 @@ export class FloatingCartComponent implements OnInit, OnChanges{
     this.cartOpen = false;
     this.cartCloseEvent.emit();
   }
-  transformData(data: Product):Product {
-    return this.imageService.transformData(data);
+  transformData(data: OrderItem):OrderItem {
+    return this.imageService.transformDataOrderItem(data);
   }
   ngOnInit(): void {
     this.cartItems = this.shoppingCartService.getCartItems();
