@@ -80,13 +80,13 @@
               <td>
                 <div class="cart-product-wrapper">
                   <div class="cart-product-body">
-                    <h6> {{orderItem.productName}} </h6>
+                    <h6> {{orderItem.product.name}} </h6>
                     <p>{{orderItem.notIngredients}}</p>
                   </div>
                 </div>
               </td>
               <td>{{orderItem.quantity}}</td>
-              <td> <strong>{{orderItem.price * orderItem.quantity}} ден.</strong> </td>
+              <td> <strong>{{orderItem.product.price * orderItem.quantity}} ден.</strong> </td>
             </tr>
             </tbody>
           </table>

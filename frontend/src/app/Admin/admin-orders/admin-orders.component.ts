@@ -24,8 +24,8 @@ export class AdminOrdersComponent implements OnInit{
       this.filteredOrders = data;
     });
   }
-  transformData(data: OrderItem):OrderItem {
-    return this.imageService.transformDataOrderItem(data);
+  transformData(data: Product):Product {
+    return this.imageService.transformData(data);
   }
   orderStatusChanged(order:Order) {
     if(order.finished) {

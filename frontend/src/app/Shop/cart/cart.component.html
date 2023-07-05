@@ -43,27 +43,27 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let cartItem of cartItems">
+      <tr *ngFor="let orderItem of orderItems">
         <td class="remove">
-          <button (click)="removeFromCart(cartItem)" type="button" class="close-btn close-danger remove-from-cart">
+          <button (click)="removeFromCart(orderItem)" type="button" class="close-btn close-danger remove-from-cart">
             <span></span>
             <span></span>
           </button>
         </td>
         <td data-title="Product">
           <div class="cart-product-wrapper">
-            <img [src]="transformData(cartItem).productImage" alt="prod1">
+            <img [src]="transformData(orderItem.product).image" alt="prod1">
             <div class="cart-product-body">
-              <h6> <a href="">{{cartItem.productName}}</a> </h6>
+              <h6> <a href="">{{orderItem.product.name}}</a> </h6>
             </div>
-            <span> {{cartItem.notIngredients}} </span>
+            <span> {{orderItem.notIngredients}} </span>
           </div>
         </td>
-        <td data-title="Price"> <strong>{{cartItem.price}}</strong>ден. </td>
+        <td data-title="Price"> <strong>{{orderItem.product.price}}</strong>ден. </td>
         <td class="quantity" (click)="subQuantity()" data-title="Quantity">
-          {{cartItem.quantity}}
+          {{orderItem.quantity}}
         </td>
-        <td data-title="Total"> <strong>{{cartItem.price * cartItem.quantity}}</strong>ден. </td>
+        <td data-title="Total"> <strong>{{orderItem.product.price * orderItem.quantity}}</strong>ден. </td>
       </tr>
       </tbody>
     </table>
