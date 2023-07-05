@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {CategoriesService} from '../../categories.service';
 import {Category} from '../../../model/Category';
 import {Product} from 'src/model/Product';
@@ -8,9 +8,9 @@ import {ProductsService} from '../../products.service';
 import {ShoppingCartService} from "../../shopping-cart.service";
 import {Router} from "@angular/router";
 import {ImageService} from "../../image.service";
-import {Image} from "../../../model/Image";
 import {LoadingService} from "../../loading.service";
 import {AlertService} from "../../alert.service";
+import {SlickCarouselComponent} from "ngx-slick-carousel";
 
 @Component({
   selector: 'app-categories-menu-homepage',
@@ -25,8 +25,9 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   options = {
     autoClose: true,
     keepAfterRouteChange: false,
-
   };
+
+
   constructor(private categoryService: CategoriesService,
               private modalService: NgbModal,
               private productsService: ProductsService,
@@ -39,14 +40,53 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-  }
 
+  }
+  sli() {
+  (function($) {
+    'use strict';
+      $(".menu-category-slider").slick({
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        arrows: false,
+        dots: false,
+        infinite:false,
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 6
+            }
+          },
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 4,
+            }
+          },
+          {
+            breakpoint: 575,
+            settings: {
+              slidesToShow: 3,
+            }
+          },
+          {
+            breakpoint: 400,
+            settings: {
+              slidesToShow: 2,
+            }
+          },
+        ]
+      });
+  })(jQuery);
+  }
   ngOnInit(): void {
     this.loadingService.setLoading(true);
     this.categoryService.findAllCategories().subscribe(data => {
       this.categories = data;
       this.categories.push({id:this.categories.length,name:"Сите категории",description:"Сите категории",image:""});
       this.categories = this.categories.reverse();
+      setTimeout(this.sli,2);
     });
     this.productsService.findAllProducts(true).subscribe(data => {
       this.products = data.reverse();
