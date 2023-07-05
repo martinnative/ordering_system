@@ -17,7 +17,10 @@ export class ShoppingCartService {
     this.loadCartItems();
   }
 
-  addToCart(product: Product): void {
+  addToCart(product: Product): boolean {
+    if(this.cartItems.length >= 6) {
+      return false;
+    }
     const existingItem = this.cartItems.find(item => item.product.id === product.id);
     if (existingItem) {
       existingItem.quantity += 1;
@@ -26,6 +29,7 @@ export class ShoppingCartService {
       this.cartItems.push(newItem);
     }
     this.saveCartItems();
+    return true;
   }
 
   removeFromCart(orderItem: OrderItem): OrderItem[] {
@@ -64,7 +68,7 @@ export class ShoppingCartService {
     return this.getCartItems().map(a => a.product.price * a.quantity).reduce((a,b) => a+b,0);
   }
   encrypt(message:string):String {
-    var encrypted = CryptoJS.AES.encrypt(message, this.key, {
+    const encrypted = CryptoJS.AES.encrypt(message, this.key, {
       keySize: 128 / 8,
       iv: this.iv,
       mode: CryptoJS.mode.CBC,
@@ -73,7 +77,7 @@ export class ShoppingCartService {
     return encrypted.toString();
   }
   decrypt(message:string) {
-    var decrypted = CryptoJS.AES.decrypt(message, this.key, {
+    const decrypted = CryptoJS.AES.decrypt(message, this.key, {
       keySize: 128 / 8,
       iv: this.iv,
       mode: CryptoJS.mode.CBC,
