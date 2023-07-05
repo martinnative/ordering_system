@@ -9,7 +9,7 @@
         <h2 data-splitting>Пици</h2>
 
         <div class="pasta__info__recipes ">
-          <a routerLink="/product{{product.id}}" *ngFor="let product of products"><span class="text-white">{{product.name}}</span></a>
+          <a routerLink="/product/{{product.id}}" *ngFor="let product of products"><span class="text-white">{{product.name}}</span></a>
         </div>
         <img class="" [lazyLoad]="'/assets/img/12.png'"/>
       </div>
