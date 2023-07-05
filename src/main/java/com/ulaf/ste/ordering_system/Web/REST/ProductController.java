@@ -101,7 +101,7 @@ public class ProductController {
             return ResponseEntity.noContent().build();
         }
         Collections.shuffle(products);
-        List<Product> randomProducts = products.subList(0, Math.min(products.size(), 6));
+        List<Product> randomProducts = products.subList(0, Math.min(products.size(), 4));
         return ResponseEntity.ok(randomProducts);
     }
     @PutMapping("/availability")

@@ -1,3 +1,4 @@
+
 .home-slider {
   position: relative;
   height: 80%;
@@ -322,7 +323,8 @@ main {
   background: darkred;
   max-height: 100vh;
   overflow: hidden;
-  width: 100%;
+  width: 85%;
+  margin:auto;
   display: grid;
   grid-template-columns: min-content 1fr;
   background-size: cover;
