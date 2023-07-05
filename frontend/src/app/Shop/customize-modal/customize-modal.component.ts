@@ -37,6 +37,7 @@ export class CustomizeModalComponent {
       this.quantity = 1;
     }
     else{
+
       this.activeModal.close({"product":this.product,"quantity":this.quantity});
     }
   }

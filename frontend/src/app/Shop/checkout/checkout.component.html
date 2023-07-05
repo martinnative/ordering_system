@@ -16,7 +16,7 @@
 <app-header></app-header>
 
 <!-- Subheader Start -->
-<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('/assets/img/pexels-marta-dzedyshko-2067401.jpg')">
+<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('https://images.pexels.com/photos/5792329/pexels-photo-5792329.jpeg?auto=compress&cs=tinysrgb&w=1600')">
   <div class="container">
     <div class="subheader-inner">
       <h1>Наплата</h1>
@@ -80,13 +80,13 @@
               <td>
                 <div class="cart-product-wrapper">
                   <div class="cart-product-body">
-                    <h6> {{orderItem.product.name}} </h6>
-                    <p *ngFor="let ingredient of orderItem.product.ingredients">{{ingredient.name}}</p>
+                    <h6> {{orderItem.productName}} </h6>
+                    <p>{{orderItem.notIngredients}}</p>
                   </div>
                 </div>
               </td>
               <td>{{orderItem.quantity}}</td>
-              <td> <strong>{{orderItem.product.price * orderItem.quantity}} ден.</strong> </td>
+              <td> <strong>{{orderItem.price * orderItem.quantity}} ден.</strong> </td>
             </tr>
             </tbody>
           </table>

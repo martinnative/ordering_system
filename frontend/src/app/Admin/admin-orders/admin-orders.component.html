@@ -24,12 +24,12 @@
                 <div class="card-body" *ngFor="let productItem of order.items">
                   <div class="row">
                     <div class="col-md-2">
-                      <span class="badge badge-info" style="font-size:1rem;" *ngIf="productItem.product.category.name == 'Пица'">#{{productItem.product.pizzaNumber}}</span>
-                      <img [src]="transformData(productItem.product).image"
+                      <span class="badge badge-info" style="font-size:1rem;" *ngIf="productItem.categoryName == 'Пица'">#{{productItem.pizzaNumber}}</span>
+                      <img [src]="transformData(productItem).productImage"
                            class="img-fluid" alt="Phone">
                     </div>
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                      <p class="text-muted mb-0">{{productItem.product.name}}</p>
+                      <p class="text-muted mb-0">{{productItem.productName}}</p>
                     </div>
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                       <p class="text-muted mb-0 small">Количина: <span class="fw-bolder"
@@ -41,7 +41,7 @@
                     </div>
                   </div>
                 </div>
-                <span class="badge badge-info ms-3 align-self-center" style="width:15rem" *ngIf="!order.finished">Статус:  <strong style="color:royalblue">Се процесира</strong></span>
+                <span class="badge badge-info ms-3 align-self-center" style="width:15rem" *ngIf="!order.finished">Статус:  <strong style="color:greenyellow">Се процесира</strong></span>
                 <span class="badge badge-success ms-3 align-self-center" style="width:15rem" *ngIf="order.finished">Статус:  <strong style="color:lightgoldenrodyellow">Завршена</strong></span>
                 <br>
                 <p class="text-muted mt-1 mb-0 text-center align-self-center">

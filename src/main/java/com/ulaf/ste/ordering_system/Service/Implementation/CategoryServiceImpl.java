@@ -25,7 +25,6 @@ public class CategoryServiceImpl implements CategoryService {
     public Category getCategoryById(Long id) throws NotFoundByIdException {
         return categoryRepository.findById(id).orElseThrow(()->new NotFoundByIdException("Category with the provided ID was not found"));
     }
-
     @Override
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
@@ -41,8 +40,6 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return null;
     }
-
-
     @Override
     public void deleteCategory(Long id) {
         categoryRepository.deleteById(id);

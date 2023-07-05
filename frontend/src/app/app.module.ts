@@ -44,7 +44,7 @@ import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.componen
 import { AdminToggleProductsComponent } from './Admin/admin-toggle-products/admin-toggle-products.component';
 import {httpInterceptorProviders} from "./_helpers/http.interceptor";
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-import { AlertComponent } from './alert/alert.component';
+import { AlertComponent } from './Navigation/alert/alert.component';
 import {AlertModule} from "./alert.module";
 
 
@@ -101,7 +101,8 @@ import {AlertModule} from "./alert.module";
     AlertModule
   ],
   providers: [
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    LoadingInterceptor,
   ],
   bootstrap: [AppComponent]
 })

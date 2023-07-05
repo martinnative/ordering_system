@@ -316,9 +316,10 @@ main {
 }
 .spaghetti .pasta__background {
   transform: rotate(20deg);
+  visibility: visible;
 }
 .body-clone {
-  background: #ffd862;
+  background: darkred;
   max-height: 100vh;
   overflow: hidden;
   width: 100%;
@@ -359,3 +360,4 @@ main {
 * {
   box-sizing: border-box;
 }
+

@@ -19,9 +19,6 @@ export class BannerComponent implements OnInit {
     this.productService.getBannerProducts().subscribe(data => this.products = data);
     (function($) {
       'use strict';
-
-
-
     })(jQuery);
 
   }
@@ -29,11 +26,11 @@ export class BannerComponent implements OnInit {
   transformData(data: Product): Product {
     return this.imageService.transformData(data);
   }
-  prevSlide(): void {
-    $('.banner-slider-3').slick('slickPrev');
-  }
-
-  nextSlide(): void {
-    $('.banner-slider-3').slick('slickNext');
-  }
+  // prevSlide(): void {
+  //   $('.banner-slider-3').slick('slickPrev');
+  // }
+  //
+  // nextSlide(): void {
+  //   $('.banner-slider-3').slick('slickNext');
+  // }
 }

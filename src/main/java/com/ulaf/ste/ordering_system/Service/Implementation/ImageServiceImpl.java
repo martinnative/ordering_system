@@ -43,8 +43,8 @@ public class ImageServiceImpl implements ImageService {
         ByteArrayOutputStream compressedImageStream = new ByteArrayOutputStream();
         try {
             Thumbnails.of(originalImage)
-                    .size(800, 600)
-                    .outputQuality(0.9)
+                    .size(500, 300)
+                    .outputQuality(0.7)
                     .outputFormat("png")
                     .toOutputStream(compressedImageStream);
         } catch (IOException e) {

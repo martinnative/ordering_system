@@ -15,7 +15,7 @@ import {LoadingService} from "../../loading.service";
 export class AdminToggleProductsComponent {
   products: Product[] = [];
   categories: Category[] = [];
-  selectedCategoryId: string = '';
+  //selectedCategoryId: string = '';
   filteredProducts: Product[] = [];
 
   constructor(
@@ -41,9 +41,9 @@ export class AdminToggleProductsComponent {
   transformData(data: Product): Product {
     return this.imageService.transformData(data);
   }
-  transformDataCategory(data: Category): Category {
-    return this.imageService.transformDataCategory(data);
-  }
+  // transformDataCategory(data: Category): Category {
+  //   return this.imageService.transformDataCategory(data);
+  // }
 
   productAvailabilityChanged(product: Product) {
     this.loadingService.setLoading(true);
@@ -53,17 +53,38 @@ export class AdminToggleProductsComponent {
     });
   }
 
-  categoryChanged(categoryId: string) {
-    this.selectedCategoryId = categoryId;
-    this.filterProducts();
+  // categoryChanged(categoryId: string) {
+  //   this.selectedCategoryId = categoryId;
+  //   this.filterProducts();
+  // }
+  //
+  // filterProducts() {
+  //   if (this.selectedCategoryId) {
+  //     this.filteredProducts = this.products
+  //       .filter(product => product.category.id.toString() === this.selectedCategoryId);
+  //   } else {
+  //     this.filteredProducts = this.products;
+  //   }
+  // }
+
+  showAllCategories() {
+    this.filteredProducts = this.products;
   }
 
-  filterProducts() {
-    if (this.selectedCategoryId) {
-      this.filteredProducts = this.products
-        .filter(product => product.category.id.toString() === this.selectedCategoryId);
-    } else {
-      this.filteredProducts = this.products;
-    }
+  showPizzaCategories() {
+    this.filteredProducts = this.products.filter(a => a.category.name=="Пица");
+
+  }
+
+  showLadniCategories() {
+    this.filteredProducts = this.products.filter(a => a.category.name=="Ладни пијалоци");
+  }
+
+  showPivoCategories() {
+    this.filteredProducts = this.products.filter(a => a.category.name=="Пиво");
+  }
+
+  showZhestokoCategories() {
+    this.filteredProducts = this.products.filter(a => a.category.name=="Жестоко");
   }
 }

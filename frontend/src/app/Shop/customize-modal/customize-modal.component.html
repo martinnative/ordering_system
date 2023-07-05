@@ -27,10 +27,8 @@
                 <div class="customize-variation-item" *ngFor="let ingredient of product.ingredients">
                   <div class="custom-control custom-checkbox justify-content-center d-flex">
                     <input type="checkbox" class="custom-control-input">
-                    <img [src]="transformDataIngredient(ingredient).image" alt="menu item" height="40px" width="40px"/>
+                       Без {{ingredient.name}}
                     <br>
-                    <label class="custom-control-label">{{ingredient.name}}</label>
-
                   </div>
                 </div>
               </div>

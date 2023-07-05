@@ -47,7 +47,7 @@ export class ProductSingleComponent implements OnInit {
     return this.imageService.transformData(product);
   }
   addToCart(product: Product) {
-    this.shoppingCartService.addToCart(product);
+    this.shoppingCartService.addToCart(product,"");
   }
   openModal(product: Product) {
     console.log("product");

@@ -24,7 +24,8 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   selectedCategory: Category | undefined = undefined;
   options = {
     autoClose: true,
-    keepAfterRouteChange: false
+    keepAfterRouteChange: false,
+
   };
   constructor(private categoryService: CategoriesService,
               private modalService: NgbModal,
@@ -67,7 +68,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     }
     else {
       this.selectedCategory = category;
-      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id).reverse();
+      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id && prod.available).reverse();
     }
   }
   openModal(product: Product) {
@@ -80,14 +81,15 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     });
   }
   resetFilter() {
-    this.filteredProducts = this.products;
+    this.filteredProducts = this.products.filter(prod => prod.available && prod.category.name == 'Пица').reverse();
     this.selectedCategory = undefined;
   }
 
   addToCart(product: Product) {
-    let added:boolean = this.shoppingCartService.addToCart(product);
+    let added:boolean = this.shoppingCartService.addToCart(product,"");
     if(added) {
-      this.alertService.success("Successfully added to cart!",this.options);
+      this.alertService.success("Успешно додадено во кошничка!",this.options);
     }
+    this.alertService.error("Вашата кошничка е преполна!",this.options)
   }
 }

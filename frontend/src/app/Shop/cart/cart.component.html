@@ -4,10 +4,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slices - Pizzeria HTML Template</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../Desktop/slices-template/Product%20File/favicon.ico">
 
 </head>
 
@@ -15,7 +11,7 @@
 <div #target></div>
 <app-header></app-header>
 <!-- Subheader Start -->
-<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('/assets/img/pexels-marta-dzedyshko-2067401.jpg')">
+<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('https://images.pexels.com/photos/5792329/pexels-photo-5792329.jpeg?auto=compress&cs=tinysrgb&w=1600')">
   <div class="container">
     <div class="subheader-inner">
       <h1>Кошничка</h1>
@@ -56,18 +52,18 @@
         </td>
         <td data-title="Product">
           <div class="cart-product-wrapper">
-            <img [src]="transformData(cartItem.product).image" alt="prod1">
+            <img [src]="transformData(cartItem).productImage" alt="prod1">
             <div class="cart-product-body">
-              <h6> <a href="">{{cartItem.product.name}}</a> </h6>
+              <h6> <a href="">{{cartItem.productName}}</a> </h6>
             </div>
-            <span *ngFor="let ingredient of cartItem.product.ingredients">{{ingredient.name}}, </span>
+            <span> {{cartItem.notIngredients}} </span>
           </div>
         </td>
-        <td data-title="Price"> <strong>{{cartItem.product.price}}</strong>ден. </td>
+        <td data-title="Price"> <strong>{{cartItem.price}}</strong>ден. </td>
         <td class="quantity" (click)="subQuantity()" data-title="Quantity">
           {{cartItem.quantity}}
         </td>
-        <td data-title="Total"> <strong>{{cartItem.product.price * cartItem.quantity}}</strong>ден. </td>
+        <td data-title="Total"> <strong>{{cartItem.price * cartItem.quantity}}</strong>ден. </td>
       </tr>
       </tbody>
     </table>

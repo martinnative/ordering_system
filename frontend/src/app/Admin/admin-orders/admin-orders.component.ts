@@ -5,6 +5,7 @@ import {Product} from "../../../model/Product";
 import {ImageService} from "../../image.service";
 import {LoadingService} from "../../loading.service";
 import Swal from 'sweetalert2';
+import {OrderItem} from "../../../model/OrderItem";
 
 @Component({
   selector: 'app-admin-orders',
@@ -23,8 +24,8 @@ export class AdminOrdersComponent implements OnInit{
       this.filteredOrders = data;
     });
   }
-  transformData(data: Product):Product {
-    return this.imageService.transformData(data);
+  transformData(data: OrderItem):OrderItem {
+    return this.imageService.transformDataOrderItem(data);
   }
   orderStatusChanged(order:Order) {
     if(order.finished) {
