@@ -11,6 +11,7 @@ import {CustomizeModalComponent} from "../customize-modal/customize-modal.compon
 import {DomSanitizer} from "@angular/platform-browser";
 import {ImageService} from "../../image.service";
 import {LoadingService} from "../../loading.service";
+import {AlertService} from "../../alert.service";
 
 @Component({
   selector: 'app-menu',
@@ -20,13 +21,18 @@ import {LoadingService} from "../../loading.service";
 export class MenuComponent implements OnInit{
   products: Product[] = [];
   categories: Category[] = [];
+  options = {
+    autoClose: true,
+    keepAfterRouteChange: false
+  };
 
   constructor(private categoryService: CategoriesService,
               private productsService: ProductsService,
               private shoppingCartService: ShoppingCartService,
               private modalService: NgbModal,
               private imageService: ImageService,
-              private loadingService: LoadingService
+              private loadingService: LoadingService,
+              private alertService: AlertService
   ) {
   }
   scrollToTop(el:HTMLElement) {
@@ -42,7 +48,13 @@ export class MenuComponent implements OnInit{
   }
 
   addToCart(product: Product) {
-    this.shoppingCartService.addToCart(product,"");
+    let added:boolean = this.shoppingCartService.addToCart(product,"");
+    if(added) {
+      this.alertService.success("Успешно додадено во кошничка!",this.options);
+    }
+    else {
+      this.alertService.error("Вашата кошничка е преполна!",this.options)
+    }
   }
   openModal(product: Product) {
     console.log("product");

@@ -34,7 +34,6 @@ public class ProductController {
         else {
             products = productService.getAllProducts().stream().map(prod -> {
                 try {
-                    System.out.println(prod.getId());
                     return productService.createProductWithThumbnail(prod);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -46,7 +45,6 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) throws NotFoundByIdException {
-        System.out.println(id);
         Product product = productService.getProductById(id);
         if (product != null) {
             return ResponseEntity.ok(product);
@@ -101,7 +99,7 @@ public class ProductController {
             return ResponseEntity.noContent().build();
         }
         Collections.shuffle(products);
-        List<Product> randomProducts = products.subList(0, Math.min(products.size(), 6));
+        List<Product> randomProducts = products.subList(0, Math.min(products.size(), 4));
         return ResponseEntity.ok(randomProducts);
     }
     @PutMapping("/availability")

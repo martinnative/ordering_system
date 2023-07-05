@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 import {ImageService} from "../../image.service";
 import {Image} from "../../../model/Image";
 import {LoadingService} from "../../loading.service";
+import {AlertService} from "../../alert.service";
 
 @Component({
   selector: 'app-categories-menu-homepage',
@@ -21,14 +22,19 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   products: Product[] = [];
   filteredProducts: Product[] = [];
   selectedCategory: Category | undefined = undefined;
+  options = {
+    autoClose: true,
+    keepAfterRouteChange: false,
 
+  };
   constructor(private categoryService: CategoriesService,
               private modalService: NgbModal,
               private productsService: ProductsService,
               private shoppingCartService: ShoppingCartService,
               private router:Router,
               private imageService:ImageService,
-              private loadingService:LoadingService
+              private loadingService:LoadingService,
+              private alertService:AlertService
   ) {
   }
 
@@ -80,6 +86,12 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
   }
 
   addToCart(product: Product) {
-    this.shoppingCartService.addToCart(product,"");
+    let added:boolean = this.shoppingCartService.addToCart(product,"");
+    if(added) {
+      this.alertService.success("Успешно додадено во кошничка!",this.options);
+    }
+    else {
+      this.alertService.error("Вашата кошничка е преполна!",this.options)
+    }
   }
 }

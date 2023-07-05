@@ -1,7 +1,6 @@
-<div class="body-clone align-self-center container my-5" data-pasta="spaghetti">
+<div class="body-clone align-self-center my-5" data-pasta="spaghetti">
   <nav class="menu">
   </nav>
-
   <main>
     <div class="pasta spaghetti">
       <img class="pasta__background" [lazyLoad]="'/assets/img/2.png'"/>
@@ -10,9 +9,7 @@
         <h2 data-splitting>Пици</h2>
 
         <div class="pasta__info__recipes ">
-          <a target="_blank" routerLink="/product/3"><span class="text-white">Чинкве Фромаџи</span></a>
-          <a target="_blank" routerLink="/product/7"><span class="text-white">Пршуто крудо и рукола</span></a>
-          <a target="_blank" routerLink="/product/6"><span class="text-white">Андуја Калапрезе</span></a>
+          <a routerLink="/product/{{product.id}}" *ngFor="let product of products"><span class="text-white">{{product.name}}</span></a>
         </div>
         <img class="" [lazyLoad]="'/assets/img/12.png'"/>
       </div>

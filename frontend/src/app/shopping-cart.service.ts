@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Product} from "../model/Product";
 import {OrderItem} from "../model/OrderItem";
 import * as CryptoJS from 'crypto-js';
@@ -12,19 +12,34 @@ export class ShoppingCartService {
 
   private key = CryptoJS.enc.Utf8.parse("1203");
   private iv = CryptoJS.enc.Utf8.parse("1203");
+
   constructor() {
     this.loadCartItems();
   }
 
-  addToCart(product: Product,notIngredients:String): void {
+  addToCart(product: Product, notIngredients: String): boolean {
     const existingItem = this.cartItems.find(item => item.productId === product.id);
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
-      const newItem: OrderItem = { productId: product.id, productName: product.name, price:product.price,productImage:product.image,description:product.description, quantity: 1, notIngredients:notIngredients, categoryName: product.category.name,pizzaNumber:product.pizzaNumber };
+      if (this.cartItems.length >= 8) {
+        return false;
+      }
+      const newItem: OrderItem = {
+        productId: product.id,
+        productName: product.name,
+        price: product.price,
+        productImage: product.image,
+        description: product.description,
+        quantity: 1,
+        notIngredients: notIngredients,
+        categoryName: product.category.name,
+        pizzaNumber: product.pizzaNumber
+      };
       this.cartItems.push(newItem);
     }
     this.saveCartItems();
+    return true;
   }
 
   removeFromCart(orderItem: OrderItem): OrderItem[] {
@@ -33,17 +48,20 @@ export class ShoppingCartService {
       const existingItem = this.cartItems[index];
       existingItem.quantity -= 1;
       if (existingItem.quantity === 0) {
-        this.cartItems.splice(index,1);
-      }if (existingItem.quantity < 0) {
-        this.cartItems.splice(index,1);
+        this.cartItems.splice(index, 1);
+      }
+      if (existingItem.quantity < 0) {
+        this.cartItems.splice(index, 1);
       }
       this.saveCartItems();
     }
     return this.cartItems;
   }
+
   getNumberOfCartItems() {
     return this.cartItems.length;
   }
+
   getCartItems(): OrderItem[] {
     this.loadCartItems();
     return this.cartItems;
@@ -60,11 +78,13 @@ export class ShoppingCartService {
     }
 
   }
+
   calculateTotal(): number {
-    return this.getCartItems().map(a => a.price * a.quantity).reduce((a,b) => a+b,0);
+    return this.getCartItems().map(a => a.price * a.quantity).reduce((a, b) => a + b, 0);
   }
-  encrypt(message:string):String {
-    var encrypted = CryptoJS.AES.encrypt(message, this.key, {
+
+  encrypt(message: string): String {
+    const encrypted = CryptoJS.AES.encrypt(message, this.key, {
       keySize: 8 / 2,
       iv: this.iv,
       mode: CryptoJS.mode.CBC,
@@ -72,8 +92,9 @@ export class ShoppingCartService {
     });
     return encrypted.toString();
   }
-  decrypt(message:string) {
-    var decrypted = CryptoJS.AES.decrypt(message, this.key, {
+
+  decrypt(message: string) {
+    const decrypted = CryptoJS.AES.decrypt(message, this.key, {
       keySize: 8 / 2,
       iv: this.iv,
       mode: CryptoJS.mode.CBC,
@@ -82,3 +103,4 @@ export class ShoppingCartService {
     return decrypted.toString(CryptoJS.enc.Utf8);
   }
 }
+
