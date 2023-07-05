@@ -44,7 +44,7 @@ public class ImageServiceImpl implements ImageService {
         try {
             Thumbnails.of(originalImage)
                     .size(500, 300)
-                    .outputQuality(0.7)
+                    .outputQuality(0.8)
                     .outputFormat("png")
                     .toOutputStream(compressedImageStream);
         } catch (IOException e) {
