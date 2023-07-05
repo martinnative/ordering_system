@@ -52,7 +52,9 @@ export class MenuComponent implements OnInit{
     if(added) {
       this.alertService.success("Успешно додадено во кошничка!",this.options);
     }
-    this.alertService.error("Вашата кошничка е преполна!",this.options)
+    else {
+      this.alertService.error("Вашата кошничка е преполна!",this.options)
+    }
   }
   openModal(product: Product) {
     console.log("product");
