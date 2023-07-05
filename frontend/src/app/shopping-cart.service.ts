@@ -18,13 +18,13 @@ export class ShoppingCartService {
   }
 
   addToCart(product: Product, notIngredients: String): boolean {
-    if (this.cartItems.length >= 8) {
-      return false;
-    }
     const existingItem = this.cartItems.find(item => item.productId === product.id);
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
+      if (this.cartItems.length >= 8) {
+        return false;
+      }
       const newItem: OrderItem = {
         productId: product.id,
         productName: product.name,
