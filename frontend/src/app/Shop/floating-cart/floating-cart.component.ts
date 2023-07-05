@@ -11,7 +11,7 @@ import {Product} from "../../../model/Product";
   styleUrls: ['./floating-cart.component.css'],
 })
 export class FloatingCartComponent implements OnInit, OnChanges{
-  cartItems: OrderItem[] = [];
+  orderItems: OrderItem[] = [];
   @Input() cartOpen:boolean = false;
   @Output() cartCloseEvent = new EventEmitter<string>();
 
@@ -21,20 +21,21 @@ export class FloatingCartComponent implements OnInit, OnChanges{
     this.cartOpen = false;
     this.cartCloseEvent.emit();
   }
-  transformData(data: OrderItem):OrderItem {
-    return this.imageService.transformDataOrderItem(data);
+  transformData(product: Product):Product {
+    return this.imageService.transformData(product);
   }
   ngOnInit(): void {
-    this.cartItems = this.shoppingCartService.getCartItems();
+    this.shoppingCartService.getOrderItems().subscribe(data => this.orderItems = data);
   }
   calculateTotal(): number {
     return this.shoppingCartService.calculateTotal();
   }
   ngOnChanges(changes: SimpleChanges): void {
-    this.cartItems = this.shoppingCartService.getCartItems();
+    this.shoppingCartService.getOrderItems().subscribe(data => this.orderItems = data)
   }
-
   removeFromCart(orderItem: OrderItem){
-    this.cartItems = this.shoppingCartService.removeFromCart(orderItem);
+    this.shoppingCartService.removeFromCart(orderItem).subscribe(data => {
+      this.orderItems = data
+    });
   }
 }

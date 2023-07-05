@@ -1,13 +1,7 @@
-import {Ingredient} from "./Ingredient";
+import {Product} from "./Product";
 
 export interface OrderItem {
-  productId: Number,
-  productName: String,
-  price:number,
-  description:String,
-  productImage: any,
-  notIngredients: String,
-  quantity: number,
-  pizzaNumber:number,
-  categoryName: String
+  product:Product
+  quantity:number
+  notIngredients:String
 }

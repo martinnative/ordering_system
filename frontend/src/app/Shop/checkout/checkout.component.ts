@@ -13,7 +13,7 @@ export class CheckoutComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.orderItems = this.shoppingCartSerice.getCartItems();
+    this.shoppingCartSerice.getOrderItems().subscribe(data => this.orderItems = data);
   }
   getTotalFromCart():Number {
     return this.shoppingCartSerice.calculateTotal();

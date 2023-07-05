@@ -11,20 +11,20 @@
       </div>
       <div class="cart-sidebar-body">
         <ng-scrollbar style="height:65vh">
-          <div class="cart-sidebar-item" *ngFor="let cartItem of cartItems">
+          <div class="cart-sidebar-item" *ngFor="let orderItem of orderItems">
             <div class="media">
-              <a routerLink="/product/{{cartItem.productId}}"><img [src]="transformData(cartItem).productImage" alt="product"></a>
+              <a routerLink="/product/{{orderItem.product.id}}"><img [src]="transformData(orderItem.product).image" alt="product"></a>
               <div class="media-body">
-                <h5><span>{{cartItem.productName}}</span></h5>
-                <span>{{cartItem.quantity}} * {{cartItem.price}} ден.</span>
+                <h5><span>{{orderItem.product.name}}</span></h5>
+                <span>{{orderItem.quantity}} * {{orderItem.product.price}} ден.</span>
               </div>
             </div>
             <div class="cart-sidebar-item-meta">
             </div>
             <div class="cart-sidebar-price">
-              {{cartItem.quantity * cartItem.price}} ден.
+              {{orderItem.quantity * orderItem.product.price}} ден.
             </div>
-            <div class="close-btn" (click)="removeFromCart(cartItem)">
+            <div class="close-btn" (click)="removeFromCart(orderItem)">
               <span></span>
               <span></span>
             </div>

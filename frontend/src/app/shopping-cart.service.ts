@@ -2,18 +2,21 @@ import {Injectable} from '@angular/core';
 import {Product} from "../model/Product";
 import {OrderItem} from "../model/OrderItem";
 import * as CryptoJS from 'crypto-js';
+import {CartItem} from "../model/CartItem";
+import {ProductsService} from "./products.service";
+import {forkJoin, map, Observable, of} from "rxjs";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
-  private cartItems: OrderItem[] = [];
+  private cartItems: CartItem[] = [];
 
   private key = CryptoJS.enc.Utf8.parse("1203");
   private iv = CryptoJS.enc.Utf8.parse("1203");
 
-  constructor() {
+  constructor(private productService: ProductsService) {
     this.loadCartItems();
   }
 
@@ -25,16 +28,11 @@ export class ShoppingCartService {
       if (this.cartItems.length >= 8) {
         return false;
       }
-      const newItem: OrderItem = {
+      const newItem: CartItem = {
         productId: product.id,
-        productName: product.name,
-        price: product.price,
-        productImage: product.image,
-        description: product.description,
         quantity: 1,
         notIngredients: notIngredients,
-        categoryName: product.category.name,
-        pizzaNumber: product.pizzaNumber
+        price: product.price
       };
       this.cartItems.push(newItem);
     }
@@ -42,29 +40,42 @@ export class ShoppingCartService {
     return true;
   }
 
-  removeFromCart(orderItem: OrderItem): OrderItem[] {
-    const index = this.cartItems.findIndex(item => item.productId === orderItem.productId);
+  removeFromCart(orderItem: OrderItem): Observable<OrderItem[]> {
+    const index = this.cartItems.findIndex(item => item.productId === orderItem.product.id);
     if (index !== -1) {
-      const existingItem = this.cartItems[index];
-      existingItem.quantity -= 1;
-      if (existingItem.quantity === 0) {
-        this.cartItems.splice(index, 1);
-      }
-      if (existingItem.quantity < 0) {
-        this.cartItems.splice(index, 1);
-      }
+      this.cartItems.splice(index, 1);
       this.saveCartItems();
     }
-    return this.cartItems;
+    if (this.cartItems.length === 0) {
+      localStorage.setItem('cartItems',"");
+      return of([]);
+    }
+    return this.getOrderItems();
   }
 
   getNumberOfCartItems() {
     return this.cartItems.length;
   }
 
-  getCartItems(): OrderItem[] {
+  getCartItems(): CartItem[] {
     this.loadCartItems();
     return this.cartItems;
+  }
+
+  getOrderItems(): Observable<OrderItem[]> {
+    const orderItemObservables = this.getCartItems().map((cartItem) => {
+      return this.productService.findProductById(cartItem.productId).pipe(
+        map((product) => {
+          const orderItem: OrderItem = {
+            product: product,
+            quantity: cartItem.quantity,
+            notIngredients: cartItem.notIngredients
+          };
+          return orderItem;
+        })
+      );
+    });
+    return forkJoin(orderItemObservables);
   }
 
   private saveCartItems(): void {

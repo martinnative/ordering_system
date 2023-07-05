@@ -10,25 +10,25 @@ import {OrderItem} from "../../../model/OrderItem";
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit, OnChanges {
-  cartItems: OrderItem[] = [];
+  orderItems: OrderItem[] = [];
   constructor(private shoppingCartService:ShoppingCartService,private imageService:ImageService
   ) {};
 
-  transformData(data: OrderItem):OrderItem {
-    return this.imageService.transformDataOrderItem(data);
+  transformData(data: Product):Product {
+    return this.imageService.transformData(data);
   }
   ngOnInit(): void {
-    this.cartItems = this.shoppingCartService.getCartItems();
+    this.shoppingCartService.getOrderItems().subscribe(data => this.orderItems = data);
   }
   calculateTotal(): number {
     return this.shoppingCartService.calculateTotal();
   }
   ngOnChanges(changes: SimpleChanges): void {
-    this.cartItems = this.shoppingCartService.getCartItems();
+    this.shoppingCartService.getOrderItems().subscribe(data => this.orderItems = data)
   }
 
   removeFromCart(orderItem: OrderItem){
-    this.cartItems = this.shoppingCartService.removeFromCart(orderItem);
+    this.shoppingCartService.removeFromCart(orderItem).subscribe(data => this.orderItems = data);
   }
   quantity:number = 1;
 

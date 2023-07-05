@@ -24,12 +24,12 @@
                 <div class="card-body" *ngFor="let productItem of order.items">
                   <div class="row">
                     <div class="col-md-2">
-                      <span class="badge badge-info" style="font-size:1rem;" *ngIf="productItem.categoryName == 'Пица'">#{{productItem.pizzaNumber}}</span>
-                      <img [src]="transformData(productItem).productImage"
+                      <span class="badge badge-info" style="font-size:1rem;" *ngIf="productItem.product.category.name == 'Пица'">#{{productItem.product.pizzaNumber}}</span>
+                      <img [src]="transformData(productItem.product).image"
                            class="img-fluid" alt="Phone">
                     </div>
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                      <p class="text-muted mb-0">{{productItem.productName}}</p>
+                      <p class="text-muted mb-0">{{productItem.product.name}}</p>
                     </div>
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                       <p class="text-muted mb-0 small">Количина: <span class="fw-bolder"
