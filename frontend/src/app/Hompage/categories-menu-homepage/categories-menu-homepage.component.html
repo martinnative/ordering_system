@@ -9,7 +9,7 @@
           <img [src]="transformDataCategory(category).image" alt="image" [width]="400" [height]="400"/>
         </div>
         <div class="menu-category-thumb" *ngIf="category.name == 'Сите категории'">
-                <img [lazyLoad]="'/assets/img/категории.jpg'" alt="category" width="350" height="350">
+          <img [src]="'/assets/img/категории.jpg'" alt="category" width="400" height="400">
         </div>
         <div class="menu-category-desc">
           <h6>{{category.name}}</h6>
