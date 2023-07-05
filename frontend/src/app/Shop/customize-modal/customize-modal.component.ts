@@ -29,15 +29,12 @@ export class CustomizeModalComponent {
   }
   transformData(data: Product):Product {
     return this.imageService.transformData(data);
-  } transformDataIngredient(data: Ingredient):Ingredient {
-    return this.imageService.transformIngredient(data);
   }
   save() {
     if(this.quantity < 0 || isNaN(this.quantity)) {
       this.quantity = 1;
     }
     else{
-
       this.activeModal.close({"product":this.product,"quantity":this.quantity});
     }
   }

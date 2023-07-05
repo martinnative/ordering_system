@@ -43,14 +43,7 @@ export class ShoppingCartService {
   removeFromCart(orderItem: OrderItem): Observable<OrderItem[]> {
     const index = this.cartItems.findIndex(item => item.productId === orderItem.product.id);
     if (index !== -1) {
-      const existingItem = this.cartItems[index];
-      existingItem.quantity -= 1;
-      if (existingItem.quantity === 0) {
-        this.cartItems.splice(index, 1);
-      }
-      if (existingItem.quantity < 0) {
-        this.cartItems.splice(index, 1);
-      }
+      this.cartItems.splice(index, 1);
       this.saveCartItems();
     }
     if (this.cartItems.length === 0) {
