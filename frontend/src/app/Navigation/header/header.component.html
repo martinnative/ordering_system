@@ -43,9 +43,9 @@
               <span class="cart-item-count">{{getNumOfCartItems()}}</span>
               <i class="flaticon-shopping-bag" (click)="openCart()"></i>
             </li>
-            <li class="search-dropdown-wrapper search-trigger">
-              <i class="flaticon-search"></i>
-            </li>
+<!--            <li class="search-dropdown-wrapper search-trigger">-->
+<!--              <i class="flaticon-search"></i>-->
+<!--            </li>-->
           </ul>
           <!-- Toggler -->
           <div class="aside-toggler aside-trigger">
@@ -60,5 +60,4 @@
   </header>
 </div>
 <app-floating-cart [cartOpen]="cartOpen" (cartCloseEvent)="closeCart()"></app-floating-cart>
-<app-search-form></app-search-form>
 <!-- Header End -->
