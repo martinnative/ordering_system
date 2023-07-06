@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   public hasRole(role: string): boolean {
-    const token = this.storageService.getToken();
+    const token = localStorage.getItem('token');
     if (token) {
       // Parse the token and extract the roles
       const decodedToken = JSON.parse(atob(token.split('.')[1]));

@@ -417,6 +417,8 @@ public class DataInitializer {
         orderService.createOrder(order4);
         categoryService.getCategoryById(1L).setProducts(productService.getAllProducts());
 
-        userService.save("dbozhinoski","Dragan","Bozhinoski","123",Role.ROLE_ADMIN);
+        userService.save("dbozhinoski","Dragan","Bozhinoski","123",Role.ADMIN);
+        userService.save("martinnative","martin123","Martin","Fidanovski",Role.SHOP_MANAGER);
+
     }
 }

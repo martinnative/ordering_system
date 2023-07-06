@@ -6,6 +6,9 @@ import {ImageService} from "../../image.service";
 import {LoadingService} from "../../loading.service";
 import Swal from 'sweetalert2';
 import {OrderItem} from "../../../model/OrderItem";
+import {Router} from "@angular/router";
+import {StorageService} from "../../_services/storage.service";
+import {AuthService} from "../../_services/auth.service";
 
 @Component({
   selector: 'app-admin-orders',
@@ -16,7 +19,12 @@ export class AdminOrdersComponent implements OnInit{
   orders: Order[] = []
   filteredOrders: Order[] = [];
 
-  constructor(private ordersService:OrdersService,private imageService:ImageService,private loaderService:LoadingService) {
+  constructor(private ordersService:OrdersService,
+              private imageService:ImageService,
+              private loaderService:LoadingService,
+              private router: Router,
+              private storageService:StorageService,
+              private authService:AuthService) {
   }
   ngOnInit(): void {
     this.ordersService.findAllOrders().subscribe(data => {
@@ -85,6 +93,15 @@ export class AdminOrdersComponent implements OnInit{
   }
   showFinished() {
     this.filteredOrders = this.orders.filter(a => a.finished)
+  }
+  redirectToUrl(): void {
+    this.router.navigateByUrl('/auth'); // Replace '/your-url' with the desired URL
+  }
+  isLogggedIn(){
+    return this.storageService.isLoggedIn();
+  }
+  hasRole(role:string){
+    return localStorage.getItem('role') == role;
   }
 
 }

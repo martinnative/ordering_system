@@ -1,6 +1,6 @@
 <app-preloader></app-preloader>
-<section class="gradient-custom d-flex flex-column h-100" style="background-image: url('/assets/img/360_F_340930009_WtmPbofCmuBGo3SxTR59e3qUrUs8Bm2Y.jpg');">
-  <div class="container flex-grow-1">
+<section *ngIf="hasRole('SHOP_MANAGER')" class="gradient-custom d-flex flex-column h-100" style="background-image: url('/assets/img/360_F_340930009_WtmPbofCmuBGo3SxTR59e3qUrUs8Bm2Y.jpg');">
+  <div class="container flex-grow-1" >
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-10 col-xl-10">
         <div class="card" style="border-radius: 10px;">

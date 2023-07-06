@@ -1,5 +1,5 @@
 <app-preloader></app-preloader>
-<section class="gradient-custom d-flex justify-content-center align-items-center" style="min-height: 100vh;background-image: url('/assets/img/360_F_340930009_WtmPbofCmuBGo3SxTR59e3qUrUs8Bm2Y.jpg');">
+<section *ngIf="hasRole('SHOP_MANAGER')" class="gradient-custom d-flex justify-content-center align-items-center" style="min-height: 100vh;background-image: url('/assets/img/360_F_340930009_WtmPbofCmuBGo3SxTR59e3qUrUs8Bm2Y.jpg');">
   <div class="container py-4">
     <div class="row">
       <div class="col-lg">
@@ -7,7 +7,7 @@
           <div class="card-header px-3 py-4">
             <h5 class="text-muted mb-0"><span style="color: #a8729a;">Достапност на продукти</span></h5>
             <h6 class="text-muted mb-0 mt-3">
-              <button type="button" class="btn btn-info btn-sm me-4 text-white" (click)="showAllCategories()">Сите нарачки
+              <button type="button" class="btn btn-info btn-sm me-4 text-white" (click)="showAllCategories()">Сите
               </button>
               <button type="button" class="btn btn-success btn-sm me-4 text-white" (click)="showPizzaCategories()">Пици
               </button>

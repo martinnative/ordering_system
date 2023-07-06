@@ -6,6 +6,9 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ImageService } from "../../image.service";
 import { Category } from "../../../model/Category";
 import {LoadingService} from "../../loading.service";
+import {StorageService} from "../../_services/storage.service";
+import {AuthService} from "../../_services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-toggle-products',
@@ -23,8 +26,9 @@ export class AdminToggleProductsComponent {
     private modalService: NgbModal,
     private imageService: ImageService,
     private categoryService: CategoriesService,
-    private loadingService: LoadingService
-  ) { }
+    private loadingService: LoadingService,
+    private storageService:StorageService,
+    private authService:AuthService,private router: Router) { }
 
   ngOnInit(): void {
     this.loadingService.setLoading(true);
@@ -86,5 +90,14 @@ export class AdminToggleProductsComponent {
 
   showZhestokoCategories() {
     this.filteredProducts = this.products.filter(a => a.category.name=="Жестоко");
+  }
+  redirectToUrl(): void {
+    this.router.navigateByUrl('/auth'); // Replace '/your-url' with the desired URL
+  }
+  isLogggedIn(){
+    return this.storageService.isLoggedIn();
+  }
+  hasRole(role:string){
+    return localStorage.getItem('role') == role;
   }
 }

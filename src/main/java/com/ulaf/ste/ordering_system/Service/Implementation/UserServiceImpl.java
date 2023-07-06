@@ -26,6 +26,16 @@ public class UserServiceImpl implements UserService {
         User user = new User(username,name,surname,encodedPassword,role);
         return userRepository.save(user);
     }
+
+    @Override
+    public String getRole(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user != null) {
+            return user.getRole().toString(); // Assuming the role is stored in a field called "role" in the User entity
+        }
+        return null; // Return null or handle the case when the user is not found
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) {
         return userRepository.findByUsername(username);

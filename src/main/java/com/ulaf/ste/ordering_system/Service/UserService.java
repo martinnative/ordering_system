@@ -9,4 +9,6 @@ public interface UserService extends UserDetailsService {
     User authenticate(String username, String password);
     boolean isPasswordValid(User user, String password);
     User save(String username,String password,String name, String surname, Role role);
+    String getRole(String username);
+
 }
