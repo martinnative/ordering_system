@@ -44,3 +44,7 @@
 .ct-single-img-wrapper img{
   border-radius: 8px;
 }
+
+p.subtitle{
+  text-align: justify;
+}
