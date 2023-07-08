@@ -14,6 +14,7 @@ import {Ingredient} from "../../../model/Ingredient";
 export class CustomizeModalComponent {
   @Input() public product:Product|undefined;
   quantity:number = 1;
+  ingredients:String[] = []
 
   constructor(public activeModal: NgbActiveModal, private shoppingCartService:ShoppingCartService,private imageService:ImageService) {};
   closeModal() {
@@ -27,6 +28,10 @@ export class CustomizeModalComponent {
       this.quantity--;
     }
   }
+  getSelectedIngredients(selectedIngredient:Ingredient) {
+
+  }
+
   transformData(data: Product):Product {
     return this.imageService.transformData(data);
   }
@@ -35,9 +40,7 @@ export class CustomizeModalComponent {
       this.quantity = 1;
     }
     else{
-      this.activeModal.close({"product":this.product,"quantity":this.quantity});
+      this.activeModal.close({"product":this.product,"quantity":this.quantity,"ingredients":this.ingredients});
     }
   }
-  //TODO: FIX INGREDIENTS TO ACTUALLY RETURN A THING WHEN SELECTED AND RETREIVE THEM IN BACKEND
-
 }

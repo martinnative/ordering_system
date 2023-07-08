@@ -116,6 +116,8 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     modalRef.componentInstance.product = product;
     modalRef.result.then((result) => {
       if (result) {
+        this.addToCart(result.product,result.quantity, result.ingredients)
+
         console.log(result)
       }
     });
@@ -125,13 +127,12 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     this.selectedCategory = undefined;
   }
 
-  addToCart(product: Product) {
-    let added:boolean = this.shoppingCartService.addToCart(product,"");
-    if(added) {
-      this.alertService.success("Успешно додадено во кошничка!",this.options);
-    }
-    else {
-      this.alertService.error("Вашата кошничка е преполна!",this.options)
+  addToCart(product: Product, quantity?:number, ingredients?: String[]) {
+    const added: boolean = this.shoppingCartService.addToCart(product,quantity || 1, ingredients || []);
+    if (added) {
+      this.alertService.success("Успешно додадено во кошничка!", this.options);
+    } else {
+      this.alertService.error("Вашата кошничка е преполна!", this.options);
     }
   }
 }

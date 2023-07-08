@@ -13,13 +13,16 @@
         <ng-scrollbar style="height:65vh">
           <div class="cart-sidebar-item" *ngFor="let orderItem of orderItems">
             <div class="media">
-              <a routerLink="/product/{{orderItem.product.id}}"><img [src]="transformData(orderItem.product).image" alt="product"></a>
+              <a routerLink="/product/{{orderItem.product.id}}"><img *ngSrc="'transformData(orderItem.product).image'" alt="product"></a>
               <div class="media-body">
                 <h5><span>{{orderItem.product.name}}</span></h5>
                 <span>{{orderItem.quantity}} * {{orderItem.product.price}} ден.</span>
               </div>
             </div>
             <div class="cart-sidebar-item-meta">
+              <ng-container *ngFor="let notingredient of orderItem.notIngredients">
+                Без {{notingredient.toString()}},
+              </ng-container>
             </div>
             <div class="cart-sidebar-price">
               {{orderItem.quantity * orderItem.product.price}} ден.

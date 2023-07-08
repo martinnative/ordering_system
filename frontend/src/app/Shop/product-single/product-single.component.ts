@@ -8,6 +8,7 @@ import {ShoppingCartService} from "../../shopping-cart.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
 import {Ingredient} from "../../../model/Ingredient";
+import {AlertService} from "../../alert.service";
 
 @Component({
   selector: 'app-product-single',
@@ -19,6 +20,12 @@ export class ProductSingleComponent implements OnInit {
   product: Product | undefined = undefined;
   products: Product[] = [];
   _id: String = "";
+  quantity:number = 1;
+
+  options = {
+    autoClose: true,
+    keepAfterRouteChange: false
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +34,7 @@ export class ProductSingleComponent implements OnInit {
     private shoppingCartService: ShoppingCartService,
     private productService:ProductsService,
     private modalService: NgbModal,
+    private alertService: AlertService
 
   ) { }
 
@@ -47,7 +55,13 @@ export class ProductSingleComponent implements OnInit {
     return this.imageService.transformData(product);
   }
   addToCart(product: Product) {
-    this.shoppingCartService.addToCart(product,"");
+    let added:boolean = this.shoppingCartService.addToCart(product,this.quantity,[]);
+    if(added) {
+      this.alertService.success("Успешно додадено во кошничка!",this.options);
+    }
+    else {
+      this.alertService.error("Вашата кошничка е преполна!",this.options)
+    }
   }
   openModal(product: Product) {
     console.log("product");

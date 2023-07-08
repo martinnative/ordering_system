@@ -659,6 +659,7 @@ textarea{
 ====================*/
 .btn-custom {
   cursor: pointer;
+  text-decoration:none;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
@@ -751,6 +752,7 @@ textarea{
   -webkit-transform: translateX(3px);
   -ms-transform: translateX(3px);
   transform: translateX(3px);
+  color:black;
 }
 .btn.icon-behind i,
 .btn-link.icon-behind i{

@@ -20,8 +20,8 @@ export class ShoppingCartService {
     this.loadCartItems();
   }
 
-  addToCart(product: Product, notIngredients: String): boolean {
-    const existingItem = this.cartItems.find(item => item.productId === product.id);
+  addToCart(product: Product, quantity:number, notIngredients:String[]): boolean {
+    const existingItem = this.cartItems.find(item => item.productId === product.id && item.notIngredients === notIngredients);
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
@@ -30,7 +30,7 @@ export class ShoppingCartService {
       }
       const newItem: CartItem = {
         productId: product.id,
-        quantity: 1,
+        quantity: quantity,
         notIngredients: notIngredients,
         price: product.price
       };

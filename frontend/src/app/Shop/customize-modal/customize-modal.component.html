@@ -23,14 +23,18 @@
             <div class="col-lg-6 col-12" style="width:auto;">
               <div class="customize-variation-wrapper">
                 <i class="flaticon-pizza-and-cutted-slice"></i>
-                <h5>Состојки</h5>
-                <div class="customize-variation-item" *ngFor="let ingredient of product.ingredients">
-                  <div class="custom-control custom-checkbox justify-content-center d-flex">
-                    <input type="checkbox" class="custom-control-input">
-                       Без {{ingredient.name}}
-                    <br>
-                  </div>
-                </div>
+                <h5>Измени Состојки</h5>
+                <select multiple [(ngModel)]="ingredients">
+                  <option *ngFor="let ingredient of product.ingredients" value="{{ingredient.name}}">Без {{ingredient.name}}</option>
+                </select>
+<!--                <div class="customize-variation-item" *ngFor="let ingredient of product.ingredients">-->
+<!--                  <div class="custom-control custom-checkbox justify-content-center d-flex">-->
+
+<!--                    <input type="checkbox" class="custom-control-input" value="{{ingredient}}" [(ngModel)]="ingredients" (change)="getSelectedIngredients(ingredient)">-->
+<!--                       Без {{ingredient.name}}-->
+<!--                    <br>-->
+<!--                  </div>-->
+<!--                </div>-->
               </div>
             </div>
           </div>

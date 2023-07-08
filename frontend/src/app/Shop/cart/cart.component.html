@@ -56,7 +56,9 @@
             <div class="cart-product-body">
               <h6> <a href="">{{orderItem.product.name}}</a> </h6>
             </div>
-            <span> {{orderItem.notIngredients}} </span>
+            <ng-container *ngFor="let notingredient of orderItem.notIngredients">
+              <span> Без {{notingredient.toString()}}, </span>
+            </ng-container>
           </div>
         </td>
         <td data-title="Price"> <strong>{{orderItem.product.price}}</strong>ден. </td>

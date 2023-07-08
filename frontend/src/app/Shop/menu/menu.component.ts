@@ -21,6 +21,8 @@ import {AlertService} from "../../alert.service";
 export class MenuComponent implements OnInit{
   products: Product[] = [];
   categories: Category[] = [];
+  quantity:number = 1;
+
   options = {
     autoClose: true,
     keepAfterRouteChange: false
@@ -48,7 +50,7 @@ export class MenuComponent implements OnInit{
   }
 
   addToCart(product: Product) {
-    let added:boolean = this.shoppingCartService.addToCart(product,"");
+    let added:boolean = this.shoppingCartService.addToCart(product,this.quantity,[]);
     if(added) {
       this.alertService.success("Успешно додадено во кошничка!",this.options);
     }
