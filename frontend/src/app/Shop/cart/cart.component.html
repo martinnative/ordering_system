@@ -70,9 +70,9 @@
       </tbody>
     </table>
     <!-- Cart Table End -->
-
+    <p *ngIf="orderItems.length == 0">Вашата кошничка е празна</p>
     <!-- Cart form Start -->
-    <div class="row ct-cart-form">
+    <div *ngIf="orderItems.length !== 0" class="row ct-cart-form">
       <div class="offset-lg-6 col-lg-6">
         <h4>Вкупно во кошничка</h4>
         <table>

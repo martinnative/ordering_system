@@ -28,9 +28,6 @@ export class CustomizeModalComponent {
       this.quantity--;
     }
   }
-  getSelectedIngredients(selectedIngredient:Ingredient) {
-
-  }
 
   transformData(data: Product):Product {
     return this.imageService.transformData(data);

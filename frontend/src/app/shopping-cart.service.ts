@@ -39,6 +39,7 @@ export class ShoppingCartService {
     this.saveCartItems();
     return true;
   }
+  removeCartItems(){localStorage.getItem('cartItems')}
 
   removeFromCart(orderItem: OrderItem): Observable<OrderItem[]> {
     const index = this.cartItems.findIndex(item => item.productId === orderItem.product.id);

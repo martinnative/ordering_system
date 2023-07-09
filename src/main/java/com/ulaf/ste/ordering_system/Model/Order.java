@@ -1,13 +1,12 @@
 package com.ulaf.ste.ordering_system.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Order {
@@ -31,5 +30,14 @@ public class Order {
         this.customerEmailAddress = customerEmailAddress;
         this.customerPhone = customerPhone;
         this.createdOn = createdOn;
+    }
+
+    public Order(List<OrderItem> items, String customerName, String customerSurname, String customerEmailAddress, String customerPhone, boolean finished) {
+        this.items = items;
+        this.customerName = customerName;
+        this.customerSurname = customerSurname;
+        this.customerEmailAddress = customerEmailAddress;
+        this.customerPhone = customerPhone;
+        this.finished = finished;
     }
 }
