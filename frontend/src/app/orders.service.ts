@@ -34,9 +34,7 @@ export class OrdersService {
       customerEmailAddress,
       customerPhone
     };
-    const headers= new HttpHeaders()
-      .set('content-type', 'application/json');
-    return this.http.post<Order>('/api/orders/create', orderRequest, {headers: headers});
+    return this.http.post<Order>('/api/orders/create', orderRequest);
   }
 
 

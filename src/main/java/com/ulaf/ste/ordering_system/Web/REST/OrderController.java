@@ -45,7 +45,7 @@ public class OrderController {
         //todo
         return null;
     }
-    @PostMapping(value = "/create", consumes="application/json")
+    @PostMapping(value = "/create")
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
         // Extract the data from the orderRequest and create the order
         List<OrderItem> orderItems = orderRequest.getOrderItems();
