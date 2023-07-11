@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from '../model/Order';
 import {OrderItem} from "../model/OrderItem";
+import {OrderRequest} from "../model/OrderRequest";
 
 @Injectable({
   providedIn: 'root'
@@ -25,19 +26,15 @@ export class OrdersService {
   changeOrderStatus(order: Order): Observable<Order[]> {
     return this.http.put<Order[]>(`/api/orders/status`, { id: order.id }, this.httpOptions);
   }
-  createOrder(orderItems: OrderItem[], customerName: string, customerSurname: string, customerEmailAddress: string, customerPhone: string): Observable<Order> {
-    const orderRequest = {
+  createOrder(orderItems: OrderItem[], customerName: String, customerSurname: String, customerEmailAddress: String, customerPhone: String): Observable<Order> {
+    const orderRequest : OrderRequest = {
       orderItems,
       customerName,
       customerSurname,
       customerEmailAddress,
       customerPhone
     };
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-
-    return this.http.post<Order>('/api/orders/create', orderRequest, httpOptions);
+    return this.http.post<Order>('/api/orders/create', orderRequest);
   }
 
 

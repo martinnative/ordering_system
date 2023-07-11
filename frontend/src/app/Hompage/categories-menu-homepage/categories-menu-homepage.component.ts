@@ -108,7 +108,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     }
     else {
       this.selectedCategory = category;
-      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id && prod.available).reverse();
+      this.filteredProducts = this.products.filter(prod => prod.category.id == category.id && prod.available);
     }
   }
   openModal(product: Product) {
@@ -117,7 +117,6 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     modalRef.result.then((result) => {
       if (result) {
         this.addToCart(result.product,result.quantity, result.ingredients)
-
         console.log(result)
       }
     });

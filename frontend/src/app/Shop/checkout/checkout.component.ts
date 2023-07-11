@@ -10,10 +10,10 @@ import {OrdersService} from "../../orders.service";
 })
 export class CheckoutComponent implements OnInit{
   orderItems:OrderItem[] = [];
-  firstname: string = "";
-  lastname: string = "";
-  phone: string = "";
-  email: string = "";
+  firstname: String = "";
+  lastname: String = "";
+  phone: String = "";
+  email: String = "";
   constructor(private shoppingCartService:ShoppingCartService, private ordersService:OrdersService) {
   }
 
@@ -27,6 +27,7 @@ export class CheckoutComponent implements OnInit{
     el.scrollIntoView({behavior:"smooth"});
   }
   createOrder() {
+    console.log(this.orderItems, this.firstname, this.lastname, this.email, this.phone)
     this.ordersService.createOrder(this.orderItems, this.firstname, this.lastname, this.email, this.phone).subscribe(
       (response) => {
         // Handle the successful creation of the order

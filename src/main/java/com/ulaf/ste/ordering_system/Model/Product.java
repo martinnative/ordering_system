@@ -1,6 +1,5 @@
 package com.ulaf.ste.ordering_system.Model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,6 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Product {
 
     @Id
@@ -25,10 +25,12 @@ public class Product {
     private Boolean available;
     private int pizzaNumber;
 
-    @JsonManagedReference
     @ManyToOne
+    @JsonManagedReference
     private Category category;
+
     @ManyToMany
+    @JsonManagedReference
     private List<Ingredient> ingredients;
 
     @OneToOne

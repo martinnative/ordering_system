@@ -9,6 +9,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
 import {Ingredient} from "../../../model/Ingredient";
 import {AlertService} from "../../alert.service";
+import {FloatingCartComponent} from "../floating-cart/floating-cart.component";
 
 @Component({
   selector: 'app-product-single',
@@ -34,8 +35,7 @@ export class ProductSingleComponent implements OnInit {
     private shoppingCartService: ShoppingCartService,
     private productService:ProductsService,
     private modalService: NgbModal,
-    private alertService: AlertService
-
+    private alertService: AlertService,
   ) { }
 
   ngOnInit(): void {

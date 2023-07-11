@@ -19,9 +19,8 @@ export class ShoppingCartService {
   constructor(private productService: ProductsService) {
     this.loadCartItems();
   }
-
   addToCart(product: Product, quantity:number, notIngredients:String[]): boolean {
-    const existingItem = this.cartItems.find(item => item.productId === product.id && item.notIngredients === notIngredients);
+    const existingItem = this.cartItems.find(item => item.productId === product.id && item.notIngredients == notIngredients);
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
@@ -39,8 +38,6 @@ export class ShoppingCartService {
     this.saveCartItems();
     return true;
   }
-  removeCartItems(){localStorage.getItem('cartItems')}
-
   removeFromCart(orderItem: OrderItem): Observable<OrderItem[]> {
     const index = this.cartItems.findIndex(item => item.productId === orderItem.product.id);
     if (index !== -1) {

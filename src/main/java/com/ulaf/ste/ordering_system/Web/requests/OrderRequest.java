@@ -13,21 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderRequest {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
     private List<OrderItem> orderItems;
     private String customerName;
     private String customerSurname;
     private String customerEmailAddress;
     private String customerPhone;
 
-    public OrderRequest(List<OrderItem> orderItems, String customerName, String customerSurname, String customerEmailAddress, String customerPhone) {
-        this.orderItems = orderItems;
-        this.customerName = customerName;
-        this.customerSurname = customerSurname;
-        this.customerEmailAddress = customerEmailAddress;
-        this.customerPhone = customerPhone;
-    }
+
 
 }

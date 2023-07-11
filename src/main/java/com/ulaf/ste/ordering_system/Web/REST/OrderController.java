@@ -42,10 +42,10 @@ public class OrderController {
     }
     @PutMapping(value = "/status")
     public ResponseEntity<List<Order>> changeOrderStatus(@RequestBody OrderRequest order) {
-        List<Order> orders = orderService.changeOrderStatus(order.getId());
-        return ResponseEntity.ok(orders);
+        //todo
+        return null;
     }
-    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/create")
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
         // Extract the data from the orderRequest and create the order
         List<OrderItem> orderItems = orderRequest.getOrderItems();

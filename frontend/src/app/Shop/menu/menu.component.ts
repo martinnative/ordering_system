@@ -49,8 +49,8 @@ export class MenuComponent implements OnInit{
     });
   }
 
-  addToCart(product: Product) {
-    let added:boolean = this.shoppingCartService.addToCart(product,this.quantity,[]);
+  addToCart(product: Product, quantity?:number, ingredients?: String[]) {
+    const added: boolean = this.shoppingCartService.addToCart(product,quantity || 1, ingredients || []);
     if(added) {
       this.alertService.success("Успешно додадено во кошничка!",this.options);
     }
@@ -64,6 +64,7 @@ export class MenuComponent implements OnInit{
     modalRef.componentInstance.product = product;
     modalRef.result.then((result) => {
       if (result) {
+        this.addToCart(result.product,result.quantity, result.ingredients)
         console.log(result)
       }
     });

@@ -6,10 +6,10 @@
          (click)="setSelectedCategory(category)"
          [ngClass]="{'active':category == selectedCategory || category.name == 'Сите категории' && selectedCategory == undefined}">
         <div class="menu-category-thumb" *ngIf="category.name !== 'Сите категории'">
-          <img [src]="transformDataCategory(category).image" alt="image" [width]="400" [height]="400"/>
+          <img loading="lazy" [src]="transformDataCategory(category).image" alt="image" [width]="400" [height]="400"/>
         </div>
         <div class="menu-category-thumb" *ngIf="category.name == 'Сите категории'">
-          <img [src]="'/assets/img/категории.jpg'" alt="category" width="400" height="400">
+          <img loading="lazy" [src]="'/assets/img/категории.jpg'" alt="category" width="400" height="400">
         </div>
         <div class="menu-category-desc">
           <h6>{{category.name}}</h6>
@@ -26,7 +26,7 @@
       <!-- Product Start -->
       <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts.slice(0,6)">
         <div class="product" *ngIf="product.available">
-          <a class="product-thumb" routerLink="/product/{{product.id}}"> <img [src]="transformData(product).image" alt="image"/> </a>
+          <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="transformData(product).image" alt="image"/> </a>
           <div class="product-body">
             <div class="product-desc">
               <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="product" *ngIf="!product.available">
-          <a class="product-thumb"> <img [src]="transformData(product).image" alt="menu item"/> </a>
+          <a class="product-thumb"> <img loading="lazy" [src]="transformData(product).image" alt="menu item"/> </a>
           <div class="product-body">
             <div class="product-desc">
               <h4><a>{{product.name}}</a></h4>
@@ -70,4 +70,3 @@
 </div>
 <!-- Menu Wrapper End -->
 <!-- Menu Categories End -->
-

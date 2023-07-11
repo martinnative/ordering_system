@@ -38,4 +38,6 @@ export class FloatingCartComponent implements OnInit, OnChanges{
       this.orderItems = data
     });
   }
+
+    protected readonly undefined = undefined;
 }
