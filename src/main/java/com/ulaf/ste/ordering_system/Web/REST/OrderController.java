@@ -45,7 +45,7 @@ public class OrderController {
         //todo
         return null;
     }
-    @PostMapping(value = "/create", consumes="application/json")
+    @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
         // Extract the data from the orderRequest and create the order
         List<OrderItem> orderItems = orderRequest.getOrderItems();
@@ -61,7 +61,7 @@ public class OrderController {
         // Save the order to the database or perform any other required actions
         Order createdOrder = orderService.createOrder(order);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
+        return ResponseEntity.status(HttpStatus.CREATED).body(order);
     }
 
     @GetMapping("/{id}")
