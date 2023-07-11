@@ -24,11 +24,9 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/orders")
 public class OrderController {
     private final OrderService orderService;
-    private final ObjectMapper objectMapper;
 
-    public OrderController(OrderService orderService, ObjectMapper objectMapper) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.objectMapper = objectMapper;
     }
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders(){
@@ -45,7 +43,8 @@ public class OrderController {
         //todo
         return null;
     }
-    @PostMapping
+    @PostMapping(consumes = "application/json",
+                 produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
         // Extract the data from the orderRequest and create the order
         List<OrderItem> orderItems = orderRequest.getOrderItems();
