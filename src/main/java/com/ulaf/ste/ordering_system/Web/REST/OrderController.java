@@ -1,34 +1,29 @@
 package com.ulaf.ste.ordering_system.Web.REST;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Order;
 import com.ulaf.ste.ordering_system.Model.OrderItem;
 import com.ulaf.ste.ordering_system.Service.OrderService;
 import com.ulaf.ste.ordering_system.Web.requests.OrderRequest;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
     private final OrderService orderService;
-    private final ObjectMapper objectMapper;
 
-    public OrderController(OrderService orderService, ObjectMapper objectMapper) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.objectMapper = objectMapper;
     }
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders(){
@@ -36,16 +31,16 @@ public class OrderController {
         return ResponseEntity.ok(orders);
     }
     @GetMapping("/today")
-    public ResponseEntity<List<Order>> getTodaysOrders() {
+    public ResponseEntity<List<Order>> getTodayOrders() {
         List<Order> orders = orderService.getTodaysOrders();
         return ResponseEntity.ok(orders);
     }
-    @PutMapping(value = "/status")
+    @PutMapping(value = "/status", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Order>> changeOrderStatus(@RequestBody OrderRequest order) {
-        //todo
-        return null;
+        List<Order> orders = orderService.changeOrderStatus(order.getId());
+        return ResponseEntity.ok(orders);
     }
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
         // Extract the data from the orderRequest and create the order
         List<OrderItem> orderItems = orderRequest.getOrderItems();
@@ -61,7 +56,7 @@ public class OrderController {
         // Save the order to the database or perform any other required actions
         Order createdOrder = orderService.createOrder(order);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(order);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
     }
 
     @GetMapping("/{id}")
