@@ -18,7 +18,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/orders")
+@RequestMapping(value = "/api/orders")
 public class OrderController {
     private final OrderService orderService;
 
@@ -40,7 +40,8 @@ public class OrderController {
         List<Order> orders = orderService.changeOrderStatus(order.getId());
         return ResponseEntity.ok(orders);
     }
-    @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @ResponseBody
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
         // Extract the data from the orderRequest and create the order
         List<OrderItem> orderItems = orderRequest.getOrderItems();
