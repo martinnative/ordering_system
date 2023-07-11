@@ -54,25 +54,26 @@ export class ProductSingleComponent implements OnInit {
   sanitizeImage(product:Product):Product {
     return this.imageService.transformData(product);
   }
-  addToCart(product: Product) {
-    let added:boolean = this.shoppingCartService.addToCart(product,this.quantity,[]);
-    if(added) {
-      this.alertService.success("Успешно додадено во кошничка!",this.options);
-    }
-    else {
-      this.alertService.error("Вашата кошничка е преполна!",this.options)
+  addToCart(product: Product, quantity?:number, ingredients?: String[]) {
+    const added: boolean = this.shoppingCartService.addToCart(product,quantity || 1, ingredients || []);
+    if (added) {
+      this.alertService.success("Успешно додадено во кошничка!", this.options);
+    } else {
+      this.alertService.error("Вашата кошничка е преполна!", this.options);
     }
   }
   openModal(product: Product) {
-    console.log("product");
     const modalRef = this.modalService.open(CustomizeModalComponent);
     modalRef.componentInstance.product = product;
     modalRef.result.then((result) => {
       if (result) {
+        this.addToCart(result.product,result.quantity, result.ingredients)
+
         console.log(result)
       }
     });
   }
+
   transformDataIngredient(data: Ingredient):Ingredient {
     return this.imageService.transformIngredient(data);
   }
