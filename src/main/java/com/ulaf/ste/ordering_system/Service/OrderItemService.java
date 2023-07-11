@@ -14,4 +14,6 @@ public interface OrderItemService {
     void deleteOrderItem(Long id);
 
     List<OrderItem> findAllOrderItemsWithCategory(String category) throws NotFoundByIdException;
+
+    List<OrderItem> findAllByIds(List<Long> orderItemIds);
 }

@@ -28,11 +28,11 @@ export class OrdersService {
   }
   createOrder(orderItems: OrderItem[], customerName: String, customerSurname: String, customerEmailAddress: String, customerPhone: String): Observable<Order> {
     const orderRequest : OrderRequest = {
-      orderItems,
-      customerName,
-      customerSurname,
-      customerEmailAddress,
-      customerPhone
+      orderItemsIds: orderItems.map(it=> it.id),
+      customerName: customerName,
+      customerSurname: customerSurname,
+      customerEmailAddress: customerEmailAddress,
+      customerPhone: customerPhone
     };
     return this.http.post<Order>('/api/orders/create', orderRequest);
   }

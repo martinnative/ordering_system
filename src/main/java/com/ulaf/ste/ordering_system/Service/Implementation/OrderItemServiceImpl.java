@@ -63,4 +63,9 @@ public class OrderItemServiceImpl implements OrderItemService {
         }
         throw new NotFoundByIdException("Category not found.");
     }
+
+    @Override
+    public List<OrderItem> findAllByIds(List<Long> orderItemIds) {
+        return orderItemRepository.findAllById(orderItemIds);
+    }
 }

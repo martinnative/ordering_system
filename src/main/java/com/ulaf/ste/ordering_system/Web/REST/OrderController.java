@@ -4,6 +4,7 @@ package com.ulaf.ste.ordering_system.Web.REST;
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Order;
 import com.ulaf.ste.ordering_system.Model.OrderItem;
+import com.ulaf.ste.ordering_system.Service.OrderItemService;
 import com.ulaf.ste.ordering_system.Service.OrderService;
 import com.ulaf.ste.ordering_system.Web.requests.OrderRequest;
 
@@ -21,9 +22,11 @@ import java.util.List;
 @RequestMapping(value = "/api/orders")
 public class OrderController {
     private final OrderService orderService;
+    private final OrderItemService orderItemService;
 
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderService orderService, OrderItemService orderItemService) {
         this.orderService = orderService;
+        this.orderItemService = orderItemService;
     }
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders(){
@@ -37,20 +40,23 @@ public class OrderController {
     }
     @PutMapping(value = "/status", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Order>> changeOrderStatus(@RequestBody OrderRequest order) {
-        List<Order> orders = orderService.changeOrderStatus(order.getId());
+        List<Order> orders = orderService.changeOrderStatus(1L);
         return ResponseEntity.ok(orders);
     }
-    @ResponseBody
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+
+    @PostMapping("/create")
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
-        // Extract the data from the orderRequest and create the order
-        List<OrderItem> orderItems = orderRequest.getOrderItems();
+        // ORDER REQUEST NE MOZHE DA PRIMA LISTA OD ORDER ITEMS ZATOA SHTO NE MOZHE
+        // DA SE MACHUAA FRONTEND SO ENTITET. TREBA DA IMA LISTA OD ORDER ITEM IDS - DA SE NAPRAE REQUEST
+
+//        List<OrderItemRequest> orderItems = orderRequest.getOrderItems();
         String customerName = orderRequest.getCustomerName();
         String customerSurname = orderRequest.getCustomerSurname();
         String customerEmailAddress = orderRequest.getCustomerEmailAddress();
         String customerPhone = orderRequest.getCustomerPhone();
 
         // Create the Order object
+        List<OrderItem> orderItems = orderItemService.findAllByIds(orderRequest.getOrderItemIds());
         Order order = new Order(orderItems, customerName, customerSurname, customerEmailAddress, customerPhone,false);
         order.setCreatedOn(LocalDateTime.now());
 
