@@ -29,7 +29,21 @@ export class CheckoutComponent implements OnInit{
   createOrder() {
     console.log(this.orderItems, this.firstname, this.lastname, this.email, this.phone)
     this.ordersService.createOrder(this.orderItems, this.firstname, this.lastname, this.email, this.phone)
+      .subscribe({
+        next: (response) => {
+          // Handle the successful creation of the order
+          console.log('Order created:', response);
+          // Optionally, you can perform additional actions such as showing a success message or redirecting to a confirmation page
+        },
+        error: (error) => {
+          // Handle the error if the order creation fails
+          console.error('Error creating order:', error);
+          // Optionally, you can display an error message to the user
+        },
+        complete: () => {
+          // Handle any completion logic if needed
+        }
+      });
+
   }
-
-
 }
