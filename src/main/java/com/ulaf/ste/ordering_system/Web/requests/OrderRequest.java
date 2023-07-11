@@ -12,13 +12,15 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class OrderRequest {
 
-    private List<OrderItem> orderItems;
-    private String customerName;
-    private String customerSurname;
-    private String customerEmailAddress;
-    private String customerPhone;
+     Long id;
+     List<OrderItem> orderItems;
+     String customerName;
+     String customerSurname;
+     String customerEmailAddress;
+     String customerPhone;
 
 
 
