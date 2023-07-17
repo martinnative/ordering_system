@@ -30,7 +30,7 @@ public class Product {
     private Category category;
 
     @ManyToMany
-    @JsonManagedReference
+    @JsonManagedReference(value = "ingredient-reference")
     private List<Ingredient> ingredients;
 
     @OneToOne

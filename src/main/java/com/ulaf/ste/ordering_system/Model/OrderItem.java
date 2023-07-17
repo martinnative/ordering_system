@@ -15,19 +15,13 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private Product product;
     private int quantity;
+    @ManyToMany
+    private List<Ingredient> notIngredients;
 
-    @ElementCollection
-    private List<String> notIngredients;
-
-    public OrderItem(Product product, int quantity) {
-        this.product = product;
-        this.quantity = quantity;
-    }
-
-    public OrderItem(Product product, int quantity, List<String> notIngredients) {
+    public OrderItem(Product product, int quantity, List<Ingredient> notIngredients) {
         this.product = product;
         this.quantity = quantity;
         this.notIngredients = notIngredients;

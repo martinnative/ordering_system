@@ -12,6 +12,7 @@ public interface IngredientService {
     Ingredient getIngredientById(Long id) throws NotFoundByIdException;
     List<Ingredient> getAllIngredients();
     Ingredient updateIngredient(Long id, Ingredient ingredient) throws NotFoundByIdException;
+    Ingredient findByName(String name);
     void deleteIngredient(Long id);
 //    Ingredient uploadImage(Long id, MultipartFile file) throws NotFoundByIdException, IOException;
 //

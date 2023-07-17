@@ -37,7 +37,9 @@
                       </p>
                     </div>
                     <div *ngIf="productItem.notIngredients.length > 0" class="col-md-6 text-center d-flex justify-content-center align-items-center">
-                      <p class="text-muted mb-0 small" *ngFor="let ingredient of productItem.notIngredients">Забелешка: {{ingredient.toString()}}</p>
+                      <span *ngFor="let ingredient of productItem.notIngredients">
+                        <img [src]="transformDataIngredient(ingredient).image" [alt]="ingredient.name" width="30px" height="30px"/>
+                      </span>
                     </div>
                   </div>
                 </div>

@@ -55,6 +55,11 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
+    public void saveAll(List<OrderItem> list) {
+        orderItemRepository.saveAll(list);
+    }
+
+    @Override
     public List<OrderItem> findAllOrderItemsWithCategory(String category) throws NotFoundByIdException {
         Category existingCategory = categoryRepository.findCategoryByName(category);
         if(existingCategory!=null)

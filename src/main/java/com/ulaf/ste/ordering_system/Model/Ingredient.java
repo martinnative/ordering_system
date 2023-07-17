@@ -21,8 +21,8 @@ public class Ingredient {
     @OneToOne
     private Image image;
     @ManyToMany(mappedBy = "ingredients")
-    @JsonBackReference("ingredient-reference")
-    private List<Product> product;
+    @JsonBackReference(value = "ingredient-reference")
+    private List<Product> products;
     public Ingredient(String name,Image image) {
         this.name = name;
         this.image = image;

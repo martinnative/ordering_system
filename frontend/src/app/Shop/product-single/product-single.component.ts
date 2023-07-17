@@ -54,7 +54,7 @@ export class ProductSingleComponent implements OnInit {
   sanitizeImage(product:Product):Product {
     return this.imageService.transformData(product);
   }
-  addToCart(product: Product, quantity?:number, ingredients?: String[]) {
+  addToCart(product: Product, quantity?:number, ingredients?: Ingredient[]) {
     const added: boolean = this.shoppingCartService.addToCart(product,quantity || 1, ingredients || []);
     if (added) {
       this.alertService.success("Успешно додадено во кошничка!", this.options);
@@ -68,7 +68,6 @@ export class ProductSingleComponent implements OnInit {
     modalRef.result.then((result) => {
       if (result) {
         this.addToCart(result.product,result.quantity, result.ingredients)
-
         console.log(result)
       }
     });

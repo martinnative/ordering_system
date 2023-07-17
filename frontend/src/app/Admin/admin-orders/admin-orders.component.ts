@@ -9,6 +9,7 @@ import {OrderItem} from "../../../model/OrderItem";
 import {Router} from "@angular/router";
 import {StorageService} from "../../_services/storage.service";
 import {AuthService} from "../../_services/auth.service";
+import {Ingredient} from "../../../model/Ingredient";
 
 @Component({
   selector: 'app-admin-orders',
@@ -35,6 +36,9 @@ export class AdminOrdersComponent implements OnInit{
   transformData(data: Product):Product {
     return this.imageService.transformData(data);
   }
+  transformDataIngredient(data: Ingredient):Ingredient {
+    return this.imageService.transformIngredient(data);
+  }
   orderStatusChanged(order:Order) {
     if(order.finished) {
       Swal.fire({
@@ -51,8 +55,8 @@ export class AdminOrdersComponent implements OnInit{
             this.orders=data;
             this.filteredOrders = data;
             this.loaderService.setLoading(false);
+            Swal.fire('Успешно!', 'Нарачката е сега завршена', 'success');
           });
-          Swal.fire('Успешно!', 'Нарачката е сега завршена', 'success');
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           order.finished = !order.finished;
           Swal.fire('Откажано!', 'Нема промени во нарачката', 'error');
@@ -74,8 +78,8 @@ export class AdminOrdersComponent implements OnInit{
             this.orders=data;
             this.filteredOrders = data;
             this.loaderService.setLoading(false);
+            console.log("DONE01");
           });
-          Swal.fire('Успешно!', 'Нарачката е сега во процесирање', 'success');
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           order.finished = !order.finished;
           Swal.fire('Откажано!', 'Нема промени во нарачката', 'error');

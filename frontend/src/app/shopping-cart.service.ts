@@ -5,6 +5,7 @@ import * as CryptoJS from 'crypto-js';
 import {CartItem} from "../model/CartItem";
 import {ProductsService} from "./products.service";
 import {forkJoin, map, Observable, of} from "rxjs";
+import {Ingredient} from "../model/Ingredient";
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class ShoppingCartService {
   constructor(private productService: ProductsService) {
     this.loadCartItems();
   }
-  addToCart(product: Product, quantity:number, notIngredients:String[]): boolean {
+  addToCart(product: Product, quantity:number, notIngredients:Ingredient[]): boolean {
     const existingItem = this.cartItems.find(item => item.productId === product.id && item.notIngredients == notIngredients);
     if (existingItem) {
       existingItem.quantity += 1;

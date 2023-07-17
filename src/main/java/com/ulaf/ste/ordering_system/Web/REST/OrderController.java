@@ -2,12 +2,18 @@ package com.ulaf.ste.ordering_system.Web.REST;
 
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
+import com.ulaf.ste.ordering_system.Model.Ingredient;
 import com.ulaf.ste.ordering_system.Model.Order;
 import com.ulaf.ste.ordering_system.Model.OrderItem;
+import com.ulaf.ste.ordering_system.Model.Product;
+import com.ulaf.ste.ordering_system.Service.IngredientService;
 import com.ulaf.ste.ordering_system.Service.OrderItemService;
 import com.ulaf.ste.ordering_system.Service.OrderService;
+import com.ulaf.ste.ordering_system.Service.ProductService;
+import com.ulaf.ste.ordering_system.Web.requests.OrderItemRequest;
 import com.ulaf.ste.ordering_system.Web.requests.OrderRequest;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.MediaType;
@@ -16,18 +22,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
 @RequestMapping(value = "/api/orders")
+@AllArgsConstructor
 public class OrderController {
     private final OrderService orderService;
     private final OrderItemService orderItemService;
+    private final ProductService productService;
+    private final IngredientService ingredientService;
 
-    public OrderController(OrderService orderService, OrderItemService orderItemService) {
-        this.orderService = orderService;
-        this.orderItemService = orderItemService;
-    }
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders(){
         List<Order> orders = orderService.getAllOrders();
@@ -38,27 +44,33 @@ public class OrderController {
         List<Order> orders = orderService.getTodaysOrders();
         return ResponseEntity.ok(orders);
     }
-    @PutMapping(value = "/status", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Order>> changeOrderStatus(@RequestBody OrderRequest order) {
-        List<Order> orders = orderService.changeOrderStatus(1L);
+    @PutMapping(value = "/status/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Order>> changeOrderStatus(@PathVariable Long id) {
+        List<Order> orders = orderService.changeOrderStatus(id);
         return ResponseEntity.ok(orders);
     }
 
     @PostMapping("/create")
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
+        List<OrderItemRequest> orderItemRequests = orderRequest.getOrderItemRequests();
+        List<OrderItem> orderItems = orderItemRequests.stream().map(a -> {
+            try {
+                Product product = productService.getProductById(a.getProductId());
+                List<Ingredient> notIngredients = a.getNotIngredients().stream().map(ingredientService::findByName).toList();
+                return new OrderItem(product,a.getQuantity(),notIngredients);
+            } catch (NotFoundByIdException e) {
+                throw new RuntimeException(e);
+            }
+        }).toList();
+        orderItemService.saveAll(orderItems);
 
-//      List<OrderItemRequest> orderItems = orderRequest.getOrderItems();
         String customerName = orderRequest.getCustomerName();
         String customerSurname = orderRequest.getCustomerSurname();
         String customerEmailAddress = orderRequest.getCustomerEmailAddress();
         String customerPhone = orderRequest.getCustomerPhone();
-
-        // Create the Order object
-        List<OrderItem> orderItems = orderItemService.findAllByIds(orderRequest.getOrderItemIds());
         Order order = new Order(orderItems, customerName, customerSurname, customerEmailAddress, customerPhone,false);
         order.setCreatedOn(LocalDateTime.now());
 
-        // Save the order to the database or perform any other required actions
         Order createdOrder = orderService.createOrder(order);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);

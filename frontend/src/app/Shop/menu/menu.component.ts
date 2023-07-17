@@ -12,6 +12,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {ImageService} from "../../image.service";
 import {LoadingService} from "../../loading.service";
 import {AlertService} from "../../alert.service";
+import {Ingredient} from "../../../model/Ingredient";
 
 @Component({
   selector: 'app-menu',
@@ -49,7 +50,7 @@ export class MenuComponent implements OnInit{
     });
   }
 
-  addToCart(product: Product, quantity?:number, ingredients?: String[]) {
+  addToCart(product: Product, quantity?:number, ingredients?: Ingredient[]) {
     const added: boolean = this.shoppingCartService.addToCart(product,quantity || 1, ingredients || []);
     if(added) {
       this.alertService.success("Успешно додадено во кошничка!",this.options);

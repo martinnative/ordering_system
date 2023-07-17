@@ -11,6 +11,7 @@ import {ImageService} from "../../image.service";
 import {LoadingService} from "../../loading.service";
 import {AlertService} from "../../alert.service";
 import {SlickCarouselComponent} from "ngx-slick-carousel";
+import {Ingredient} from "../../../model/Ingredient";
 
 @Component({
   selector: 'app-categories-menu-homepage',
@@ -126,7 +127,7 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     this.selectedCategory = undefined;
   }
 
-  addToCart(product: Product, quantity?:number, ingredients?: String[]) {
+  addToCart(product: Product, quantity?:number, ingredients?: Ingredient[]) {
     const added: boolean = this.shoppingCartService.addToCart(product,quantity || 1, ingredients || []);
     if (added) {
       this.alertService.success("Успешно додадено во кошничка!", this.options);

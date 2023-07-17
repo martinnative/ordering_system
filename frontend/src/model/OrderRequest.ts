@@ -1,7 +1,8 @@
 import {OrderItem} from "./OrderItem";
+import {OrderItemRequest} from "./OrderItemRequest";
 
 export interface OrderRequest {
-  orderItemsIds: number[] | undefined,
+  orderItemRequests: OrderItemRequest[],
   customerName:String,
   customerSurname:String,
   customerEmailAddress:String,

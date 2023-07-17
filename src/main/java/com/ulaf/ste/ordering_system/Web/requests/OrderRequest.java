@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class OrderRequest {
-     List<Long> orderItemIds;
+     List<OrderItemRequest> orderItemRequests;
      String customerName;
      String customerSurname;
      String customerEmailAddress;

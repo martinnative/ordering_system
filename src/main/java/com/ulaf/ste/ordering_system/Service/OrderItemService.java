@@ -12,7 +12,7 @@ public interface OrderItemService {
     OrderItem updateOrderItem(Long id, OrderItem orderItem) throws NotFoundByIdException;
 
     void deleteOrderItem(Long id);
-
+    void saveAll(List<OrderItem> list);
     List<OrderItem> findAllOrderItemsWithCategory(String category) throws NotFoundByIdException;
 
     List<OrderItem> findAllByIds(List<Long> orderItemIds);

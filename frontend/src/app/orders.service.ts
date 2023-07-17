@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Order } from '../model/Order';
 import {OrderItem} from "../model/OrderItem";
 import {OrderRequest} from "../model/OrderRequest";
+import {OrderItemRequest} from "../model/OrderItemRequest";
 
 @Injectable({
   providedIn: 'root'
@@ -24,16 +25,22 @@ export class OrdersService {
   }
 
   changeOrderStatus(order: Order): Observable<Order[]> {
-    return this.http.put<Order[]>(`/api/orders/status`, { id: order.id }, this.httpOptions);
+    return this.http.put<Order[]>(`/api/orders/status/${order.id}`,null, this.httpOptions);
   }
   createOrder(orderItems: OrderItem[], customerName: String, customerSurname: String, customerEmailAddress: String, customerPhone: String): Observable<Order> {
+    const orderItemsRequest:OrderItemRequest[] = orderItems.map(orderItem => ({
+        productId: orderItem.product.id,
+        quantity: orderItem.quantity,
+        notIngredients: orderItem.notIngredients
+      }));
     const orderRequest : OrderRequest = {
-      orderItemsIds: orderItems.map(it=> it.quantity),
+      orderItemRequests: orderItemsRequest,
       customerName: customerName,
       customerSurname: customerSurname,
       customerEmailAddress: customerEmailAddress,
       customerPhone: customerPhone
     };
+    console.log(orderRequest);
     return this.http.post<Order>('/api/orders/create', orderRequest);
   }
 
