@@ -37,8 +37,9 @@
                       </p>
                     </div>
                     <div *ngIf="productItem.notIngredients.length > 0" class="col-md-6 text-center d-flex justify-content-center align-items-center">
-                      <span *ngFor="let ingredient of productItem.notIngredients">
-                        <img [src]="transformDataIngredient(ingredient).image" [alt]="ingredient.name" width="30px" height="30px"/>
+                      <span *ngFor="let ingredient of productItem.notIngredients" class="image-container">
+                        <img [src]="transformDataIngredient(ingredient).image" [alt]="ingredient.name" width="30px" height="30px" class="mx-3"/>
+                        <div class="red-cross"></div>
                       </span>
                     </div>
                   </div>

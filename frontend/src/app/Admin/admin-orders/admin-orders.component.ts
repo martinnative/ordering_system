@@ -45,8 +45,8 @@ export class AdminOrdersComponent implements OnInit{
         title: 'Дали сте сигурни дека сакате да ја завршите нарачката?',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Да',
-        cancelButtonText: 'Не',
+        confirmButtonText: '✓',
+        cancelButtonText: 'X',
         heightAuto:false,
       }).then((result) => {
         if (result.value) {
@@ -61,6 +61,9 @@ export class AdminOrdersComponent implements OnInit{
           order.finished = !order.finished;
           Swal.fire('Откажано!', 'Нема промени во нарачката', 'error');
         }
+        else {
+          Swal.fire('Откажано!', 'Дојде до грешка!', 'error');
+        }
       });
     }
     else {
@@ -68,8 +71,8 @@ export class AdminOrdersComponent implements OnInit{
         title: 'Дали сте сигурни дека сакате да ја вратите во процесирање?',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Да',
-        cancelButtonText: 'Не',
+        confirmButtonText: '✓',
+        cancelButtonText: 'X',
         heightAuto:false,
       }).then((result) => {
         if (result.value) {
@@ -78,11 +81,15 @@ export class AdminOrdersComponent implements OnInit{
             this.orders=data;
             this.filteredOrders = data;
             this.loaderService.setLoading(false);
-            console.log("DONE01");
+            Swal.fire('Успешно!', 'Нарачката е сега во процесирање', 'success');
+
           });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           order.finished = !order.finished;
           Swal.fire('Откажано!', 'Нема промени во нарачката', 'error');
+        }
+        else {
+          Swal.fire('Откажано!', 'Дојде до грешка!', 'error');
         }
       });
     }
