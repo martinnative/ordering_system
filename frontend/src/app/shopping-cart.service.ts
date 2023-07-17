@@ -20,7 +20,8 @@ export class ShoppingCartService {
   constructor(private productService: ProductsService) {
     this.loadCartItems();
   }
-  addToCart(product: Product, quantity:number, notIngredients:Ingredient[]): boolean {
+
+  addToCart(product: Product, quantity: number, notIngredients: Ingredient[]): boolean {
     const existingItem = this.cartItems.find(item => item.productId === product.id && item.notIngredients == notIngredients);
     if (existingItem) {
       existingItem.quantity += 1;
@@ -39,14 +40,16 @@ export class ShoppingCartService {
     this.saveCartItems();
     return true;
   }
+
   removeFromCart(orderItem: OrderItem): Observable<OrderItem[]> {
-    const index = this.cartItems.findIndex(item => item.productId === orderItem.product.id);
+    const index = this.cartItems.findIndex(item => item.productId === orderItem.product.id &&
+      JSON.stringify(item.notIngredients) === JSON.stringify(orderItem.notIngredients) && item.quantity === orderItem.quantity);
     if (index !== -1) {
       this.cartItems.splice(index, 1);
       this.saveCartItems();
     }
     if (this.cartItems.length === 0) {
-      localStorage.setItem('cartItems',"");
+      sessionStorage.setItem('cartItems', "");
       return of([]);
     }
     return this.getOrderItems();
@@ -78,11 +81,11 @@ export class ShoppingCartService {
   }
 
   private saveCartItems(): void {
-    localStorage.setItem('cartItems', this.encrypt(JSON.stringify(this.cartItems)) as string)
+    sessionStorage.setItem('cartItems', this.encrypt(JSON.stringify(this.cartItems)) as string)
   }
 
   private loadCartItems(): void {
-    const storedItems = localStorage.getItem('cartItems');
+    const storedItems = sessionStorage.getItem('cartItems');
     if (storedItems) {
       this.cartItems = JSON.parse(this.decrypt(storedItems));
     }
