@@ -46,10 +46,8 @@ public class OrderController {
 
     @PostMapping("/create")
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
-        // ORDER REQUEST NE MOZHE DA PRIMA LISTA OD ORDER ITEMS ZATOA SHTO NE MOZHE
-        // DA SE MACHUAA FRONTEND SO ENTITET. TREBA DA IMA LISTA OD ORDER ITEM IDS - DA SE NAPRAE REQUEST
 
-//        List<OrderItemRequest> orderItems = orderRequest.getOrderItems();
+//      List<OrderItemRequest> orderItems = orderRequest.getOrderItems();
         String customerName = orderRequest.getCustomerName();
         String customerSurname = orderRequest.getCustomerSurname();
         String customerEmailAddress = orderRequest.getCustomerEmailAddress();

@@ -28,7 +28,7 @@ export class OrdersService {
   }
   createOrder(orderItems: OrderItem[], customerName: String, customerSurname: String, customerEmailAddress: String, customerPhone: String): Observable<Order> {
     const orderRequest : OrderRequest = {
-      orderItemsIds: orderItems.map(it=> it.id),
+      orderItemsIds: orderItems.map(it=> it.quantity),
       customerName: customerName,
       customerSurname: customerSurname,
       customerEmailAddress: customerEmailAddress,

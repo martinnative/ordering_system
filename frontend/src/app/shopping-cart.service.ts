@@ -65,7 +65,6 @@ export class ShoppingCartService {
       return this.productService.findProductById(cartItem.productId).pipe(
         map((product) => {
           const orderItem: OrderItem = {
-            id: cartItem.id,
             product: product,
             quantity: cartItem.quantity,
             notIngredients: cartItem.notIngredients
