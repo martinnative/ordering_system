@@ -18,7 +18,7 @@
           </div>
           <div class="card-body p-4">
             <ng-scrollbar style="height:68vh">
-              <div class="card shadow-0 border mb-4" *ngFor="let order of filteredOrders">
+              <div class="card shadow-0 border mb-4" *ngFor="let order of filteredOrders.reverse()">
                 <h5 class="mt-2 ms-2 text-center">{{order.customerName + ' ' + order.customerSurname}}
                   [ {{order.customerPhone}} ] - {{order.createdOn}}</h5>
                 <div class="card-body" *ngFor="let productItem of order.items">
@@ -26,7 +26,7 @@
                     <div class="col-md-2">
                       <span class="badge badge-info" style="font-size:1rem;" *ngIf="productItem.product.category.name == 'Пица'">#{{productItem.product.pizzaNumber}}</span>
                       <img [src]="transformData(productItem.product).image"
-                           class="img-fluid" alt="Phone">
+                           class="img-fluid" alt="Phone" loading="lazy">
                     </div>
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                       <p class="text-muted mb-0">{{productItem.product.name}}</p>

@@ -45,11 +45,13 @@ import { AdminToggleProductsComponent } from './Admin/admin-toggle-products/admi
 import {httpInterceptorProviders} from "./_helpers/http.interceptor";
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import {AlertModule} from "./alert.module";
+import {OrderSucessComponent} from "./Shop/order-sucess/order-sucess.component";
 
 
 
 @NgModule({
   declarations: [
+    OrderSucessComponent,
     AppComponent,
     HomeComponent,
     InfographicsComponent,

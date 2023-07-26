@@ -15,6 +15,7 @@ import {CreateCategoryComponent} from "./Admin/create-category/create-category.c
 import {AdminPanelComponent} from "./Admin/admin-panel/admin-panel.component";
 import {AdminOrdersComponent} from "./Admin/admin-orders/admin-orders.component";
 import {AdminToggleProductsComponent} from "./Admin/admin-toggle-products/admin-toggle-products.component";
+import {OrderSucessComponent} from "./Shop/order-sucess/order-sucess.component";
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'create-ingredient', component: CreateIngredientComponent},
   { path: 'create-product', component: CreateProductComponent},
   { path: 'create-category', component: CreateCategoryComponent},
+  { path: 'order-success', component: OrderSucessComponent },
   { path: 'admin', component: AdminPanelComponent},
   { path: 'admin/orders', component: AdminOrdersComponent},
   { path: 'admin/toggle', component: AdminToggleProductsComponent },

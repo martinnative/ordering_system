@@ -40,7 +40,6 @@ export class OrdersService {
       customerEmailAddress: customerEmailAddress,
       customerPhone: customerPhone
     };
-    console.log(orderRequest);
     return this.http.post<Order>('/api/orders/create', orderRequest);
   }
 }

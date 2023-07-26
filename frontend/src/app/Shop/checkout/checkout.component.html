@@ -36,7 +36,7 @@
 <section class="section">
   <div class="container">
 
-    <form method="post" (submit)="createOrder()">
+    <form [formGroup]="orderForm" (ngSubmit)="createOrder()">
       <div class="row">
         <div class="col-xl-7">
 
@@ -46,22 +46,26 @@
           <div class="row">
             <div class="form-group col-xl-6">
               <label>Име <span class="text-danger">*</span></label>
-              <input type="text" placeholder="Внесете Име" name="fname" class="form-control" [(ngModel)]="firstname" required>
+              <input type="text" placeholder="Внесете Име" formControlName="fname" class="form-control" required>
             </div>
             <div class="form-group col-xl-6">
               <label>Презиме <span class="text-danger">*</span></label>
-              <input type="text" placeholder="Внесете Презиме" name="lname" class="form-control" [(ngModel)]="lastname" required>
+              <input type="text" placeholder="Внесете Презиме" formControlName="lname" class="form-control" required>
             </div>
-            <div class="form-group">
+            <div class="form-group col-xl-6">
               <label>Контакт телефон <span class="text-danger">*</span></label>
-              <input type="text" placeholder="Внесете Контакт телефон" name="phone" class="form-control" [(ngModel)]="phone" required>
+              <input type="text" placeholder="Внесете Контакт телефон" formControlName="phone" class="form-control" required>
             </div>
-            <div class="form-group">
+            <div class="form-group col-xl-6">
               <label>Емаил Адреса <span class="text-danger">*</span></label>
-              <input type="email" placeholder="Внесете Емаил Ареса" name="email" class="form-control" [(ngModel)]="email" required>
+              <input type="email" placeholder="Внесете Емаил Ареса" formControlName="email" class="form-control" required>
             </div>
+            <!-- Error Message -->
+            <div *ngIf="isFormSubmitted && orderForm.invalid" class="alert alert-danger mt-3">
+              Ве молиме пополнете ги потребните податоци или проверете дали има грешка во истите.
+            </div>
+            <!-- /Error Message -->
           </div>
-
           <!-- /Buyer Info -->
 
         </div>
@@ -99,24 +103,24 @@
             </tbody>
           </table>
 
-<!--          <div class="form-group">-->
-<!--            <label>Card Number</label>-->
-<!--            <input type="text" class="form-control" name="master-number" placeholder="Card Number" value="">-->
-<!--          </div>-->
-<!--          <div class="form-group">-->
-<!--            <label>Full Name</label>-->
-<!--            <input type="text" class="form-control" name="master-name" placeholder="Full Name" value="">-->
-<!--          </div>-->
-<!--          <div class="row">-->
-<!--            <div class="col-xl-6 form-group">-->
-<!--              <label>Expiry Date</label>-->
-<!--              <input type="text" class="form-control" name="master-expiry" placeholder="Expiry Date (MM/YY)" value="">-->
-<!--            </div>-->
-<!--            <div class="col-xl-6 form-group">-->
-<!--              <label>CVV*</label>-->
-<!--              <input type="number" class="form-control" name="master-cvv" placeholder="CVV" value="">-->
-<!--            </div>-->
-<!--          </div>-->
+          <!--          <div class="form-group">-->
+          <!--            <label>Card Number</label>-->
+          <!--            <input type="text" class="form-control" name="master-number" placeholder="Card Number" value="">-->
+          <!--          </div>-->
+          <!--          <div class="form-group">-->
+          <!--            <label>Full Name</label>-->
+          <!--            <input type="text" class="form-control" name="master-name" placeholder="Full Name" value="">-->
+          <!--          </div>-->
+          <!--          <div class="row">-->
+          <!--            <div class="col-xl-6 form-group">-->
+          <!--              <label>Expiry Date</label>-->
+          <!--              <input type="text" class="form-control" name="master-expiry" placeholder="Expiry Date (MM/YY)" value="">-->
+          <!--            </div>-->
+          <!--            <div class="col-xl-6 form-group">-->
+          <!--              <label>CVV*</label>-->
+          <!--              <input type="number" class="form-control" name="master-cvv" placeholder="CVV" value="">-->
+          <!--            </div>-->
+          <!--          </div>-->
 
           <p class="small">Вашите лични податоци ќе се користат за обработка на вашата нарачка и за други цели опишани во нашата
             <a class="btn-link" href="#">полиса за приватност.</a> </p>

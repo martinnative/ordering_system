@@ -17,11 +17,6 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig  {
-    private final AuthProvider databaseAuthenticationProvider;
-
-    public SecurityConfig(AuthProvider databaseAuthenticationProvider) {
-        this.databaseAuthenticationProvider = databaseAuthenticationProvider;
-    }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -42,9 +37,6 @@ public class SecurityConfig  {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
-
-
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //
