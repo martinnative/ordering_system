@@ -118,6 +118,7 @@ export class ShoppingCartService {
 
   clearCart() {
     this.cartItems = []
+    sessionStorage.setItem('cartItems','');
   }
 }
 
