@@ -1,20 +1,24 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnDestroy, OnInit} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from '../model/Order';
 import {OrderItem} from "../model/OrderItem";
 import {OrderRequest} from "../model/OrderRequest";
 import {OrderItemRequest} from "../model/OrderItemRequest";
+import {WebSocketService} from "./web-socket.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService {
+export class OrdersService implements OnInit{
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+  }
 
   findAllOrders(): Observable<Order[]> {
     return this.http.get<Order[]>('/api/orders');
@@ -42,4 +46,5 @@ export class OrdersService {
     };
     return this.http.post<Order>('/api/orders/create', orderRequest);
   }
+
 }

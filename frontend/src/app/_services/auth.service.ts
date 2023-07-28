@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {StorageService} from "./storage.service";
 
 
-const AUTH_API = 'http://localhost:9999/api/auth/';
+const AUTH_API = 'http://localhost:8080/api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
