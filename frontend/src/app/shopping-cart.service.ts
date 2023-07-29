@@ -89,7 +89,6 @@ export class ShoppingCartService {
     if (storedItems) {
       this.cartItems = JSON.parse(this.decrypt(storedItems));
     }
-
   }
 
   calculateTotal(): number {
