@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 import {StorageService} from "../../_services/storage.service";
 import {AuthService} from "../../_services/auth.service";
 import {Ingredient} from "../../../model/Ingredient";
+import {WebSocketService} from "../../web-socket.service";
 
 @Component({
   selector: 'app-admin-orders',
@@ -25,12 +26,19 @@ export class AdminOrdersComponent implements OnInit{
               private loaderService:LoadingService,
               private router: Router,
               private storageService:StorageService,
-              private authService:AuthService) {
+              private authService:AuthService,
+              public webSocketService:WebSocketService) {
   }
   ngOnInit(): void {
     this.ordersService.findAllOrders().subscribe(data => {
       this.orders = data
       this.filteredOrders = data;
+    });
+    this.webSocketService.subscribeToOrders().subscribe(order => {
+      // Add the newly received order to the filteredOrders list
+      this.filteredOrders.push(order);
+      // You might want to apply any filtering or sorting logic here if needed
+      // For example, you can do: this.filteredOrders = this.filteredOrders.filter(...) or something similar
     });
   }
   transformData(data: Product):Product {
@@ -82,7 +90,6 @@ export class AdminOrdersComponent implements OnInit{
             this.filteredOrders = data;
             this.loaderService.setLoading(false);
             Swal.fire('Успешно!', 'Нарачката е сега во процесирање', 'success');
-
           });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           order.finished = !order.finished;
@@ -104,9 +111,6 @@ export class AdminOrdersComponent implements OnInit{
   }
   showFinished() {
     this.filteredOrders = this.orders.filter(a => a.finished)
-  }
-  redirectToUrl(): void {
-    this.router.navigateByUrl('/auth'); // Replace '/your-url' with the desired URL
   }
   isLogggedIn(){
     return this.storageService.isLoggedIn();

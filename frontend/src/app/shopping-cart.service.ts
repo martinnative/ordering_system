@@ -114,5 +114,10 @@ export class ShoppingCartService {
     });
     return decrypted.toString(CryptoJS.enc.Utf8);
   }
+
+  clearCart() {
+    this.cartItems = []
+    sessionStorage.setItem('cartItems','');
+  }
 }
 

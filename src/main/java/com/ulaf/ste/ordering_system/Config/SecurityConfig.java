@@ -17,11 +17,6 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig  {
-    private final AuthProvider databaseAuthenticationProvider;
-
-    public SecurityConfig(AuthProvider databaseAuthenticationProvider) {
-        this.databaseAuthenticationProvider = databaseAuthenticationProvider;
-    }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -31,20 +26,6 @@ public class SecurityConfig  {
                 .httpBasic(Customizer.withDefaults());
         return http.build();
     }
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
-        configuration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
-
-
-
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //

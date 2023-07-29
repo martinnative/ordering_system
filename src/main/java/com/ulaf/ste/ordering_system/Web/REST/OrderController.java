@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -28,11 +29,13 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(value = "/api/orders")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class OrderController {
     private final OrderService orderService;
     private final OrderItemService orderItemService;
     private final ProductService productService;
     private final IngredientService ingredientService;
+    private final SimpMessagingTemplate simpMessagingTemplate;
 
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders(){
@@ -72,7 +75,7 @@ public class OrderController {
         order.setCreatedOn(LocalDateTime.now());
 
         Order createdOrder = orderService.createOrder(order);
-
+        simpMessagingTemplate.convertAndSend("/topic",createdOrder);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
     }
 

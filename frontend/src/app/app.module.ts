@@ -45,11 +45,15 @@ import { AdminToggleProductsComponent } from './Admin/admin-toggle-products/admi
 import {httpInterceptorProviders} from "./_helpers/http.interceptor";
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import {AlertModule} from "./alert.module";
+import {OrderSucessComponent} from "./Shop/order-sucess/order-sucess.component";
+import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
 
+const socketConfig: SocketIoConfig = { url: 'http://localhost:8080/ws', options: {} };
 
 
 @NgModule({
   declarations: [
+    OrderSucessComponent,
     AppComponent,
     HomeComponent,
     InfographicsComponent,
@@ -97,7 +101,8 @@ import {AlertModule} from "./alert.module";
     CarouselModule,
     ButtonModule,
     LazyLoadImageModule,
-    AlertModule
+    AlertModule,
+    SocketIoModule.forRoot(socketConfig)
   ],
   providers: [
     httpInterceptorProviders,
