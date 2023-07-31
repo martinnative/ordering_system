@@ -42,11 +42,11 @@ import { CarouselModule } from 'primeng/carousel';
 import { AdminPanelComponent } from './Admin/admin-panel/admin-panel.component';
 import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.component';
 import { AdminToggleProductsComponent } from './Admin/admin-toggle-products/admin-toggle-products.component';
-import {httpInterceptorProviders} from "./_helpers/http.interceptor";
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import {AlertModule} from "./alert.module";
 import {OrderSucessComponent} from "./Shop/order-sucess/order-sucess.component";
 import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
+import {HttpRequestInterceptor} from "./_helpers/http.interceptor";
 
 const socketConfig: SocketIoConfig = { url: 'http://localhost:8080/ws', options: {} };
 
@@ -105,8 +105,7 @@ const socketConfig: SocketIoConfig = { url: 'http://localhost:8080/ws', options:
     SocketIoModule.forRoot(socketConfig)
   ],
   providers: [
-    httpInterceptorProviders,
-    LoadingInterceptor,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

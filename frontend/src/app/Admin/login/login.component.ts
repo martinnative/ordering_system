@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {StorageService} from "../../_services/storage.service";
 import {AuthService} from "../../_services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,10 @@ export class LoginComponent {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
-  constructor(private authService: AuthService, private storageService: StorageService) { }
+  constructor(private authService: AuthService,
+              private storageService: StorageService,
+              private router:Router
+              ) { }
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
@@ -30,11 +34,14 @@ export class LoginComponent {
 
     this.authService.login(username, password).subscribe({
       next: data => {
-        this.storageService.saveUser(data);
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.storageService.getUser().roles;
-        this.reloadPage();
+        this.authService.loadProfile(data);
+        console.log("Done")
+        this.router.navigateByUrl("/admin")
+        // this.storageService.saveUser(data);
+        // this.isLoginFailed = false;
+        // this.isLoggedIn = true;
+        // this.roles = this.storageService.getUser().roles;
+        // this.reloadPage();
       },
       error: err => {
         this.errorMessage = err.error.message;
