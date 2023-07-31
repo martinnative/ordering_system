@@ -7,6 +7,7 @@ import com.ulaf.ste.ordering_system.Service.ProductService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -72,12 +73,16 @@ public class ProductController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product createdProduct = productService.createProduct(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProduct);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) throws NotFoundByIdException {
         Product updatedProduct = productService.updateProduct(id, product);
         if (updatedProduct != null) {
@@ -87,6 +92,8 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
@@ -103,6 +110,7 @@ public class ProductController {
         return ResponseEntity.ok(randomProducts);
     }
     @PutMapping("/availability")
+//    @PreAuthorize("hasAuthority('SCOPE_ADMIN')") TODO:SHOP OWNER AND ADMIN
     public ResponseEntity<List<Product>> changeProductAvailability(@RequestParam("id") String id) {
         List<Product> products = productService.changeProductAvailability(Long.parseLong(id));
         return ResponseEntity.ok(products);

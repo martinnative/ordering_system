@@ -9,6 +9,7 @@ import com.ulaf.ste.ordering_system.Web.requests.CategoryRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,21 @@ public class CategoryController {
     private final CategoryService categoryService;
     private final ImageService imageService;
 
+    @GetMapping({"/forAdmin"})
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+    public String forAdmin(){
+        return "This URL is only accessible to the admin";
+    }
+
+    @GetMapping({"/forUser"})
+    @PreAuthorize("hasAuthority('SCOPE_USER')")
+    public String forUser(){
+        return "This URL is only accessible to the user";
+    }
+    @GetMapping({"/forEveryone"})
+    public String forEveryone(){
+        return "This URL is only accessible to the forEveryone";
+    }
 
     @GetMapping
     public ResponseEntity<List<Category>> getAllCategories() {
@@ -36,7 +52,8 @@ public class CategoryController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping
+    @PostMapping("/create")
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public ResponseEntity<Category> createCategory(@RequestBody CategoryRequest categoryRequest) {
         Image image = imageService.findById(categoryRequest.getImageId());
         Category category = new Category(categoryRequest.getName(), categoryRequest.getDescription(),image);
@@ -44,7 +61,9 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCategory);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+
     public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category category) throws NotFoundByIdException {
         Category updatedCategory = categoryService.updateCategory(id, category);
         if (updatedCategory != null) {
@@ -53,7 +72,8 @@ public class CategoryController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
         categoryService.deleteCategory(id);
         return ResponseEntity.noContent().build();

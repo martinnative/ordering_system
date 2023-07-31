@@ -12,6 +12,5 @@ public class OrderingSystemApplication {
         SpringApplication.run(OrderingSystemApplication.class, args);
 
     }
-    @Bean
-    public PasswordEncoder passwordEncoder(){return new BCryptPasswordEncoder(10);}
+
 }

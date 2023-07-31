@@ -1,54 +1,90 @@
 package com.ulaf.ste.ordering_system.Config;
 
+import com.nimbusds.jose.jwk.source.ImmutableSecret;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.OAuth2ResourceServerDsl;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.*;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.util.Arrays;
-import java.util.List;
-
+import javax.crypto.spec.SecretKeySpec;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig  {
+@EnableMethodSecurity
+public class SecurityConfig {
+    @Value("${jwt.secret}")
+    private String secretKey;
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .securityMatchers((matchers) -> matchers
-                        .requestMatchers("/")
-                )
-                .httpBasic(Customizer.withDefaults());
-        return http.build();
+    public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
+        PasswordEncoder passwordEncoder = passwordEncoder();
+        return new InMemoryUserDetailsManager(
+                User.withUsername("dbozhinoski").password(passwordEncoder.encode("123")).authorities("ADMIN").build(),
+                User.withUsername("dbozhinoskiUser").password(passwordEncoder.encode("123")).authorities("USER").build()
+        );
     }
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//
-//        http.csrf().disable().authorizeRequests()
-//                .antMatchers("/").permitAll()
-//                .and()
-//                .formLogin()
-//                .failureUrl("/login?error=BadCredentials")
-//                .defaultSuccessUrl("/",true)
-//                .and()
-//                .logout().logoutUrl("/logout").clearAuthentication(true)
-//                .invalidateHttpSession(true).deleteCookies("JSESSIONID");
-//
-//    }
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**","/vendor/**","/img/**","/lib/**","/h2/**");
-//    }
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) {
-//        auth.authenticationProvider(databaseAuthenticationProvider);
-//    }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+        return httpSecurity
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(ar ->
+                        ar.requestMatchers("/api/**").permitAll()
+                )
+                .authorizeHttpRequests(ar ->
+                        ar.requestMatchers("/auth/login/**").permitAll()
+                )
+                .authorizeHttpRequests(ar ->
+                        ar.anyRequest().authenticated()
+                )
+//                .httpBasic(Customizer.withDefaults())
+                .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
+                .build();
+    }
+
+    @Bean
+    JwtEncoder jwtEncoder() {
+//        String secretKey="9faa372517ac1d389758d3750fc87acf00f542277f26fec1ce4593e93f64e338";
+        return new NimbusJwtEncoder(new ImmutableSecret<>(secretKey.getBytes()));
+    }
+
+    @Bean
+    JwtDecoder jwtDecoder() {
+//        String secretKey="9faa372517ac1d389758d3750fc87acf00f542277f26fec1ce4593e93f64e338";
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "RSA");
+        return NimbusJwtDecoder.withSecretKey(secretKeySpec).macAlgorithm(MacAlgorithm.HS512).build();
+    }
+    @Bean
+    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService){
+        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
+        daoAuthenticationProvider.setUserDetailsService(userDetailsService);
+        return new ProviderManager(daoAuthenticationProvider);
+    }
 }

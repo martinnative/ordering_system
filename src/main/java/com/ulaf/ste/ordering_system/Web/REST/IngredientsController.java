@@ -10,6 +10,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -39,6 +40,7 @@ public class IngredientsController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public ResponseEntity<Ingredient> createIngredient(@RequestBody IngredientRequest ingredientRequest) {
         Image image = imageService.findById(ingredientRequest.getImageId());
         Ingredient createdIngredient = new Ingredient(ingredientRequest.getName(),image);
@@ -46,6 +48,8 @@ public class IngredientsController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+
     public ResponseEntity<Ingredient> updateIngredient(@PathVariable Long id, @RequestBody Ingredient ingredient) throws NotFoundByIdException {
         Ingredient updatedIngredient = ingredientService.updateIngredient(id, ingredient);
         if (updatedIngredient != null) {
@@ -55,6 +59,8 @@ public class IngredientsController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+
     public ResponseEntity<Void> deleteIngredient(@PathVariable Long id) {
         ingredientService.deleteIngredient(id);
         return ResponseEntity.noContent().build();
