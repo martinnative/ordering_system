@@ -18,7 +18,7 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
     public List<Order> getAllOrders() {
-        return orderRepository.findAll();
+        return orderRepository.getAllByCreatedOnBefore(LocalDateTime.now());
     }
     public List<Order> getTodaysOrders() {
         return orderRepository.findAll().stream().filter(order -> order.getCreatedOn().toLocalDate().equals(LocalDateTime.now().toLocalDate())).collect(Collectors.toList());
