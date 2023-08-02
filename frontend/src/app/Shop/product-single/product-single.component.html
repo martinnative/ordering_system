@@ -78,12 +78,20 @@
                   <div class="customize-variation-wrapper">
                     <i class="flaticon-pizza-and-cutted-slice"></i>
                     <h5>Состојки и алергени</h5>
-                    <div class="customize-variation-item" data-price="2.00" *ngFor="let ingredient of product.ingredients">
+                    <div class="customize-variation-item" data-price="2.00">
                       <div class="custom-control custom-checkbox">
-                        <input type="checkbox" value="{{ingredient.id}}" class="custom-control-input" id="addChicken1">
-                        <img [src]="transformDataIngredient(ingredient).image" alt="menu item" height="40px" width="40px"/>
-                        <br>
-                        <label class="custom-control-label" for="addChicken1">Без {{ingredient.name}}</label>
+                        <select multiple [(ngModel)]="ingredients1" class="custom-select d-flex" style="width:300px;">
+                          <ng-container *ngFor="let ingredient of product.ingredients">
+                            <option [value]="ingredient.name">
+                              <input type="checkbox" [checked]="ingredients.includes(ingredient.name)" (change)="toggleSelection(ingredient.name)">
+                              Без {{ ingredient.name }}
+                              <!--                          <input type="checkbox" value="{{ingredient.id}}" class="custom-control-input" id="addChicken1">-->
+                              <img [src]="transformDataIngredient(ingredient).image" alt="menu item" height="40px" width="40px"/>
+                              <!--                          <br>-->
+                              <!--                          <label class="custom-control-label" for="addChicken1">Без {{ingredient.name}}</label>-->
+                            </option>
+                          </ng-container>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -169,10 +177,10 @@
             <div class="col-lg-4 col-md-6">
               <div class="product" *ngIf="product.available">
                 <a class="product-thumb" routerLink="/product/{{product.id}}"> <img [src]="sanitizeImage(product).image"
-                                                                                    alt="menu item"/> </a>
+                                                                                    alt="menu item" loading="lazy"/></a>
                 <div class="product-body">
                   <div class="product-desc">
-                    <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
+                    <h4><a routerLink="/product/{{product.id}}" class="text-decoration-none">{{product.name}}</a></h4>
                     <p>{{product.description}}</p>
                     <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable">
                       Измени <i

@@ -15,7 +15,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.enableSimpleBroker("/topic"); // Enable a simple message broker for topics
         registry.setApplicationDestinationPrefixes("/app"); // Set the prefix for client-to-server messages
     }
-
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws").setAllowedOrigins("http://localhost:4200").withSockJS(); // Register the WebSocket endpoint

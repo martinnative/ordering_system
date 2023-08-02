@@ -11,7 +11,7 @@
         <div class="pasta__info__recipes ">
           <a routerLink="/product/{{product.id}}" *ngFor="let product of products"><span class="text-white">{{product.name}}</span></a>
         </div>
-        <img class="" [lazyLoad]="'/assets/img/12.png'"/>
+        <img src="/assets/img/12.png" loading="lazy"/>
       </div>
       <figure class="pasta__dish">
         <div class="pasta__dish__container">
@@ -21,3 +21,6 @@
     </div>
   </main>
 </div>
+
+
+

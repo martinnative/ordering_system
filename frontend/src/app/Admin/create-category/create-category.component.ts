@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {ImageService} from "../../image.service";
-import {IngredientsService} from "../../ingredients.service";
-import {finalize, map, switchMap} from "rxjs";
+import {map, switchMap} from "rxjs";
 import {CategoriesService} from "../../categories.service";
 
 @Component({

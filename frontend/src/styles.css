@@ -5211,7 +5211,59 @@ td.quantity{
   }
 
 }
+/* Custom styles for the select dropdown */
+.custom-select {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
 
+/* Style the options */
+.custom-select option {
+  padding: 8px 30px 8px 10px;
+}
+
+/* Hide the original checkboxes */
+.custom-select input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Custom checkbox style */
+.custom-select .checkbox-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+/* Custom checkbox checkmark */
+.custom-select .checkbox-icon::after {
+  content: '\2713'; /* Checkmark symbol */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #007bff;
+  opacity: 0;
+}
+
+/* Show the checkmark when the checkbox is checked */
+.custom-select input[type="checkbox"]:checked + .checkbox-icon::after {
+  opacity: 1;
+}
 @media (max-width: 575px){
   .modal-lg{
     max-width: 500px;

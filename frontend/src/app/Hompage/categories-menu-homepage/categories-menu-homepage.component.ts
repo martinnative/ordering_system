@@ -118,7 +118,6 @@ export class CategoriesMenuHomepageComponent implements OnInit, AfterViewInit {
     modalRef.result.then((result) => {
       if (result) {
         this.addToCart(result.product,result.quantity, result.ingredients)
-        console.log(result)
       }
     });
   }

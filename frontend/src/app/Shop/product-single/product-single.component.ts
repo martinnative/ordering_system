@@ -5,7 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import {filter, map, mergeMap, tap} from "rxjs";
 import {ImageService} from "../../image.service";
 import {ShoppingCartService} from "../../shopping-cart.service";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CustomizeModalComponent} from "../customize-modal/customize-modal.component";
 import {Ingredient} from "../../../model/Ingredient";
 import {AlertService} from "../../alert.service";
@@ -22,8 +22,12 @@ export class ProductSingleComponent implements OnInit {
   products: Product[] = [];
   _id: String = "";
   quantity:number = 1;
+  ingredients1:Ingredient[] = [];
+  ingredients: String[] = [];
 
-  options = {
+
+
+    options = {
     autoClose: true,
     keepAfterRouteChange: false
   };
@@ -33,7 +37,6 @@ export class ProductSingleComponent implements OnInit {
     private productsService: ProductsService,
     private imageService: ImageService,
     private shoppingCartService: ShoppingCartService,
-    private productService:ProductsService,
     private modalService: NgbModal,
     private alertService: AlertService,
   ) { }
@@ -55,7 +58,12 @@ export class ProductSingleComponent implements OnInit {
     return this.imageService.transformData(product);
   }
   addToCart(product: Product, quantity?:number, ingredients?: Ingredient[]) {
-    const added: boolean = this.shoppingCartService.addToCart(product,quantity || 1, ingredients || []);
+    if (ingredients){
+      var added: boolean = this.shoppingCartService.addToCart(product,quantity || 1, ingredients);
+    }
+    else {
+       added = this.shoppingCartService.addToCart(product,quantity || 1, this.ingredients1);
+    }
     if (added) {
       this.alertService.success("Успешно додадено во кошничка!", this.options);
     } else {
@@ -75,5 +83,15 @@ export class ProductSingleComponent implements OnInit {
 
   transformDataIngredient(data: Ingredient):Ingredient {
     return this.imageService.transformIngredient(data);
+  }
+
+  protected readonly undefined = undefined;
+
+  toggleSelection(ingredientName: String): void {
+    if (this.ingredients.includes(ingredientName)) {
+      this.ingredients = this.ingredients.filter(name => name !== ingredientName);
+    } else {
+      this.ingredients.push(ingredientName);
+    }
   }
 }

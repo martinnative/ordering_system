@@ -29,7 +29,7 @@
           <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="transformData(product).image" alt="image"/> </a>
           <div class="product-body">
             <div class="product-desc">
-              <h4><a routerLink="/product/{{product.id}}">{{product.name}}</a></h4>
+              <h4><a routerLink="/product/{{product.id}}" class="text-decoration-none">{{product.name}}</a></h4>
               <p>{{product.description}}</p>
               <a class="btn-custom light btn-sm shadow-none" (click)="openModal(product)" *ngIf="product.customizable">
                 Измени <i
