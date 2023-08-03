@@ -16,6 +16,7 @@ import {AdminPanelComponent} from "./Admin/admin-panel/admin-panel.component";
 import {AdminOrdersComponent} from "./Admin/admin-orders/admin-orders.component";
 import {AdminToggleProductsComponent} from "./Admin/admin-toggle-products/admin-toggle-products.component";
 import {OrderSucessComponent} from "./Shop/order-sucess/order-sucess.component";
+import {AuthGuard} from "./_helpers/AuthGuard";
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -30,9 +31,9 @@ const routes: Routes = [
   { path: 'create-product', component: CreateProductComponent},
   { path: 'create-category', component: CreateCategoryComponent},
   { path: 'order-success', component: OrderSucessComponent },
-  { path: 'admin', component: AdminPanelComponent},
-  { path: 'admin/orders', component: AdminOrdersComponent},
+  { path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard]},
   { path: 'admin/toggle', component: AdminToggleProductsComponent },
+  { path: 'admin/orders', component: AdminOrdersComponent},
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found' },
 ];
