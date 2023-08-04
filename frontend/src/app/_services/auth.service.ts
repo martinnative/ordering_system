@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {StorageService} from "./storage.service";
 import jwtDecode from "jwt-decode";
 import {Router} from "@angular/router";
+import {data} from "isotope-layout";
 
 
 const AUTH_API = 'http://localhost:8080/auth/';
@@ -14,7 +15,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements OnInit{
   isAuthenticated:Boolean = false;
   roles: any;
   username: any;
@@ -65,10 +66,12 @@ export class AuthService {
   loadProfile(data: any) {
     this.isAuthenticated = true;
     this.accessToken = data['access-token'];
+    sessionStorage.setItem("access-token",this.accessToken)
     let decodedJwt:any = jwtDecode(this.accessToken);
     this.username = decodedJwt.sub;
-    console.log(this.accessToken);
     this.roles = decodedJwt.scope;
-    console.log("Set!");
+  }
+
+  ngOnInit(): void {
   }
 }

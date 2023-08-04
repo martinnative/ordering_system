@@ -35,7 +35,6 @@ export class LoginComponent {
     this.authService.login(username, password).subscribe({
       next: data => {
         this.authService.loadProfile(data);
-        console.log("Done")
         this.router.navigateByUrl("/admin")
         // this.storageService.saveUser(data);
         // this.isLoginFailed = false;
