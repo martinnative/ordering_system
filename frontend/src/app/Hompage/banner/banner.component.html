@@ -1,26 +1,48 @@
-<div class="body-clone align-self-center my-5" data-pasta="spaghetti">
-  <nav class="menu">
-  </nav>
-  <main>
-    <div class="pasta spaghetti">
-      <img class="pasta__background" [lazyLoad]="'/assets/img/2.png'"/>
-      <div class="pasta__info text-white">
-        <small class="" style="font-famliy:Rubik;">Најпопуларни </small>
-        <h2 data-splitting>Пици</h2>
+<!--<div class="body-clone align-self-center my-5" data-pasta="spaghetti">-->
+<!--  <nav class="menu">-->
+<!--  </nav>-->
+<!--  <main>-->
+<!--    <div class="pasta spaghetti">-->
+<!--      <img class="pasta__background" [lazyLoad]="'/assets/img/2.png'"/>-->
+<!--      <div class="pasta__info text-white">-->
+<!--        <small class="" style="font-famliy:Rubik;">Најпопуларни </small>-->
+<!--        <h2 data-splitting>Пици</h2>-->
 
-        <div class="pasta__info__recipes ">
-          <a routerLink="/product/{{product.id}}" *ngFor="let product of products"><span class="text-white">{{product.name}}</span></a>
-        </div>
-        <img src="/assets/img/12.png" loading="lazy"/>
+<!--        <div class="pasta__info__recipes ">-->
+<!--          <a routerLink="/product/{{product.id}}" *ngFor="let product of products"><span class="text-white">{{product.name}}</span></a>-->
+<!--        </div>-->
+<!--        <img src="/assets/img/12.png" loading="lazy"/>-->
+<!--      </div>-->
+<!--      <figure class="pasta__dish">-->
+<!--        <div class="pasta__dish__container">-->
+<!--          <img [lazyLoad]="'/assets/img/3.png'" alt="Spaghetti Bolognese" />-->
+<!--        </div>-->
+<!--      </figure>-->
+<!--    </div>-->
+<!--  </main>-->
+<!--</div>-->
+<div class="banner" style="background-image: url('https://images.pexels.com/photos/7912400/pexels-photo-7912400.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row align-items-center" style="height: 300px;">
+      <div class="col-md-6">
+        <h1 class="banner-title" style="color: #ffffff; font-size: 40px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+          Прв кафич на знаковен јазик во Македонија 🤟🏻
+        </h1>
+        <p class="banner-description" style="color: #ffffff; font-size: 20px;">
+          „Улаф сте“ е кафе бар/пицерија која е основана од Радмила Перик и Мартин Ангелов, лоциран во „Старата чаршија“ во Битола.        </p>
+        <button class="btn btn-primary btn-lg" routerLink="/menu">Погледни го нашето мени</button>
       </div>
-      <figure class="pasta__dish">
-        <div class="pasta__dish__container">
-          <img [lazyLoad]="'/assets/img/3.png'" alt="Spaghetti Bolognese" />
-        </div>
-      </figure>
+      <div class="col-md-6 d-none d-md-block"> <!-- Display this image on desktop only -->
+        <img src="/assets/img/3.png" alt="Second Image" class="img-fluid" loading="lazy" width="70%" height="70%">
+      </div>
     </div>
-  </main>
+  </div>
 </div>
+
+
+
+
 
 
 

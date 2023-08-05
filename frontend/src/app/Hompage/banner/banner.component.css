@@ -1,14 +1,373 @@
 
-.home-slider {
+/*.home-slider {*/
+/*  position: relative;*/
+/*  height: 80%;*/
+/*  background-size: cover;*/
+/*  background-position: center;*/
+/*}*/
+
+/*.slider-item {*/
+/*  position: relative;*/
+/*  z-index: 2;*/
+/*}*/
+
+/*.overlay {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  background-color: rgba(0, 0, 0, 0.5);*/
+/*  z-index: -1;*/
+/*}*/
+
+/*.slider-text {*/
+/*  position: relative;*/
+/*  z-index: 2;*/
+/*  text-align: right; !* Add this line to align the text to the right *!*/
+/*}*/
+
+/*.slider-text .subheading {*/
+/*  font-size: 24px;*/
+/*  font-weight: 600;*/
+/*  color: #fff;*/
+/*}*/
+
+/*.slider-text h1 {*/
+/*  font-size: 48px;*/
+/*  font-weight: 700;*/
+/*  color: #fff;*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+/*.slider-text p {*/
+/*  font-size: 18px;*/
+/*  font-weight: 400;*/
+/*  color: #fff;*/
+/*  margin-bottom: 30px;*/
+/*}*/
+
+/*.slider-text a.btn {*/
+/*  font-size: 16px;*/
+/*  font-weight: 500;*/
+/*  color: #fff;*/
+/*  text-transform: uppercase;*/
+/*  padding: 10px 20px;*/
+/*  border-radius: 50px;*/
+/*  margin-right: 10px;*/
+/*  transition: all 0.3s ease;*/
+/*}*/
+
+/*.slider-text a.btn:hover {*/
+/*  background-color: #fff;*/
+/*  color: #000;*/
+/*}*/
+
+/*.slider-text a.btn-primary {*/
+/*  background-color: #ff9800;*/
+/*  border: none;*/
+/*}*/
+
+/*.slider-text a.btn-white {*/
+/*  background-color: transparent;*/
+/*  border: 1px solid #fff;*/
+/*}*/
+
+/*.slider-text a.btn-outline-white {*/
+/*  background-color: transparent;*/
+/*  border: 1px solid #fff;*/
+/*  color: #fff;*/
+/*}*/
+
+/*.slider-text a.btn-outline-white:hover {*/
+/*  background-color: #fff;*/
+/*  color: #000;*/
+/*}*/
+/*h1, h2 {*/
+/*  font-family: "Baloo 2", cursive;*/
+/*}*/
+/*a {*/
+/*  cursor: pointer;*/
+/*  color: #222;*/
+/*}*/
+
+/*img {*/
+/*  width: 100%;*/
+/*}*/
+/*main {*/
+/*  position: relative;*/
+/*}*/
+/*@media (min-width: 680px) {*/
+/*  main {*/
+/*    min-height: 100vh;*/
+/*    max-height: calc(100vh - 20%);*/
+/*    overflow-y: hidden;*/
+/*    overflow-x: hidden;*/
+/*  }*/
+/*}*/
+
+/*.menu {*/
+/*  display: flex;*/
+/*  position: relative;*/
+/*  background: #fff;*/
+/*  cursor: pointer;*/
+/*  height: 100vh;*/
+/*}*/
+/*@media (min-width: 680px) {*/
+/*  .menu {*/
+/*    height: 90vh;*/
+/*  }*/
+/*}*/
+/*.menu__link {*/
+/*  display: flex;*/
+/*  padding: 1.35rem;*/
+/*  text-align: center;*/
+/*  margin: auto;*/
+/*  position: relative;*/
+/*  z-index: 3;*/
+/*  height: 100%;*/
+/*  justify-content: center;*/
+/*  flex-direction: column;*/
+/*}*/
+/*.menu__link__shape {*/
+/*  width: 140%;*/
+/*  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);*/
+/*  margin: 0 0 1rem -15%;*/
+/*}*/
+/*.menu__link__shape .end-path {*/
+/*  visibility: hidden;*/
+/*}*/
+/*.menu__open {*/
+/*  font-size: 1.5rem;*/
+/*  line-height: 1.1;*/
+/*  text-transform: uppercase;*/
+/*  word-break: break-all;*/
+/*}*/
+/*.menu__items {*/
+/*  min-width: 100%;*/
+/*  z-index: 5;*/
+/*  position: absolute;*/
+/*  height: 100%;*/
+/*  z-index: 0;*/
+/*  left: 3.95rem;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-evenly;*/
+/*  visibility: hidden;*/
+/*  width: 19.3rem;*/
+/*}*/
+
+/*.menu__items a {*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  background-size: 200% 100%;*/
+/*  background-image: linear-gradient(to right, transparent 50%, #f8f8f8 50%);*/
+/*  display: flex;*/
+/*  position: relative;*/
+/*  align-items: center;*/
+/*  padding: 1rem;*/
+/*  font-size: 1.8rem;*/
+/*  letter-spacing: -0.05rem;*/
+/*  overflow: hidden;*/
+/*}*/
+/*.menu__items a:nth-child(even) {*/
+/*  background-image: linear-gradient(to right, transparent 50%, #f4f4f4 50%);*/
+/*}*/
+
+/*.menu__items a span {*/
+/*  opacity: 0;*/
+/*  transform: translateX(-20%);*/
+/*  position: relative;*/
+/*}*/
+/*.menu__items a img {*/
+/*  opacity: 0;*/
+/*  transform: translateX(20%);*/
+/*  position: absolute;*/
+/*  width: 80%;*/
+/*  right: -10%;*/
+/*}*/
+/*.menu.active svg.menu__link__shape {*/
+/*  transform: rotate(90deg);*/
+/*}*/
+/*.pasta {*/
+/*  position: absolute;*/
+/*  left: 0;*/
+/*  top: 0;*/
+/*  width: 100%;*/
+/*  font-size: 1.4rem;*/
+/*  visibility: hidden;*/
+/*  overflow: hidden;*/
+/*}*/
+/*@media (min-width: 680px) {*/
+/*  .pasta {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 33rem;*/
+/*    height: 100vh;*/
+/*  }*/
+/*}*/
+/*.pasta h2 {*/
+/*  font: 3rem / 1.2 "Gotu", sans-serif;*/
+/*  letter-spacing: -0.1rem;*/
+/*  margin-bottom: 3rem;*/
+/*  margin-left: 1rem;*/
+/*}*/
+/*@media (min-width: 680px) {*/
+/*  .pasta h2 {*/
+/*    font: 5rem / 1.2 "Gotu", sans-serif;*/
+/*    margin-left: 3rem;*/
+/*    overflow: hidden;*/
+/*    white-space: nowrap;*/
+/*  }*/
+/*}*/
+/*.pasta h2 .char {*/
+/*  display: inline-block;*/
+/*}*/
+/*.pasta__background {*/
+/*  opacity: 0.35;*/
+/*  position: absolute;*/
+/*  top: 2%;*/
+/*  max-width: 34rem;*/
+/*  left: -10%;*/
+/*}*/
+/*.pasta__info {*/
+/*  padding: 2rem;*/
+/*  position: relative;*/
+/*}*/
+/*.pasta__info small {*/
+/*  display: block;*/
+/*  text-transform: uppercase;*/
+/*  font: 1rem "Gotu";*/
+/*  margin: 0.5rem 0 0.5rem 1.5rem;*/
+/*}*/
+/*@media (min-width: 680px) {*/
+/*  .pasta__info small {*/
+/*    margin-top: 6rem;*/
+/*    margin-left: 3.5rem;*/
+/*  }*/
+/*}*/
+/*.pasta__info__recipes a {*/
+/*  display: block;*/
+/*  margin: 1.6rem 0;*/
+/*  font-size: 1.3rem;*/
+/*  line-height: 1.3;*/
+/*  overflow-y: hidden;*/
+/*  padding: 0 0 0 1rem;*/
+/*  transition: 0.3s ease-in-out;*/
+/*}*/
+/*.pasta__info__recipes a:before {*/
+/*  content: "";*/
+/*  background: #222;*/
+/*  height: 0.15rem;*/
+/*  width: 0;*/
+/*  transition: 0.3s ease-in-out;*/
+/*  position: absolute;*/
+/*  left: 0;*/
+/*  top: 50%;*/
+/*  transform: translateY(-100%);*/
+/*}*/
+/*.pasta__info__recipes a:hover {*/
+/*  transform: translateX(2rem);*/
+/*}*/
+/*.pasta__info__recipes a:hover:before {*/
+/*  width: 2.4rem;*/
+/*}*/
+/*.pasta__info__recipes a:active:before {*/
+/*  width: 85%;*/
+/*}*/
+/*@media (min-width: 680px) {*/
+/*  .pasta__info__recipes a {*/
+/*    font-size: 1.5rem;*/
+/*    padding: 0 0 0 3rem;*/
+/*  }*/
+/*}*/
+/*.pasta__info__recipes a span {*/
+/*  display: inline-block;*/
+/*}*/
+/*.pasta__dish {*/
+/*  text-align: right;*/
+/*  position: relative;*/
+/*}*/
+/*@media (min-width: 680px) {*/
+/*  .pasta__dish:before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 60vh;*/
+/*    height: 60vh;*/
+/*    left: 15%;*/
+/*    top: 15%;*/
+/*    background: transparent;*/
+/*    border-radius: 50%;*/
+/*    box-shadow: 0 0px 100px rgba(0, 0, 0, 0.5);*/
+/*  }*/
+/*}*/
+/*.pasta__dish img {*/
+/*  margin: -2rem -10rem 0 0;*/
+/*}*/
+/*@media (min-width: 680px) {*/
+/*  .pasta__dish img {*/
+/*    margin: 3rem 0 0 2.5rem;*/
+/*    width: 100%;*/
+/*    height: 75vh;*/
+/*    object-fit: contain;*/
+/*    position: relative;*/
+/*  }*/
+/*}*/
+/*.pasta.penne .pasta__dish:before {*/
+/*  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.3);*/
+/*}*/
+/*.spaghetti .pasta__background {*/
+/*  transform: rotate(20deg);*/
+/*  visibility: visible;*/
+/*}*/
+/*.body-clone {*/
+/*  background: darkred;*/
+/*  max-height: 100vh;*/
+/*  overflow: hidden;*/
+/*  width: 85%;*/
+/*  margin:auto;*/
+/*  display: grid;*/
+/*  grid-template-columns: min-content 1fr;*/
+/*  background-size: cover;*/
+/*  background-position: 13rem;*/
+/*  background-repeat: no-repeat;*/
+/*  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cg transform='translate(300,300)'%3E%3Cpath d='M171.3,-205.3C215.2,-167.2,239.6,-106.9,247.9,-45.8C256.2,15.3,248.5,77.2,216.3,117.5C184.2,157.8,127.7,176.6,70.6,200.1C13.5,223.6,-44.2,251.8,-80.6,233.4C-117,215,-132.1,150,-124.8,101.6C-117.5,53.3,-87.8,21.5,-74.8,-6.5C-61.9,-34.4,-65.6,-58.6,-56,-102.7C-46.3,-146.8,-23.1,-210.9,20.2,-235C63.6,-259.2,127.3,-243.3,171.3,-205.3Z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E");*/
+/*}*/
+/*@media (min-width: 680px) {*/
+/*  .body-clone {*/
+/*    height: 90vh;*/
+/*    width: 95%;*/
+/*    box-shadow: 0 10px 55px rgba(0, 0, 0, 0.15);*/
+/*    border-radius: 2rem;*/
+/*    background-position: 20rem;*/
+/*  }*/
+/*}*/
+/*.body-clone[data-pasta="ravioli"] .menu.active svg.menu__link__shape {*/
+/*  transform: rotate(45deg);*/
+/*}*/
+/*[data-pasta="spaghetti"] .spaghetti {*/
+/*  visibility: visible;*/
+/*}*/
+/*[data-pasta="penne"] .penne {*/
+/*  visibility: visible;*/
+/*}*/
+/*[data-pasta="fusilli"] .fusilli {*/
+/*  visibility: visible;*/
+/*}*/
+/*[data-pasta="farfalle"] .farfalle {*/
+/*  visibility: visible;*/
+/*}*/
+/*[data-pasta="ravioli"] .ravioli {*/
+/*  visibility: visible;*/
+/*}*/
+/** {*/
+/*  box-sizing: border-box;*/
+/*}*/
+
+.banner {
   position: relative;
-  height: 80%;
+  height: 300px; /* Adjust the height as needed */
   background-size: cover;
   background-position: center;
-}
-
-.slider-item {
-  position: relative;
-  z-index: 2;
 }
 
 .overlay {
@@ -17,351 +376,27 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency by changing the alpha value (0.7) */
 }
 
-.slider-text {
-  position: relative;
-  z-index: 2;
-  text-align: right; /* Add this line to align the text to the right */
+.banner-title {
+  text-transform: uppercase;
 }
 
-.slider-text .subheading {
-  font-size: 24px;
-  font-weight: 600;
-  color: #fff;
-}
-
-.slider-text h1 {
-  font-size: 48px;
-  font-weight: 700;
-  color: #fff;
+.banner-description {
   margin-bottom: 20px;
 }
 
-.slider-text p {
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff;
-  margin-bottom: 30px;
+.btn-primary {
+  background-color: #f25749;
+  border-color: #f25749;
 }
 
-.slider-text a.btn {
-  font-size: 16px;
-  font-weight: 500;
-  color: #fff;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 50px;
-  margin-right: 10px;
-  transition: all 0.3s ease;
+.btn-primary:hover {
+  background-color: #d63c30;
+  border-color: #d63c30;
 }
 
-.slider-text a.btn:hover {
-  background-color: #fff;
-  color: #000;
-}
-
-.slider-text a.btn-primary {
-  background-color: #ff9800;
-  border: none;
-}
-
-.slider-text a.btn-white {
-  background-color: transparent;
-  border: 1px solid #fff;
-}
-
-.slider-text a.btn-outline-white {
-  background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
-}
-
-.slider-text a.btn-outline-white:hover {
-  background-color: #fff;
-  color: #000;
-}
-h1, h2 {
-  font-family: "Baloo 2", cursive;
-}
-a {
-  cursor: pointer;
-  color: #222;
-}
-
-img {
-  width: 100%;
-}
-main {
-  position: relative;
-}
-@media (min-width: 680px) {
-  main {
-    min-height: 100vh;
-    max-height: calc(100vh - 20%);
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
-}
-
-.menu {
-  display: flex;
-  position: relative;
-  background: #fff;
-  cursor: pointer;
-  height: 100vh;
-}
-@media (min-width: 680px) {
-  .menu {
-    height: 90vh;
-  }
-}
-.menu__link {
-  display: flex;
-  padding: 1.35rem;
-  text-align: center;
-  margin: auto;
-  position: relative;
-  z-index: 3;
-  height: 100%;
-  justify-content: center;
-  flex-direction: column;
-}
-.menu__link__shape {
-  width: 140%;
-  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  margin: 0 0 1rem -15%;
-}
-.menu__link__shape .end-path {
-  visibility: hidden;
-}
-.menu__open {
-  font-size: 1.5rem;
-  line-height: 1.1;
-  text-transform: uppercase;
-  word-break: break-all;
-}
-.menu__items {
-  min-width: 100%;
-  z-index: 5;
-  position: absolute;
-  height: 100%;
-  z-index: 0;
-  left: 3.95rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  visibility: hidden;
-  width: 19.3rem;
-}
-
-.menu__items a {
-  width: 100%;
-  height: 100%;
-  background-size: 200% 100%;
-  background-image: linear-gradient(to right, transparent 50%, #f8f8f8 50%);
-  display: flex;
-  position: relative;
-  align-items: center;
-  padding: 1rem;
-  font-size: 1.8rem;
-  letter-spacing: -0.05rem;
-  overflow: hidden;
-}
-.menu__items a:nth-child(even) {
-  background-image: linear-gradient(to right, transparent 50%, #f4f4f4 50%);
-}
-
-.menu__items a span {
-  opacity: 0;
-  transform: translateX(-20%);
-  position: relative;
-}
-.menu__items a img {
-  opacity: 0;
-  transform: translateX(20%);
-  position: absolute;
-  width: 80%;
-  right: -10%;
-}
-.menu.active svg.menu__link__shape {
-  transform: rotate(90deg);
-}
-.pasta {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  font-size: 1.4rem;
-  visibility: hidden;
-  overflow: hidden;
-}
-@media (min-width: 680px) {
-  .pasta {
-    display: grid;
-    grid-template-columns: 1fr 33rem;
-    height: 100vh;
-  }
-}
-.pasta h2 {
-  font: 3rem / 1.2 "Gotu", sans-serif;
-  letter-spacing: -0.1rem;
-  margin-bottom: 3rem;
-  margin-left: 1rem;
-}
-@media (min-width: 680px) {
-  .pasta h2 {
-    font: 5rem / 1.2 "Gotu", sans-serif;
-    margin-left: 3rem;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-}
-.pasta h2 .char {
-  display: inline-block;
-}
-.pasta__background {
-  opacity: 0.35;
-  position: absolute;
-  top: 2%;
-  max-width: 34rem;
-  left: -10%;
-}
-.pasta__info {
-  padding: 2rem;
-  position: relative;
-}
-.pasta__info small {
-  display: block;
-  text-transform: uppercase;
-  font: 1rem "Gotu";
-  margin: 0.5rem 0 0.5rem 1.5rem;
-}
-@media (min-width: 680px) {
-  .pasta__info small {
-    margin-top: 6rem;
-    margin-left: 3.5rem;
-  }
-}
-.pasta__info__recipes a {
-  display: block;
-  margin: 1.6rem 0;
-  font-size: 1.3rem;
-  line-height: 1.3;
-  overflow-y: hidden;
-  padding: 0 0 0 1rem;
-  transition: 0.3s ease-in-out;
-}
-.pasta__info__recipes a:before {
-  content: "";
-  background: #222;
-  height: 0.15rem;
-  width: 0;
-  transition: 0.3s ease-in-out;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-100%);
-}
-.pasta__info__recipes a:hover {
-  transform: translateX(2rem);
-}
-.pasta__info__recipes a:hover:before {
-  width: 2.4rem;
-}
-.pasta__info__recipes a:active:before {
-  width: 85%;
-}
-@media (min-width: 680px) {
-  .pasta__info__recipes a {
-    font-size: 1.5rem;
-    padding: 0 0 0 3rem;
-  }
-}
-.pasta__info__recipes a span {
-  display: inline-block;
-}
-.pasta__dish {
-  text-align: right;
-  position: relative;
-}
-@media (min-width: 680px) {
-  .pasta__dish:before {
-    content: "";
-    position: absolute;
-    width: 60vh;
-    height: 60vh;
-    left: 15%;
-    top: 15%;
-    background: transparent;
-    border-radius: 50%;
-    box-shadow: 0 0px 100px rgba(0, 0, 0, 0.5);
-  }
-}
-.pasta__dish img {
-  margin: -2rem -10rem 0 0;
-}
-@media (min-width: 680px) {
-  .pasta__dish img {
-    margin: 3rem 0 0 2.5rem;
-    width: 100%;
-    height: 75vh;
-    object-fit: contain;
-    position: relative;
-  }
-}
-.pasta.penne .pasta__dish:before {
-  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.3);
-}
-.spaghetti .pasta__background {
-  transform: rotate(20deg);
-  visibility: visible;
-}
-.body-clone {
-  background: darkred;
-  max-height: 100vh;
-  overflow: hidden;
-  width: 85%;
-  margin:auto;
-  display: grid;
-  grid-template-columns: min-content 1fr;
-  background-size: cover;
-  background-position: 13rem;
-  background-repeat: no-repeat;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cg transform='translate(300,300)'%3E%3Cpath d='M171.3,-205.3C215.2,-167.2,239.6,-106.9,247.9,-45.8C256.2,15.3,248.5,77.2,216.3,117.5C184.2,157.8,127.7,176.6,70.6,200.1C13.5,223.6,-44.2,251.8,-80.6,233.4C-117,215,-132.1,150,-124.8,101.6C-117.5,53.3,-87.8,21.5,-74.8,-6.5C-61.9,-34.4,-65.6,-58.6,-56,-102.7C-46.3,-146.8,-23.1,-210.9,20.2,-235C63.6,-259.2,127.3,-243.3,171.3,-205.3Z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E");
-}
-@media (min-width: 680px) {
-  .body-clone {
-    height: 90vh;
-    width: 95%;
-    box-shadow: 0 10px 55px rgba(0, 0, 0, 0.15);
-    border-radius: 2rem;
-    background-position: 20rem;
-  }
-}
-.body-clone[data-pasta="ravioli"] .menu.active svg.menu__link__shape {
-  transform: rotate(45deg);
-}
-[data-pasta="spaghetti"] .spaghetti {
-  visibility: visible;
-}
-[data-pasta="penne"] .penne {
-  visibility: visible;
-}
-[data-pasta="fusilli"] .fusilli {
-  visibility: visible;
-}
-[data-pasta="farfalle"] .farfalle {
-  visibility: visible;
-}
-[data-pasta="ravioli"] .ravioli {
-  visibility: visible;
-}
-* {
-  box-sizing: border-box;
-}
 
 
 
