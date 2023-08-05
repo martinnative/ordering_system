@@ -376,26 +376,68 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency by changing the alpha value (0.7) */
+  background-color: rgba(0, 0, 0, 0.8); /* Adjust the transparency by changing the alpha value (0.7) */
 }
 
 .banner-title {
   text-transform: uppercase;
+  font-family: 'Arial', sans-serif; /* Use your preferred font-family */
+  text-align: left; /* Align the text left */
+  margin-left: 20px; /* Add some left margin */
 }
 
 .banner-description {
   margin-bottom: 20px;
+  text-align: left; /* Align the text left */
+  margin-left: 20px; /* Add some left margin */
 }
 
 .btn-primary {
-  background-color: #f25749;
-  border-color: #f25749;
+  background-color: darkred;
+  border-color: darkred;
+  display: block;
+  margin: 20px; /* Center the button on desktop */
 }
 
 .btn-primary:hover {
-  background-color: #d63c30;
-  border-color: #d63c30;
+  background-color: darkred;
+  border-color: black;
 }
+
+.banner-image {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional styling for all devices */
+@media (max-width: 900px) {
+  .banner {
+    height: 600px; /* Adjust the height for mobile */
+  }
+
+  .banner-title {
+    font-size: 20px;
+    margin-left: 0; /* Align the text to the left on mobile */
+  }
+
+  .banner-description {
+    font-size: 10px;
+    margin-left: 0; /* Align the text to the left on mobile */
+  }
+
+  .btn-primary {
+    margin-top: 10px;
+  }
+
+  .col-md-6 {
+    text-align: left;
+    padding-left: 15px;
+  }
+}
+
+
+
+
 
 
 
