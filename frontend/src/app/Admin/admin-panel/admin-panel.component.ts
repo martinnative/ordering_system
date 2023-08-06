@@ -34,4 +34,8 @@ export class AdminPanelComponent implements OnInit{
   hasRole(role:string){
     return localStorage.getItem('role') == role;
   }
+  logout(){
+    this.authService.logout()
+    this.router.navigateByUrl('/auth');
+  }
 }

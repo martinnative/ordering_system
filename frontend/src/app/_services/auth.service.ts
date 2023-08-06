@@ -60,6 +60,8 @@ export class AuthService implements OnInit{
   }
 
   logout(): Observable<any> {
+    sessionStorage.removeItem("access-token")
+    this.isAuthenticated = false;
     return this.http.post(AUTH_API + 'signout', { }, httpOptions);
   }
 

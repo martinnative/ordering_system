@@ -26,7 +26,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { RouterModule } from '@angular/router';
-import { LoadingInterceptor } from './loading.interceptor';
 import { NgScrollbarModule} from "ngx-scrollbar";
 import { LoginComponent } from './Admin/login/login.component';
 import { ProductSingleComponent } from './Shop/product-single/product-single.component';

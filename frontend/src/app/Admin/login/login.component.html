@@ -28,7 +28,14 @@
 
         <h2>Најавете се на <br>вашиот профил !</h2>
 
+
+
         <form method="post" [formGroup]="loginForm" (ngSubmit)="f.form.valid && onSubmit()" *ngIf="!isLoggedIn" #f="ngForm" novalidate>
+          <div class="form-group">
+            <div *ngIf="isLoginFailed" class="alert alert-danger" role="alert">
+              Ве молиме проверете ги вашите податоци !
+            </div>
+          </div>
           <div class="form-group">
             <input type="text"
                    class="form-control form-control-light"
@@ -48,11 +55,6 @@
           </div>
 <!--          <a href="#">Ја заборавивте лозинката?</a>-->
           <button type="submit" class="btn-custom primary">Најави се</button>
-          <div class="form-group">
-            <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
-              Login failed: {{ errorMessage }}
-            </div>
-          </div>
         </form>
       </div>
     </div>

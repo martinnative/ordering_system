@@ -36,11 +36,6 @@ export class LoginComponent {
       next: data => {
         this.authService.loadProfile(data);
         this.router.navigateByUrl("/admin")
-        // this.storageService.saveUser(data);
-        // this.isLoginFailed = false;
-        // this.isLoggedIn = true;
-        // this.roles = this.storageService.getUser().roles;
-        // this.reloadPage();
       },
       error: err => {
         this.errorMessage = err.error.message;

@@ -13,11 +13,16 @@
         </a>
       </div>
     </div>
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a (click)="logout()" class="list-group-item list-group-item-action py-2 ripple align-bottom" >
+          <i class="fas fa-sign-out-alt fa-fw"></i>
+        </a>
+      </div>
+    </div>
   </nav>
 
   <div class="flex-grow-1">
     <iframe [src]="iFrameUrl" class="w-100" style="height:100vh; border: none;"></iframe>
   </div>
 </div>
-
-
