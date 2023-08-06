@@ -40,57 +40,32 @@ public class SecurityConfig {
         this.customUserDetailsService = customUserDetailsService;
     }
 
-//    @Bean
-//    public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
-//        PasswordEncoder passwordEncoder = passwordEncoder();
-//        return new InMemoryUserDetailsManager(
-//                User.withUsername("dbozhinoski").password(passwordEncoder.encode("123")).authorities("ADMIN").build(),
-//                User.withUsername("dbozhinoskiUser").password(passwordEncoder.encode("123")).authorities("USER").build()
-//        );
-//    }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-//        return httpSecurity
-//                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(ar ->
-//                        ar.requestMatchers("/api/**").permitAll()
-//                )
-//                .authorizeHttpRequests(ar ->
-//                        ar.requestMatchers("/auth/login/**").permitAll()
-//                )
-//                .authorizeHttpRequests(ar ->
-//                        ar.anyRequest().authenticated()
-//                )
-////                .httpBasic(Customizer.withDefaults())
-//                .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
-//                .build();
-//    }
-@Bean
-public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-    return httpSecurity
-            .userDetailsService(customUserDetailsService) // Set the custom UserDetailsService
-            .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .csrf(AbstractHttpConfigurer::disable)
-            .authorizeHttpRequests(ar ->
-                    ar.requestMatchers("/api/**").permitAll()
-            )
-            .authorizeHttpRequests(ar ->
-                    ar.requestMatchers("/auth/login/**").permitAll()
-            )
-            .authorizeHttpRequests(ar ->
-                    ar.anyRequest().authenticated()
-            )
-//                .httpBasic(Customizer.withDefaults())
-            .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
-            .build();
-}
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+        return httpSecurity
+                .userDetailsService(customUserDetailsService) // Set the custom UserDetailsService
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(ar ->
+                        ar.requestMatchers("/ws/**").permitAll()
+                )
+                .authorizeHttpRequests(ar ->
+                        ar.requestMatchers("/api/**").permitAll()
+                )
+                .authorizeHttpRequests(ar ->
+                        ar.requestMatchers("/auth/login/**").permitAll()
+                )
+                .authorizeHttpRequests(ar ->
+                        ar.anyRequest().authenticated()
+                )
+                .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
+                .build();
+    }
 
     @Bean
     JwtEncoder jwtEncoder() {
@@ -102,8 +77,9 @@ public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws
         SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "RSA");
         return NimbusJwtDecoder.withSecretKey(secretKeySpec).macAlgorithm(MacAlgorithm.HS512).build();
     }
+
     @Bean
-    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService){
+    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService) {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);

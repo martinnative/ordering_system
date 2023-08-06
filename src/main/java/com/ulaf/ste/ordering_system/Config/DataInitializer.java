@@ -407,7 +407,7 @@ public class DataInitializer {
         list2.add(product_qtyRepository.findById(3L).orElseThrow());
         list2.add(product_qtyRepository.findById(4L).orElseThrow());
         Order order1 = new Order(listItems,"Gorjan","Spirovski","gorjanspiroski@gmail.com","070344899", LocalDateTime.now());
-        Order order2 = new Order(listItems,"Dragan","Bozhinoski","test@test123.com","071519218", LocalDateTime.of(2023,11,10, 0,0,0));
+        Order order2 = new Order(listItems,"Dragan","Bozhinoski","test@test123.com","071519218", LocalDateTime.of(2023,8,3, 0,0,0));
         Order order3 = new Order(listItems,"Martin","Fidanovski","martin@test123.com","075222358", LocalDateTime.of(2023,7,10, 13,10,0));
         Order order4 = new Order(list2,"Martin2","Fidanovski2","martin@test123.com","075222358", LocalDateTime.of(2023,7,10, 13,10,0));
         orderService.createOrder(order1);

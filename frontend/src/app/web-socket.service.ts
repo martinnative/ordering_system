@@ -24,9 +24,8 @@ export class WebSocketService implements OnInit {
     this.stompClient = Stomp.over(ws);
     const that = this;
     this.stompClient.connect({}, function(frame:any) {
-      that.stompClient.subscribe('/app/orders', (message:any) => {
+      that.stompClient.subscribe('/orders', (message:any) => {
         if (message.body) {
-          console.log(message.body);
           const order = JSON.parse(message.body) as Order;
           // Emit the order through the subject to notify subscribers
           that.orderSubject.next(order);

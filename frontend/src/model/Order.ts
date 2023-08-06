@@ -8,5 +8,5 @@ export interface Order {
   customerEmailAddress:String,
   customerPhone:String,
   finished?:boolean,
-  createdOn?:Date,
+  createdOn:Date,
 }

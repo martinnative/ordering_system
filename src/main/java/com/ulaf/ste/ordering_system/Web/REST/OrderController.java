@@ -22,6 +22,9 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +42,8 @@ public class OrderController {
 
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders(){
-        List<Order> orders = orderService.getAllOrders();
+        List<Order> orders = orderService.getAllOrders().stream().sorted(Comparator.comparing(Order::getCreatedOn)).collect(Collectors.toList());
+        Collections.reverse(orders);
         return ResponseEntity.ok(orders);
     }
     @GetMapping("/today")
@@ -72,10 +76,11 @@ public class OrderController {
         String customerEmailAddress = orderRequest.getCustomerEmailAddress();
         String customerPhone = orderRequest.getCustomerPhone();
         Order order = new Order(orderItems, customerName, customerSurname, customerEmailAddress, customerPhone,false);
+
         order.setCreatedOn(LocalDateTime.now());
 
         Order createdOrder = orderService.createOrder(order);
-        simpMessagingTemplate.convertAndSend("/topic",createdOrder);
+        simpMessagingTemplate.convertAndSend("/orders",createdOrder);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
     }
 

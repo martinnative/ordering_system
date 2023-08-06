@@ -36,10 +36,7 @@ export class AdminOrdersComponent implements OnInit{
       this.filteredOrders = data;
     });
     this.webSocketService.subscribeToOrders().subscribe(order => {
-      // Add the newly received order to the filteredOrders list
-      this.filteredOrders.push(order);
-      // You might want to apply any filtering or sorting logic here if needed
-      // For example, you can do: this.filteredOrders = this.filteredOrders.filter(...) or something similar
+      this.filteredOrders.unshift(order); // dodadi go na 1 mesto
     });
   }
   onPageRefresh(event: Event): void {
