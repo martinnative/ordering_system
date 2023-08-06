@@ -4,6 +4,7 @@ import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Order;
 import com.ulaf.ste.ordering_system.Repository.OrderRepository;
 import com.ulaf.ste.ordering_system.Service.OrderService;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -18,7 +19,7 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
     public List<Order> getAllOrders() {
-        return orderRepository.getAllByCreatedOnBefore(LocalDateTime.now());
+        return orderRepository.findAll(Sort.by(Sort.Direction.DESC, "createdOn"));
     }
     public List<Order> getTodaysOrders() {
         return orderRepository.findAll().stream().filter(order -> order.getCreatedOn().toLocalDate().equals(LocalDateTime.now().toLocalDate())).collect(Collectors.toList());

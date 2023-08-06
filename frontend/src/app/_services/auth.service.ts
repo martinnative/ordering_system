@@ -22,22 +22,6 @@ export class AuthService implements OnInit{
   accessToken: any;
   constructor(private http: HttpClient,private storageService:StorageService) {}
 
-  // public isAuthenticated(): boolean {
-  //   const token = this.storageService.getToken();
-  //   return !!token; // Change this logic based on your token validation requirements
-  // }
-  //
-  // public hasRole(role: string): boolean {
-  //   const token = localStorage.getItem('token');
-  //   if (token) {
-  //     // Parse the token and extract the roles
-  //     const decodedToken = JSON.parse(atob(token.split('.')[1]));
-  //     const userRoles = decodedToken.roles;
-  //     return userRoles && userRoles.includes(role);
-  //   }
-  //   return false;
-  // }
-
   login(username: string, password: string): Observable<any> {
     let params = new HttpParams().set("username",username).set("password",password);
     return this.http.post(

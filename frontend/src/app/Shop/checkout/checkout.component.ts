@@ -14,7 +14,6 @@ export class CheckoutComponent implements OnInit {
   orderForm!: FormGroup;
   orderItems: OrderItem[] = [];
   isFormSubmitted = false;
-
   constructor(
     private formBuilder: FormBuilder,
     private shoppingCartService: ShoppingCartService,
@@ -50,10 +49,9 @@ export class CheckoutComponent implements OnInit {
       this.ordersService.createOrder(this.orderItems, fname, lname, email, phone).subscribe({
         next: (response) => {
           // Handle the successful creation of the order
-          console.log('Order created:', response);
           this.shoppingCartService.clearCart()
           // Optionally, you can perform additional actions such as showing a success message or redirecting to a confirmation page
-          this.router.navigate(['/order-success']);
+          this.router.navigate(['/order-success'], { queryParams: { orderId: response.id } });
         },
         error: (error) => {
           // Handle the error if the order creation fails

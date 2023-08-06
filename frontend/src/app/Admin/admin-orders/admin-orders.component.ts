@@ -30,6 +30,7 @@ export class AdminOrdersComponent implements OnInit{
               public webSocketService:WebSocketService) {
   }
   ngOnInit(): void {
+    window.addEventListener('beforeunload', this.onPageRefresh);
     this.ordersService.findAllOrders().subscribe(data => {
       this.orders = data
       this.filteredOrders = data;
@@ -40,6 +41,17 @@ export class AdminOrdersComponent implements OnInit{
       // You might want to apply any filtering or sorting logic here if needed
       // For example, you can do: this.filteredOrders = this.filteredOrders.filter(...) or something similar
     });
+  }
+  onPageRefresh(event: Event): void {
+    this.ordersService.findAllOrders().subscribe(data => {
+      this.orders = data
+      this.filteredOrders = data;
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Don't forget to remove the event listener when the component is destroyed
+    window.removeEventListener('beforeunload', this.onPageRefresh);
   }
   transformData(data: Product):Product {
     return this.imageService.transformData(data);

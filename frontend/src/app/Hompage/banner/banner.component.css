@@ -69,7 +69,7 @@
 }
 
 /* Additional styling for all devices */
-@media (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .banner {
     height: 600px; /* Adjust the height for mobile */
   }
@@ -86,6 +86,7 @@
 
   .btn-primary {
     margin-top: 10px;
+    margin-left: 0; /* Align the text to the left on mobile */
   }
 
   .col-md-6 {

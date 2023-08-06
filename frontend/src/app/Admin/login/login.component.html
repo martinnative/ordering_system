@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 
 <body>
@@ -13,10 +12,8 @@
 <!-- Login Form Start -->
 <div class="section"
      style="background-size: cover; height:100vh">
-
   <div class="container">
     <div class="auth-wrapper">
-
       <div class="auth-description bg-cover bg-center dark-overlay dark-overlay-2"
            style="background-image: url('https://images.pexels.com/photos/2233348/pexels-photo-2233348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
         <div class="auth-description-inner">
@@ -25,11 +22,7 @@
         </div>
       </div>
       <div class="auth-form">
-
         <h2>Најавете се на <br>вашиот профил !</h2>
-
-
-
         <form method="post" [formGroup]="loginForm" (ngSubmit)="f.form.valid && onSubmit()" *ngIf="!isLoggedIn" #f="ngForm" novalidate>
           <div class="form-group">
             <div *ngIf="isLoginFailed" class="alert alert-danger" role="alert">

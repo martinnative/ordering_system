@@ -17,4 +17,6 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long> {
     // Add any custom query methods if required
     List<Order> getAllByCreatedOnBefore(LocalDateTime now);
+    List<Order> getOrdersByCreatedOnIsBefore(LocalDateTime now);
+
 }
