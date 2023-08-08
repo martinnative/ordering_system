@@ -15,6 +15,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
+@Table(name = "images_table")
 public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

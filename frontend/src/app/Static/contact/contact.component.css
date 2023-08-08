@@ -1,57 +1,57 @@
-.leaflet-bar a{
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin-bottom: 10px;
-  border-radius: 3px;
-  background-color: #1D2228;
-  color: #fff;
-}
-.leaflet-bar a:hover{
-  background-color: #1D2228;
-  color: #fff;
-}
-.ct-contact-map-wrapper .btn-custom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin: 15px;
-  z-index: 99999;
-}
-.leaflet-marker-icon{
-  -webkit-animation-name: markerUpDown;
-  animation-name: markerUpDown;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
+/*.leaflet-bar a{*/
+/*  width: 26px;*/
+/*  height: 26px;*/
+/*  line-height: 26px;*/
+/*  display: block;*/
+/*  text-align: center;*/
+/*  text-decoration: none;*/
+/*  margin-bottom: 10px;*/
+/*  border-radius: 3px;*/
+/*  background-color: #1D2228;*/
+/*  color: #fff;*/
+/*}*/
+/*.leaflet-bar a:hover{*/
+/*  background-color: #1D2228;*/
+/*  color: #fff;*/
+/*}*/
+/*.ct-contact-map-wrapper .btn-custom {*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  margin: 15px;*/
+/*  z-index: 99999;*/
+/*}*/
+/*.leaflet-marker-icon{*/
+/*  -webkit-animation-name: markerUpDown;*/
+/*  animation-name: markerUpDown;*/
+/*  -webkit-animation-duration: 2s;*/
+/*  animation-duration: 2s;*/
+/*  -webkit-animation-iteration-count: infinite;*/
+/*  animation-iteration-count: infinite;*/
+/*}*/
 
-.contact-wrapper{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.contact-wrapper > div{
-  flex: 1;
-}
-.contact-wrapper .section{
-  padding-left: 40px;
-  padding-right: 40px;
-}
-.ct-contact-map-wrapper{
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  position: relative;
-}
-.ct-contact-map{
-  height: 100%;
-  width: 100%;
-}
-.section-map  .ct-contact-map-wrapper{
-  height: 400px;
-}
+/*.contact-wrapper{*/
+/*  display: -webkit-box;*/
+/*  display: -ms-flexbox;*/
+/*  display: flex;*/
+/*}*/
+/*.contact-wrapper > div{*/
+/*  flex: 1;*/
+/*}*/
+/*.contact-wrapper .section{*/
+/*  padding-left: 40px;*/
+/*  padding-right: 40px;*/
+/*}*/
+/*.ct-contact-map-wrapper{*/
+/*  -webkit-box-flex: 1;*/
+/*  -ms-flex: 1;*/
+/*  flex: 1;*/
+/*  position: relative;*/
+/*}*/
+/*.ct-contact-map{*/
+/*  height: 100%;*/
+/*  width: 100%;*/
+/*}*/
+/*.section-map  .ct-contact-map-wrapper{*/
+/*  height: 400px;*/
+/*}*/
