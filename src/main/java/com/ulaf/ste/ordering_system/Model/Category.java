@@ -19,7 +19,7 @@ public class Category {
     private Long Id;
     private String name;
     private String description;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Image image;
     @JsonBackReference
     @OneToMany(mappedBy = "category")

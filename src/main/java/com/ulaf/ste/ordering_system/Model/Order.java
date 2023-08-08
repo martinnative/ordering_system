@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "orders_table")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
