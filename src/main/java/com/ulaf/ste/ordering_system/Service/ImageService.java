@@ -2,6 +2,7 @@ package com.ulaf.ste.ordering_system.Service;
 import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Repository.ImageRepository;
 import com.ulaf.ste.ordering_system.Service.ImageService;
+import jakarta.transaction.Transactional;
 import lombok.SneakyThrows;
 import net.coobird.thumbnailator.Thumbnails;
 import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
@@ -20,11 +21,12 @@ public class ImageService {
         this.imageRepository = imageRepository;
     }
 
+    @Transactional
     public Image saveImage(Image image)  {
         Image compressedImage = compressImage(image);
         return imageRepository.save(compressedImage);
     }
-
+    @Transactional
     public Image findById(Long id) {
         return imageRepository.findById(id).orElse(null);
     }
@@ -34,7 +36,8 @@ public class ImageService {
     }
 
     @SneakyThrows
-    private Image compressImage(Image image)  {
+    @Transactional
+    public Image compressImage(Image image)  {
         byte[] imageData = image.getBytes();
         BufferedImage originalImage = ImageIO.read(new ByteArrayInputStream(imageData));
         ByteArrayOutputStream compressedImageStream = new ByteArrayOutputStream();

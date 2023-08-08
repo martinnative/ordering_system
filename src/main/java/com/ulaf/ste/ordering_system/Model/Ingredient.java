@@ -21,7 +21,7 @@ public class Ingredient {
     private String name;
     @OneToOne
     private Image image;
-    @ManyToMany(mappedBy = "ingredients", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "ingredients",fetch = FetchType.LAZY)
     @JsonBackReference(value = "ingredient-reference")
     private List<Product> products;
     public Ingredient(String name,Image image) {

@@ -27,7 +27,7 @@ public class Product {
     private Boolean available;
     private int pizzaNumber;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonManagedReference
     private Category category;
 
@@ -35,7 +35,7 @@ public class Product {
     @JsonManagedReference(value = "ingredient-reference")
     private List<Ingredient> ingredients;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private Image image;
 
     public Product(String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, Image image, Category category) {
