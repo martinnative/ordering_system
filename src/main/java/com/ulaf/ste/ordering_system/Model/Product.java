@@ -13,6 +13,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "products_table")
+
 public class Product {
 
     @Id
@@ -29,7 +31,7 @@ public class Product {
     @JsonManagedReference
     private Category category;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JsonManagedReference(value = "ingredient-reference")
     private List<Ingredient> ingredients;
 

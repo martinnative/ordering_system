@@ -11,6 +11,7 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "images_table")
 public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

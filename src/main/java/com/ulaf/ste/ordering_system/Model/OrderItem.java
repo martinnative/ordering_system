@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "order_items_table")
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +19,7 @@ public class OrderItem {
     @ManyToOne
     private Product product;
     private int quantity;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Ingredient> notIngredients;
 
     public OrderItem(Product product, int quantity, List<Ingredient> notIngredients) {

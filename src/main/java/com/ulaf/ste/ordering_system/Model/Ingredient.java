@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "ingredients_table")
 public class Ingredient {
 
     @Id
@@ -20,7 +21,7 @@ public class Ingredient {
     private String name;
     @OneToOne
     private Image image;
-    @ManyToMany(mappedBy = "ingredients")
+    @ManyToMany(mappedBy = "ingredients", fetch = FetchType.EAGER)
     @JsonBackReference(value = "ingredient-reference")
     private List<Product> products;
     public Ingredient(String name,Image image) {

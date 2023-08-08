@@ -52,16 +52,7 @@ public class SecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(ar ->
-                        ar.requestMatchers("/ws/**").permitAll()
-                )
-                .authorizeHttpRequests(ar ->
-                        ar.requestMatchers("/api/**").permitAll()
-                )
-                .authorizeHttpRequests(ar ->
-                        ar.requestMatchers("/auth/login/**").permitAll()
-                )
-                .authorizeHttpRequests(ar ->
-                        ar.anyRequest().authenticated()
+                        ar.requestMatchers("/ws/**","/api/**","/auth/login/**").permitAll()
                 )
                 .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
                 .build();
@@ -79,10 +70,11 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService) {
+    public AuthenticationManager authenticationManager() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
-        daoAuthenticationProvider.setUserDetailsService(userDetailsService);
+        daoAuthenticationProvider.setUserDetailsService(customUserDetailsService);
         return new ProviderManager(daoAuthenticationProvider);
     }
+
 }
