@@ -13,6 +13,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "products_table")
+
 public class Product {
 
     @Id
