@@ -39,7 +39,7 @@
 
           <!-- Main Thumb -->
           <div class="product-thumb">
-            <img [src]="sanitizeImage(product).image" alt="pizza">
+            <img [src]="product.image" alt="pizza">
           </div>
           <!-- /Main Thumb -->
 
@@ -82,7 +82,7 @@
                               <input type="checkbox" [checked]="ingredients.includes(ingredient.name)" (change)="toggleSelection(ingredient.name)">
                               Без {{ ingredient.name }}
                               <!--                          <input type="checkbox" value="{{ingredient.id}}" class="custom-control-input" id="addChicken1">-->
-                              <img [src]="transformDataIngredient(ingredient).image" alt="menu item" height="40px" width="40px"/>
+                              <img [src]="ingredient.image" alt="menu item" height="40px" width="40px"/>
                               <!--                          <br>-->
                               <!--                          <label class="custom-control-label" for="addChicken1">Без {{ingredient.name}}</label>-->
                             </option>
@@ -172,7 +172,7 @@
             <!-- Product Start -->
             <div class="col-lg-4 col-md-6">
               <div class="product" *ngIf="product.available">
-                <a class="product-thumb" routerLink="/product/{{product.id}}"> <img [src]="sanitizeImage(product).image"
+                <a class="product-thumb" routerLink="/product/{{product.id}}"> <img [src]="product.image"
                                                                                     alt="menu item" loading="lazy"/></a>
                 <div class="product-body">
                   <div class="product-desc">
@@ -190,7 +190,7 @@
                 </div>
               </div>
               <div class="product" *ngIf="!product.available">
-                <a class="product-thumb"> <img [src]="sanitizeImage(product).image" alt="menu item"/> </a>
+                <a class="product-thumb"> <img [src]="product.image" alt="menu item"/> </a>
                 <div class="product-body">
                   <div class="product-desc">
                     <h4><a>{{product.name}}</a></h4>

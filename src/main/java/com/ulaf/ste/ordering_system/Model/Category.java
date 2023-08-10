@@ -20,13 +20,12 @@ public class Category {
     private Long Id;
     private String name;
     private String description;
-    @OneToOne(fetch = FetchType.LAZY)
-    private Image image;
+    private String image;
     @JsonBackReference
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 
-    public Category(String name, String description, Image image) {
+    public Category(String name, String description, String image) {
         this.name = name;
         this.description = description;
         this.image = image;

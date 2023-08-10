@@ -19,12 +19,11 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     private String name;
-    @OneToOne
-    private Image image;
+    private String image;
     @ManyToMany(mappedBy = "ingredients",fetch = FetchType.LAZY)
     @JsonBackReference(value = "ingredient-reference")
     private List<Product> products;
-    public Ingredient(String name,Image image) {
+    public Ingredient(String name,String image) {
         this.name = name;
         this.image = image;
     }

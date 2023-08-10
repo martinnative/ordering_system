@@ -3,9 +3,7 @@ package com.ulaf.ste.ordering_system.Model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.ListIndexBase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,10 +33,9 @@ public class Product {
     @JsonManagedReference(value = "ingredient-reference")
     private List<Ingredient> ingredients;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Image image;
+    private String image;
 
-    public Product(String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, Image image, Category category) {
+    public Product(String name, double price, String description, Boolean customizable, Boolean available, List<Ingredient> ingredients, String image, Category category) {
         this.name = name;
         this.price = price;
         this.category = category;
@@ -48,7 +45,7 @@ public class Product {
         this.customizable = customizable;
         this.available = available;
     }
-    public Product(String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, Image image, Category category,int pizzaNumber) {
+    public Product(String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, String image, Category category,int pizzaNumber) {
         this.name = name;
         this.price = price;
         this.category = category;
@@ -59,7 +56,7 @@ public class Product {
         this.available = available;
         this.pizzaNumber = pizzaNumber;
     }
-    public Product(Long id, String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, Image image, Category category,int pizzaNumber) {
+    public Product(Long id, String name, double price,String description,Boolean customizable,Boolean available, List<Ingredient> ingredients, String image, Category category,int pizzaNumber) {
         this.id=id;
         this.name = name;
         this.price = price;

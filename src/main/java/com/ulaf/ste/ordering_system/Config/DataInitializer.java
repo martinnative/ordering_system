@@ -6,11 +6,7 @@
 //import com.ulaf.ste.ordering_system.Service.*;
 //import jakarta.annotation.PostConstruct;
 //import lombok.AllArgsConstructor;
-//import org.springframework.core.io.ClassPathResource;
 //import org.springframework.stereotype.Component;
-//import org.springframework.util.StreamUtils;
-//
-//import java.io.IOException;
 //import java.time.LocalDateTime;
 //import java.util.ArrayList;
 //import java.util.List;
@@ -23,33 +19,20 @@
 //    private final IngredientService ingredientService;
 //    private final ProductService productService;
 //    private final OrderService orderService;
-//    private final ImageService imageService;
 //    private final OrderItemRepository product_qtyRepository;
 //    private final UserService userService;
 //
-//    private Image getImage(String imageName,String type) {
-//        try {
-//            ClassPathResource resource = new ClassPathResource("images/" + imageName);
-//            return new Image(imageName,StreamUtils.copyToByteArray(resource.getInputStream()),type);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+//
 //
 //    @PostConstruct
 //    public void initializeData() throws NotFoundByIdException {
 //
-//        Image imgCatPizza = getImage("Kategorii/pizzaBackground.png","category");
-//        Image imgCatSok = getImage("Kategorii/ladniBackground.png","category");
-//        Image imgCatPivo = getImage("Kategorii/pivoBackground.png","category");
-//        Image imgCatKafe = getImage("Kategorii/kafeBackground.png","category");
-//        Image imgCatZhestoko = getImage("Kategorii/zhestokoBackground.png","category");
-//        imageService.saveImage(imgCatPizza);
-//        imageService.saveImage(imgCatKafe);
-//        imageService.saveImage(imgCatZhestoko);
-//        imageService.saveImage(imgCatPivo);
-//        imageService.saveImage(imgCatSok);
+//        String imgCatPizza = "https://nativecreativa.com/wp-content/uploads/images/Kategorii/pizzaBackground.png";
+//        String imgCatSok = "https://nativecreativa.com/wp-content/uploads/images/Kategorii/ladniBackground.png";
+//        String imgCatPivo = "https://nativecreativa.com/wp-content/uploads/images/Kategorii/pivoBackground.png";
+//        String imgCatKafe = "https://nativecreativa.com/wp-content/uploads/images/Kategorii/kafeBackground.png";
+//        String imgCatZhestoko = "https://nativecreativa.com/wp-content/uploads/images/Kategorii/zhestokoBackground.png";
+//
 //
 //        Category catPizza = categoryService.createCategory(new Category("Пица","Категорија за пица",imgCatPizza));
 //        Category catSok = categoryService.createCategory(new Category("Ладни пијалоци","Категорија за сокови",imgCatSok));
@@ -59,61 +42,33 @@
 //
 //
 //        //INGREDIENTS SLIKI
-//        Image imgBalsamicCream = getImage("icons/balsamic_cream.png","ingredient");
-//        Image imgBosilek = getImage("icons/bosilek.png","ingredient");
-//        Image imgBrokula = getImage("icons/brokula.png","ingredient");
-//        Image imgChili = getImage("icons/chili.png","ingredient");
-//        Image imgEdamer = getImage("icons/edamer.png","ingredient");
-//        Image imgGorgonzola = getImage("icons/gorgonzola.png","ingredient");
-//        Image imgInchuni = getImage("icons/inchuni.png","ingredient");
-//        Image imgKaperi = getImage("icons/kaperi.png","ingredient");
-//        Image imgKromid = getImage("icons/kromid.png","ingredient");
-//        Image imgLuk = getImage("icons/luk.png","ingredient");
-//        Image imgMaslinke = getImage("icons/maslinke.png","ingredient");
-//        Image imgMaslinovoMaslo = getImage("icons/maslinovo_maslo.png","ingredient");
-//        Image imgMortadela = getImage("icons/mortadela.png","ingredient");
-//        Image imgMozzarella = getImage("icons/mozzarella.png","ingredient");
-//        Image imgNdujaSpianataSalami = getImage("icons/nduja_spianata_salami.png","ingredient");
-//        Image imgOrevi = getImage("icons/orevi.png","ingredient");
-//        Image imgParmezan = getImage("icons/parmezan.png","ingredient");
-//        Image imgPatlidzhan = getImage("icons/patlidzhan.png","ingredient");
-//        Image imgPechurki = getImage("icons/pechurki.png","ingredient");
-//        Image imgPesto = getImage("icons/pesto.png","ingredient");
-//        Image imgPiper = getImage("icons/piper.png","ingredient");
-//        Image imgProvola = getImage("icons/provola.png","ingredient");
-//        Image imgPrshuta = getImage("icons/prshuta.png","ingredient");
-//        Image imgRukola = getImage("icons/rukola.png","ingredient");
-//        Image imgSlanina = getImage("icons/slanina.png","ingredient");
-//        Image imgVentricinaSalami = getImage("icons/ventricina_salami.png","ingredient");
-//        Image imgShunka = getImage("icons/shunka.png","ingredient");
-//
-//        imageService.saveImage(imgBalsamicCream);
-//        imageService.saveImage(imgBosilek);
-//        imageService.saveImage(imgBrokula);
-//        imageService.saveImage(imgChili);
-//        imageService.saveImage(imgEdamer);
-//        imageService.saveImage(imgGorgonzola);
-//        imageService.saveImage(imgInchuni);
-//        imageService.saveImage(imgKaperi);
-//        imageService.saveImage(imgKromid);
-//        imageService.saveImage(imgLuk);
-//        imageService.saveImage(imgMaslinke);
-//        imageService.saveImage(imgMaslinovoMaslo);
-//        imageService.saveImage(imgMortadela);
-//        imageService.saveImage(imgMozzarella);
-//        imageService.saveImage(imgNdujaSpianataSalami);
-//        imageService.saveImage(imgOrevi);
-//        imageService.saveImage(imgParmezan);
-//        imageService.saveImage(imgPatlidzhan);
-//        imageService.saveImage(imgPechurki);
-//        imageService.saveImage(imgPesto);
-//        imageService.saveImage(imgPiper);
-//        imageService.saveImage(imgProvola);
-//        imageService.saveImage(imgPrshuta);
-//        imageService.saveImage(imgRukola);
-//        imageService.saveImage(imgSlanina);
-//        imageService.saveImage(imgVentricinaSalami);
-//        imageService.saveImage(imgShunka);
+//        String imgBalsamicCream = "https://nativecreativa.com/wp-content/uploads/images/icons/balsamic_cream.png";
+//        String imgBosilek = "https://nativecreativa.com/wp-content/uploads/images/icons/bosilek.png";
+//        String imgBrokula = "https://nativecreativa.com/wp-content/uploads/images/icons/brokula.png";
+//        String imgChili = "https://nativecreativa.com/wp-content/uploads/images/icons/chili.png";
+//        String imgEdamer = "https://nativecreativa.com/wp-content/uploads/images/icons/edamer.png";
+//        String imgGorgonzola = "https://nativecreativa.com/wp-content/uploads/images/icons/gorgonzola.png";
+//        String imgInchuni = "https://nativecreativa.com/wp-content/uploads/images/icons/inchuni.png";
+//        String imgKaperi = "https://nativecreativa.com/wp-content/uploads/images/icons/kaperi.png";
+//        String imgKromid = "https://nativecreativa.com/wp-content/uploads/images/icons/kromid.png";
+//        String imgLuk = "https://nativecreativa.com/wp-content/uploads/images/icons/luk.png";
+//        String imgMaslinke = "https://nativecreativa.com/wp-content/uploads/images/icons/maslinke.png";
+//        String imgMaslinovoMaslo = "https://nativecreativa.com/wp-content/uploads/images/icons/maslinovo_maslo.png";
+//        String imgMortadela = "https://nativecreativa.com/wp-content/uploads/images/icons/mortadela.png";
+//        String imgMozzarella = "https://nativecreativa.com/wp-content/uploads/images/icons/mozzarella.png";
+//        String imgNdujaSpianataSalami = "https://nativecreativa.com/wp-content/uploads/images/icons/nduja_spianata_salami.png";
+//        String imgOrevi = "https://nativecreativa.com/wp-content/uploads/images/icons/orevi.png";
+//        String imgParmezan = "https://nativecreativa.com/wp-content/uploads/images/icons/parmezan.png";
+//        String imgPatlidzhan = "https://nativecreativa.com/wp-content/uploads/images/icons/patlidzhan.png";
+//        String imgPechurki = "https://nativecreativa.com/wp-content/uploads/images/icons/pechurki.png";
+//        String imgPesto = "https://nativecreativa.com/wp-content/uploads/images/icons/pesto.png";
+//        String imgPiper = "https://nativecreativa.com/wp-content/uploads/images/icons/piper.png";
+//        String imgProvola = "https://nativecreativa.com/wp-content/uploads/images/icons/provola.png";
+//        String imgPrshuta = "https://nativecreativa.com/wp-content/uploads/images/icons/prshuta.png";
+//        String imgRukola = "https://nativecreativa.com/wp-content/uploads/images/icons/rukola.png";
+//        String imgSlanina = "https://nativecreativa.com/wp-content/uploads/images/icons/slanina.png";
+//        String imgVentricinaSalami = "https://nativecreativa.com/wp-content/uploads/images/icons/ventricina_salami.png";
+//        String imgShunka = "https://nativecreativa.com/wp-content/uploads/images/icons/shunka.png";
 //
 //        //INGREDIENTS
 //        Ingredient slanina = ingredientService.createIngredient(new Ingredient("Сланина",imgSlanina));
@@ -215,109 +170,60 @@
 //        alpestoIngredients.add(orevi);
 //
 //        //PIZZA SLIKI
-//        Image imgMargarita = getImage("Pica/margarita.png","Pizza");
-//        Image imgKaprichoza = getImage("Pica/kaprichoza.png","Pizza");
-//        Image imgFormadzhi = getImage("Pica/formadzhi.png","Pizza");
-//        Image imgVekia = getImage("Pica/vekia.png","Pizza");
-//        Image imgPulchinela = getImage("Pica/pulchinela.png","Pizza");
-//        Image imgAnduja = getImage("Pica/anduja.png","Pizza");
-//        Image imgPrshuto = getImage("Pica/prshuto.png","Pizza");
-//        Image imgVentrichina = getImage("Pica/ventrichina.png","Pizza");
-//        Image imgAlpesto = getImage("Pica/alpesto.png","Pizza");
-//        Image imgNapoletana = getImage("Pica/napoletana.png","Pizza");
+//        String imgMargarita = "https://nativecreativa.com/wp-content/uploads/images/Pica/margarita.png";
+//        String imgKaprichoza = "https://nativecreativa.com/wp-content/uploads/images/Pica/kaprichoza.png";
+//        String imgFormadzhi = "https://nativecreativa.com/wp-content/uploads/images/Pica/formadzhi.png";
+//        String imgVekia = "https://nativecreativa.com/wp-content/uploads/images/Pica/vekia.png";
+//        String imgPulchinela = "https://nativecreativa.com/wp-content/uploads/images/Pica/pulchinela.png";
+//        String imgAnduja = "https://nativecreativa.com/wp-content/uploads/images/Pica/anduja.png";
+//        String imgPrshuto = "https://nativecreativa.com/wp-content/uploads/images/Pica/prshuto.png";
+//        String imgVentrichina = "https://nativecreativa.com/wp-content/uploads/images/Pica/ventrichina.png";
+//        String imgAlpesto = "https://nativecreativa.com/wp-content/uploads/images/Pica/alpesto.png";
+//        String imgNapoletana = "https://nativecreativa.com/wp-content/uploads/images/Pica/napoletana.png";
 //
 //        //SOKOVI SLIKI
-//        Image imgCocacola = getImage("Pijaloci/Sok/coca_cola.png","Ladni Pijaloci");
-//        Image imgCedevita = getImage("Pijaloci/Sok/cedevita.png","Ladni Pijaloci");
-//        Image imgFanta = getImage("Pijaloci/Sok/fanta.png","Ladni Pijaloci");
-//        Image imgSprite = getImage("Pijaloci/Sok/sprite.png","Ladni Pijaloci");
-//        Image imgPelisterska = getImage("Pijaloci/Sok/pelisterska.png","Ladni Pijaloci");
-//        Image imgBitter = getImage("Pijaloci/Sok/scchweppes_bitter_lemon.png","Ladni Pijaloci");
-//        Image imgPink = getImage("Pijaloci/Sok/schwepees_pink_soda.png","Ladni Pijaloci");
-//        Image imgMandarina = getImage("Pijaloci/Sok/schweppes_mandarina.png","Ladni Pijaloci");
-//        Image imgSchweppes = getImage("Pijaloci/Sok/schweppes.png","Ladni Pijaloci");
+//        String imgCocacola = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Sok/coca_cola.png";
+//        String imgCedevita = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Sok/cedevita.png";
+//        String imgFanta = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Sok/fanta.png";
+//        String imgSprite = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Sok/sprite.png";
+//        String imgPelisterska = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Sok/pelisterska.png";
+//        String imgBitter = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Sok/scchweppes_bitter_lemon.png";
+//        String imgPink = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Sok/schwepees_pink_soda.png";
+//        String imgMandarina = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Sok/schweppes_mandarina.png";
+//        String imgSchweppes = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Sok/schweppes.png";
 //
 //        //PIVO SLIKI
-//        Image imgAmstel = getImage("Pijaloci/Pivo/amstel.png","Pivo");
-//        Image imgHeineken = getImage("Pijaloci/Pivo/heineken.png","Pivo");
-//        Image imgSkopsko = getImage("Pijaloci/Pivo/skopsko.png","Pivo");
-//        Image imgSmooth = getImage("Pijaloci/Pivo/skopsko_smooth.png","Pivo");
+//        String imgAmstel = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Pivo/amstel.png";
+//        String imgHeineken = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Pivo/heineken.png";
+//        String imgSkopsko = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Pivo/skopsko.png";
+//        String imgSmooth = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Pivo/skopsko_smooth.png";
 //
 //        //KAFE SLIKI
-//        Image imgAmericanEspresso = getImage("Pijaloci/Kafe/american_espresso.png","Kafe");
-//        Image imgCappucino = getImage("Pijaloci/Kafe/cappucino.png","Kafe");
-//        Image imgEspresso = getImage("Pijaloci/Kafe/espresso.png","Kafe");
-//        Image imgFreddoEspresso = getImage("Pijaloci/Kafe/freddo_espresso.png","Kafe");
-//        Image imgIceCoffee = getImage("Pijaloci/Kafe/ice_coffee.png","Kafe");
-//        Image imgLatteMacchiato = getImage("Pijaloci/Kafe/latte_macchiato.png","Kafe");
-//        Image imgMacchiato = getImage("Pijaloci/Kafe/macchiato.png","Kafe");
-//        Image imgNescafe = getImage("Pijaloci/Kafe/nescafe.png","Kafe");
-//        Image imgTursko = getImage("Pijaloci/Kafe/tursko.png","Kafe");
+//        String imgAmericanEspresso = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Kafe/american_espresso.png";
+//        String imgCappucino = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Kafe/cappucino.png";
+//        String imgEspresso = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Kafe/espresso.png";
+//        String imgFreddoEspresso = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Kafe/freddo_espresso.png";
+//        String imgIceCoffee = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Kafe/ice_coffee.png";
+//        String imgLatteMacchiato = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Kafe/latte_macchiato.png";
+//        String imgMacchiato = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Kafe/macchiato.png";
+//        String imgNescafe = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Kafe/nescafe.png";
+//        String imgTursko = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Kafe/tursko.png";
 //
 //        //ZHESTOKO SLIKI
-//        Image imgAperol = getImage("Pijaloci/Zhestoko/aperol.png","Zhestoko");
-//        Image imgBaileys = getImage("Pijaloci/Zhestoko/baileys.png","Zhestoko");
-//        Image imgCampari = getImage("Pijaloci/Zhestoko/campari.png","Zhestoko");
-//        Image imgCaptainMorgan = getImage("Pijaloci/Zhestoko/captain_morgan.png","Zhestoko");
-//        Image imgGordons = getImage("Pijaloci/Zhestoko/gordons.png","Zhestoko");
-//        Image imgJackDaniels = getImage("Pijaloci/Zhestoko/jack_daniels.png","Zhestoko");
-//        Image imgJagermeister = getImage("Pijaloci/Zhestoko/jagermeister.png","Zhestoko");
-//        Image imgJameson = getImage("Pijaloci/Zhestoko/jameson.png","Zhestoko");
-//        Image imgJB = getImage("Pijaloci/Zhestoko/jb.png","Zhestoko");
-//        Image imgJohnnieWalker = getImage("Pijaloci/Zhestoko/johnnie_walker.png","Zhestoko");
-//        Image imgMartini = getImage("Pijaloci/Zhestoko/martini.png","Zhestoko");
-//        Image imgPelinkovac = getImage("Pijaloci/Zhestoko/pelinkovac.png","Zhestoko");
-//        Image imgSmirnoff = getImage("Pijaloci/Zhestoko/smirnoff.png","Zhestoko");
+//        String imgAperol = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/aperol.png";
+//        String imgBaileys = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/baileys.png";
+//        String imgCampari = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/campari.png";
+//        String imgCaptainMorgan = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/captain_morgan.png";
+//        String imgGordons = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/gordons.png";
+//        String imgJackDaniels = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/jack_daniels.png";
+//        String imgJagermeister = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/jagermeister.png";
+//        String imgJameson = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/jameson.png";
+//        String imgJB = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/jb.png";
+//        String imgJohnnieWalker = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/johnnie_walker.png";
+//        String imgMartini = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/martini.png";
+//        String imgPelinkovac = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/pelinkovac.png";
+//        String imgSmirnoff = "https://nativecreativa.com/wp-content/uploads/images/Pijaloci/Zhestoko/smirnoff.png";
 //
-//        imageService.saveImage(imgMargarita);
-//        imageService.saveImage(imgKaprichoza);
-//        imageService.saveImage(imgFormadzhi);
-//        imageService.saveImage(imgVekia);
-//        imageService.saveImage(imgPulchinela);
-//        imageService.saveImage(imgAnduja);
-//        imageService.saveImage(imgPrshuto);
-//        imageService.saveImage(imgVentrichina);
-//        imageService.saveImage(imgAlpesto);
-//        imageService.saveImage(imgNapoletana);
-//
-//        imageService.saveImage(imgCocacola);
-//        imageService.saveImage(imgCedevita);
-//        imageService.saveImage(imgFanta);
-//        imageService.saveImage(imgSprite);
-//        imageService.saveImage(imgPelisterska);
-//        imageService.saveImage(imgBitter);
-//        imageService.saveImage(imgPink);
-//        imageService.saveImage(imgMandarina);
-//        imageService.saveImage(imgSchweppes);
-//
-//        imageService.saveImage(imgAmstel);
-//        imageService.saveImage(imgHeineken);
-//        imageService.saveImage(imgSkopsko);
-//        imageService.saveImage(imgSmooth);
-//
-//        imageService.saveImage(imgAmericanEspresso);
-//        imageService.saveImage(imgCappucino);
-//        imageService.saveImage(imgEspresso);
-//        imageService.saveImage(imgFreddoEspresso);
-//        imageService.saveImage(imgIceCoffee);
-//        imageService.saveImage(imgLatteMacchiato);
-//        imageService.saveImage(imgMacchiato);
-//        imageService.saveImage(imgNescafe);
-//        imageService.saveImage(imgTursko);
-//
-//        imageService.saveImage(imgAperol);
-//        imageService.saveImage(imgBaileys);
-//        imageService.saveImage(imgCampari);
-//        imageService.saveImage(imgCaptainMorgan);
-//        imageService.saveImage(imgGordons);
-//        imageService.saveImage(imgJackDaniels);
-//        imageService.saveImage(imgJagermeister);
-//        imageService.saveImage(imgJameson);
-//        imageService.saveImage(imgJB);
-//        imageService.saveImage(imgJohnnieWalker);
-//        imageService.saveImage(imgMartini);
-//        imageService.saveImage(imgPelinkovac);
-//        imageService.saveImage(imgSmirnoff);
 //
 //        //PIZZA PRODUCTS
 //

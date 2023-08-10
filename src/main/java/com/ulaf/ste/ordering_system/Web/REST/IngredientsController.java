@@ -1,9 +1,7 @@
 package com.ulaf.ste.ordering_system.Web.REST;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
-import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Model.Ingredient;
-import com.ulaf.ste.ordering_system.Service.ImageService;
 import com.ulaf.ste.ordering_system.Service.IngredientService;
 import com.ulaf.ste.ordering_system.Web.requests.IngredientRequest;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -22,7 +20,6 @@ import java.util.List;
 @AllArgsConstructor
 public class IngredientsController {
     private final IngredientService ingredientService;
-    private final ImageService imageService;
 
     @GetMapping
     public ResponseEntity<List<Ingredient>> getAllIngredients() {
@@ -42,8 +39,7 @@ public class IngredientsController {
     @PostMapping
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public ResponseEntity<Ingredient> createIngredient(@RequestBody IngredientRequest ingredientRequest) {
-        Image image = imageService.findById(ingredientRequest.getImageId());
-        Ingredient createdIngredient = new Ingredient(ingredientRequest.getName(),image);
+        Ingredient createdIngredient = new Ingredient(ingredientRequest.getName(),ingredientRequest.getImage());
         return ResponseEntity.status(HttpStatus.CREATED).body(createdIngredient);
     }
 
@@ -66,18 +62,4 @@ public class IngredientsController {
         return ResponseEntity.noContent().build();
     }
 
-//    @PostMapping("/{id}/upload")
-//    public ResponseEntity<Ingredient> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws NotFoundByIdException, IOException {
-////        Ingredient updatedIngredient = ingredientService.uploadImage(id, file);
-//        if (updatedIngredient != null) {
-//            return ResponseEntity.ok(updatedIngredient);
-//        }
-//        return ResponseEntity.notFound().build();
-//    }
-
-//    @GetMapping("/{id}/image")
-//    public ResponseEntity<String> getImage(@PathVariable Long id) throws NotFoundByIdException {
-//        String base64Image = ingredientService.getImage(id);
-//        return ResponseEntity.ok(base64Image);
-//    }
 }

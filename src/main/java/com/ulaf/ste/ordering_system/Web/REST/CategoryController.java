@@ -2,9 +2,7 @@ package com.ulaf.ste.ordering_system.Web.REST;
 
 import com.ulaf.ste.ordering_system.Exceptions.NotFoundByIdException;
 import com.ulaf.ste.ordering_system.Model.Category;
-import com.ulaf.ste.ordering_system.Model.Image;
 import com.ulaf.ste.ordering_system.Service.CategoryService;
-import com.ulaf.ste.ordering_system.Service.ImageService;
 import com.ulaf.ste.ordering_system.Web.requests.CategoryRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
-    private final ImageService imageService;
 
     @GetMapping({"/forAdmin"})
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
@@ -55,8 +52,7 @@ public class CategoryController {
     @PostMapping("/create")
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public ResponseEntity<Category> createCategory(@RequestBody CategoryRequest categoryRequest) {
-        Image image = imageService.findById(categoryRequest.getImageId());
-        Category category = new Category(categoryRequest.getName(), categoryRequest.getDescription(),image);
+        Category category = new Category(categoryRequest.getName(), categoryRequest.getDescription(),categoryRequest.getImage());
         Category createdCategory = categoryService.createCategory(category);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCategory);
     }

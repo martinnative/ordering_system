@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class IngredientRequest {
     private String name;
-    private Long imageId;
+    private String image;
 }

@@ -44,7 +44,7 @@
         <!-- Product Start -->
         <div class="col-lg-4 col-md-6">
           <div class="product" *ngIf="product.available">
-            <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="transformData(product).image"
+            <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="product.image"
                                                                                 alt="menu item" /> </a>
             <div class="product-body">
               <div class="product-desc">
@@ -62,7 +62,7 @@
             </div>
           </div>
           <div class="product" *ngIf="!product.available">
-            <a class="product-thumb"> <img loading="lazy" [src]="transformData(product).image" alt="menu item"/> </a>
+            <a class="product-thumb"> <img loading="lazy" [src]="product.image" alt="menu item"/> </a>
             <div class="product-body">
               <div class="product-desc">
                 <h4><a>{{product.name}}</a></h4>
@@ -99,7 +99,7 @@
           <!-- Product Start -->
           <div class="col-lg-4 col-md-6">
             <div class="product" *ngIf="product.available">
-              <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="transformData(product).image"
+              <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="product.image"
                                                                                   alt="menu item"/> </a>
               <div class="product-body">
                 <div class="product-desc">
@@ -117,7 +117,7 @@
               </div>
             </div>
             <div class="product" *ngIf="!product.available">
-              <a class="product-thumb"> <img loading="lazy" [src]="transformData(product).image" alt="menu item"/> </a>
+              <a class="product-thumb"> <img loading="lazy" [src]="product.image" alt="menu item"/> </a>
               <div class="product-body">
                 <div class="product-desc">
                   <h4><a>{{product.name}}</a></h4>
@@ -151,7 +151,7 @@
           <!-- Product Start -->
           <div class="col-lg-4 col-md-6">
             <div class="product" *ngIf="product.available">
-              <a class="product-thumb" routerLink="/product/{{product.id}}" > <img loading="lazy" [src]="transformData(product).image"
+              <a class="product-thumb" routerLink="/product/{{product.id}}" > <img loading="lazy" [src]="product.image"
                                                                                   alt="menu item"/> </a>
               <div class="product-body">
                 <div class="product-desc">
@@ -169,7 +169,7 @@
               </div>
             </div>
             <div class="product" *ngIf="!product.available">
-              <a class="product-thumb"> <img loading="lazy" [src]="transformData(product).image" alt="menu item"/> </a>
+              <a class="product-thumb"> <img loading="lazy" [src]="product.image" alt="menu item"/> </a>
               <div class="product-body">
                 <div class="product-desc">
                   <h4><a>{{product.name}}</a></h4>
@@ -203,7 +203,7 @@
           <!-- Product Start -->
           <div class="col-lg-4 col-md-6">
             <div class="product" *ngIf="product.available">
-              <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="transformData(product).image"
+              <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="product.image"
                                                                                   alt="menu item"/> </a>
               <div class="product-body">
                 <div class="product-desc">
@@ -221,7 +221,7 @@
               </div>
             </div>
             <div class="product" *ngIf="!product.available">
-              <a class="product-thumb"> <img loading="lazy" [src]="transformData(product).image" alt="menu item"/> </a>
+              <a class="product-thumb"> <img loading="lazy" [src]="product.image" alt="menu item"/> </a>
               <div class="product-body">
                 <div class="product-desc">
                   <h4><a>{{product.name}}</a></h4>
@@ -256,7 +256,7 @@
           <!-- Product Start -->
           <div class="col-lg-4 col-md-6">
             <div class="product" *ngIf="product.available">
-              <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="transformData(product).image" alt="menu item"/> </a>
+              <a class="product-thumb" routerLink="/product/{{product.id}}"> <img loading="lazy" [src]="product.image" alt="menu item"/> </a>
               <div class="product-body">
                 <div class="product-desc">
                   <h4><a routerLink="/product/{{product.id}}" class="text-decoration-none">{{product.name}}</a></h4>
@@ -273,7 +273,7 @@
               </div>
             </div>
             <div class="product" *ngIf="!product.available">
-              <a class="product-thumb"> <img loading="lazy" [src]="transformData(product).image" alt="menu item"/> </a>
+              <a class="product-thumb"> <img loading="lazy" [src]="product.image" alt="menu item"/> </a>
               <div class="product-body">
                 <div class="product-desc">
                   <h4><a>{{product.name}}</a></h4>
