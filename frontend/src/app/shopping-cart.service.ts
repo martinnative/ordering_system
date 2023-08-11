@@ -22,7 +22,8 @@ export class ShoppingCartService {
   }
 
   addToCart(product: Product, quantity: number, notIngredients: Ingredient[]): boolean {
-    const existingItem = this.cartItems.find(item => item.productId === product.id && item.notIngredients == notIngredients);
+    const existingItem = this.cartItems.find(item => item.productId === product.id &&
+      (item.notIngredients.toString() == notIngredients.toString()));
     if (existingItem) {
       existingItem.quantity += 1;
     } else {

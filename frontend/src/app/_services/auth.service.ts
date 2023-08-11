@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 import {data} from "isotope-layout";
 
 
-const AUTH_API = 'http://localhost:8080/auth/';
+const AUTH_API = 'http://ulaf-ste/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
