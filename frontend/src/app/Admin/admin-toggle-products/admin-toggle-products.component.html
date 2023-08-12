@@ -38,7 +38,7 @@
                     <div class="card shadow-sm mb-3">
                       <div class="card-body p-3">
                         <div class="text-center mb-2">
-                          <img [src]="transformData(product).image" class="img-fluid" alt="Phone"
+                          <img [src]="product.image" class="img-fluid" alt="Phone"
                                style="max-height: 120px;">
                         </div>
                         <p class="text-muted mb-0 text-center" style="font-size: 14px;"><span style="color: #a8729a;" class="fw-bolder" *ngIf="product.category.name == 'Пица'">[#{{product.pizzaNumber}}] </span>{{ product.name }}</p>
