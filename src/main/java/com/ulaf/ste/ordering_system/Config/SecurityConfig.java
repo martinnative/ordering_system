@@ -52,7 +52,7 @@ public class SecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(ar ->
-                        ar.requestMatchers("/ws/**","/api/**","/auth/login/**").permitAll()
+                        ar.requestMatchers("/ws/**","/api/**","/auth/login/**","/auth/login").permitAll()
                 )
                 .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
                 .build();
