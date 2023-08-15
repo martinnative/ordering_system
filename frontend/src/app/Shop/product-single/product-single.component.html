@@ -68,7 +68,7 @@
                 <h5>Големина: Стандардна </h5>
               </div>
 
-              <div class="row">
+              <div class="row" *ngIf="product.available">
                 <!-- Variation Start -->
                 <div class="col-lg-6 col-12">
                   <div class="customize-variation-wrapper">
@@ -108,7 +108,8 @@
 <!--                  <span class="qty-add"><i class="fas fa-plus"></i></span>-->
 <!--                </div>-->
 <!--              </div>-->
-              <button type="submit" name="button" class="btn-custom secondary" (click)="addToCart(product)"> Додади во кошничка <i class="fas fa-shopping-cart"></i> </button>
+              <button *ngIf="product.available" type="submit" name="button" class="btn-custom secondary" (click)="addToCart(product)"> Додади во кошничка <i class="fas fa-shopping-cart"></i> </button>
+              <button *ngIf="!product.available"  name="button" class="btn-custom secondary" > Производот не достапен <i class="fas fa-warning"></i> </button>
             </form>
             <!-- /Add To Cart Form -->
 
