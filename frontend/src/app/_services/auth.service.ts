@@ -1,13 +1,12 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {StorageService} from "./storage.service";
 import jwtDecode from "jwt-decode";
-import {Router} from "@angular/router";
-import {data} from "isotope-layout";
 
 
-const AUTH_API = 'http://www.ulaf-ste.com/auth/';
+
+const AUTH_API = 'https://ulaf-ste.com/auth/';
+const AUTH_API1 = 'http://localhost:8080/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -20,7 +19,7 @@ export class AuthService implements OnInit{
   roles: any;
   username: any;
   accessToken: any;
-  constructor(private http: HttpClient,private storageService:StorageService) {}
+  constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<any> {
     let params = new HttpParams().set("username",username).set("password",password);
@@ -46,7 +45,7 @@ export class AuthService implements OnInit{
   logout(): Observable<any> {
     sessionStorage.removeItem("access-token")
     this.isAuthenticated = false;
-    return this.http.post(AUTH_API + 'signout', { }, httpOptions);
+    return this.http.post(AUTH_API1 + 'signout', { }, httpOptions);
   }
 
   loadProfile(data: any) {
