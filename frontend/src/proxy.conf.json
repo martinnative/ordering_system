@@ -1,12 +1,10 @@
 {
-    "/api": {
-        "target": "http://localhost:8080",
-        "secure": false,
-        "changeOrigin":true
-    },
+  "/api": {
+    "target": "https://ulaf-ste.com:8080",
+    "secure": true
+  },
   "/socket.io": {
-    "target": "http://localhost:8080",
-    "secure": false,
-    "changeOrigin":true
+    "target": "https://ulaf-ste.com:8080",
+    "secure": true
   }
 }

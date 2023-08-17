@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = {"http://www.ulaf-ste.com", "https://www.ulaf-ste.com", "http://ulaf-ste.com", "https://ulaf-ste.com"})
+@CrossOrigin(origins = {"http://www.ulaf-ste.com","https://www.ulaf-ste.com","http://ulaf-ste.com","https://ulaf-ste.com","http://localhost:4200","https://ulaf-ste.com/auth"})
 public class SecurityController {
     private final AuthenticationManager authenticationManager;
     private final JwtEncoder jwtEncoder;
