@@ -49,7 +49,6 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .userDetailsService(customUserDetailsService) // Set the custom UserDetailsService
-                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(ar ->
                         ar.requestMatchers("/ws/**","/api/**","/api/auth/**").permitAll()

@@ -18,6 +18,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     }
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws").setAllowedOrigins("https://ulaf-ste.com","https://ulaf-ste.com/admin","https://ulaf-ste.com/admin/orders").withSockJS(); // Register the WebSocket endpoint
+        registry.addEndpoint("/ws")
+                .withSockJS();
     }
 }

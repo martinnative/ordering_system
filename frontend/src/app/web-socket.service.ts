@@ -21,7 +21,7 @@ export class WebSocketService implements OnInit {
     const ws = new SockJS(serverUrl);
     this.stompClient = Stomp.over(ws);
     const that = this;
-    this.stompClient.connect({}, function(frame:any) {
+    this.stompClient.connect({}, function() {
       that.stompClient.subscribe('/orders', (message:any) => {
         if (message.body) {
           const order = JSON.parse(message.body) as Order;
