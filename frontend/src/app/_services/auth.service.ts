@@ -2,19 +2,20 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import jwtDecode from "jwt-decode";
+import {UserRequest} from "../../model/UserRequest";
 
 
 
-const AUTH_API = 'https://ulaf-ste.com/auth/';
+const AUTH_API = 'https://ulaf-ste.com/api/auth/';
 const AUTH_API1 = 'http://localhost:8080/auth/';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
-};
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements OnInit{
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   isAuthenticated:Boolean = false;
   roles: any;
   username: any;
@@ -22,30 +23,21 @@ export class AuthService implements OnInit{
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<any> {
-    let params = new HttpParams().set("username",username).set("password",password);
+    let userRequest : UserRequest = {
+      username : username,
+      password : password
+    }
     return this.http.post(
       AUTH_API + 'login',
-      params,
-      httpOptions
-    );
-  }
-
-  register(username: string, email: string, password: string): Observable<any> {
-    return this.http.post(
-      AUTH_API + 'signup',
-      {
-        username,
-        email,
-        password,
-      },
-      httpOptions
+      userRequest,
+      this.httpOptions
     );
   }
 
   logout(): Observable<any> {
     sessionStorage.removeItem("access-token")
     this.isAuthenticated = false;
-    return this.http.post(AUTH_API1 + 'signout', { }, httpOptions);
+    return this.http.post(AUTH_API1 + 'signout', { });
   }
 
   loadProfile(data: any) {
