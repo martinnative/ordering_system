@@ -5,7 +5,6 @@ import { Order } from '../model/Order';
 import {OrderItem} from "../model/OrderItem";
 import {OrderRequest} from "../model/OrderRequest";
 import {OrderItemRequest} from "../model/OrderItemRequest";
-import {WebSocketService} from "./web-socket.service";
 
 @Injectable({
   providedIn: 'root'

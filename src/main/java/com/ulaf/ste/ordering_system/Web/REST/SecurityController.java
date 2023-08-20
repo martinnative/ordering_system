@@ -1,5 +1,6 @@
 package com.ulaf.ste.ordering_system.Web.REST;
 
+import com.ulaf.ste.ordering_system.Web.requests.UserRequest;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -14,8 +15,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/auth")
-@CrossOrigin(origins = {"http://www.ulaf-ste.com","https://www.ulaf-ste.com","http://ulaf-ste.com","https://ulaf-ste.com","http://localhost:4200","https://ulaf-ste.com/auth"})
+@RequestMapping("/api/auth")
 public class SecurityController {
     private final AuthenticationManager authenticationManager;
     private final JwtEncoder jwtEncoder;
@@ -31,14 +31,14 @@ public class SecurityController {
     }
 
     @PostMapping("/login")
-    public Map<String,String> login(String username, String password) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
+    public Map<String,String> login(@RequestBody UserRequest userRequest) {
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userRequest.getUsername(),userRequest.getPassword()));
         Instant instant = Instant.now();
         String scope = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.joining(" "));
         JwtClaimsSet jwtClaimsSet = JwtClaimsSet.builder()
                 .issuedAt(instant)
                 .expiresAt(instant.plus(15, ChronoUnit.HOURS))
-                .subject(username)
+                .subject(userRequest.getUsername())
                 .issuer("Ulaf-Ste")
                 .claim("scope",scope)
                 .build();

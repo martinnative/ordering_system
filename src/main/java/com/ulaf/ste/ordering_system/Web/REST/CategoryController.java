@@ -18,22 +18,6 @@ import java.util.List;
 public class CategoryController {
     private final CategoryService categoryService;
 
-    @GetMapping({"/forAdmin"})
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
-    public String forAdmin(){
-        return "This URL is only accessible to the admin";
-    }
-
-    @GetMapping({"/forUser"})
-    @PreAuthorize("hasAuthority('SCOPE_USER')")
-    public String forUser(){
-        return "This URL is only accessible to the user";
-    }
-    @GetMapping({"/forEveryone"})
-    public String forEveryone(){
-        return "This URL is only accessible to the forEveryone";
-    }
-
     @GetMapping
     public ResponseEntity<List<Category>> getAllCategories() {
         List<Category> categories = categoryService.getAllCategories();
