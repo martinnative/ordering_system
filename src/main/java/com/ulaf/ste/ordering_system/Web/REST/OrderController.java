@@ -76,7 +76,7 @@ public class OrderController {
         String customerPhone = orderRequest.getCustomerPhone();
         Order order = new Order(orderItems, customerName, customerSurname, customerEmailAddress, customerPhone,false);
 
-        order.setCreatedOn(LocalDateTime.now());
+        order.setCreatedOn(LocalDateTime.now().plusHours(2));
 
         Order createdOrder = orderService.createOrder(order);
         simpMessagingTemplate.convertAndSend("/orders",createdOrder);

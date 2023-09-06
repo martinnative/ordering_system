@@ -46,8 +46,7 @@ export class ProductSingleComponent implements OnInit {
     this.route.paramMap.pipe(
       filter(params => params.has("id")),
       map(param => +param.get("id")!),
-      mergeMap(p => this.productsService.findProductById(p)),
-      tap(data => console.log(data))
+      mergeMap(p => this.productsService.findProductById(p))
     )
       .subscribe(data => this.product = data);
     this.productsService.findAllProducts(true).subscribe(products => {
@@ -76,7 +75,6 @@ export class ProductSingleComponent implements OnInit {
     modalRef.result.then((result) => {
       if (result) {
         this.addToCart(result.product,result.quantity, result.ingredients)
-        console.log(result)
       }
     });
   }

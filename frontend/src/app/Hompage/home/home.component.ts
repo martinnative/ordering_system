@@ -13,7 +13,6 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit {
   private readonly viewport = inject(ViewportScroller);
-
   scrollToTop(el: HTMLElement) {
     el.scrollIntoView({behavior: "smooth"});
   }

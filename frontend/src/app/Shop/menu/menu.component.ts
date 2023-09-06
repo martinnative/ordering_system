@@ -60,13 +60,11 @@ export class MenuComponent implements OnInit{
     }
   }
   openModal(product: Product) {
-    console.log("product");
     const modalRef = this.modalService.open(CustomizeModalComponent);
     modalRef.componentInstance.product = product;
     modalRef.result.then((result) => {
       if (result) {
         this.addToCart(result.product,result.quantity, result.ingredients)
-        console.log(result)
       }
     });
   }

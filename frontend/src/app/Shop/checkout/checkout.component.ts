@@ -5,6 +5,7 @@ import { OrderItem } from "../../../model/OrderItem";
 import { OrdersService } from "../../orders.service";
 import {Router} from "@angular/router";
 import Swal from "sweetalert2";
+import {MqttService} from "ngx-mqtt";
 
 @Component({
   selector: 'app-checkout',
@@ -19,7 +20,8 @@ export class CheckoutComponent implements OnInit {
     private formBuilder: FormBuilder,
     private shoppingCartService: ShoppingCartService,
     private ordersService: OrdersService,
-    private router: Router
+    private router: Router,
+    private _mqttService: MqttService
   ) {}
 
   ngOnInit(): void {
@@ -48,13 +50,15 @@ export class CheckoutComponent implements OnInit {
       this.isFormSubmitted = true;
       if (this.orderForm.valid) {
         const { fname, lname, email, phone } = this.orderForm.value;
-
         this.ordersService.createOrder(this.orderItems, fname, lname, email, phone).subscribe({
           next: (response) => {
             // Handle the successful creation of the order
             this.shoppingCartService.clearCart()
             // Optionally, you can perform additional actions such as showing a success message or redirecting to a confirmation page
             this.router.navigate(['/order-success'], { queryParams: { orderId: response.id } });
+            this._mqttService.publish('orders', `{
+            "refreshOrders":true
+            }`).subscribe()
           },
           error: (error) => {
             // Handle the error if the order creation fails

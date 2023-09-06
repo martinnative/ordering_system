@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit{
   constructor(private shoppingCartService:ShoppingCartService) {
   }
   showCartItems() {
-    console.log(this.shoppingCartService.getCartItems());
   }
   openCart() {
     this.cartOpen = true;
