@@ -19,4 +19,6 @@ public class OrderRequest {
      String customerSurname;
      String customerEmailAddress;
      String customerPhone;
+     String deliveryAddress;
+
 }

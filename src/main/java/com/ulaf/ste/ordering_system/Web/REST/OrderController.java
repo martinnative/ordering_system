@@ -74,7 +74,8 @@ public class OrderController {
         String customerSurname = orderRequest.getCustomerSurname();
         String customerEmailAddress = orderRequest.getCustomerEmailAddress();
         String customerPhone = orderRequest.getCustomerPhone();
-        Order order = new Order(orderItems, customerName, customerSurname, customerEmailAddress, customerPhone,false);
+        String deliveryAddress = orderRequest.getDeliveryAddress();
+        Order order = new Order(orderItems, customerName, customerSurname, customerEmailAddress, customerPhone,deliveryAddress,false);
 
         order.setCreatedOn(LocalDateTime.now().plusHours(2));
 

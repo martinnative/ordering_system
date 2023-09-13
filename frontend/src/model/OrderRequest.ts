@@ -6,5 +6,6 @@ export interface OrderRequest {
   customerName:String,
   customerSurname:String,
   customerEmailAddress:String,
-  customerPhone:String
+  customerPhone:String,
+  deliveryAddress: String,
 }

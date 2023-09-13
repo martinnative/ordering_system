@@ -30,7 +30,7 @@ export class OrdersService implements OnInit{
   changeOrderStatus(order: Order): Observable<Order[]> {
     return this.http.put<Order[]>(`/api/orders/status/${order.id}`,null, this.httpOptions);
   }
-  createOrder(orderItems: OrderItem[], customerName: String, customerSurname: String, customerEmailAddress: String, customerPhone: String): Observable<Order> {
+  createOrder(orderItems: OrderItem[], customerName: String, customerSurname: String, customerEmailAddress: String, customerPhone: String, deliveryAddress: String): Observable<Order> {
     const orderItemsRequest:OrderItemRequest[] = orderItems.map(orderItem => ({
         productId: orderItem.product.id,
         quantity: orderItem.quantity,
@@ -41,7 +41,8 @@ export class OrdersService implements OnInit{
       customerName: customerName,
       customerSurname: customerSurname,
       customerEmailAddress: customerEmailAddress,
-      customerPhone: customerPhone
+      customerPhone: customerPhone,
+      deliveryAddress: deliveryAddress
     };
     return this.http.post<Order>('/api/orders/create', orderRequest);
   }

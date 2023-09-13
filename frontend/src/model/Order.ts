@@ -7,6 +7,7 @@ export interface Order {
   customerSurname:String,
   customerEmailAddress:String,
   customerPhone:String,
+  deliveryAddress: String,
   finished?:boolean,
   createdOn:Date,
 }

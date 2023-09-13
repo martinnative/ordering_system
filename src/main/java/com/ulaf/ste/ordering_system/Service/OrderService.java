@@ -50,6 +50,7 @@ public class OrderService {
             existingOrder.setCustomerEmailAddress(order.getCustomerEmailAddress());
             existingOrder.setCustomerName(order.getCustomerName());
             existingOrder.setCustomerPhone(order.getCustomerPhone());
+            existingOrder.setDeliveryAddress(order.getDeliveryAddress());
             return orderRepository.save(existingOrder);
         }
 

@@ -20,25 +20,28 @@ public class Order {
     private String customerSurname;
     private String customerEmailAddress;
     private String customerPhone;
+    private String deliveryAddress;
     private boolean finished;
     @JsonFormat(pattern = "dd-MM-YYYY hh:mm:ss")
     private LocalDateTime createdOn;
 
-    public Order(List<OrderItem> items, String customerName, String customerSurname, String customerEmailAddress, String customerPhone,LocalDateTime createdOn) {
+    public Order(List<OrderItem> items, String customerName, String customerSurname, String customerEmailAddress, String customerPhone,String deliveryAddress,LocalDateTime createdOn) {
         this.items = items;
         this.customerName = customerName;
         this.customerSurname = customerSurname;
         this.customerEmailAddress = customerEmailAddress;
         this.customerPhone = customerPhone;
+        this.deliveryAddress = deliveryAddress;
         this.createdOn = createdOn;
     }
 
-    public Order(List<OrderItem> items, String customerName, String customerSurname, String customerEmailAddress, String customerPhone, boolean finished) {
+    public Order(List<OrderItem> items, String customerName, String customerSurname, String customerEmailAddress, String customerPhone, String deliveryAddress, boolean finished) {
         this.items = items;
         this.customerName = customerName;
         this.customerSurname = customerSurname;
         this.customerEmailAddress = customerEmailAddress;
         this.customerPhone = customerPhone;
+        this.deliveryAddress = deliveryAddress;
         this.finished = finished;
     }
 }

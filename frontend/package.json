@@ -41,6 +41,7 @@
     "ngx-socket-io": "^4.5.1",
     "perfect-scrollbar": "^1.5.5",
     "primeng": "^16.0.2",
+    "run": "^1.4.0",
     "rxjs": "7.8.1",
     "sweetalert2": "^11.7.12",
     "tslib": "^2.3.0",
