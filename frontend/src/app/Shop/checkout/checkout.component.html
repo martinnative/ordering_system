@@ -56,9 +56,16 @@
               <label>Емаил Адреса <span class="text-danger">*</span></label>
               <input type="email" placeholder="Внесете Емаил Ареса" formControlName="email" class="form-control" required>
             </div>
+            <h6>Кликнете на подигнување, доколку Вие ја подигнувате нарачката од нашиот локал.</h6>
+            <h6>Напишете ја адресата, доколку сакате да Ви ја доставиме дома Вашата нарачка.</h6>
+            <br/>
             <div class="form-group col-xl-6">
-              <label>Адреса за достава <span class="text-danger">*</span></label>
-              <input type="email" placeholder="Внесете адреса за достава" formControlName="deliveryAddress" class="form-control" required>
+              <label>Адреса за достава</label>
+              <input type="email" placeholder="Внесете адреса за достава" formControlName="deliveryAddress" class="form-control">
+            </div>
+            <div class="form-group col-xl-6">
+              <label>Подигнување</label>
+              <input type="checkbox" formControlName="storePickup" class="form-check form-check-input">
             </div>
             <!-- Error Message -->
             <div *ngIf="isFormSubmitted && orderForm.invalid" class="alert alert-danger mt-3">

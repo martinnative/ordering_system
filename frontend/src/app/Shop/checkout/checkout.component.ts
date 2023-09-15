@@ -16,6 +16,7 @@ export class CheckoutComponent implements OnInit {
   orderForm!: FormGroup;
   orderItems: OrderItem[] = [];
   isFormSubmitted = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private shoppingCartService: ShoppingCartService,
@@ -31,7 +32,8 @@ export class CheckoutComponent implements OnInit {
       lname: ['', Validators.required],
       phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      deliveryAddress: ['', Validators.required],
+      deliveryAddress: [''],
+      storePickup: [false]
     });
   }
 
@@ -50,8 +52,8 @@ export class CheckoutComponent implements OnInit {
     else {
       this.isFormSubmitted = true;
       if (this.orderForm.valid) {
-        const { fname, lname, email, phone, deliveryAddress } = this.orderForm.value;
-        this.ordersService.createOrder(this.orderItems, fname, lname, email, phone, deliveryAddress).subscribe({
+        const { fname, lname, email, phone, deliveryAddress, storePickup } = this.orderForm.value;
+        this.ordersService.createOrder(this.orderItems, fname, lname, email, phone, deliveryAddress, storePickup).subscribe({
           next: (response) => {
             // Handle the successful creation of the order
             this.shoppingCartService.clearCart()

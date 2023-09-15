@@ -8,6 +8,7 @@ export interface Order {
   customerEmailAddress:String,
   customerPhone:String,
   deliveryAddress: String,
+  storePickup: boolean,
   finished?:boolean,
   createdOn:Date,
 }
