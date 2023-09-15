@@ -20,7 +20,9 @@
             <ng-scrollbar style="height:68vh">
               <div class="card shadow-0 border mb-4" *ngFor="let order of filteredOrders">
                 <h5 class="mt-2 ms-2 text-center">{{order.customerName + ' ' + order.customerSurname}}
-                  [ {{order.customerPhone}} ] - {{order.createdOn}} [ {{order.deliveryAddress}} ]</h5>
+                  [ {{order.customerPhone}} ] - {{order.createdOn}}</h5>
+                <h5 *ngIf="order.storePickup"><i class="bi bi-shop"></i></h5>
+                <h5 *ngIf="!order.storePickup && order.deliveryAddress!=''"><i class="bi bi-bicycle"></i>[ {{order.deliveryAddress}} ]</h5>
                 <div class="card-body" *ngFor="let productItem of order.items">
                   <div class="row">
                     <div class="col-md-2">

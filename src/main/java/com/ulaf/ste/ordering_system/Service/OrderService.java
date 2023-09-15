@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,6 +52,13 @@ public class OrderService {
             existingOrder.setCustomerName(order.getCustomerName());
             existingOrder.setCustomerPhone(order.getCustomerPhone());
             existingOrder.setDeliveryAddress(order.getDeliveryAddress());
+            if(!order.getDeliveryAddress().isEmpty())
+            {
+                existingOrder.setStorePickup(false);
+            }
+            if(order.getDeliveryAddress().isEmpty()) {
+                existingOrder.setStorePickup(true);
+            }
             return orderRepository.save(existingOrder);
         }
 
