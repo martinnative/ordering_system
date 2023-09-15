@@ -20,6 +20,6 @@ public class OrderRequest {
      String customerEmailAddress;
      String customerPhone;
      String deliveryAddress;
-     boolean storePickup;
+
 
 }

@@ -76,11 +76,10 @@ public class OrderController {
         String customerPhone = orderRequest.getCustomerPhone();
         String deliveryAddress = orderRequest.getDeliveryAddress();
 
-        boolean storePickup = deliveryAddress.isEmpty();
 
         //boolean storePickup = orderRequest.isStorePickup();
 
-        Order order = new Order(orderItems, customerName, customerSurname, customerEmailAddress, customerPhone,deliveryAddress,storePickup,false);
+        Order order = new Order(orderItems, customerName, customerSurname, customerEmailAddress, customerPhone,deliveryAddress,false);
 
         order.setCreatedOn(LocalDateTime.now().plusHours(2));
 

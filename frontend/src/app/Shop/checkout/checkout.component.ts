@@ -33,7 +33,6 @@ export class CheckoutComponent implements OnInit {
       phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       deliveryAddress: [''],
-      storePickup: [false]
     });
   }
 
@@ -52,8 +51,8 @@ export class CheckoutComponent implements OnInit {
     else {
       this.isFormSubmitted = true;
       if (this.orderForm.valid) {
-        const { fname, lname, email, phone, deliveryAddress, storePickup } = this.orderForm.value;
-        this.ordersService.createOrder(this.orderItems, fname, lname, email, phone, deliveryAddress, storePickup).subscribe({
+        const { fname, lname, email, phone, deliveryAddress } = this.orderForm.value;
+        this.ordersService.createOrder(this.orderItems, fname, lname, email, phone, deliveryAddress).subscribe({
           next: (response) => {
             // Handle the successful creation of the order
             this.shoppingCartService.clearCart()

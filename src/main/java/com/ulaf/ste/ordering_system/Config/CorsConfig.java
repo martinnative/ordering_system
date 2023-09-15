@@ -17,7 +17,7 @@ public class CorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://ulaf-ste.com/admin/orders","https://ulaf-ste.com/admin","https://ulaf-ste.com/auth","https://ulaf-ste.com","http://localhost:4200/")); // Adjust the allowed origin for your frontend app
+        configuration.setAllowedOrigins(List.of("https://ulaf-ste.com/admin/orders","https://ulaf-ste.com/admin","https://ulaf-ste.com/auth","https://ulaf-ste.com")); // Adjust the allowed origin for your frontend app
         configuration.setAllowedMethods(Arrays.asList("*")); // Specify the allowed HTTP methods
         configuration.setAllowedHeaders(Arrays.asList("*")); // Specify allowed headers
 

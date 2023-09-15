@@ -8,5 +8,5 @@ export interface OrderRequest {
   customerEmailAddress:String,
   customerPhone:String,
   deliveryAddress: String,
-  storePickup: boolean,
+
 }
